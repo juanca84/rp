@@ -3,6 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.13'
 
 gem 'pg'
+#for database adapter oracle
+#gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
+#gem 'ruby-oci8', '~> 2.1.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
