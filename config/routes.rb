@@ -1,4 +1,6 @@
 Runpa::Application.routes.draw do
+  get "form/index"
+
   get "home/index"
 
   devise_for :users
