@@ -1,0 +1,9 @@
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-signin', role: 'form'}) do |f|
+  %h2.form-signin-heading Iniciar Sesión
+  = f.email_field :email, autofocus: true, class: 'form-control', autofocus: "", placeholder: "Correo electrónico", type: "text"
+  = f.password_field :password, class: 'form-control', placeholder: "Contraseña", type: "password"
+  %label.checkbox
+    %input{type: "checkbox", value: "remember-me"}/
+    Acuérdate de mí
+  %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Iniciar Sesión
+= render "devise/shared/links"
