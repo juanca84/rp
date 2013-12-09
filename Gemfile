@@ -24,6 +24,8 @@ gem "devise", "~> 3.2.0"
 gem "cancan"
 gem 'rolify'
 
+#for administrador
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'better_errors'

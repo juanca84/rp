@@ -1,4 +1,6 @@
 Runpa::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
   get "form/index"
 
   get "home/index"
