@@ -19,8 +19,11 @@ gem "simple_form", "~> 2.1.0"
 gem 'anjlab-bootstrap-rails', '~> 3.0.2.0', :require => 'bootstrap-rails'
 gem "haml", "~> 4.0.4"
 
-#authentication
+#authentication/authorizations
 gem "devise", "~> 3.2.0"
+gem "cancan"
+gem 'rolify'
+
 
 group :development do
   gem 'better_errors'
