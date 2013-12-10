@@ -154,6 +154,7 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rego-devise-lastseenable (0.1.0)
     responders (1.0.0)
       railties (>= 3.2, < 5)
     rolify (3.2.0)
@@ -201,6 +202,7 @@ DEPENDENCIES
   meta_request
   pg
   rails (= 3.2.13)
+  rego-devise-lastseenable (~> 0.1.0)
   rolify
   sass-rails (~> 3.2.3)
   simple_form (~> 2.1.0)

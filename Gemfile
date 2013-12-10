@@ -21,6 +21,7 @@ gem "haml", "~> 4.0.4"
 
 #authentication/authorizations
 gem "devise", "~> 3.2.0"
+gem "rego-devise-lastseenable", "~> 0.1.0"
 gem "cancan"
 gem 'rolify'
 
