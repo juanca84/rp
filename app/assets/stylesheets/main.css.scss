@@ -1,10 +1,18 @@
 .main{
   margin-top: 80px;
 }
-.form-signin {
+.form-signin{
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+}
+.form-forgot-password-heading{
+  max-width: 450px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-forgot-password-heading input[type="text"]{
+  margin-bottom: -1px;
 }
 .form-signin input[type="text"] {
   margin-bottom: -1px;
@@ -16,7 +24,7 @@
   border-top-right-radius: 0;
   margin-bottom: 10px;
 }
-.form-signin .form-control {
+.form-signin .form-control, .form-forgot-password-heading .form-control {
   position: relative;
   font-size: 16px;
   height: auto;
@@ -25,6 +33,10 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.form-signin-heading{
+  text-align: center;
+}
+
 .form-control {
   display: block;
   width: 100%;
