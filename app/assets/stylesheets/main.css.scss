@@ -6,7 +6,7 @@
   padding: 15px;
   margin: 0 auto;
 }
-.form-forgot-password-heading{
+.form-forgot-password-heading, .form-forgot-password-edit-heading{
   max-width: 450px;
   padding: 15px;
   margin: 0 auto;
@@ -24,7 +24,17 @@
   border-top-right-radius: 0;
   margin-bottom: 10px;
 }
-.form-signin .form-control, .form-forgot-password-heading .form-control {
+.form-forgot-password-edit-heading #user_password{
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-forgot-password-edit-heading #user_password_confirmation{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-bottom: 10px;
+}
+.form-signin .form-control, .form-forgot-password-heading .form-control, .form-forgot-password-edit-heading .form-control{
   position: relative;
   font-size: 16px;
   height: auto;
