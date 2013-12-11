@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.13'
 
 gem 'pg'
@@ -28,9 +30,13 @@ gem 'rolify'
 #for administrador
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+#for staging in heroku
+gem 'rails_12factor', group: :production
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem "haml-rails", "~> 0.4"
 end
+
