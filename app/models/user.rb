@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
 
+  scope :online_now, where("last_seen_at > ?", 5.minutes.ago)
+
   def is_admin?
     has_role? :admin
   end
+
 end
