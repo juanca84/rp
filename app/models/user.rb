@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   scope :online_now, where("last_seen_at > ?", 5.minutes.ago)
 
-  def is_admin?
+  def admin?
     has_role? :admin
   end
 
