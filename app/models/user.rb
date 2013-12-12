@@ -10,8 +10,14 @@ class User < ActiveRecord::Base
 
   scope :online_now, where("last_seen_at > ?", 5.minutes.ago)
 
+  before_destroy :not_admin
+
   def admin?
     has_role? :administrador
+  end
+
+  def not_admin
+    false if self.email == "runpa.mdryt@gmail.com"
   end
 
 end

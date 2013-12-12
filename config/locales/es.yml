@@ -1,9 +1,14 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 es:
   activerecord:
     models:
       user:
         one: Usuario
         other: Usuarios
+    attributes:
+      user:
+        email: email
+        sign_in_count: Contador de inicio de sesión
+        created_at: Creado en
+        last_seen_at: Visto por última vez
+        password: Contraseña
+        password_confirmation: Confirmacion de contraseña
