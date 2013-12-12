@@ -65,7 +65,7 @@ Runpa::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  Rails.application.routes.default_url_options[:host] = 'runpa.heroku.com'
 
   config.action_mailer.delivery_method = :smtp
 
