@@ -1,9 +1,9 @@
 ActiveAdmin.register User do
   index do
     column :email
-    column :current_sign_in_at
-    column :last_sign_in_at
+    column :created_at
     column :sign_in_count
+    column :last_seen_at
     column :roles do |u|
       u.roles_name.join(", ")
     end
