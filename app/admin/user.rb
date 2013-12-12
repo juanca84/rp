@@ -11,4 +11,13 @@ ActiveAdmin.register User do
   end
   filter :email
   filter :roles
+  form do |f|
+    f.inputs "Detalles de usuario" do
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+      f.input :roles, as: :radio
+    end
+    f.actions
+  end
 end
