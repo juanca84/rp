@@ -7,6 +7,10 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :identification
       t.date :birthdate
       t.string :sex
+      t.references :type_identification
+      t.references :ethnicity
+      t.references :education
+      t.references :civil_status
 
       t.timestamps
     end
