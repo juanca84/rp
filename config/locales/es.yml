@@ -4,6 +4,21 @@ es:
       user:
         one: Usuario
         other: Usuarios
+      profile:
+        one: Perfil
+        other: Perfiles
+      civil_status:
+        one: Estado Civil
+        other: Estados Civiles
+      education:
+        one: Escolaridad
+        other: Escolaridades
+      ethnicity:
+        one: Origen Étnico
+        other: Orígenes Étnicos
+      type_identification:
+        one: Tipo de Identificación
+        other: Tipos de Identificaciones
     attributes:
       user:
         email: email
@@ -12,3 +27,26 @@ es:
         last_seen_at: Visto por última vez
         password: Contraseña
         password_confirmation: Confirmacion de contraseña
+      profile:
+        name: Nombre
+        first_lastname: Apellido Paterno
+        second_lastname: Apellido Materno
+        identification: Identificacion
+        birthdate: Fecha de nacimiento
+        sex: Sexo
+        education: Escolaridad
+        ethnicity: Origen Étnico
+        civil_status: Estado Civil
+        type_identification: Tipo de Identificación
+      civil_status:
+        code: Código
+        name: Nombre
+      education:
+        code: Código
+        name: Nombre
+      ethnicity:
+        code: Código
+        name: Nombre
+      type_identification:
+        code: Código
+        name: Nombre
