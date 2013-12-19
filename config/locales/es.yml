@@ -1,32 +1,40 @@
 es:
   activerecord:
     models:
-      user:
-        one: Usuario
-        other: Usuarios
-      profile:
-        one: Perfil
-        other: Perfiles
       civil_status:
         one: Estado Civil
         other: Estados Civiles
+      department:
+        one: Departamento
+        other: Departamentos
       education:
         one: Escolaridad
         other: Escolaridades
       ethnicity:
         one: Origen Étnico
         other: Orígenes Étnicos
+      profile:
+        one: Perfil
+        other: Perfiles
       type_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones
-    attributes:
       user:
-        email: email
-        sign_in_count: Contador de inicio de sesión
-        created_at: Creado en
-        last_seen_at: Visto por última vez
-        password: Contraseña
-        password_confirmation: Confirmacion de contraseña
+        one: Usuario
+        other: Usuarios
+    attributes:
+      civil_status:
+        code: Código
+        name: Nombre
+      department:
+        code: Código
+        name: Nombre
+      education:
+        code: Código
+        name: Nombre
+      ethnicity:
+        code: Código
+        name: Nombre
       profile:
         name: Nombre
         first_lastname: Apellido Paterno
@@ -38,15 +46,13 @@ es:
         ethnicity: Origen Étnico
         civil_status: Estado Civil
         type_identification: Tipo de Identificación
-      civil_status:
-        code: Código
-        name: Nombre
-      education:
-        code: Código
-        name: Nombre
-      ethnicity:
-        code: Código
-        name: Nombre
       type_identification:
         code: Código
         name: Nombre
+      user:
+        email: email
+        sign_in_count: Contador de inicio de sesión
+        created_at: Creado en
+        last_seen_at: Visto por última vez
+        password: Contraseña
+        password_confirmation: Confirmacion de contraseña
