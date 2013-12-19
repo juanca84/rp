@@ -13,9 +13,9 @@ es:
       ethnicity:
         one: Origen Étnico
         other: Orígenes Étnicos
-      profile:
-        one: Perfil
-        other: Perfiles
+      person:
+        one: Persona
+        other: Personas
       type_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones
@@ -35,7 +35,7 @@ es:
       ethnicity:
         code: Código
         name: Nombre
-      profile:
+      person:
         name: Nombre
         first_lastname: Apellido Paterno
         second_lastname: Apellido Materno

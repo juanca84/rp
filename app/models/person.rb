@@ -1,4 +1,4 @@
-class Profile < ActiveRecord::Base
+class Person < ActiveRecord::Base
   attr_accessible :birthdate, :first_lastname, :identification, :name, :second_lastname, :sex
 
   belongs_to :type_identification
