@@ -4,6 +4,7 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
+#for database adapter postgres
 gem 'pg'
 #for database adapter oracle
 #gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
@@ -40,3 +41,7 @@ group :development do
   gem "haml-rails", "~> 0.4"
 end
 
+#for documentation
+group :development, :test do
+  gem "railroady", "~> 1.1.1"
+end

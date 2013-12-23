@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131219154146) do
+ActiveRecord::Schema.define(:version => 20131223133930) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -69,6 +69,23 @@ ActiveRecord::Schema.define(:version => 20131219154146) do
     t.integer  "civil_status_id"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+  end
+
+  create_table "people_registers", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "register_id"
+    t.string   "type_person"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
+  add_index "people_registers", ["register_id"], :name => "index_people_registers_on_register_id"
+
+  create_table "registers", :force => true do |t|
+    t.integer  "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|
