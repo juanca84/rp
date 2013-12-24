@@ -4,6 +4,9 @@ es:
       civil_status:
         one: Estado Civil
         other: Estados Civiles
+      community:
+        one: Municipio
+        other: Municipios
       department:
         one: Departamento
         other: Departamentos
@@ -16,6 +19,9 @@ es:
       person:
         one: Persona
         other: Personas
+      province:
+        one: Provincia
+        other: Provincias
       type_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones

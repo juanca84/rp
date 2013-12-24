@@ -1,0 +1,9 @@
+= f.simple_fields_for :people, holder do |person|
+  = person.simple_fields_for :people_registers do |person_register|
+    = person_register.input :type_person
+  = person.input :name
+  = person.input :birthdate
+  = person.input :identification
+  = person.input :sex, as: :select, collection: Person::SEX
+  = person.association :education
+  = person.association :ethnicity

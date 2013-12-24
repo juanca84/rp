@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  SEX = %w(M F)
   attr_accessible :birthdate, :first_lastname, :identification, :name, :second_lastname, :sex
 
   belongs_to :type_identification
@@ -8,5 +9,8 @@ class Person < ActiveRecord::Base
 
   has_many :people_registers
   has_many :registers, through: :people_registers
+
+  accepts_nested_attributes_for :people_registers
+  accepts_nested_attributes_for :registers
 
 end

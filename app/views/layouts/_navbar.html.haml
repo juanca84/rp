@@ -17,8 +17,9 @@
           - if current_user.admin?
             %li
               %a{href: admin_root_path} Administrador
-        %li
-          %a{href: "#about"} Acerca de RUNPA
+        /
+          %li
+            %a{href: "#about"} Acerca de RUNPA
 
       %ul.nav.navbar-nav.navbar-right
         - if !current_user.present?
