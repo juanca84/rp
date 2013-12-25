@@ -39,6 +39,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem "haml-rails", "~> 0.4"
+  gem "debugger", "~> 1.6.2"
 end
 
 #for documentation

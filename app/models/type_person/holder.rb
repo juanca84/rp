@@ -1,0 +1,2 @@
+class Holder < PeopleRegister
+end

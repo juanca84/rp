@@ -1,0 +1,2 @@
+class Son < PeopleRegister
+end

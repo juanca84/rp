@@ -14,14 +14,9 @@ class RegistersController < ActionController::Base
   def new
     @register = Register.new
 
-    @holder1 = @register.people.build
-    @holder1.people_registers.build(type_person: 'holder1')
-
-    @holder2 = @register.people.build
-    @holder2.people_registers.build(type_person: 'holder2')
-
-    @son     = @register.people.build.people_registers.build(type_person: 'son')
-    @attache = @register.people.build.people_registers.build(type_person: 'aggregate')
+    2.times{ @register.holders.build(type_person: 'holder').build_person }
+    @register.holders.build(type_person: 'son').build_person
+    @register.holders.build(type_person: 'aggregate').build_person
 
     respond_to do |wants|
       wants.html # new.html.erb
@@ -31,7 +26,6 @@ class RegistersController < ActionController::Base
 
   def create
     @register = Register.new(params[:register])
-
     respond_to do |wants|
       if @register.save
         flash[:notice] = 'Register was successfully created.'
@@ -41,6 +35,15 @@ class RegistersController < ActionController::Base
         wants.html { render :action => "new" }
         wants.xml  { render :xml => @register.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  def show
+    @register = Register.find(params[:id])
+
+    respond_to do |wants|
+      wants.html # show.html.erb
+      wants.xml  { render :xml => @register }
     end
   end
 end

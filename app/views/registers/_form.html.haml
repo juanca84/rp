@@ -1,8 +1,9 @@
 = simple_form_for(@register) do |f|
   = f.error_notification
 
-  = render 'holder', f: f, holder: @holder1
-  = render 'holder', f: f, holder: @holder2
+  = render 'holder', f: f
+  = render 'son_aggregate', f: f, resources: :sons
+  = render 'son_aggregate', f: f, resources: :aggregates
 
   .form-actions
     = f.button :submit
