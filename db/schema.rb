@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131223133930) do
+ActiveRecord::Schema.define(:version => 20131226130738) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -34,6 +34,23 @@ ActiveRecord::Schema.define(:version => 20131223133930) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "civil_unions", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "communities", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "province_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "communities", ["province_id"], :name => "index_communities_on_province_id"
 
   create_table "departments", :force => true do |t|
     t.string   "code"
@@ -75,18 +92,41 @@ ActiveRecord::Schema.define(:version => 20131223133930) do
     t.integer  "person_id"
     t.integer  "register_id"
     t.string   "type_person"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "time_to_land"
+    t.string   "mothers_name"
   end
 
   add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
   add_index "people_registers", ["register_id"], :name => "index_people_registers_on_register_id"
 
+  create_table "provinces", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "department_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "provinces", ["department_id"], :name => "index_provinces_on_department_id"
+
   create_table "registers", :force => true do |t|
     t.integer  "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "civil_union_id"
+    t.string   "residence"
+    t.string   "address"
+    t.integer  "department_id"
+    t.integer  "community_id"
+    t.string   "geodesic_ns"
+    t.string   "geodesic_ew"
   end
+
+  add_index "registers", ["civil_union_id"], :name => "index_registers_on_civil_union_id"
+  add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
+  add_index "registers", ["department_id"], :name => "index_registers_on_department_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

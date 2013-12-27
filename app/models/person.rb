@@ -7,7 +7,6 @@ class Person < ActiveRecord::Base
   belongs_to :education
   belongs_to :civil_status
 
-  has_many :holders, through: :people_registers
   has_many :people_registers
   has_many :registers, through: :people_registers
 

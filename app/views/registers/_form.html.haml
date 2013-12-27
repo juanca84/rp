@@ -1,9 +1,35 @@
-= simple_form_for(@register) do |f|
+= simple_form_for @register, html: { class: 'form-horizontal', role: 'form' }, defaults: { label_html: { class: 'col-sm-3' }, input_html: { class: 'form-control col-sm-7' } }  do |f|
   = f.error_notification
 
   = render 'holder', f: f
+  = f.association :civil_union
+  = f.input :residence
+  = f.input :address
+  = f.association :community
+  = f.association :department
+  = f.input :geodesic_ns
+  = f.input :geodesic_ew, class_controls:  'algo'
   = render 'son_aggregate', f: f, resources: :sons
   = render 'son_aggregate', f: f, resources: :aggregates
 
   .form-actions
     = f.button :submit
+
+%form.form-horizontal{role: "form"}
+  .form-group
+    %label.col-sm-2.control-label{for: "inputEmail3"} Email
+    .col-sm-10
+      %input#inputEmail3.form-control{placeholder: "Email", type: "email"}/
+  .form-group
+    %label.col-sm-2.control-label{for: "inputPassword3"} Password
+    .col-sm-10
+      %input#inputPassword3.form-control{placeholder: "Password", type: "password"}/
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      .checkbox
+        %label
+          %input{type: "checkbox"}/
+          Remember me
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-default{type: "submit"} Sign in

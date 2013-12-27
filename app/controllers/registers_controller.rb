@@ -15,8 +15,8 @@ class RegistersController < ActionController::Base
     @register = Register.new
 
     2.times{ @register.holders.build(type_person: 'holder').build_person }
-    @register.holders.build(type_person: 'son').build_person
-    @register.holders.build(type_person: 'aggregate').build_person
+    @register.sons.build(type_person: 'son').build_person
+    @register.aggregates.build(type_person: 'aggregate').build_person
 
     respond_to do |wants|
       wants.html # new.html.erb

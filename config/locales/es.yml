@@ -4,6 +4,9 @@ es:
       civil_status:
         one: Estado Civil
         other: Estados Civiles
+      civil_union:
+        one: Unión Civil
+        other: Uniones Civiles
       community:
         one: Municipio
         other: Municipios
@@ -35,6 +38,9 @@ es:
       civil_status:
         code: Código
         name: Nombre
+      civil_union:
+        code: Código
+        name: Nombre
       department:
         code: Código
         name: Nombre
@@ -44,6 +50,10 @@ es:
       ethnicity:
         code: Código
         name: Nombre
+      people_register:
+        mothers_name: Nombre de la Madre
+        time_to_land: Tiempo dedicado a actividades laborales en el establecimiento
+        type_person: Tipo de persona
       person:
         name: Nombre
         first_lastname: Apellido Paterno
@@ -55,6 +65,15 @@ es:
         ethnicity: Origen Étnico
         civil_status: Estado Civil
         type_identification: Tipo de Identificación
+      register:
+        address: Dirección
+        civil_union: Unión Civil
+        code: Código
+        community: Municipio
+        department: Departamento
+        geodesic_ew: Punto Geodésico EW
+        geodesic_ns: Punto Geodésico NS
+        residence: Local de Residencia
       type_identification:
         code: Código
         name: Nombre
