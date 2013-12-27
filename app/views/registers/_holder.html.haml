@@ -1,12 +1,33 @@
 = f.simple_fields_for :holders do |holder|
   /= holder.input :type_person
   = holder.simple_fields_for :person do |person|
-    = person.input :name
-    = person.input :birthdate, as: :string
-    = holder.input :mothers_name
-    = person.input :identification
-    = person.input :sex, as: :select, collection: Person::SEX
-    = person.association :education
-    = person.association :ethnicity
-    = holder.input :time_to_land, as: :string
-    dias al año
+    .form-group
+      = person.label :name, class: "col-sm-2"
+      .col-sm-10
+        = person.input_field :name
+    .form-group
+      = person.label :birthdate, class: "col-sm-2"
+      .col-sm-10
+        = person.input_field :birthdate, as: :string
+    .form-group
+      = person.label :mothers_name, class: "col-sm-2"
+      .col-sm-10
+        = holder.input_field :mothers_name
+    .form-group
+      = person.label :identification, class: "col-sm-2"
+      .col-sm-3
+        = person.input_field :identification
+      = person.label :sex, class: "col-sm-3"
+      .col-sm-2
+        = person.input_field :sex, as: :select, collection: Person::SEX
+    .form-group
+      = person.label :education, class: "col-sm-2"
+      .col-sm-3
+        = person.input_field :education_id, as: :select, collection: Education.all
+      = person.label :ethnicity, class: "col-sm-3"
+      .col-sm-4
+        = person.input_field :ethnicity_id, as: :select, collection: Ethnicity.all
+    .form-group
+      = holder.label :time_to_land, class: "col-sm-6"
+      .col-sm-6
+        = holder.input_field :time_to_land, as: :string

@@ -1,8 +1,22 @@
 = f.simple_fields_for resources do |resource|
   /= resource.input :type_person
   = resource.simple_fields_for :person do |person|
-    = person.input :name
-    = person.input :birthdate, as: :string
-    = person.input :sex, as: :select, collection: Person::SEX
-    = resource.input :time_to_land, as: :string
-    = person.input :identification
+    .form-group
+      = person.label :name, class: "col-sm-2"
+      .col-sm-10
+        = person.input_field :name
+    .form-group
+      = person.label :birthdate, class: "col-sm-2"
+      .col-sm-4
+        = person.input_field :birthdate, as: :string
+      = person.label :sex, class: "col-sm-2"
+      .col-sm-4
+        = person.input_field :sex, as: :select, collection: Person::SEX
+    .form-group
+      = resource.label :time_to_land, class: "col-sm-6"
+      .col-sm-6
+        = resource.input_field :time_to_land, as: :string
+    .form-group
+      = person.label :identification, class: "col-sm-2"
+      .col-sm-3
+        = person.input_field :identification
