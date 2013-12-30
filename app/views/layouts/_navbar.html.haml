@@ -10,14 +10,17 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{href: "#"} Inicio
-        %li
-          %a{href: "#about"} Acerca de RUNPA
-        %li
-          %a{href: "#contact"} Contactos
-        - if current_user.present? && current_user.admin?
+          %a{href: home_index_path} Inicio
+        - if current_user.present?
           %li
-            %a{href: admin_root_path} Administrador
+            %a{href: registers_path} Registros
+          - if current_user.admin?
+            %li
+              %a{href: admin_root_path} Administrador
+        /
+          %li
+            %a{href: "#about"} Acerca de RUNPA
+
       %ul.nav.navbar-nav.navbar-right
         - if !current_user.present?
           %li

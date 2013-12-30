@@ -1,10 +1,82 @@
 es:
   activerecord:
     models:
+      civil_status:
+        one: Estado Civil
+        other: Estados Civiles
+      civil_union:
+        one: Unión Civil
+        other: Uniones Civiles
+      community:
+        one: Municipio
+        other: Municipios
+      department:
+        one: Departamento
+        other: Departamentos
+      education:
+        one: Escolaridad
+        other: Escolaridades
+      ethnicity:
+        one: Origen Étnico
+        other: Orígenes Étnicos
+      person:
+        one: Persona
+        other: Personas
+      province:
+        one: Provincia
+        other: Provincias
+      register:
+        one: Registro
+        others: Registros
+      type_identification:
+        one: Tipo de Identificación
+        other: Tipos de Identificaciones
       user:
         one: Usuario
         other: Usuarios
     attributes:
+      civil_status:
+        code: Código
+        name: Nombre
+      civil_union:
+        code: Código
+        name: Nombre
+      department:
+        code: Código
+        name: Nombre
+      education:
+        code: Código
+        name: Nombre
+      ethnicity:
+        code: Código
+        name: Nombre
+      people_register:
+        mothers_name: Nombre de la Madre
+        time_to_land: Tiempo dedicado a actividades laborales en el establecimiento
+        type_person: Tipo de persona
+      person:
+        name: Nombre
+        first_lastname: Apellido Paterno
+        second_lastname: Apellido Materno
+        identification: Identificacion
+        birthdate: Fecha de nacimiento
+        sex: Sexo
+        education: Nivel de instrucción
+        ethnicity: Identificación de origen étnico
+        civil_status: Estado Civil
+        type_identification: Tipo de Identificación
+      register:
+        address: Dirección
+        civil_union: Unión Civil
+        code: Código
+        community: Municipio
+        department: Departamento
+        geodesic_ew: Punto Geodésico EW
+        geodesic_ns: Punto Geodésico NS
+        residence: Lugar de Residencia
+      type_identification:
+        code: Código
+        name: Nombre
       user:
         email: email
         sign_in_count: Contador de inicio de sesión
@@ -12,3 +84,4 @@ es:
         last_seen_at: Visto por última vez
         password: Contraseña
         password_confirmation: Confirmacion de contraseña
+  back: Atrás

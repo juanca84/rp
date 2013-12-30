@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Code:
+  = @register.code
+
+= link_to 'Edit', edit_register_path(@register)
+\|
+= link_to 'Back', registers_path
