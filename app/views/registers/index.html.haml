@@ -1,0 +1,23 @@
+%h1 Lista de Registros
+
+%table.table.table-striped
+  %tr
+    %th Código
+    %th Titular 1
+    %th Titular 2
+    %th
+    %th
+    %th
+
+  - @registers.each do |register|
+    %tr
+      %td= register.code
+      %td= register.holders.first.person.name rescue ''
+      %td= register.holders.last.person.name rescue ''
+      %td= link_to 'Ver', register
+      %td= link_to 'Editar', edit_register_path(register)
+      %td= link_to 'Eliminar', register, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Nuevo Registro', new_register_path

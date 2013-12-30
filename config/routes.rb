@@ -1,11 +1,12 @@
 Runpa::Application.routes.draw do
-  ActiveAdmin.routes(self)
 
-  get "form/index"
+  ActiveAdmin.routes(self)
 
   get "home/index"
 
   devise_for :users
+
+  resources :registers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

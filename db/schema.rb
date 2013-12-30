@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209160854) do
+ActiveRecord::Schema.define(:version => 20131227132749) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -28,6 +28,108 @@ ActiveRecord::Schema.define(:version => 20131209160854) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "civil_statuses", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "civil_unions", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "communities", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "province_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "communities", ["province_id"], :name => "index_communities_on_province_id"
+
+  create_table "departments", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "educations", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ethnicities", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "first_lastname"
+    t.string   "second_lastname"
+    t.string   "identification"
+    t.date     "birthdate"
+    t.string   "sex"
+    t.integer  "type_identification_id"
+    t.integer  "ethnicity_id"
+    t.integer  "education_id"
+    t.integer  "civil_status_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  create_table "people_registers", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "register_id"
+    t.string   "type_person"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "time_to_land"
+    t.string   "mothers_name"
+    t.string   "town_of_birth"
+  end
+
+  add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
+  add_index "people_registers", ["register_id"], :name => "index_people_registers_on_register_id"
+
+  create_table "provinces", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "department_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "provinces", ["department_id"], :name => "index_provinces_on_department_id"
+
+  create_table "registers", :force => true do |t|
+    t.integer  "code"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "civil_union_id"
+    t.string   "residence"
+    t.string   "address"
+    t.integer  "department_id"
+    t.integer  "community_id"
+    t.string   "geodesic_ns"
+    t.string   "geodesic_ew"
+    t.string   "code_ine"
+  end
+
+  add_index "registers", ["civil_union_id"], :name => "index_registers_on_civil_union_id"
+  add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
+  add_index "registers", ["department_id"], :name => "index_registers_on_department_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -38,6 +140,13 @@ ActiveRecord::Schema.define(:version => 20131209160854) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "type_identifications", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

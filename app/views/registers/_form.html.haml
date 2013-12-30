@@ -1,0 +1,50 @@
+= simple_form_for @register, html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
+  .form-group
+    .col-sm-9
+    = f.label :code, class: "col-sm-1"
+    .col-sm-2
+      = f.input_field :code, readonly: true
+
+  = f.error_notification
+  = field_set_tag 'Identificación de los Titulares' do
+    = render 'holder', f: f
+
+  = field_set_tag 'Identificación de estado civil y domicilio' do
+    .form-group
+      = f.label :civil_union, class: "col-sm-2"
+      .col-sm-4
+        = f.input_field :civil_union_id, as: :select, collection: CivilUnion.all
+      = f.label :residence, class: "col-sm-2"
+      .col-sm-4
+        = f.input_field :residence
+    .form-group
+      = f.label :address, class: "col-sm-2"
+      .col-sm-10
+        = f.input_field :address
+    .form-group
+      = f.label :community, class: "col-sm-2"
+      .col-sm-4
+        = f.input_field :community_id, as: :select, collection: Community.all
+      = f.label :department, class: "col-sm-2"
+      .col-sm-4
+        = f.input_field :department_id, as: :select, collection: Department.all
+    .form-group
+      = f.label :geodesic_ns, class: "col-sm-2"
+      .col-sm-4
+        = f.input_field :geodesic_ns
+      = f.label :geodesic_ns, class: "col-sm-2"
+      .col-sm-4
+        = f.input_field :geodesic_ew
+
+  = field_set_tag 'Identificación de los demás miembros de la familia' do
+    = field_set_tag 'Hijos e Hijas' do
+      = render 'son_aggregate', f: f, resources: :sons
+      %a.btn.btn-success.btn-large{href: "#"}
+        %i.icon-white.icon-plus-sign
+        adicionar hijo/a
+
+    = field_set_tag 'Agregados y Agregadas' do
+      = render 'son_aggregate', f: f, resources: :aggregates
+
+  .form-actions
+    %input.btn.btn-primary.pull-right{type: "submit", value: "Crear Registro"}
