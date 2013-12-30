@@ -1,8 +1,10 @@
-%h1 Listing registers
+%h1 Lista de Registros
 
-%table
+%table.table.table-striped
   %tr
-    %th Code
+    %th Código
+    %th Titular 1
+    %th Titular 2
     %th
     %th
     %th
@@ -10,10 +12,12 @@
   - @registers.each do |register|
     %tr
       %td= register.code
-      %td= link_to 'Show', register
-      %td= link_to 'Edit', edit_register_path(register)
-      %td= link_to 'Destroy', register, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= register.holders.first.person.name rescue ''
+      %td= register.holders.last.person.name rescue ''
+      %td= link_to 'Ver', register
+      %td= link_to 'Editar', edit_register_path(register)
+      %td= link_to 'Eliminar', register, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Register', new_register_path
+= link_to 'Nuevo Registro', new_register_path

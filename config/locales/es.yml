@@ -61,8 +61,8 @@ es:
         identification: Identificacion
         birthdate: Fecha de nacimiento
         sex: Sexo
-        education: Escolaridad
-        ethnicity: Origen Étnico
+        education: Nivel de instrucción
+        ethnicity: Identificación de origen étnico
         civil_status: Estado Civil
         type_identification: Tipo de Identificación
       register:
@@ -73,7 +73,7 @@ es:
         department: Departamento
         geodesic_ew: Punto Geodésico EW
         geodesic_ns: Punto Geodésico NS
-        residence: Local de Residencia
+        residence: Lugar de Residencia
       type_identification:
         code: Código
         name: Nombre
@@ -84,3 +84,4 @@ es:
         last_seen_at: Visto por última vez
         password: Contraseña
         password_confirmation: Confirmacion de contraseña
+  back: Atrás

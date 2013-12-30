@@ -12,8 +12,21 @@ class Register < ActiveRecord::Base
   has_many :holders
   has_many :sons
 
+  validates :code, presence: true, uniqueness: true
+
   accepts_nested_attributes_for :holders
   accepts_nested_attributes_for :sons
   accepts_nested_attributes_for :aggregates
 
+  before_create :generate_code
+
+  def generate_code
+    self.code = Register.new_code_number
+  end
+
+  #metodo pra crear los identificadores de numero
+  def self.new_code_number
+    code_number = Register.maximum("code")
+    return code_number.nil? ? 1 : code_number + 1
+  end
 end

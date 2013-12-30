@@ -10,6 +10,6 @@ class Person < ActiveRecord::Base
   has_many :people_registers
   has_many :registers, through: :people_registers
 
-  validates :name, presence: true
+  #validates :name, presence: true
 
 end
