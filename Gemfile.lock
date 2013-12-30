@@ -65,6 +65,7 @@ GEM
     builder (3.0.4)
     callsite (0.0.11)
     cancan (1.6.10)
+    choice (0.1.6)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -144,7 +145,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    railroady (1.1.1)
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -157,6 +157,11 @@ GEM
       coffee-script (~> 2.2.0)
       ejs (~> 1.0.0)
       railties (>= 3.1.0)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -180,6 +185,7 @@ GEM
     responders (1.0.0)
       railties (>= 3.2, < 5)
     rolify (3.2.0)
+    ruby-graphviz (1.0.9)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -226,9 +232,9 @@ DEPENDENCIES
   jquery-rails (~> 3.0.0)
   meta_request
   pg
-  railroady (~> 1.1.1)
   rails (= 3.2.13)
   rails-backbone
+  rails-erd
   rails_12factor
   rego-devise-lastseenable (~> 0.1.0)
   rolify

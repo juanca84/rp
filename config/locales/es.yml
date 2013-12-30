@@ -78,10 +78,11 @@ es:
         code: Código
         name: Nombre
       user:
-        email: email
-        sign_in_count: Contador de inicio de sesión
         created_at: Creado en
+        departments: Departamentos
+        email: email
         last_seen_at: Visto por última vez
         password: Contraseña
         password_confirmation: Confirmacion de contraseña
+        sign_in_count: Contador de inicio de sesión
   back: Atrás

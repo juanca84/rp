@@ -46,5 +46,5 @@ end
 
 #for documentation
 group :development, :test do
-  gem "railroady", "~> 1.1.1"
+  gem "rails-erd"
 end

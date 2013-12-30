@@ -7,11 +7,15 @@ ActiveAdmin.register User do
     column :roles do |u|
       u.roles_name.join(", ")
     end
+    column :departments do |u|
+      u.departments.pluck(:name).join(", ")
+    end
     default_actions
   end
 
   filter :email
   filter :roles
+  filter :departments
 
   form do |f|
     f.inputs "Detalles de usuario" do
@@ -19,6 +23,7 @@ ActiveAdmin.register User do
       f.input :password
       f.input :password_confirmation
       f.input :roles, as: :radio
+      f.input :departments, as: :check_boxes
     end
     f.actions
   end
@@ -31,6 +36,9 @@ ActiveAdmin.register User do
       row :last_seen_at
       row :roles do
         u.roles_name.join(", ")
+      end
+      row :departments do |u|
+        u.departments.pluck(:name).join(", ")
       end
     end
   end
