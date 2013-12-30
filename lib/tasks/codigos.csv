@@ -1,0 +1,485 @@
+CODIGO,NOM_DEP,NOM_PROV,CAT_SECC,NOM_MUN,COD_DEP,COD_PROV,COD_MUN
+060101,Tarija,Cercado,PRIMERA,Tarija,06,01,01
+050103,Potosi,Tomas Frias,SEGUNDA,Yocalla,05,01,03
+050101,Potosi,Tomas Frias,CAPITAL,Potosi,05,01,01
+050104,Potosi,Tomas Frias,TERCERA,Belen de Urmiri,05,01,04
+010102,Chuquisaca,Oropeza,PRIMERA,Yotala,01,01,02
+050102,Potosi,Tomas Frias,PRIMERA,Tinquipaya,05,01,02
+010101,Chuquisaca,Oropeza,CAPITAL,Sucre,01,01,01
+010103,Chuquisaca,Oropeza,SEGUNDA,Poroma,01,01,03
+070104,Santa Cruz,Andres Ibañez,TERCERA,La Guardia,07,01,04
+040103,Oruro,Cercado,SEGUNDA,El Choro,04,01,03
+040101,Oruro,Cercado,CAPITAL,Oruro,04,01,01
+070105,Santa Cruz,Andres Ibañez,CUARTA,El Torno,07,01,05
+040104,Oruro,Cercado,TERCERA,Paria,04,01,04
+070102,Santa Cruz,Andres Ibañez,PRIMERA,Cotoca,07,01,02
+030101,Cochabamba,Cercado,PRIMERA,Cochabamba,03,01,01
+040102,Oruro,Cercado,PRIMERA,Caracollo,04,01,02
+070103,Santa Cruz,Andres Ibañez,SEGUNDA,Porongo (Ayacucho),07,01,03
+070101,Santa Cruz,Andres Ibañez,CAPITAL,Santa Cruz de la Sierra,07,01,01
+020103,La Paz,Murillo,SEGUNDA,Mecapaca,02,01,03
+020102,La Paz,Murillo,PRIMERA,Palca,02,01,02
+020104,La Paz,Murillo,TERCERA,Achocalla,02,01,04
+020105,La Paz,Murillo,CUARTA,El Alto,02,01,05
+020101,La Paz,Murillo,CAPITAL,Nuestra Señora de La Paz,02,01,01
+080101,Beni,Cercado,CAPITAL,Trinidad,08,01,01
+080102,Beni,Cercado,PRIMERA,San Javier,08,01,02
+090101,Pando,Nicolas Suarez,CAPITAL,Cobija,09,01,01
+090102,Pando,Nicolas Suarez,PRIMERA,Porvenir,09,01,02
+090104,Pando,Nicolas Suarez,TERCERA,Bella Flor,09,01,04
+090103,Pando,Nicolas Suarez,SEGUNDA,Bolpebra (Mukden),09,01,03
+031002,Cochabamba,Chapare,SEGUNDA,Colomi,03,10,02
+031001,Cochabamba,Chapare,PRIMERA,Sacaba,03,10,01
+051003,Potosi,Sur Lipez,TERCERA,San Antonio de Esmoraca,05,10,03
+051002,Potosi,Sur Lipez,SEGUNDA,Mojinete,05,10,02
+051001,Potosi,Sur Lipez,PRIMERA,San Pablo de Lipez,05,10,01
+011002,Chuquisaca,Luis Calvo,SEGUNDA,Huacaya,01,10,02
+011001,Chuquisaca,Luis Calvo,PRIMERA,Villa Vaca Guzman (Muyupampa),01,10,01
+011003,Chuquisaca,Luis Calvo,TERCERA,Machareti,01,10,03
+041001,Oruro,Saucari,PRIMERA,Toledo,04,10,01
+071001,Santa Cruz,Obispo Santisteban,PRIMERA,Montero,07,10,01
+071002,Santa Cruz,Obispo Santisteban,SEGUNDA,General Saavedra,07,10,02
+021004,La Paz,Inquisivi,CUARTA,Colquiri,02,10,04
+021005,La Paz,Inquisivi,QUINTA,Ichoca,02,10,05
+021006,La Paz,Inquisivi,SEXTA,Licoma (Villa Libertad),02,10,06
+021002,La Paz,Inquisivi,SEGUNDA,Quime,02,10,02
+021003,La Paz,Inquisivi,TERCERA,Cajuata,02,10,03
+071004,Santa Cruz,Obispo Santisteban,CUARTA,Fernandez Alonso,07,10,04
+071003,Santa Cruz,Obispo Santisteban,TERCERA,Mineros,07,10,03
+071005,Santa Cruz,Obispo Santisteban,QUINTA,San Pedro,07,10,05
+021001,La Paz,Inquisivi,PRIMERA,Inquisivi,02,10,01
+031003,Cochabamba,Chapare,TERCERA,Villa Tunari,03,10,03
+051102,Potosi,Jose Maria Linares,SEGUNDA,"Caiza ""D""",05,11,02
+051101,Potosi,Jose Maria Linares,PRIMERA,Puna,05,11,01
+051103,Potosi,Jose Maria Linares,TERCERA,Ckochas,05,11,03
+041101,Oruro,Tomas Barron,PRIMERA,Eucaliptus,04,11,01
+021103,La Paz,Sur Yungas,TERCERA,Yanacachi,02,11,03
+021102,La Paz,Sur Yungas,SEGUNDA,Irupana,02,11,02
+021101,La Paz,Sur Yungas,PRIMERA,Chulumani,02,11,01
+031101,Cochabamba,Tapacari,PRIMERA,Tapacari,03,11,01
+021105,La Paz,Sur Yungas,QUINTA,La Asunta,02,11,05
+021104,La Paz,Sur Yungas,CUARTA,Palos Blancos,02,11,04
+071105,Santa Cruz,Ñuflo De Chavez,QUINTA,San Antonio de Lomerio,07,11,05
+071106,Santa Cruz,Ñuflo De Chavez,SEXTA,Cuatro Canadas,07,11,06
+071103,Santa Cruz,Ñuflo De Chavez,TERCERA,San Ramon,07,11,03
+071104,Santa Cruz,Ñuflo De Chavez,CUARTA,San Julian,07,11,04
+071102,Santa Cruz,Ñuflo De Chavez,SEGUNDA,San Javier,07,11,02
+071101,Santa Cruz,Ñuflo De Chavez,PRIMERA,Concepcion,07,11,01
+051202,Potosi,Antonio Quijarro,SEGUNDA,Tomave,05,12,02
+051203,Potosi,Antonio Quijarro,TERCERA,Porco,05,12,03
+051201,Potosi,Antonio Quijarro,PRIMERA,Uyuni (Thola Pampa),05,12,01
+041202,Oruro,Sur Carangas,SEGUNDA,Belen de Andamarca,04,12,02
+041201,Oruro,Sur Carangas,PRIMERA,Santiago de Andamarca,04,12,01
+031203,Cochabamba,Carrasco,TERCERA,Pocona,03,12,03
+031202,Cochabamba,Carrasco,SEGUNDA,Pojo,03,12,02
+021202,La Paz,Los Andes,SEGUNDA,Laja,02,12,02
+031206,Cochabamba,Carrasco,SEXTA,Entre Rios (Bulo Bulo),03,12,06
+031205,Cochabamba,Carrasco,QUINTA,Puerto Villarroel,03,12,05
+021204,La Paz,Los Andes,CUARTA,Puerto Perez,02,12,04
+021204,La Paz,Los Andes,CUARTA,Puerto Perez,02,12,04
+021204,La Paz,Los Andes,CUARTA,Puerto Perez,02,12,04
+021204,La Paz,Los Andes,CUARTA,Puerto Perez,02,12,04
+021204,La Paz,Los Andes,CUARTA,Puerto Perez,02,12,04
+021204,La Paz,Los Andes,CUARTA,Puerto Perez,02,12,04
+021201,La Paz,Los Andes,PRIMERA,Pucarani,02,12,01
+071201,Santa Cruz,Angel Sandoval,PRIMERA,San Matias,07,12,01
+031204,Cochabamba,Carrasco,CUARTA,Chimore,03,12,04
+031201,Cochabamba,Carrasco,PRIMERA,Totora,03,12,01
+021203,La Paz,Los Andes,TERCERA,Batallas,02,12,03
+051302,Potosi,General Bernardino,SEGUNDA,Acasio,05,13,02
+031302,Cochabamba,Mizque,SEGUNDA,Vila Vila,03,13,02
+051301,Potosi,General Bernardino,PRIMERA,Arampampa,05,13,01
+031301,Cochabamba,Mizque,PRIMERA,Mizque,03,13,01
+031303,Cochabamba,Mizque,TERCERA,Alalay,03,13,03
+041301,Oruro,San Pedro De Totora,PRIMERA,San Pedro de Totora,04,13,01
+071302,Santa Cruz,Manuel M. Caballero,SEGUNDA,Saipina,07,13,02
+021302,La Paz,Aroma,SEGUNDA,Umala,02,13,02
+021301,La Paz,Aroma,PRIMERA,Sica Sica,02,13,01
+021305,La Paz,Aroma,QUINTA,Patacamaya,02,13,05
+021303,La Paz,Aroma,TERCERA,Ayo Ayo,02,13,03
+021306,La Paz,Aroma,SEXTA,Colquencha,02,13,06
+021307,La Paz,Aroma,SEPTIMA,Collana,02,13,07
+021304,La Paz,Aroma,CUARTA,Calamarca,02,13,04
+071301,Santa Cruz,Manuel M. Caballero,PRIMERA,Comarapa,07,13,01
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+051402,Potosi,Daniel Campos,SEGUNDA,Tahua,05,14,02
+051401,Potosi,Daniel Campos,PRIMERA,Llica,05,14,01
+041401,Oruro,Sebastian Pagador,PRIMERA,Santiago de Huari,04,14,01
+031405,Cochabamba,Punata,QUINTA,Cuchumuela (V. G.Villarroel),03,14,05
+031404,Cochabamba,Punata,CUARTA,Tacachi,03,14,04
+031402,Cochabamba,Punata,SEGUNDA,Villa Rivero,03,14,02
+031401,Cochabamba,Punata,PRIMERA,Punata,03,14,01
+031403,Cochabamba,Punata,TERCERA,San Benito,03,14,03
+071402,Santa Cruz,German Busch,SEGUNDA,Puerto Quijarro,07,14,02
+071401,Santa Cruz,German Busch,PRIMERA,Puerto Suarez,07,14,01
+071403,Santa Cruz,German Busch,TERCERA,Carmen Rivero Torrez,07,14,03
+021401,La Paz,Nor Yungas,PRIMERA,Coroico,02,14,01
+021402,La Paz,Nor Yungas,SEGUNDA,Coripata,02,14,02
+051501,Potosi,Modesto Omiste,PRIMERA,Villazon,05,15,01
+041502,Oruro,Mejillones,SEGUNDA,Todos Santos,04,15,02
+041501,Oruro,Mejillones,PRIMERA,La Rivera,04,15,01
+041503,Oruro,Mejillones,TERCERA,Carangas,04,15,03
+071503,Santa Cruz,Guarayos,TERCERA,El Puente,07,15,03
+071502,Santa Cruz,Guarayos,SEGUNDA,Urubicha,07,15,02
+071501,Santa Cruz,Guarayos,PRIMERA,Ascencion de Guarayos,07,15,01
+021502,La Paz,Abel Iturralde,SEGUNDA,San Buenaventura,02,15,02
+021501,La Paz,Abel Iturralde,PRIMERA,Ixiamas,02,15,01
+031501,Cochabamba,Bolivar,PRIMERA,Bolivar,03,15,01
+051601,Potosi,Enrique Baldivieso,PRIMERA,San Agustin,05,16,01
+041601,Oruro,Nor Carangas,PRIMERA,Santiago de Huayllamarca,04,16,01
+021601,La Paz,Bautista Saavedra,PRIMERA,Charazani (Gral.Perez),02,16,01
+021602,La Paz,Bautista Saavedra,SEGUNDA,Curva,02,16,02
+031601,Cochabamba,Tiraque,PRIMERA,Tiraque,03,16,01
+031602,Cochabamba,Tiraque,SEGUNDA,Shinahota,03,16,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021703,La Paz,Manco Kapac,TERCERA,Tito Yupanki,02,17,03
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021701,La Paz,Manco Kapac,PRIMERA,Copacabana,02,17,01
+021702,La Paz,Manco Kapac,SEGUNDA,San Pedro de Tiquina,02,17,02
+021801,La Paz,Gualberto Villarroe,PRIMERA,San Pedro de Curahuara,02,18,01
+021803,La Paz,Gualberto Villarroe,TERCERA,Chacarilla,02,18,03
+021802,La Paz,Gualberto Villarroe,SEGUNDA,Papel Pampa,02,18,02
+021902,La Paz,General Jose Manuel,SEGUNDA,Catacora,02,19,02
+021901,La Paz,General Jose Manuel,PRIMERA,Santiago de Machaca,02,19,01
+060202,Tarija,Arce,SEGUNDA,Bermejo,06,02,02
+060201,Tarija,Arce,PRIMERA,Padcaya,06,02,01
+010201,Chuquisaca,Azurduy,PRIMERA,Villa Azurduy,01,02,01
+010202,Chuquisaca,Azurduy,SEGUNDA,Tarvita (Villa Arias),01,02,02
+040202,Oruro,Abaroa,SEGUNDA,Santuario de Quillacas,04,02,02
+050203,Potosi,Rafael Bustillo,TERCERA,Llallagua,05,02,03
+030202,Cochabamba,Campero,SEGUNDA,Pasorapa,03,02,02
+030201,Cochabamba,Campero,PRIMERA,Aiquile,03,02,01
+030203,Cochabamba,Campero,TERCERA,Omereque,03,02,03
+070202,Santa Cruz,Warnes,SEGUNDA,Okinawa Uno,07,02,02
+070201,Santa Cruz,Warnes,PRIMERA,Warnes,07,02,01
+020201,La Paz,Omasuyos,PRIMERA,Achacachi,02,02,01
+020201,La Paz,Omasuyos,PRIMERA,Achacachi,02,02,01
+020202,La Paz,Omasuyos,SEGUNDA,Ancoraimes,02,02,02
+020202,La Paz,Omasuyos,SEGUNDA,Ancoraimes,02,02,02
+080201,Beni,Vaca Diez,PRIMERA,Riberalta,08,02,01
+090202,Pando,Manuripi,SEGUNDA,San Pedro (Conquista),09,02,02
+090201,Pando,Manuripi,PRIMERA,Puerto Rico,09,02,01
+080202,Beni,Vaca Diez,SEGUNDA,Guayaramerin,08,02,02
+020205,La Paz,Omasuyos,CUARTA,Santiago de Huata,02,02,05
+020205,La Paz,Omasuyos,CUARTA,Santiago de Huata,02,02,05
+020205,La Paz,Omasuyos,QUINTA,Santiago de Huata,02,02,05
+040201,Oruro,Abaroa,PRIMERA,Challapata,04,02,01
+050202,Potosi,Rafael Bustillo,SEGUNDA,Chayanta,05,02,02
+050204,Potosi,Rafael Bustillo,CUARTA,Chuquihuta,05,02,04
+090203,Pando,Manuripi,TERCERA,Filadelfia,09,02,03
+020204,La Paz,Omasuyos,CUARTA,Huarina,02,02,04
+020201,La Paz,Omasuyos,PRIMERA,Achacachi,02,02,01
+020206,La Paz,Omasuyos,SEXTA,Huatajata,02,02,06
+020203,La Paz,Omasuyos,TERCERA,Chua Cocani,02,02,03
+022002,La Paz,Caranavi,SEGUNDA,Alto Beni,02,20,02
+022001,La Paz,Caranavi,PRIMERA,Caranavi,02,20,01
+030303,Cochabamba,Ayopaya,TERCERA,Cocapata,03,03,03
+030302,Cochabamba,Ayopaya,SEGUNDA,Morochata,03,03,02
+030301,Cochabamba,Ayopaya,PRIMERA,Independencia,03,03,01
+060301,Tarija,Gran Chaco,PRIMERA,Yacuiba,06,03,01
+060302,Tarija,Gran Chaco,SEGUNDA,Carapari,06,03,02
+050302,Potosi,Cornelio Saavedra,SEGUNDA,Chaqui,05,03,02
+060303,Tarija,Gran Chaco,TERCERA,Villamontes,06,03,03
+050301,Potosi,Cornelio Saavedra,PRIMERA,Betanzos,05,03,01
+010304,Chuquisaca,Zudañez,CUARTA,Icla (R.Mujia),01,03,04
+050303,Potosi,Cornelio Saavedra,TERCERA,Tacobamba,05,03,03
+010301,Chuquisaca,Zudañez,PRIMERA,Zudanez,01,03,01
+010303,Chuquisaca,Zudañez,TERCERA,Villa Mojocoya,01,03,03
+010302,Chuquisaca,Zudañez,SEGUNDA,Presto,01,03,02
+040301,Oruro,Carangas,PRIMERA,Corque,04,03,01
+040302,Oruro,Carangas,SEGUNDA,Choquecota,04,03,02
+020308,La Paz,Pacajes,OCTAVA,Santiago de Callapa,02,03,08
+020306,La Paz,Pacajes,SEXTA,Waldo Ballivian,02,03,06
+020303,La Paz,Pacajes,TERCERA,Calacoto,02,03,03
+020305,La Paz,Pacajes,QUINTA,Charana,02,03,05
+020301,La Paz,Pacajes,PRIMERA,Coro Coro,02,03,01
+020307,La Paz,Pacajes,SEPTIMA,Nazacara de Pacajes,02,03,07
+020302,La Paz,Pacajes,SEGUNDA,Caquiaviri,02,03,02
+020304,La Paz,Pacajes,CUARTA,Comanche,02,03,04
+070303,Santa Cruz,Velasco,TERCERA,San Rafael,07,03,03
+070302,Santa Cruz,Velasco,SEGUNDA,San Miguel de Velasco,07,03,02
+070301,Santa Cruz,Velasco,PRIMERA,San Ignacio de Velasco,07,03,01
+080304,Beni,General Jose Ballivian,CUARTA,Rurrenabaque,08,03,04
+080302,Beni,General Jose Ballivian,SEGUNDA,San Borja,08,03,02
+080301,Beni,General Jose Ballivian,PRIMERA,Reyes,08,03,01
+090303,Pando,Madre De Dios,TERCERA,El Sena,09,03,03
+090302,Pando,Madre De Dios,SEGUNDA,San Lorenzo,09,03,02
+080303,Beni,General Jose Ballivian,TERCERA,Santa Rosa,08,03,03
+090301,Pando,Madre De Dios,PRIMERA,Puerto Gonzales Moreno,09,03,01
+060401,Tarija,Avilez,PRIMERA,Uriondo,06,04,01
+060402,Tarija,Avilez,SEGUNDA,Yunchara,06,04,02
+010405,Chuquisaca,Tomina,QUINTA,El Villar,01,04,05
+010404,Chuquisaca,Tomina,CUARTA,Villa Alcala,01,04,04
+010403,Chuquisaca,Tomina,TERCERA,Sopachuy,01,04,03
+010402,Chuquisaca,Tomina,SEGUNDA,Tomina,01,04,02
+050404,Potosi,Chayanta,CUARTA,Ocuri,05,04,04
+010401,Chuquisaca,Tomina,PRIMERA,Padilla,01,04,01
+050401,Potosi,Chayanta,PRIMERA,Colquechaca,05,04,01
+050402,Potosi,Chayanta,SEGUNDA,Ravelo,05,04,02
+040402,Oruro,Sajama,SEGUNDA,Turco,04,04,02
+040402,Oruro,Sajama,SEGUNDA,Turco,04,04,02
+030404,Cochabamba,Esteban Arce,CUARTA,Sacabamba,03,04,04
+030402,Cochabamba,Esteban Arce,SEGUNDA,Anzaldo,03,04,02
+030401,Cochabamba,Esteban Arce,PRIMERA,Tarata,03,04,01
+040401,Oruro,Sajama,PRIMERA,Curahuara de Carangas,04,04,01
+030403,Cochabamba,Esteban Arce,TERCERA,Arbieto,03,04,03
+070401,Santa Cruz,Ichilo,PRIMERA,Buena Vista,07,04,01
+070402,Santa Cruz,Ichilo,SEGUNDA,San Carlos,07,04,02
+070404,Santa Cruz,Ichilo,CUARTA,San Juan,07,04,04
+020403,La Paz,Camacho,TERCERA,Puerto Carabuco,02,04,03
+020403,La Paz,Camacho,TERCERA,Puerto Carabuco,02,04,03
+020403,La Paz,Camacho,TERCERA,Puerto Carabuco,02,04,03
+070403,Santa Cruz,Ichilo,TERCERA,Yapacani,07,04,03
+020402,La Paz,Camacho,SEGUNDA,Mocomoco,02,04,02
+080401,Beni,Yacuma,PRIMERA,Santa Ana de Yacuma,08,04,01
+080402,Beni,Yacuma,SEGUNDA,Exaltacion,08,04,02
+090401,Pando,Abuná,PRIMERA,Santa Rosa del Abuna,09,04,01
+090402,Pando,Abuná,SEGUNDA,Ingavi,09,04,02
+020404,La Paz,Camacho,CUARTA,Humanata,02,04,04
+020401,La Paz,Camacho,PRIMERA,Puerto Acosta,02,04,01
+020401,La Paz,Camacho,PRIMERA,Puerto Acosta,02,04,01
+020401,La Paz,Camacho,PRIMERA,Puerto Acosta,02,04,01
+020405,La Paz,Camacho,QUINTA,Escoma,02,04,05
+020401,La Paz,Camacho,PRIMERA,Puerto Acosta,02,04,01
+020401,La Paz,Camacho,PRIMERA,Puerto Acosta,02,04,01
+020401,La Paz,Camacho,PRIMERA,Puerto Acosta,02,04,01
+050201,Potosi,Rafael Bustillo,PRIMERA,Uncia,05,02,01
+050403,Potosi,Chayanta,TERCERA,Pocoata,05,04,03
+060501,Tarija,Mendez,PRIMERA,Villa San Lorenzo,06,05,01
+060502,Tarija,Mendez,SEGUNDA,Tomayapo (El Puente),06,05,02
+010502,Chuquisaca,Hernando Siles,SEGUNDA,San Pablo de Huacareta,01,05,02
+010501,Chuquisaca,Hernando Siles,PRIMERA,Monteagudo,01,05,01
+040504,Oruro,Litoral,CUARTA,Yunguyo del Litoral,04,05,04
+040501,Oruro,Litoral,PRIMERA,Huachacalla,04,05,01
+040505,Oruro,Litoral,QUINTA,Esmeralda,04,05,05
+040503,Oruro,Litoral,TERCERA,Cruz de Machacamarca,04,05,03
+040502,Oruro,Litoral,SEGUNDA,Escara,04,05,02
+050501,Potosi,Charcas,PRIMERA,San Pedro de Buena Vista,05,05,01
+050502,Potosi,Charcas,SEGUNDA,Toro Toro,05,05,02
+030502,Cochabamba,Arani,SEGUNDA,Vacas,03,05,02
+030501,Cochabamba,Arani,PRIMERA,Arani,03,05,01
+070503,Santa Cruz,Chiquitos,TERCERA,Robore,07,05,03
+070502,Santa Cruz,Chiquitos,SEGUNDA,Pailon,07,05,02
+070501,Santa Cruz,Chiquitos,PRIMERA,San Jose de Chiquitos,07,05,01
+020503,La Paz,Muñecas,TERCERA,Aucapata,02,05,03
+020501,La Paz,Muñecas,PRIMERA,Chuma,02,05,01
+020502,La Paz,Muñecas,SEGUNDA,Ayata,02,05,02
+080501,Beni,Moxos,PRIMERA,San Ignacio,08,05,01
+090502,Pando,Federico Roman,SEGUNDA,Villa Nueva (Loma Alta),09,05,02
+090503,Pando,Federico Roman,TERCERA,Santos Mercado,09,05,03
+090501,Pando,Federico Roman,PRIMERA,Nuevo Manoa (Nueva Esperanza),09,05,01
+060601,Tarija,Burnet O'Connor,PRIMERA,Entre Rios (La Moreta),06,06,01
+050602,Potosi,Nor Chichas,SEGUNDA,Vitichi,05,06,02
+050601,Potosi,Nor Chichas,PRIMERA,Cotagaita,05,06,01
+010602,Chuquisaca,Yamparaez,SEGUNDA,Yamparaez,01,06,02
+010601,Chuquisaca,Yamparaez,PRIMERA,Tarabuco,01,06,01
+040602,Oruro,Poopo,SEGUNDA,Pazna,04,06,02
+040603,Oruro,Poopo,TERCERA,Antequera (Bolivar),04,06,03
+040601,Oruro,Poopo,PRIMERA,Poopo,04,06,01
+030602,Cochabamba,Arque,SEGUNDA,Tacopaya,03,06,02
+030601,Cochabamba,Arque,PRIMERA,Arque,03,06,01
+070603,Santa Cruz,Sara,TERCERA,Colpa Belgica,07,06,03
+070601,Santa Cruz,Sara,PRIMERA,Portachuelo,07,06,01
+070602,Santa Cruz,Sara,SEGUNDA,Santa Rosa del Sara,07,06,02
+020605,La Paz,Larecaja,QUINTA,Combaya,02,06,05
+020604,La Paz,Larecaja,CUARTA,Quiabaya,02,06,04
+020606,La Paz,Larecaja,SEXTA,Tipuani,02,06,06
+020601,La Paz,Larecaja,PRIMERA,Sorata,02,06,01
+020603,La Paz,Larecaja,TERCERA,Tacacoma,02,06,03
+080602,Beni,Marban,SEGUNDA,San Andres,08,06,02
+080601,Beni,Marban,PRIMERA,Loreto,08,06,01
+020602,La Paz,Larecaja,SEGUNDA,Guanay,02,06,02
+020608,La Paz,Larecaja,OCTAVA,Teoponte,02,06,08
+020607,La Paz,Larecaja,SEPTIMA,Mapiri,02,06,07
+070701,Santa Cruz,Cordillera,PRIMERA,Lagunillas,07,07,01
+070707,Santa Cruz,Cordillera,SEPTIMA,Boyuibe,07,07,07
+070704,Santa Cruz,Cordillera,CUARTA,Cuevo,07,07,04
+070706,Santa Cruz,Cordillera,SEXTA,Camiri,07,07,06
+070705,Santa Cruz,Cordillera,QUINTA,Gutierrez,07,07,05
+050702,Potosi,Alonso de Ibañez,SEGUNDA,Caripuyo,05,07,02
+050701,Potosi,Alonso de Ibañez,PRIMERA,Sacaca,05,07,01
+040701,Oruro,Pantaleon Dalence,PRIMERA,Villa Huanuni,04,07,01
+040702,Oruro,Pantaleon Dalence,SEGUNDA,Machacamarca,04,07,02
+070703,Santa Cruz,Cordillera,TERCERA,Cabezas,07,07,03
+030703,Cochabamba,Capinota,TERCERA,Sicaya,03,07,03
+030701,Cochabamba,Capinota,PRIMERA,Capinota,03,07,01
+030702,Cochabamba,Capinota,SEGUNDA,Santibanez,03,07,02
+070702,Santa Cruz,Cordillera,SEGUNDA,Charagua,07,07,02
+020702,La Paz,Franz Tamayo,SEGUNDA,Pelechuco,02,07,02
+020701,La Paz,Franz Tamayo,PRIMERA,Apolo,02,07,01
+080702,Beni,Mamore,SEGUNDA,San Ramon,08,07,02
+080703,Beni,Mamore,TERCERA,Puerto Siles,08,07,03
+080701,Beni,Mamore,PRIMERA,San Joaquin,08,07,01
+010701,Chuquisaca,Nor Cinti,PRIMERA,Camargo,01,07,01
+010702,Chuquisaca,Nor Cinti,SEGUNDA,San Lucas,01,07,02
+010703,Chuquisaca,Nor Cinti,TERCERA,Incahuasi,01,07,03
+010704,Chuquisaca,Nor Cinti,CUARTA,Villa Charcas,01,07,04
+050801,Potosi,Sur Chichas,PRIMERA,Tupiza,05,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+050802,Potosi,Sur Chichas,SEGUNDA,Atocha,05,08,02
+040801,Oruro,Ladislao Cabrera,PRIMERA,Salinas de Garci Mendoza,04,08,01
+040802,Oruro,Ladislao Cabrera,SEGUNDA,Pampa Aullagas,04,08,02
+070805,Santa Cruz,Valle Grande,QUINTA,Pucara,07,08,05
+010801,Chuquisaca,Belisario Boeto,PRIMERA,Villa Serrano,01,08,01
+070801,Santa Cruz,Valle Grande,PRIMERA,Vallegrande,07,08,01
+070804,Santa Cruz,Valle Grande,CUARTA,Postrer Valle,07,08,04
+030802,Cochabamba,German Jordan,SEGUNDA,Toko,03,08,02
+070802,Santa Cruz,Valle Grande,SEGUNDA,Trigal,07,08,02
+030801,Cochabamba,German Jordan,PRIMERA,Cliza,03,08,01
+070803,Santa Cruz,Valle Grande,TERCERA,Moro Moro,07,08,03
+030803,Cochabamba,German Jordan,TERCERA,Tolata,03,08,03
+020801,La Paz,Ingavi,PRIMERA,Viacha,02,08,01
+020805,La Paz,Ingavi,QUINTA,San Andres de Machaca,02,08,05
+020804,La Paz,Ingavi,CUARTA,Desaguadero,02,08,04
+020806,La Paz,Ingavi,SEXTA,Jesus de Machaca,02,08,06
+020802,La Paz,Ingavi,SEGUNDA,Guaqui,02,08,02
+020807,La Paz,Ingavi,SEPTIMA,Taraco,02,08,07
+020803,La Paz,Ingavi,TERCERA,Tiahuanacu,02,08,03
+020807,La Paz,Ingavi,SEPTIMA,Taraco,02,08,07
+020803,La Paz,Ingavi,TERCERA,Tiahuanacu,02,08,03
+080802,Beni,Itenez,SEGUNDA,Baures,08,08,02
+080803,Beni,Itenez,TERCERA,Huacaraje,08,08,03
+080801,Beni,Itenez,PRIMERA,Magdalena,08,08,01
+030901,Cochabamba,Quillacollo,PRIMERA,Quillacollo,03,09,01
+030903,Cochabamba,Quillacollo,TERCERA,Tiquipaya,03,09,03
+030905,Cochabamba,Quillacollo,QUINTA,Colcapirhua,03,09,05
+030902,Cochabamba,Quillacollo,SEGUNDA,Sipe Sipe,03,09,02
+030904,Cochabamba,Quillacollo,CUARTA,Vinto,03,09,04
+010903,Chuquisaca,Sur Cinti,TERCERA,Las Carretas,01,09,03
+010901,Chuquisaca,Sur Cinti,PRIMERA,Villa Abecia,01,09,01
+050901,Potosi,Nor Lipez,PRIMERA,"Colcha""K"" (V.Martin)",05,09,01
+050901,Potosi,Nor Lipez,PRIMERA,"Colcha""K"" (V.Martin)",05,09,01
+050901,Potosi,Nor Lipez,PRIMERA,"Colcha""K"" (V.Martin)",05,09,01
+050901,Potosi,Nor Lipez,PRIMERA,"Colcha""K"" (V.Martin)",05,09,01
+050902,Potosi,Nor Lipez,SEGUNDA,San Pedro de Quemes,05,09,02
+050901,Potosi,Nor Lipez,PRIMERA,"Colcha""K"" (V.Martin)",05,09,01
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040902,Oruro,Sabaya,SEGUNDA,Coipasa,04,09,02
+040901,Oruro,Sabaya,PRIMERA,Sabaya,04,09,01
+040901,Oruro,Sabaya,PRIMERA,Sabaya,04,09,01
+040901,Oruro,Sabaya,PRIMERA,Sabaya,04,09,01
+040901,Oruro,Sabaya,PRIMERA,Sabaya,04,09,01
+040901,Oruro,Sabaya,PRIMERA,Sabaya,04,09,01
+040903,Oruro,Sabaya,TERCERA,Chipaya,04,09,03
+040903,Oruro,Sabaya,TERCERA,Chipaya,04,09,03
+040901,Oruro,Sabaya,PRIMERA,Sabaya,04,09,01
+070904,Santa Cruz,Florida,CUARTA,Quirusillas,07,09,04
+070901,Santa Cruz,Florida,PRIMERA,Samaipata,07,09,01
+020903,La Paz,Loayza,TERCERA,Yaco,02,09,03
+020901,La Paz,Loayza,PRIMERA,Luribay,02,09,01
+020904,La Paz,Loayza,CUARTA,Malla,02,09,04
+020902,La Paz,Loayza,SEGUNDA,Sapahaqui,02,09,02
+020905,La Paz,Loayza,QUINTA,Cairoma,02,09,05
+070902,Santa Cruz,Florida,SEGUNDA,Pampa Grande,07,09,02
+070903,Santa Cruz,Florida,TERCERA,Mairana,07,09,03
+010902,Chuquisaca,Sud Cinti,SEGUNDA,Culpina,01,09,02
