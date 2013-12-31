@@ -40,7 +40,7 @@
     = field_set_tag 'Hijos e Hijas' do
       #sons
         = render 'son_aggregate', f: f, resources: :sons
-        %a.btn.btn-success.btn-large{href: "#"}
+        %a.btn.btn-success.btn-large.add_son
           %i.icon-white.icon-plus-sign
           adicionar hijo/a
 
@@ -50,3 +50,6 @@
 
   .form-actions
     %input.btn.btn-primary.pull-right{type: "submit", value: "Crear Registro"}
+
+:javascript
+  var register = new Runpa.Views.Registers.NewView()
