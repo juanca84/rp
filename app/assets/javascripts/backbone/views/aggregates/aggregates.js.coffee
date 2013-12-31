@@ -1,8 +1,8 @@
-Runpa.Views.Sons ||= {}
+Runpa.Views.Aggregates ||= {}
 
-class Runpa.Views.Sons.NewView extends Backbone.View
+class Runpa.Views.Aggregates.NewView extends Backbone.View
 
-  new_son_tmp: JST["backbone/templates/sons/new"]
+  new_son_tmp: JST["backbone/templates/aggregates/new"]
 
   tagName: "tr"
 

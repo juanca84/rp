@@ -1,4 +1,4 @@
-%table.table.table_register
+%table.table.table_register{ class: "table_#{ resources.to_s }"}
   %thead
     %tr
       %th.col-sm-5 Nombre
@@ -6,6 +6,8 @@
       %th.col-sm-1 Sexo
       %th.col-sm-2 Número de jornadas de trabajo en el establecimiento - dias/año
       %th.col-sm-2 Número de Cédula de Identidad
+      %th.col-sm-1
+
   %tbody
     = f.simple_fields_for resources do |resource|
       = resource.hidden_field :type_person
@@ -21,3 +23,7 @@
             = resource.input_field :time_to_land, as: :string
           %td
             = person.input_field :identification
+          %td
+            %a.btn.btn-danger.btn-small{href: "#"}
+              %i.icon-white.icon-remove
+              eliminar

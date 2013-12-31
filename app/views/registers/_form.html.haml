@@ -47,6 +47,9 @@
     = field_set_tag 'Agregados y Agregadas' do
       #aggregates
         = render 'son_aggregate', f: f, resources: :aggregates
+        %a.btn.btn-success.btn-large.add_aggregate
+          %i.icon-white.icon-plus-sign
+          adicionar agregado/a
 
   .form-actions
     %input.btn.btn-primary.pull-right{type: "submit", value: "Crear Registro"}
