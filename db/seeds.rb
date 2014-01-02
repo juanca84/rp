@@ -8,16 +8,16 @@ end
 Role.create(name: "administrador")
 Role.create(name: "encuestador")
 
-Department.create(
-  [
-    { code: 1, name: "Beni" },
-    { code: 2, name: "Chuquisaca" },
-    { code: 3, name: "Cochabamba" },
-    { code: 4, name: "La Paz" },
-    { code: 5, name: "Oruro" },
-    { code: 6, name: "Pando" },
-    { code: 7, name: "Potosí" },
-    { code: 8, name: "Santa Cruz" },
-    { code: 9, name: "Tarija" }
-  ]
-)
+#Department.create(
+#  [
+#    { code: 1, name: "Beni" },
+#    { code: 2, name: "Chuquisaca" },
+#    { code: 3, name: "Cochabamba" },
+#    { code: 4, name: "La Paz" },
+#    { code: 5, name: "Oruro" },
+#    { code: 6, name: "Pando" },
+#    { code: 7, name: "Potosí" },
+#    { code: 8, name: "Santa Cruz" },
+#    { code: 9, name: "Tarija" }
+#  ]
+#)

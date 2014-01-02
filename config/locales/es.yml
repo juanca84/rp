@@ -35,21 +35,6 @@ es:
         one: Usuario
         other: Usuarios
     attributes:
-      civil_status:
-        code: Código
-        name: Nombre
-      civil_union:
-        code: Código
-        name: Nombre
-      department:
-        code: Código
-        name: Nombre
-      education:
-        code: Código
-        name: Nombre
-      ethnicity:
-        code: Código
-        name: Nombre
       people_register:
         mothers_name: Nombre de la Madre
         time_to_land: Tiempo dedicado a actividades laborales en el establecimiento
@@ -68,15 +53,14 @@ es:
       register:
         address: Dirección
         civil_union: Unión Civil
-        code: Código
         community: Municipio
         department: Departamento
         geodesic_ew: Punto Geodésico EW
         geodesic_ns: Punto Geodésico NS
         residence: Lugar de Residencia
-      type_identification:
-        code: Código
-        name: Nombre
+      role:
+        name: nombre
+        resource_type: Tipo de Recurso
       user:
         created_at: Creado en
         departments: Departamentos
@@ -86,3 +70,8 @@ es:
         password_confirmation: Confirmacion de contraseña
         sign_in_count: Contador de inicio de sesión
   back: Atrás
+  attributes:
+    code: Código
+    created_at: Creado en
+    name: Nombre
+    updated_at: Modificado en
