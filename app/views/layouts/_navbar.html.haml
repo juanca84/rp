@@ -14,7 +14,7 @@
         - if current_user.present?
           %li
             %a{href: registers_path} Registros
-          - if current_user.admin?
+          - if current_user.administrador?
             %li
               %a{href: admin_root_path} Administrador
         /

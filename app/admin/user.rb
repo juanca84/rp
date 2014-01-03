@@ -4,6 +4,11 @@ ActiveAdmin.register User do
       @user = User.new
       @user.build_profile
     end
+
+    def update_resource(object, attributes)
+      update_method = attributes.first[:password].present? ? :update_attributes : :update_without_password
+      object.send(update_method, *attributes)
+    end
   end
 
   index do
@@ -29,9 +34,9 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :roles, as: :radio
+      f.input :roles, as: :check_boxes
       f.input :departments, as: :check_boxes
-      f.inputs :profile do |profile|
+      f.has_many :profile do |profile|
         profile.input :name
         profile.input :last_name
         profile.input :identification
