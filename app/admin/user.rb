@@ -1,4 +1,11 @@
 ActiveAdmin.register User do
+  controller do
+    def new
+      @user = User.new
+      @user.build_profile
+    end
+  end
+
   index do
     column :email
     column :created_at
@@ -24,6 +31,14 @@ ActiveAdmin.register User do
       f.input :password_confirmation
       f.input :roles, as: :radio
       f.input :departments, as: :check_boxes
+      f.inputs :profile do |profile|
+        profile.input :name
+        profile.input :last_name
+        profile.input :identification
+        profile.input :birthdate
+        profile.input :sex, as: :select, collection: Person::SEX
+
+      end
     end
     f.actions
   end
