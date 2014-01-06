@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140102162423) do
+ActiveRecord::Schema.define(:version => 20140106133134) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -163,6 +163,22 @@ ActiveRecord::Schema.define(:version => 20140102162423) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "roles_runpa_modules", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "runpa_module_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "roles_runpa_modules", ["role_id"], :name => "index_roles_runpa_modules_on_role_id"
+  add_index "roles_runpa_modules", ["runpa_module_id"], :name => "index_roles_runpa_modules_on_runpa_module_id"
+
+  create_table "runpa_modules", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "type_identifications", :force => true do |t|
     t.string   "code"

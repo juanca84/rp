@@ -42,7 +42,6 @@ ActiveAdmin.register User do
         profile.input :identification
         profile.input :birthdate
         profile.input :sex, as: :select, collection: Person::SEX
-
       end
     end
     f.actions
