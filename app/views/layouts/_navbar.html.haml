@@ -12,9 +12,10 @@
         %li.active
           %a{href: home_index_path} Inicio
         - if current_user.present?
-          %li
-            %a{href: registers_path} Registros
-          - if current_user.administrador?
+          - if current_user.module_formulario?
+            %li
+              %a{href: registers_path} Registros
+          - if current_user.module_administrador?
             %li
               %a{href: admin_root_path} Administrador
         /

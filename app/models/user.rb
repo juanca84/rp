@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :departments_users
   has_many :departments, through: :departments_users
+  has_many :runpa_modules, through: :roles
 
   accepts_nested_attributes_for :departments, :profile
 
@@ -23,10 +24,16 @@ class User < ActiveRecord::Base
   end
 
   roles = Roles.pluck(:name) rescue ['administrador', 'agente registrador']
-
   roles.each do |role|
     define_method("#{ role.gsub(/ /, '_') }?") do
       self.has_role?(role)
+    end
+  end
+
+  modules = RunpaModule.pluck(:name) rescue ['administrador', 'formulario']
+  modules.each do |mod|
+    define_method("module_#{ mod.gsub(/ /, '_') }?") do
+      self.runpa_modules.pluck(:name).include?(mod)
     end
   end
 

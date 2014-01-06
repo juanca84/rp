@@ -3,6 +3,7 @@ class RunpaModule < ActiveRecord::Base
 
   has_many :roles_runpa_modules
   has_many :roles, through: :roles_runpa_modules
+  has_many :users, through: :roles
 
   validates :name, uniqueness: true, presence: true
 end
