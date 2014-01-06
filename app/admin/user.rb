@@ -13,12 +13,12 @@ ActiveAdmin.register User do
 
   index do
     column :email
-    column :created_at
-    column :sign_in_count
-    column :last_seen_at
     column :roles do |u|
       u.roles_name.join(", ")
     end
+    column :created_at
+    column :sign_in_count
+    column :last_seen_at
     column :departments do |u|
       u.departments.pluck(:name).join(", ")
     end
