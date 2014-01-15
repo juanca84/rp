@@ -19,10 +19,12 @@ class User < ActiveRecord::Base
 
   before_destroy :not_admin
 
+  #metodo para no eliminar al usuario administrador por defecto
   def not_admin
     false if self.email == "runpa.mdryt@gmail.com"
   end
 
+  #metodo para crear roles dinamicamente o los roles iniciales
   roles = Roles.pluck(:name) rescue ['administrador', 'agente registrador']
   roles.each do |role|
     define_method("#{ role.gsub(/ /, '_') }?") do
@@ -30,7 +32,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  modules = RunpaModule.pluck(:name) rescue ['administrador', 'formulario']
+  #metodo para crear modulos de runpa 
+  modules = ['administrador', 'formulario', 'reportes', 'servicio_web']
   modules.each do |mod|
     define_method("module_#{ mod.gsub(/ /, '_') }?") do
       self.runpa_modules.pluck(:name).include?(mod)
