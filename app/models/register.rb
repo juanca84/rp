@@ -18,10 +18,12 @@ class Register < ActiveRecord::Base
   accepts_nested_attributes_for :sons
   accepts_nested_attributes_for :aggregates
 
-  before_create :generate_code
+  before_validation :generate_code
 
   def generate_code
-    self.code = Register.new_code_number
+    if new_record?
+      self.code = Register.new_code_number
+    end
   end
 
   #metodo pra crear los identificadores de numero

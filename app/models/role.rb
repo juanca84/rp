@@ -1,10 +1,14 @@
 class Role < ActiveRecord::Base
-  attr_accessible :name
+  scopify
+
+  attr_accessible :name, :runpa_module_ids
 
   has_and_belongs_to_many :users, :join_table => :users_roles
   belongs_to :resource, :polymorphic => true
 
-  validates :name, uniqueness: true, presence: true
+  has_many :roles_runpa_modules
+  has_many :runpa_modules, through: :roles_runpa_modules
 
-  scopify
+  validates :name, uniqueness: true, presence: true
+  validates :runpa_modules, presence: true
 end

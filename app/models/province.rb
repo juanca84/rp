@@ -3,4 +3,6 @@ class Province < ActiveRecord::Base
 
   belongs_to :department
   has_many :communities
+  
+  has_many :regions_users, as: :regionable
 end

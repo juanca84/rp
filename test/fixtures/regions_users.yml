@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  regionable_id: 1
+  regionable_type: MyString
+
+two:
+  user: 
+  regionable_id: 1
+  regionable_type: MyString
