@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, #:registerable,
     :recoverable, :rememberable, :trackable, :validatable, :lastseenable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :lastseenable, :role_ids, :department_ids, :profile_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :lastseenable, 
+                  :role_ids, :department_ids, :province_ids, :community_ids, :profile_attributes
 
   validates :email, presence: true, uniqueness: true
 
