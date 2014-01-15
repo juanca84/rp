@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  department: 
-  user: 
+  role: 
+  runpa_module: 
 
 two:
-  department: 
-  user: 
+  role: 
+  runpa_module: 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230142743) do
+ActiveRecord::Schema.define(:version => 20140115145729) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -59,16 +59,6 @@ ActiveRecord::Schema.define(:version => 20131230142743) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "departments_users", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "departments_users", ["department_id"], :name => "index_departments_users_on_department_id"
-  add_index "departments_users", ["user_id"], :name => "index_departments_users_on_user_id"
-
   create_table "educations", :force => true do |t|
     t.string   "code"
     t.string   "name"
@@ -112,6 +102,19 @@ ActiveRecord::Schema.define(:version => 20131230142743) do
   add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
   add_index "people_registers", ["register_id"], :name => "index_people_registers_on_register_id"
 
+  create_table "profiles", :force => true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "identification"
+    t.string   "birthdate"
+    t.string   "sex"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
   create_table "provinces", :force => true do |t|
     t.string   "code"
     t.string   "name"
@@ -121,6 +124,17 @@ ActiveRecord::Schema.define(:version => 20131230142743) do
   end
 
   add_index "provinces", ["department_id"], :name => "index_provinces_on_department_id"
+
+  create_table "regions_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "regionable_id"
+    t.string   "regionable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "regions_users", ["regionable_id", "regionable_type"], :name => "index_regions_users_on_regionable_id_and_regionable_type"
+  add_index "regions_users", ["user_id"], :name => "index_regions_users_on_user_id"
 
   create_table "registers", :force => true do |t|
     t.integer  "code"
@@ -150,6 +164,22 @@ ActiveRecord::Schema.define(:version => 20131230142743) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "roles_runpa_modules", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "runpa_module_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "roles_runpa_modules", ["role_id"], :name => "index_roles_runpa_modules_on_role_id"
+  add_index "roles_runpa_modules", ["runpa_module_id"], :name => "index_roles_runpa_modules_on_runpa_module_id"
+
+  create_table "runpa_modules", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "type_identifications", :force => true do |t|
     t.string   "code"
