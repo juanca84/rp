@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140106133134) do
+ActiveRecord::Schema.define(:version => 20140115145729) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -58,16 +58,6 @@ ActiveRecord::Schema.define(:version => 20140106133134) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "departments_users", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "departments_users", ["department_id"], :name => "index_departments_users_on_department_id"
-  add_index "departments_users", ["user_id"], :name => "index_departments_users_on_user_id"
 
   create_table "educations", :force => true do |t|
     t.string   "code"
@@ -134,6 +124,17 @@ ActiveRecord::Schema.define(:version => 20140106133134) do
   end
 
   add_index "provinces", ["department_id"], :name => "index_provinces_on_department_id"
+
+  create_table "regions_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "regionable_id"
+    t.string   "regionable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "regions_users", ["regionable_id", "regionable_type"], :name => "index_regions_users_on_regionable_id_and_regionable_type"
+  add_index "regions_users", ["user_id"], :name => "index_regions_users_on_user_id"
 
   create_table "registers", :force => true do |t|
     t.integer  "code"

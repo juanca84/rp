@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  department: 
   user: 
+  regionable_id: 1
+  regionable_type: MyString
 
 two:
-  department: 
   user: 
+  regionable_id: 1
+  regionable_type: MyString

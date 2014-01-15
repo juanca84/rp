@@ -11,11 +11,15 @@ class User < ActiveRecord::Base
   scope :online_now, where("last_seen_at > ?", 5.minutes.ago)
 
   has_one :profile
-  has_many :departments_users
-  has_many :departments, through: :departments_users
   has_many :runpa_modules, through: :roles
 
-  accepts_nested_attributes_for :departments, :profile
+  #asociasiones polimorfica para la region donde pertenece el usuario
+  has_many :regions_users
+  has_many :departments, through: :regions_users, :source => :regionable, :source_type => "Department"
+  has_many :provinces,   through: :regions_users, :source => :regionable, :source_type => "Province"
+  has_many :communities, through: :regions_users, :source => :regionable, :source_type => "Community"
+
+  accepts_nested_attributes_for :profile
 
   before_destroy :not_admin
 
