@@ -30,23 +30,6 @@ ActiveAdmin.register User do
   filter :departments
   
   form partial: "form"
-  # form do |f|
-  #   f.inputs "Detalles de usuario" do
-  #     f.input :email
-  #     f.input :password
-  #     f.input :password_confirmation
-  #     f.input :roles, as: :check_boxes
-  #     f.input :departments, as: :check_boxes
-  #     f.has_many :profile do |profile|
-  #       profile.input :name
-  #       profile.input :last_name
-  #       profile.input :identification
-  #       profile.input :birthdate
-  #       profile.input :sex, as: :select, collection: Person::SEX
-  #     end
-  #   end
-  #   f.actions
-  # end
 
   show title: "usuario" do |u|
     attributes_table  do

@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
   def access_denied(exception)
     redirect_to main_app.root_url, :alert => exception.message
   end
+
+
 end
