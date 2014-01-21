@@ -16,6 +16,9 @@ ActiveAdmin.register User do
     column :roles do |u|
       u.roles_name.join(", ")
     end
+    column :active do |u|
+      u.active? ? "Si" : "No"
+    end
     column :created_at
     column :sign_in_count
     column :last_seen_at
@@ -34,6 +37,9 @@ ActiveAdmin.register User do
   show title: "usuario" do |u|
     attributes_table  do
       row :email
+      row :active do |u|
+        u.active? ? "Si" : "No"
+      end  
       row :sign_in_count
       row :created_at
       row :last_seen_at
