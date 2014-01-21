@@ -100,6 +100,7 @@ es:
         name: nombre
         resource_type: Tipo de Recurso
       user:
+        active: Activo
         created_at: Creado en
         departments: Departamentos
         email: email

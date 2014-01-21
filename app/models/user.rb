@@ -45,4 +45,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  #metodo para determinar si el usuario esta activo
+  def active?
+    active
+  end
+
+  #metodo para verificar si esta activo el usuario
+  def active_for_authentication?
+    super && self.active?
+  end
+
+  #metodo para definir el mensaje cuando el usuario esta desactivado
+  def inactive_message
+    "Lo siento, Esta cuenta ha sido desactivada."
+  end
+
 end

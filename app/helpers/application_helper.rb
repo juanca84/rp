@@ -1,14 +1,15 @@
 module ApplicationHelper
+  #metodo para asignar el estilo al mensaje correspondiente
   def bootstrap_class_for flash_type
     case flash_type
     when :success
-      "alert-success" #Green
+      "alert-success" #Verde
     when :error
-      "alert-danger" #Red
+      "alert-danger" #Rojo
     when :alert
-      "alert-warning" #yellow
+      "alert-warning" #amarillo
     when :notice
-      "alert-info" #blue
+      "alert-info" #azul
     else
       flash_type.to_s
     end
