@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, #:registerable,
     :recoverable, :rememberable, :trackable, :validatable, :lastseenable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :lastseenable, :role_ids, :department_ids, :profile_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :lastseenable, :active, 
+                  :role_ids, :department_ids, :province_ids, :community_ids, :profile_attributes
 
   validates :email, presence: true, uniqueness: true
 
@@ -42,6 +43,21 @@ class User < ActiveRecord::Base
     define_method("module_#{ mod.gsub(/ /, '_') }?") do
       self.runpa_modules.pluck(:name).include?(mod)
     end
+  end
+
+  #metodo para determinar si el usuario esta activo
+  def active?
+    active
+  end
+
+  #metodo para verificar si esta activo el usuario
+  def active_for_authentication?
+    super && self.active?
+  end
+
+  #metodo para definir el mensaje cuando el usuario esta desactivado
+  def inactive_message
+    "Lo siento, Esta cuenta ha sido desactivada."
   end
 
 end

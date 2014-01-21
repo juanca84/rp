@@ -1,0 +1,20 @@
+= semantic_form_for [:admin, @user] do |f|
+  = f.inputs "Detalles de usuario" do
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    = f.input :active
+    = f.input :roles, as: :check_boxes
+    = f.input :departments, as: :check_boxes
+    = f.input :provinces, as: :check_boxes
+    = f.input :communities, as: :check_boxes
+
+  = f.inputs "Detalles de Perfil" do
+    = f.semantic_fields_for :profile do |profile|
+      = profile.input :name
+      = profile.input :last_name
+      = profile.input :identification
+      = profile.input :birthdate
+      = profile.input :sex, as: :select, collection: Person::SEX
+
+  = f.actions

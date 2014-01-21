@@ -16,6 +16,9 @@ ActiveAdmin.register User do
     column :roles do |u|
       u.roles_name.join(", ")
     end
+    column :active do |u|
+      u.active? ? "Si" : "No"
+    end
     column :created_at
     column :sign_in_count
     column :last_seen_at
@@ -28,28 +31,15 @@ ActiveAdmin.register User do
   filter :email
   filter :roles
   filter :departments
-
-  form do |f|
-    f.inputs "Detalles de usuario" do
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
-      f.input :roles, as: :check_boxes
-      f.input :departments, as: :check_boxes
-      f.has_many :profile do |profile|
-        profile.input :name
-        profile.input :last_name
-        profile.input :identification
-        profile.input :birthdate
-        profile.input :sex, as: :select, collection: Person::SEX
-      end
-    end
-    f.actions
-  end
+  
+  form partial: "form"
 
   show title: "usuario" do |u|
     attributes_table  do
       row :email
+      row :active do |u|
+        u.active? ? "Si" : "No"
+      end  
       row :sign_in_count
       row :created_at
       row :last_seen_at
