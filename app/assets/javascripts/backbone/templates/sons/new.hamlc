@@ -12,6 +12,6 @@
 %td.col-sm-2
   %input.string.optional.form-control{id: "register_sons_attributes_#{ @id }_person_attributes_identification", maxlength: "255", name: "register[sons_attributes][3][person_attributes][identification]", size: "50", type: "text"}
 %td.col-sm-1
-  %a.btn.btn-danger.btn-small{href: "#"}
+  %a.btn.btn-danger.btn-small.remove-sons
     %i.icon-white.icon-remove
     eliminar
