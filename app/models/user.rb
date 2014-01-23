@@ -11,11 +11,12 @@ class User < ActiveRecord::Base
 
   scope :online_now, where("last_seen_at > ?", 5.minutes.ago)
 
+  belongs_to :entity
+
   has_one :profile
   has_many :registers
   has_many :runpa_modules, through: :roles
-
-  #asociasiones polimorfica para la region donde pertenece el usuario
+  #asociasiones polimorficas para la region donde pertenece el usuario
   has_many :regions_users
   has_many :departments, through: :regions_users, :source => :regionable, :source_type => "Department"
   has_many :provinces,   through: :regions_users, :source => :regionable, :source_type => "Province"

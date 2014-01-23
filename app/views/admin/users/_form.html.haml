@@ -3,6 +3,7 @@
     = f.input :email
     = f.input :password
     = f.input :password_confirmation
+    = f.input :entity
     = f.input :active
     = f.input :roles, as: :check_boxes
     = f.input :departments, as: :check_boxes
@@ -14,7 +15,7 @@
       = profile.input :name
       = profile.input :last_name
       = profile.input :identification
-      = profile.input :birthdate
+      = profile.input :birthdate, as: :date_picker
       = profile.input :sex, as: :select, collection: Person::SEX
 
   = f.actions

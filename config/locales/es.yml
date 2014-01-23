@@ -45,6 +45,9 @@ es:
       education:
         one: Escolaridad
         other: Escolaridades
+      entity:
+        one: Entidad
+        other: Entidades
       ethnicity:
         one: Origen Étnico
         other: Orígenes Étnicos
@@ -67,6 +70,9 @@ es:
         one: Perfil
         other: Perfiles
     attributes:
+      entity:
+        business_name: Razón Social
+        description: Descripción
       people_register:
         mothers_name: Nombre de la Madre
         time_to_land: Tiempo dedicado a actividades laborales en el establecimiento
@@ -85,7 +91,7 @@ es:
       profile:
         name: Nombre
         last_name: Apellidos
-        identification: Nmero de Identificación
+        identification: Número de Identificación
         birthdate: Fecha de nacimiento
         sex: Sexo
       register:
