@@ -1,10 +1,12 @@
 #encoding: UTF-8
 class Register < ActiveRecord::Base
-  attr_accessible :code, :holders_attributes, :sons_attributes, :aggregates_attributes, :civil_union_id, :residence, :address, :community_id, :department_id, :geodesic_ns, :geodesic_ew
+  attr_accessible :address, :aggregates_attributes, :civil_union_id, :code, :community_id, :department_id, :geodesic_ew, 
+                  :geodesic_ns, :holders_attributes, :residence, :sons_attributes, :user_id
 
   belongs_to :civil_union
   belongs_to :community
   belongs_to :department
+  belongs_to :user
 
   has_many :people_registers
   has_many :people, through: :people_registers
@@ -13,7 +15,8 @@ class Register < ActiveRecord::Base
   has_many :holders
   has_many :sons
 
-  validates :code, presence: true, uniqueness: true
+  validates :code, :user_id,  presence: true
+  validates :code, uniqueness: true
   validate :validate_holders
 
   accepts_nested_attributes_for :holders
@@ -24,7 +27,6 @@ class Register < ActiveRecord::Base
 
   #método para validar el numero de holders
   def validate_holders
-    debugger
     if holders.length < 1  
       errors.add(:holders, "Por lo menos debe existir un titular.")
     elsif holders.length > 2

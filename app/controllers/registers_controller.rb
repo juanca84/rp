@@ -9,7 +9,7 @@ class RegistersController < RunpaController
   end
 
   def new
-    @register = Register.new(code: Register.new_code_number)
+    @register = Register.new(code: Register.new_code_number, user_id: current_user.id)
 
     2.times{ @register.holders.build(type_person: 'holder').build_person }
     4.times{ @register.sons.build(type_person: 'son').build_person }

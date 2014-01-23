@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121155504) do
+ActiveRecord::Schema.define(:version => 20140123135812) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -148,11 +148,13 @@ ActiveRecord::Schema.define(:version => 20140121155504) do
     t.string   "geodesic_ns"
     t.string   "geodesic_ew"
     t.string   "code_ine"
+    t.integer  "user_id"
   end
 
   add_index "registers", ["civil_union_id"], :name => "index_registers_on_civil_union_id"
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
   add_index "registers", ["department_id"], :name => "index_registers_on_department_id"
+  add_index "registers", ["user_id"], :name => "index_registers_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

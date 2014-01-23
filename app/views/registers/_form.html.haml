@@ -4,6 +4,7 @@
     = f.label :code, class: "col-sm-1"
     .col-sm-2
       = f.input_field :code, readonly: true
+    = f.hidden_field :user_id
 
   = f.error_notification
   = field_set_tag 'Identificación de los Titulares' do
