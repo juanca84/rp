@@ -47,4 +47,5 @@ end
 #for documentation
 group :development, :test do
   gem "rails-erd"
+  gem 'rspec-rails'
 end
