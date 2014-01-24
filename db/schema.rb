@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123144009) do
+ActiveRecord::Schema.define(:version => 20140123163620) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -81,6 +81,39 @@ ActiveRecord::Schema.define(:version => 20140123144009) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "lands", :force => true do |t|
+    t.float    "surface"
+    t.string   "unit_of_measure"
+    t.string   "tenure"
+    t.boolean  "disassemble_without_permission", :default => false
+    t.integer  "register_id"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+  end
+
+  add_index "lands", ["register_id"], :name => "index_lands_on_register_id"
+
+  create_table "main_activities", :force => true do |t|
+    t.string   "level"
+    t.string   "summner_entry"
+    t.string   "winter_entry"
+    t.integer  "register_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "main_activities", ["register_id"], :name => "index_main_activities_on_register_id"
+
+  create_table "partnerships", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "register_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "partnerships", ["register_id"], :name => "index_partnerships_on_register_id"
+
   create_table "people", :force => true do |t|
     t.string   "name"
     t.string   "first_lastname"
@@ -114,11 +147,11 @@ ActiveRecord::Schema.define(:version => 20140123144009) do
     t.string   "name"
     t.string   "last_name"
     t.string   "identification"
-    t.string   "birthdate"
     t.string   "sex"
     t.integer  "user_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.date     "birthdate"
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"

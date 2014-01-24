@@ -15,6 +15,8 @@ class Register < ActiveRecord::Base
   has_many :holders
   has_many :sons
 
+  has_many :partnerships
+
   validates :code, :user_id,  presence: true
   validates :code, uniqueness: true
   validate :validate_holders
