@@ -7,8 +7,9 @@
     = f.hidden_field :user_id
 
   = f.error_notification
-  = field_set_tag 'Identificación de los Titulares' do
-    = render 'holder', f: f
+  %legend 'Identificación de los Titulares'
+  /= field_set_tag 'Identificación de los Titulares' do
+  = render 'holder', f: f
 
   = field_set_tag 'Identificación de estado civil y domicilio' do
     .form-group
@@ -57,3 +58,22 @@
 
 :javascript
   var register = new Runpa.Views.Registers.NewView()
+
+%form.form-horizontal{role: "form"}
+  .form-group
+    %label.col-sm-2.control-label{for: "inputEmail3"} Email
+    .col-sm-10
+      %input#inputEmail3.form-control{placeholder: "Email", type: "email"}/
+  .form-group
+    %label.col-sm-2.control-label{for: "inputPassword3"} Password
+    .col-sm-10
+      %input#inputPassword3.form-control{placeholder: "Password", type: "password"}/
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      .checkbox
+        %label
+          %input{type: "checkbox"}/
+          Remember me
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-default{type: "submit"} Sign in
