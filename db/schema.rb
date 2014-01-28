@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140128134220) do
+ActiveRecord::Schema.define(:version => 20140128164106) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -89,20 +89,14 @@ ActiveRecord::Schema.define(:version => 20140128134220) do
     t.integer  "register_id"
     t.datetime "created_at",                                        :null => false
     t.datetime "updated_at",                                        :null => false
+    t.integer  "department_id"
+    t.integer  "community_id"
+    t.string   "another_community"
   end
 
+  add_index "lands", ["community_id"], :name => "index_lands_on_community_id"
+  add_index "lands", ["department_id"], :name => "index_lands_on_department_id"
   add_index "lands", ["register_id"], :name => "index_lands_on_register_id"
-
-  create_table "main_activities", :force => true do |t|
-    t.string   "level"
-    t.string   "summner_entry"
-    t.string   "winter_entry"
-    t.integer  "register_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "main_activities", ["register_id"], :name => "index_main_activities_on_register_id"
 
   create_table "partnerships", :force => true do |t|
     t.string   "name"
@@ -197,6 +191,9 @@ ActiveRecord::Schema.define(:version => 20140128134220) do
     t.string   "geodesic_ew"
     t.string   "code_ine"
     t.integer  "user_id"
+    t.string   "subsector"
+    t.string   "first_entry"
+    t.string   "second_entry"
   end
 
   add_index "registers", ["civil_union_id"], :name => "index_registers_on_civil_union_id"
@@ -266,5 +263,23 @@ ActiveRecord::Schema.define(:version => 20140128134220) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "works", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "community_id"
+    t.integer  "register_id"
+    t.integer  "own_labor"
+    t.integer  "eventual_labor"
+    t.integer  "permanent_labor"
+    t.float    "men_per_year_own"
+    t.float    "men_per_year_eventually"
+    t.float    "men_per_year_total"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "works", ["community_id"], :name => "index_works_on_community_id"
+  add_index "works", ["department_id"], :name => "index_works_on_department_id"
+  add_index "works", ["register_id"], :name => "index_works_on_register_id"
 
 end

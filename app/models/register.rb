@@ -8,12 +8,14 @@ class Register < ActiveRecord::Base
   belongs_to :department
   belongs_to :user
 
-  has_many :people_registers
-  has_many :people, through: :people_registers
-
   has_many :aggregates
   has_many :holders
+  has_many :lands
   has_many :sons
+  has_many :works
+
+  has_many :people_registers
+  has_many :people, through: :people_registers
 
   has_many :partnerships_registers
   has_many :partnerships, through: :partnerships_registers 
@@ -22,9 +24,7 @@ class Register < ActiveRecord::Base
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :holders
-  accepts_nested_attributes_for :sons
-  accepts_nested_attributes_for :aggregates
+  accepts_nested_attributes_for :aggregates, :holders, :lands, :sons, :works
 
   before_validation :generate_code
 

@@ -1,0 +1,43 @@
+%table.table.table_register.table_works
+  %thead
+    %tr
+      %th.col-sm-1 Departamento
+      %th.col-sm-1 Municipio
+      %th.col-sm-1 Propia
+      %th.col-sm-1 Eventual
+      %th.col-sm-1 Permanente
+      %th.col-sm-1 Propia
+      %th.col-sm-1 Eventual
+      %th.col-sm-1 Permanente
+      %th.col-sm-1 
+    %tr
+      %th.col-sm-1 Departamento
+      %th.col-sm-1 Municipio
+      %th.col-sm-1 Propia
+      %th.col-sm-1 Eventual
+      %th.col-sm-1 Permanente
+      %th.col-sm-1 Propia
+      %th.col-sm-1 Eventual
+      %th.col-sm-1 Permanente
+      %th.col-sm-1 
+  %tbody
+    = f.simple_fields_for :works do |work|
+      %tr
+        %td
+          = work.association :department, label: false 
+        %td
+          = work.association :community, label: false
+        %td
+          = work.input_field :another_community
+        %td
+          = work.input_field :surface
+        %td
+          = work.input_field :unit_of_measure
+        %td
+          = work.input_field :tenure
+        %td
+          = work.input_field :disassemble_without_permission, as: :radio_buttons
+        %td
+          %a.btn.btn-danger.btn-small.static_works
+            %i.icon-white.icon-remove
+            eliminar

@@ -52,16 +52,25 @@
         %a.btn.btn-success.btn-large.add_aggregate
           %i.icon-white.icon-plus-sign
           adicionar agregado/a
+
   .well.form-actions
     %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA , COMERCIAL
     #partnerships
       = render 'partnership', f: f
       %a.btn.btn-success.btn-large.add_partnership  
         %i.icon-white.icon-plus-sign
-        adicionar Asociacion Productiva                       
+        adicionar Asociacion Productiva  
+      = render 'main_activity', f: f                    
 
   .well.form-actions
     %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+    = field_set_tag 'Tierra' do
+      #lands
+        = render 'land', f: f
+
+    = field_set_tag 'Trabajo' do
+      #lands
+        = render 'work', f: f
 
   .well.form-actions
     %legend PRODUCCIÓN

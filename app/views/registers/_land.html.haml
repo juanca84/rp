@@ -1,0 +1,32 @@
+%table.table.table_register.table_lands
+  %thead
+    %tr
+      %th.col-sm-1 Departamento
+      %th.col-sm-1 Municipio
+      %th.col-sm-1 Comunidad/zona/otra
+      %th.col-sm-1 Superficie
+      %th.col-sm-1 Unidad de Medida
+      %th.col-sm-1 Tenencia
+      %th.col-sm-1 Desmonte Sin Autorizacion
+      %th.col-sm-1 
+  %tbody
+    = f.simple_fields_for :lands do |land|
+      %tr
+        %td
+          = land.association :department, label: false 
+        %td
+          = land.association :community, label: false
+        %td
+          = land.input_field :another_community
+        %td
+          = land.input_field :surface
+        %td
+          = land.input_field :unit_of_measure
+        %td
+          = land.input_field :tenure
+        %td
+          = land.input_field :disassemble_without_permission, as: :radio_buttons
+        %td
+          %a.btn.btn-danger.btn-small.static_lands
+            %i.icon-white.icon-remove
+            eliminar
