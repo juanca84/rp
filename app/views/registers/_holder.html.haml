@@ -4,7 +4,7 @@
     - index +=1
     = holder.hidden_field :type_person
     = holder.simple_fields_for :person do |person|
-      = person.input :name
+      /= person.input :name
       .form-group.control-group
         = person.label :name, class: "col-sm-2"
         .col-sm-10.control

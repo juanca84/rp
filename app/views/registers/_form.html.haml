@@ -53,7 +53,12 @@
           %i.icon-white.icon-plus-sign
           adicionar agregado/a
   .well.form-actions
-    %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA , COMERCIAL                       
+    %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA , COMERCIAL
+    #partnerships
+      = render 'partnership', f: f
+      %a.btn.btn-success.btn-large.add_partnership  
+        %i.icon-white.icon-plus-sign
+        adicionar Asociacion Productiva                       
 
   .well.form-actions
     %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN

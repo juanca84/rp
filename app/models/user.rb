@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :registers
   has_many :runpa_modules, through: :roles
+
   #asociasiones polimorficas para la region donde pertenece el usuario
   has_many :regions_users
   has_many :departments, through: :regions_users, :source => :regionable, :source_type => "Department"
@@ -61,5 +62,10 @@ class User < ActiveRecord::Base
   def inactive_message
     "Lo siento, Esta cuenta ha sido desactivada."
   end
+
+  #metodo mostrar nombre completo
+  def full_name
+    "#{ profile.try(:name) } #{ profile.try(:last_name) }"
+  end  
 
 end

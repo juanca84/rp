@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140128130045) do
+ActiveRecord::Schema.define(:version => 20140128134220) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -107,12 +107,19 @@ ActiveRecord::Schema.define(:version => 20140128130045) do
   create_table "partnerships", :force => true do |t|
     t.string   "name"
     t.string   "code"
-    t.integer  "register_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "partnerships", ["register_id"], :name => "index_partnerships_on_register_id"
+  create_table "partnerships_registers", :force => true do |t|
+    t.integer  "register_id"
+    t.integer  "partnership_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "partnerships_registers", ["partnership_id"], :name => "index_partnerships_registers_on_partnership_id"
+  add_index "partnerships_registers", ["register_id"], :name => "index_partnerships_registers_on_register_id"
 
   create_table "people", :force => true do |t|
     t.string   "name"

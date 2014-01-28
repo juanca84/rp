@@ -1,4 +1,6 @@
 class Partnership < ActiveRecord::Base
-  belongs_to :register
   attr_accessible :code, :name
+
+  has_many :partnerships_registers
+  has_many :registers, through: :partnerships_registers 
 end

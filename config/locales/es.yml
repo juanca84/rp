@@ -66,6 +66,9 @@ es:
       user:
         one: Usuario
         other: Usuarios
+      partnership:
+        one: Asociación Productiva
+        other: Asociaciones Productivas  
       profile:
         one: Perfil
         other: Perfiles
