@@ -73,6 +73,7 @@ es:
       entity:
         business_name: Razón Social
         description: Descripción
+        nit: NIT/PJ
       people_register:
         mothers_name: Nombre de la Madre
         time_to_land: Tiempo dedicado a actividades laborales en el establecimiento

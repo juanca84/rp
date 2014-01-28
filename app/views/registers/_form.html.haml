@@ -7,11 +7,10 @@
     = f.hidden_field :user_id
 
   = f.error_notification
-  %legend 'Identificación de los Titulares'
-  /= field_set_tag 'Identificación de los Titulares' do
-  = render 'holder', f: f
 
-  = field_set_tag 'Identificación de estado civil y domicilio' do
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS TITULARES
+    = render 'holder', f: f
     .form-group
       = f.label :civil_union, class: "col-sm-2"
       .col-sm-4
@@ -38,7 +37,8 @@
       .col-sm-4
         = f.input_field :geodesic_ew
 
-  = field_set_tag 'Identificación de los demás miembros de la familia' do
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
     = field_set_tag 'Hijos e Hijas' do
       #sons
         = render 'son_aggregate', f: f, resources: :sons
@@ -52,28 +52,19 @@
         %a.btn.btn-success.btn-large.add_aggregate
           %i.icon-white.icon-plus-sign
           adicionar agregado/a
+  .well.form-actions
+    %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA , COMERCIAL                       
 
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+
+  .well.form-actions
+    %legend PRODUCCIÓN
+
+  .well.form-actions
+    %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
   .form-actions
     %input.btn.btn-primary.pull-right{type: "submit", value: "Crear Registro"}
 
 :javascript
   var register = new Runpa.Views.Registers.NewView()
-
-%form.form-horizontal{role: "form"}
-  .form-group
-    %label.col-sm-2.control-label{for: "inputEmail3"} Email
-    .col-sm-10
-      %input#inputEmail3.form-control{placeholder: "Email", type: "email"}/
-  .form-group
-    %label.col-sm-2.control-label{for: "inputPassword3"} Password
-    .col-sm-10
-      %input#inputPassword3.form-control{placeholder: "Password", type: "password"}/
-  .form-group
-    .col-sm-offset-2.col-sm-10
-      .checkbox
-        %label
-          %input{type: "checkbox"}/
-          Remember me
-  .form-group
-    .col-sm-offset-2.col-sm-10
-      %button.btn.btn-default{type: "submit"} Sign in

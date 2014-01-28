@@ -4,10 +4,10 @@
     - index +=1
     = holder.hidden_field :type_person
     = holder.simple_fields_for :person do |person|
-      //= person.input :name
+      = person.input :name
       .form-group.control-group
         = person.label :name, class: "col-sm-2"
-        .col-sm-10.control.form-group
+        .col-sm-10.control
           = person.input_field :name, class: 'form-control'
       .form-group
         = person.label :birthdate, class: "col-sm-2"
