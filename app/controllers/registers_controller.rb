@@ -15,6 +15,7 @@ class RegistersController < RunpaController
     4.times{ @register.sons.build(type_person: 'son').build_person }
     4.times{ @register.aggregates.build(type_person: 'aggregate').build_person }
     @register.lands.build
+    @register.works.build
 
     respond_to do |wants|
       wants.html # new.html.erb
