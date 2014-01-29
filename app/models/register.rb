@@ -8,7 +8,9 @@ class Register < ActiveRecord::Base
   belongs_to :department
   belongs_to :user
 
+  has_many :agricultural_productions
   has_many :aggregates
+  has_many :capitals
   has_many :holders
   has_many :lands
   has_many :sons
@@ -24,7 +26,7 @@ class Register < ActiveRecord::Base
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :aggregates, :holders, :lands, :sons, :works
+  accepts_nested_attributes_for :agricultural_productions, :aggregates, :capitals, :holders, :lands, :sons, :works
 
   before_validation :generate_code
 

@@ -1,25 +1,18 @@
 %table.table.table_register.table_works
   %thead
     %tr
-      %th.col-sm-1 Departamento
-      %th.col-sm-1 Municipio
-      %th.col-sm-1 Propia
-      %th.col-sm-1 Eventual
-      %th.col-sm-1 Permanente
-      %th.col-sm-1 Propia
-      %th.col-sm-1 Eventual
-      %th.col-sm-1 Permanente
-      %th.col-sm-1 
+      %th.col-sm-1{ rowspan: 2 } Departamento
+      %th.col-sm-1{ rowspan: 2 } Municipio
+      %th.col-sm-1{ colspan: 3 } Mano de Obra 
+      %th.col-sm-1{ colspan: 3 } Conversión - hombre año
+      %th.col-sm-1{ rowspan: 2 }
     %tr
-      %th.col-sm-1 Departamento
-      %th.col-sm-1 Municipio
       %th.col-sm-1 Propia
       %th.col-sm-1 Eventual
       %th.col-sm-1 Permanente
       %th.col-sm-1 Propia
       %th.col-sm-1 Eventual
       %th.col-sm-1 Permanente
-      %th.col-sm-1 
   %tbody
     = f.simple_fields_for :works do |work|
       %tr
@@ -28,15 +21,17 @@
         %td
           = work.association :community, label: false
         %td
-          = work.input_field :another_community
+          = work.input_field :own_labor
         %td
-          = work.input_field :surface
+          = work.input_field :eventual_labor
         %td
-          = work.input_field :unit_of_measure
+          = work.input_field :permanent_labor
         %td
-          = work.input_field :tenure
+          = work.input_field :men_per_year_own
         %td
-          = work.input_field :disassemble_without_permission, as: :radio_buttons
+          = work.input_field :men_per_year_eventually
+        %td
+          = work.input_field :men_per_year_total
         %td
           %a.btn.btn-danger.btn-small.static_works
             %i.icon-white.icon-remove
