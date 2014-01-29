@@ -101,6 +101,7 @@ es:
       register:
         address: Dirección
         civil_union: Unión Civil
+        code: No.
         community: Municipio
         department: Departamento
         first_entry: Rubro 1
