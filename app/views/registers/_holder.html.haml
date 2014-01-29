@@ -1,7 +1,6 @@
 - index = 1
 = f.simple_fields_for :holders do |holder|
   = field_set_tag "Titular 0#{ index }" do
-    - index +=1
     = holder.hidden_field :type_person
     = holder.simple_fields_for :person do |person|
       /= person.input :name
@@ -28,3 +27,31 @@
         = holder.label :time_to_land, class: "col-sm-6"
         .col-sm-6
           = holder.input_field :time_to_land, as: :string
+      - if index == 1
+        .form-group
+          = person.label :civil_status, class: "col-sm-2"
+          .col-sm-4
+            = person.input_field :civil_status_id, as: :select, collection: CivilStatus.all
+
+          = f.label :residence, class: "col-sm-2"
+          .col-sm-4
+            = f.input_field :residence
+        .form-group
+          = f.label :address, class: "col-sm-2"
+          .col-sm-10
+            = f.input_field :address
+        .form-group
+          = f.label :community, class: "col-sm-2"
+          .col-sm-4
+            = f.input_field :community_id, as: :select, collection: Community.all
+          = f.label :department, class: "col-sm-2"
+          .col-sm-4
+            = f.input_field :department_id, as: :select, collection: Department.all
+        .form-group
+          = f.label :geodesic_ns, class: "col-sm-2"
+          .col-sm-4
+            = f.input_field :geodesic_ns
+          = f.label :geodesic_ns, class: "col-sm-2"
+          .col-sm-4
+            = f.input_field :geodesic_ew
+  - index +=1

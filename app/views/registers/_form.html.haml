@@ -11,31 +11,6 @@
   .well.form-actions
     %legend IDENTIFICACIÓN DE LOS TITULARES
     = render 'holder', f: f
-    .form-group
-      = f.label :civil_union, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :civil_union_id, as: :select, collection: CivilUnion.all
-      = f.label :residence, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :residence
-    .form-group
-      = f.label :address, class: "col-sm-2"
-      .col-sm-10
-        = f.input_field :address
-    .form-group
-      = f.label :community, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :community_id, as: :select, collection: Community.all
-      = f.label :department, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :department_id, as: :select, collection: Department.all
-    .form-group
-      = f.label :geodesic_ns, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :geodesic_ns
-      = f.label :geodesic_ns, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :geodesic_ew
 
   .well.form-actions
     %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA

@@ -5,5 +5,4 @@ class PeopleRegister < ActiveRecord::Base
 
   attr_accessible :type_person, :person_attributes, :time_to_land
   #validates :time_to_land, :type_person, presence: true
-
 end
