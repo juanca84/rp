@@ -81,17 +81,16 @@ es:
         mothers_name: Nombre de la Madre
         time_to_land: Número de días al año dedicado a actividades agropecuarias en el establecimiento
         type_person: Tipo de persona
+
       person:
-        name: Nombre y Apellidos
-        first_lastname: Apellido Paterno
-        second_lastname: Apellido Materno
-        identification: Cédula de Identidad
         birthdate: Fecha de nacimiento
-        sex: Sexo
-        education: Nivel de instrucción
-        ethnicity: Identificación de origen étnico
         civil_status: Estado Civil
-        type_identification: Tipo de Identificación
+        community_of_birth: Municipio de Nacimiento
+        education: Nivel de instrucción
+        identification: Cédula de Identidad
+        name: Nombre y Apellidos
+        sex: Sexo
+
       profile:
         name: Nombre
         last_name: Apellidos
@@ -102,7 +101,8 @@ es:
         address: Dirección
         civil_union: Unión Civil
         code: No.
-        community: Municipio
+        code_ine: Código INE
+        community: Municipio de Residencia
         department: Departamento
         first_entry: Rubro 1
         geodesic_ew: Punto Geodésico EW

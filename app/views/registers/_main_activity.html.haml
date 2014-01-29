@@ -1,20 +1,12 @@
-%table.table.table_register.table_partnerships
-  %thead
-    %tr
-      %th.col-sm-10 Actividad Principal
-  %tbody
-    %tr
-      %td
-        .form-group
-          = f.label :subsector, class: "col-sm-2"
-          .col-sm-10
-            = f.input_field :subsector
+.form-group
+  = f.label :subsector, class: "col-sm-1"
+  .col-sm-3
+    = f.input_field :subsector
 
-        .form-group
-          = f.label :first_entry, class: "col-sm-2"
-          .col-sm-4
-            = f.input_field :first_entry
+  = f.label :first_entry, class: "col-sm-1"
+  .col-sm-3
+    = f.input_field :first_entry
 
-          = f.label :second_entry, class: "col-sm-2"
-          .col-sm-4
-            = f.input_field :second_entry
+  = f.label :second_entry, class: "col-sm-1"
+  .col-sm-3
+    = f.input_field :second_entry

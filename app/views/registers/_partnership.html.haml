@@ -1,16 +1,12 @@
 %table.table.table_register.table_partnerships
-  %thead
-    %tr
-      %th.col-sm-5 A que  asociaciones pertenece
-      %th.col-sm-2 Código
-      %th.col-sm-1
   %tbody
     %tr
-      %td
+      %td.col-sm-9
         = f.input_field :partnerships, as: :select, collection: Partnership.pluck(:name)
-      %td
+      %td.col-sm-1
+        Cód:
+      %td.col-sm-2
         %input#register_aggregates_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][name]", size: "50", type: "text", readonly: true}
-      %td
+      %td.col-sm-1
         %a.btn.btn-danger.btn-small.static_partnerships
-          %i.icon-white.icon-remove
-          eliminar
+          .glyphicon.glyphicon-remove

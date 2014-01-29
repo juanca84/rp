@@ -1,29 +1,29 @@
-%table.table.table_register{ class: "table_#{ resources.to_s }"}
-  %thead
-    %tr
-      %th.col-sm-5 Nombre y Apellidos
-      %th.col-sm-2 Edad
-      %th.col-sm-1 Sexo
-      %th.col-sm-2 Nº de días al año dedicado a las actividades agropecuarias en el establecimiento
-      %th.col-sm-2 Número de Cédula de Identidad
-      %th.col-sm-1
+.table-responsive
+  %table.table.table_register{ class: "table_#{ resources.to_s }"}
+    %thead
+      %tr
+        %th.col-sm-6 Nombre y Apellidos
+        %th.col-sm-1 Edad
+        %th.col-sm-1 Sexo
+        %th.col-sm-2 Nº de días al año dedicado a las actividades agropecuarias en el establecimiento
+        %th.col-sm-2 Número de Cédula de Identidad
+        %th.col-sm-1
 
-  %tbody
-    = f.simple_fields_for resources do |resource|
-      = resource.hidden_field :type_person
-      = resource.simple_fields_for :person do |person|
-        %tr
-          %td
-            = person.input_field :name
-          %td
-            = person.input_field :age
-          %td
-            = person.input_field :sex, as: :select, collection: Person::SEX
-          %td
-            = resource.input_field :time_to_land, as: :string
-          %td
-            = person.input_field :identification
-          %td
-            %a.btn.btn-danger.btn-small.static{class: "remove-#{ resources.to_s }"}
-              %i.icon-white.icon-remove
-              eliminar
+    %tbody
+      = f.simple_fields_for resources do |resource|
+        = resource.hidden_field :type_person
+        = resource.simple_fields_for :person do |person|
+          %tr
+            %td.col-sm-6
+              = person.input_field :name
+            %td.col-sm-1
+              = person.input_field :age
+            %td.col-sm-1
+              = person.input_field :sex, as: :select, collection: Person::SEX
+            %td.col-sm-2
+              = resource.input_field :time_to_land, as: :string
+            %td.col-sm-2
+              = person.input_field :identification
+            %td.col-sm-1
+              %a.btn.btn-danger.btn-small.static{class: "remove-#{ resources.to_s }"}
+                .glyphicon.glyphicon-remove

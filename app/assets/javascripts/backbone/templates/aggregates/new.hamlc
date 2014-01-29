@@ -1,6 +1,6 @@
-%td.col-sm-5
+%td.col-sm-6
   %input.string.optional.form-control{id: "register_aggregates_attributes_#{ @id }_person_attributes_name", maxlength: "255", name: "register[aggregates_attributes][#{ @id }][person_attributes][name]", size: "50", type: "text"}
-%td.col-sm-2
+%td.col-sm-1
   %input.string.optional.form-control{id: "register_aggregates_attributes_#{ @id }_person_attributes_birthdate", name: "register[aggregates_attributes][#{ @id }][person_attributes][birthdate]", size: "50", type: "text"}
 %td.col-sm-1
   %select.select.optional.form-control{id: "register_aggregates_attributes_#{ @id }_person_attributes_sex", name: "register[aggregates_attributes][#{ @id }][person_attributes][sex]"}
@@ -13,5 +13,4 @@
   %input.string.optional.form-control{id: "register_aggregates_attributes_#{ @id }_person_attributes_identification", maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][identification]", size: "50", type: "text"}
 %td.col-sm-1
   %a.btn.btn-danger.btn-small.remove-aggregates
-    %i.icon-white.icon-remove
-    eliminar
+    .glyphicon.glyphicon-remove

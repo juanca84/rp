@@ -7,6 +7,8 @@ class Person < ActiveRecord::Base
   belongs_to :ethnicity
   belongs_to :education
   belongs_to :civil_status
+  
+  belongs_to :community_of_birth, class_name: Community
 
   has_many :people_registers
   has_many :registers, through: :people_registers

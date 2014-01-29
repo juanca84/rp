@@ -14,28 +14,34 @@
 
   .well.form-actions
     %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
-    = field_set_tag 'Hijos e Hijas' do
-      #sons
-        = render 'son_aggregate', f: f, resources: :sons
-        %a.btn.btn-success.btn-large.add_son
-          %i.icon-white.icon-plus-sign
-          adicionar hijo/a
+    .well.form-actions
+      = field_set_tag 'Hijos e Hijas' do
+        #sons
+          = render 'son_aggregate', f: f, resources: :sons
+          %a.btn.btn-success.btn-large.add_son
+            .glyphicon.glyphicon-plus-sign
+            adicionar hijo/a
 
-    = field_set_tag 'Agregados y Agregadas' do
-      #aggregates
-        = render 'son_aggregate', f: f, resources: :aggregates
-        %a.btn.btn-success.btn-large.add_aggregate
-          %i.icon-white.icon-plus-sign
-          adicionar agregado/a
+    .well.form-actions
+      = field_set_tag 'Agregados y Agregadas' do
+        #aggregates
+          = render 'son_aggregate', f: f, resources: :aggregates
+          %a.btn.btn-success.btn-large.add_aggregate
+            .glyphicon.glyphicon-plus-sign
+            adicionar agregado/a
 
   .well.form-actions
     %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
-    #partnerships
-      = render 'partnership', f: f
-      %a.btn.btn-success.btn-large.add_partnership  
-        %i.icon-white.icon-plus-sign
-        adicionar Asociacion Productiva  
-      = render 'main_activity', f: f                    
+    .well.form-actions
+      = field_set_tag 'A que asociaciones pertenece' do
+        #partnerships
+          = render 'partnership', f: f
+          %a.btn.btn-success.btn-large.add_partnership 
+            .glyphicon.glyphicon-plus-sign
+            adicionar asociacion productiva  
+    .well.form-actions
+      = field_set_tag 'Actividad Principal' do
+        = render 'main_activity', f: f                    
 
   .well.form-actions
     %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
