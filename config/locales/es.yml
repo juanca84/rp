@@ -79,13 +79,13 @@ es:
         nit: NIT/PJ
       people_register:
         mothers_name: Nombre de la Madre
-        time_to_land: Tiempo dedicado a actividades laborales en el establecimiento
+        time_to_land: Número de días al año dedicado a actividades agropecuarias en el establecimiento
         type_person: Tipo de persona
       person:
-        name: Nombre
+        name: Nombre y Apellidos
         first_lastname: Apellido Paterno
         second_lastname: Apellido Materno
-        identification: Identificacion
+        identification: Cédula de Identidad
         birthdate: Fecha de nacimiento
         sex: Sexo
         education: Nivel de instrucción
@@ -103,9 +103,11 @@ es:
         civil_union: Unión Civil
         community: Municipio
         department: Departamento
+        first_entry: Rubro 1
         geodesic_ew: Punto Geodésico EW
         geodesic_ns: Punto Geodésico NS
         residence: Lugar de Residencia
+        second_entry: Rubro 2
       role:
         name: nombre
         resource_type: Tipo de Recurso

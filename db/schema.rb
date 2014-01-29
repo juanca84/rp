@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129031248) do
+ActiveRecord::Schema.define(:version => 20140129135159) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -152,17 +152,14 @@ ActiveRecord::Schema.define(:version => 20140129031248) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
-    t.string   "first_lastname"
-    t.string   "second_lastname"
     t.string   "identification"
     t.date     "birthdate"
     t.string   "sex"
-    t.integer  "type_identification_id"
-    t.integer  "ethnicity_id"
     t.integer  "education_id"
     t.integer  "civil_status_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "age"
   end
 
   create_table "people_registers", :force => true do |t|
@@ -172,7 +169,6 @@ ActiveRecord::Schema.define(:version => 20140129031248) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "time_to_land"
-    t.string   "mothers_name"
     t.string   "town_of_birth"
   end
 

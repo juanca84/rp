@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class Register < ActiveRecord::Base
-  attr_accessible :address, :aggregates_attributes, :civil_union_id, :code, :community_id, :department_id, :geodesic_ew, 
+  attr_accessible :address, :aggregates_attributes, :code, :community_id, :department_id, :geodesic_ew, 
                   :geodesic_ns, :holders_attributes, :residence, :sons_attributes, :user_id
 
   belongs_to :civil_union

@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   SEX = %w(M F)
-  attr_accessible :birthdate, :first_lastname, :identification, :name, :second_lastname, :sex, :people_registers_attributes, :education_id, :ethnicity_id
+  attr_accessible :age, :birthdate, :first_lastname, :identification, :name, :second_lastname, :sex, 
+                  :people_registers_attributes, :education_id, :ethnicity_id
 
   belongs_to :type_identification
   belongs_to :ethnicity

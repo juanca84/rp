@@ -1,10 +1,10 @@
 %table.table.table_register{ class: "table_#{ resources.to_s }"}
   %thead
     %tr
-      %th.col-sm-5 Nombre
-      %th.col-sm-2 Fecha de nacimiento
+      %th.col-sm-5 Nombre y Apellidos
+      %th.col-sm-2 Edad
       %th.col-sm-1 Sexo
-      %th.col-sm-2 Número de jornadas de trabajo en el establecimiento - dias/año
+      %th.col-sm-2 Nº de días al año dedicado a las actividades agropecuarias en el establecimiento
       %th.col-sm-2 Número de Cédula de Identidad
       %th.col-sm-1
 
@@ -16,7 +16,7 @@
           %td
             = person.input_field :name
           %td
-            = person.input_field :birthdate, as: :string
+            = person.input_field :age
           %td
             = person.input_field :sex, as: :select, collection: Person::SEX
           %td
