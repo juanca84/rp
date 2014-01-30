@@ -1,20 +1,22 @@
 %table.table.table_register.table_capitals
   %thead
     %tr
-      %th.col-sm-1 Departamento
-      %th.col-sm-1 Municipio
-      %th.col-sm-1 Item Capital
+      %th.col-sm-3 Departamento
+      %th.col-sm-3 Municipio
+      %th.col-sm-2 Item Capital
       %th.col-sm-1 Año de Compra y/o Construcción           
       %th.col-sm-1 Vida útil futura         
-      %th.col-sm-1 Valor actual (Bs)
+      %th.col-sm-2 Valor actual (Bs)
       %th.col-sm-1 
   %tbody
     = f.simple_fields_for :capitals do |capital|
       %tr
         %td
-          = capital.association :department, label: false 
+          .col-sm-12
+            = capital.association :department, label: false 
         %td
-          = capital.association :community, label: false
+          .col-sm-12
+            = capital.association :community, label: false
         %td
           = capital.input_field :capital_item
         %td
@@ -25,5 +27,4 @@
           = capital.input_field :current_value
         %td
           %a.btn.btn-danger.btn-small.static_capitals
-            %i.icon-white.icon-remove
-            eliminar
+            .glyphicon.glyphicon-remove

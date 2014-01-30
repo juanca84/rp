@@ -3,19 +3,21 @@
     %tr
       %th.col-sm-2 Departamento
       %th.col-sm-2 Municipio
-      %th.col-sm-1 Comunidad/zona/otra
-      %th.col-sm-1 Superficie
+      %th.col-sm-2 Comunidad/zona/otra
+      %th.col-sm-2 Superficie
       %th.col-sm-1 Unidad de Medida
-      %th.col-sm-1 Tenencia
+      %th.col-sm-2 Tenencia
       %th.col-sm-1 Desmonte Sin Autorizacion
       %th.col-sm-1 
   %tbody
     = f.simple_fields_for :lands do |land|
       %tr
-        %td.col-sm-2
-          = land.association :department, label: false 
         %td
-          = land.association :community, label: false
+          .col-sm-12
+            = land.association :department, label: false 
+        %td
+          .col-sm-12
+            = land.association :community, label: false
         %td
           = land.input_field :another_community
         %td
@@ -25,7 +27,8 @@
         %td
           = land.input_field :tenure
         %td
-          = land.input_field :disassemble_without_permission, as: :radio_buttons
+          .col-sm-12
+            = land.input :disassemble_without_permission, label: false, as: :radio_buttons, item_wrapper_class: 'radio-inline'
         %td
           %a.btn.btn-danger.btn-small.static_lands
             .glyphicon.glyphicon-remove

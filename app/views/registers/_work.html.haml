@@ -1,10 +1,10 @@
 %table.table.table_register.table_works
   %thead
     %tr
-      %th.col-sm-1{ rowspan: 2 } Departamento
-      %th.col-sm-1{ rowspan: 2 } Municipio
-      %th.col-sm-1{ colspan: 3 } Mano de Obra 
-      %th.col-sm-1{ colspan: 3 } Conversión - hombre año
+      %th.col-sm-3{ rowspan: 2 } Departamento
+      %th.col-sm-3{ rowspan: 2 } Municipio
+      %th.col-sm-2{ colspan: 3 } Mano de Obra 
+      %th.col-sm-2{ colspan: 3 } Conversión - hombre año
       %th.col-sm-1{ rowspan: 2 }
     %tr
       %th.col-sm-1 Propia
@@ -17,9 +17,11 @@
     = f.simple_fields_for :works do |work|
       %tr
         %td
-          = work.association :department, label: false 
+          .col-sm-12
+            = work.association :department, label: false 
         %td
-          = work.association :community, label: false
+          .col-sm-12
+            = work.association :community, label: false
         %td
           = work.input_field :own_labor
         %td
@@ -34,5 +36,4 @@
           = work.input_field :men_per_year_total
         %td
           %a.btn.btn-danger.btn-small.static_works
-            %i.icon-white.icon-remove
-            eliminar
+            .glyphicon.glyphicon-remove
