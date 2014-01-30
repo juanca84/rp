@@ -1,8 +1,8 @@
 %table.table.table_register.table_lands
   %thead
     %tr
-      %th.col-sm-1 Departamento
-      %th.col-sm-1 Municipio
+      %th.col-sm-2 Departamento
+      %th.col-sm-2 Municipio
       %th.col-sm-1 Comunidad/zona/otra
       %th.col-sm-1 Superficie
       %th.col-sm-1 Unidad de Medida
@@ -12,7 +12,7 @@
   %tbody
     = f.simple_fields_for :lands do |land|
       %tr
-        %td
+        %td.col-sm-2
           = land.association :department, label: false 
         %td
           = land.association :community, label: false
@@ -28,5 +28,4 @@
           = land.input_field :disassemble_without_permission, as: :radio_buttons
         %td
           %a.btn.btn-danger.btn-small.static_lands
-            %i.icon-white.icon-remove
-            eliminar
+            .glyphicon.glyphicon-remove
