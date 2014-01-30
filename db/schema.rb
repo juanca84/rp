@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129150617) do
+ActiveRecord::Schema.define(:version => 20140130155042) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -212,8 +212,8 @@ ActiveRecord::Schema.define(:version => 20140129150617) do
 
   create_table "registers", :force => true do |t|
     t.integer  "code"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "residence"
     t.string   "address"
     t.integer  "department_id"
@@ -225,10 +225,15 @@ ActiveRecord::Schema.define(:version => 20140129150617) do
     t.string   "subsector"
     t.string   "first_entry"
     t.string   "second_entry"
+    t.date     "emission_date"
+    t.integer  "emission_department_id"
+    t.integer  "emission_community_id"
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
   add_index "registers", ["department_id"], :name => "index_registers_on_department_id"
+  add_index "registers", ["emission_community_id"], :name => "index_registers_on_emission_community_id"
+  add_index "registers", ["emission_department_id"], :name => "index_registers_on_emission_department_id"
   add_index "registers", ["user_id"], :name => "index_registers_on_user_id"
 
   create_table "roles", :force => true do |t|

@@ -104,6 +104,9 @@ es:
         code_ine: Código INE
         community: Municipio de Residencia
         department: Departamento
+        emission_date: Fecha de emisión
+        emission_community: Municipio de emisión
+        emission_department: Departamento de emisión
         first_entry: Rubro 1
         geodesic_ew: Punto Geodésico EW
         geodesic_ns: Punto Geodésico NS

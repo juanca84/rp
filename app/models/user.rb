@@ -63,9 +63,24 @@ class User < ActiveRecord::Base
     "Lo siento, Esta cuenta ha sido desactivada."
   end
 
-  #metodo mostrar nombre completo
+  #metodo para mostrar nombre completo
   def full_name
     "#{ profile.try(:name) } #{ profile.try(:last_name) }"
   end  
+
+  #metodo para mostrar el ci del usuario 
+  def identification
+    "#{ profile.try(:identification) }"
+  end
+
+  #metodo para mostrar la razon social del usuario
+  def business_name
+    "#{ entity.try(:business_name) }"
+  end
+
+  #metodo para mostrar el nit o pj del usuario
+  def nit
+    "#{ entity.try(:nit) }"
+  end
 
 end

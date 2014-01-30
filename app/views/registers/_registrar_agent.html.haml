@@ -1,0 +1,17 @@
+.form-group
+  %label.string.optional.control-label.col-sm-2 CI
+  .col-sm-2
+    %input.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: current_user.identification }
+
+  %label.string.optional.control-label.col-sm-2 Nombre y Apellidos
+  .col-sm-6
+    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: current_user.full_name} 
+
+.form-group
+  %label.string.optional.control-label.col-sm-2 NIT y/o PJ
+  .col-sm-2
+    %input.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: current_user.nit } 
+
+  %label.string.optional.control-label.col-sm-2 Razón Social
+  .col-sm-6
+    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: current_user.business_name}

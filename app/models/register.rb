@@ -1,10 +1,13 @@
 #encoding: UTF-8
 class Register < ActiveRecord::Base
-  attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes, :code, :code_ine, :community_id, 
-                  :department_id, :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships, :residence, 
+  attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes, :code, 
+                  :code_ine, :community_id, :department_id, :emission_community_id, :emission_date, :emission_department_id, 
+                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships, :residence, 
                   :second_entry, :sons_attributes, :subsector, :user_id, :works_attributes
 
   belongs_to :civil_union
+  belongs_to :emission_community, class_name: Community
+  belongs_to :emission_department, class_name: Department
   belongs_to :community
   belongs_to :department
   belongs_to :user
