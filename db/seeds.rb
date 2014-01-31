@@ -7,4 +7,3 @@ end
 
 Role.create(name: "administrador")
 Role.create(name: "agente registrador")
-

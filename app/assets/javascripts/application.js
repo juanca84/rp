@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require anjlab/datepicker
+//= require underscore
 //= require backbone
-//= require backbone/runpa
+//= require backbone/runpa	

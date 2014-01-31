@@ -9,11 +9,16 @@ class RegistersController < RunpaController
   end
 
   def new
-    @register = Register.new(code: Register.new_code_number)
+    @register = Register.new(code: Register.new_code_number, user_id: current_user.id)
 
     2.times{ @register.holders.build(type_person: 'holder').build_person }
     4.times{ @register.sons.build(type_person: 'son').build_person }
     4.times{ @register.aggregates.build(type_person: 'aggregate').build_person }
+    @register.lands.build
+    @register.works.build
+    @register.capitals.build
+    @register.agricultural_productions.build
+    @register.partnerships_registers.build
 
     respond_to do |wants|
       wants.html # new.html.erb

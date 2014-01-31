@@ -91,3 +91,5 @@ capybara-*html
 
 #rvm
 .rvmrc
+
+.gitkeep

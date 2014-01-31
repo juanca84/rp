@@ -11,10 +11,13 @@ class User < ActiveRecord::Base
 
   scope :online_now, where("last_seen_at > ?", 5.minutes.ago)
 
+  belongs_to :entity
+
   has_one :profile
+  has_many :registers
   has_many :runpa_modules, through: :roles
 
-  #asociasiones polimorfica para la region donde pertenece el usuario
+  #asociasiones polimorficas para la region donde pertenece el usuario
   has_many :regions_users
   has_many :departments, through: :regions_users, :source => :regionable, :source_type => "Department"
   has_many :provinces,   through: :regions_users, :source => :regionable, :source_type => "Province"
@@ -58,6 +61,26 @@ class User < ActiveRecord::Base
   #metodo para definir el mensaje cuando el usuario esta desactivado
   def inactive_message
     "Lo siento, Esta cuenta ha sido desactivada."
+  end
+
+  #metodo para mostrar nombre completo
+  def full_name
+    "#{ profile.try(:name) } #{ profile.try(:last_name) }"
+  end  
+
+  #metodo para mostrar el ci del usuario 
+  def identification
+    "#{ profile.try(:identification) }"
+  end
+
+  #metodo para mostrar la razon social del usuario
+  def business_name
+    "#{ entity.try(:business_name) }"
+  end
+
+  #metodo para mostrar el nit o pj del usuario
+  def nit
+    "#{ entity.try(:nit) }"
   end
 
 end

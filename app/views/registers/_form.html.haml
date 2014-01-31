@@ -4,47 +4,117 @@
     = f.label :code, class: "col-sm-1"
     .col-sm-2
       = f.input_field :code, readonly: true
+    = f.hidden_field :user_id
 
   = f.error_notification
-  = field_set_tag 'Identificación de los Titulares' do
+
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS TITULARES
     = render 'holder', f: f
 
-  = field_set_tag 'Identificación de estado civil y domicilio' do
-    .form-group
-      = f.label :civil_union, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :civil_union_id, as: :select, collection: CivilUnion.all
-      = f.label :residence, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :residence
-    .form-group
-      = f.label :address, class: "col-sm-2"
-      .col-sm-10
-        = f.input_field :address
-    .form-group
-      = f.label :community, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :community_id, as: :select, collection: Community.all
-      = f.label :department, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :department_id, as: :select, collection: Department.all
-    .form-group
-      = f.label :geodesic_ns, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :geodesic_ns
-      = f.label :geodesic_ns, class: "col-sm-2"
-      .col-sm-4
-        = f.input_field :geodesic_ew
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
+    .well.form-actions
+      = field_set_tag 'Hijos e Hijas' do
+        #sons
+          = render 'son_aggregate', f: f, resources: :sons
+          %a.btn.btn-success.btn-large.add_son
+            .glyphicon.glyphicon-plus-sign
+            adicionar hijo/a
 
-  = field_set_tag 'Identificación de los demás miembros de la familia' do
-    = field_set_tag 'Hijos e Hijas' do
-      = render 'son_aggregate', f: f, resources: :sons
-      %a.btn.btn-success.btn-large{href: "#"}
-        %i.icon-white.icon-plus-sign
-        adicionar hijo/a
+    .well.form-actions
+      = field_set_tag 'Agregados y Agregadas' do
+        #aggregates
+          = render 'son_aggregate', f: f, resources: :aggregates
+          %a.btn.btn-success.btn-large.add_aggregate
+            .glyphicon.glyphicon-plus-sign
+            adicionar agregado/a
 
-    = field_set_tag 'Agregados y Agregadas' do
-      = render 'son_aggregate', f: f, resources: :aggregates
+  .well.form-actions
+    %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
+    .well.form-actions
+      = field_set_tag 'A que asociaciones pertenece' do
+        #partnerships
+          = render 'partnership', f: f
+          %a.btn.btn-success.btn-large.add_partnership 
+            .glyphicon.glyphicon-plus-sign
+            adicionar asociacion productiva 
 
-  .form-actions
-    %input.btn.btn-primary.pull-right{type: "submit", value: "Crear Registro"}
+    .well.form-actions
+      = field_set_tag 'Actividad Principal' do
+        = render 'main_activity', f: f                    
+
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+    .well.form-actions
+      = field_set_tag 'Tierra' do
+        #lands
+          = render 'land', f: f
+          %a.btn.btn-success.btn-large.add_land
+            .glyphicon.glyphicon-plus-sign
+            adicionar tierra
+
+    .well.form-actions
+      = field_set_tag 'Trabajo' do
+        #lands
+          = render 'work', f: f
+          %a.btn.btn-success.btn-large.add_work
+            .glyphicon.glyphicon-plus-sign
+            adicionar trabajo
+
+    .well.form-actions
+      = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
+        #capitals
+          = render 'capital', f: f
+          %a.btn.btn-success.btn-large.add_capital
+            .glyphicon.glyphicon-plus-sign
+            adicionar capital
+
+  .well.form-actions
+    %legend PRODUCCIÓN
+    .well.form-actions
+      = field_set_tag 'Producción agropecuaria en el establecimiento' do
+        #lands
+          = render 'agricultural_production', f: f
+          %a.btn.btn-success.btn-large.add_capital
+            .glyphicon.glyphicon-plus-sign
+            adicionar producción
+
+  .well.form-actions
+    %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
+    .well.form-actions
+      .form-group
+        = f.label :emission_department, class: "col-sm-3"
+        .col-sm-3
+          = f.input_field :emission_department_id, as: :select, collection: Department.all
+
+        = f.label :emission_community, class: "col-sm-3"
+        .col-sm-3
+          = f.input_field :emission_community_id, as: :select, collection: Community.all
+
+      .form-group
+        =  f.label :emission_date, class: "col-sm-3"
+        .col-sm-3
+          = f.input_field :emission_date, as: :date
+
+    .well.form-actions
+      = render 'registrar_agent'
+
+  .well.form-actions
+    - text_submit = @register.new_record? ? "Crear Registro" : ' Guardar Cambios' 
+    %input.btn.btn-success.pull-right{type: "submit", value: text_submit }
+    %br/
+    %br/
+
+.form-actions
+  %a.btn.btn-primary.btn-large{ href: registers_path }
+    .glyphicon.glyphicon-chevron-left
+    Atrás
+
+  - unless @register.new_record?
+    %a.btn.btn-success.btn-small.pull-right{href: register_path(@register)}
+      .glyphicon.glyphicon-eye-open
+      Ver
+
+:javascript
+  var register = new Runpa.Views.Registers.NewView()

@@ -13,3 +13,27 @@
  *= require registers
  */
 @import "twitter/bootstrap";
+@import 'anjlab/datepicker';
+@import 'anjlab/timepicker';
+
+.container{
+  width: 90%;
+}
+body {
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+legend{
+	font-weight: bold;
+}
+form{
+	label{
+		font-weight: normal;
+	}
+}
+.table > thead > tr > th {
+  vertical-align: inherit;
+  text-align: center;
+}

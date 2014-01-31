@@ -21,6 +21,7 @@ end
 gem "jquery-rails", "~> 3.0.0"
 gem "simple_form", "~> 2.1.0"
 gem 'anjlab-bootstrap-rails', '~> 3.0.2.0', :require => 'bootstrap-rails'
+gem 'anjlab-widgets'
 gem "haml", "~> 4.0.4"
 gem "rails-backbone"
 
@@ -47,4 +48,5 @@ end
 #for documentation
 group :development, :test do
   gem "rails-erd"
+  gem 'rspec-rails'
 end
