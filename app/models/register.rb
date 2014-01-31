@@ -2,7 +2,7 @@
 class Register < ActiveRecord::Base
   attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes, :code, 
                   :code_ine, :community_id, :department_id, :emission_community_id, :emission_date, :emission_department_id, 
-                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships, :residence, 
+                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_registers_attributes, :residence, 
                   :second_entry, :sons_attributes, :subsector, :user_id, :works_attributes
 
   belongs_to :civil_union
@@ -30,7 +30,7 @@ class Register < ActiveRecord::Base
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :agricultural_productions, :aggregates, :capitals, :holders, :lands, :partnerships, :sons, :works
+  accepts_nested_attributes_for :agricultural_productions, :aggregates, :capitals, :holders, :lands, :partnerships_registers, :sons, :works
 
   before_validation :generate_code
 

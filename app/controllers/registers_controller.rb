@@ -18,6 +18,7 @@ class RegistersController < RunpaController
     @register.works.build
     @register.capitals.build
     @register.agricultural_productions.build
+    @register.partnerships_registers.build
 
     respond_to do |wants|
       wants.html # new.html.erb
