@@ -13,6 +13,9 @@
  *= require registers
  */
 @import "twitter/bootstrap";
+@import 'anjlab/datepicker';
+@import 'anjlab/timepicker';
+
 .container{
   width: 90%;
 }

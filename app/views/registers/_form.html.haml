@@ -86,21 +86,31 @@
       .form-group
         = f.label :emission_department, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_department, as: :select, collection: Department.all
+          = f.input_field :emission_department_id, as: :select, collection: Department.all
 
         = f.label :emission_community, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_community, as: :select, collection: Community.all
+          = f.input_field :emission_community_id, as: :select, collection: Community.all
 
       .form-group
         =  f.label :emission_date, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_date, as: :string
+          = f.input_field :emission_date, as: :date
 
     .well.form-actions
       = render 'registrar_agent'
-  .form-actions
-    %input.btn.btn-primary.pull-right{type: "submit", value: "Crear Registro"}
 
+  .well.form-actions
+    %input.btn.btn-success.pull-right{type: "submit", value: "Crear Registro"}
+    %br/
+    %br/
+
+  .form-actions
+    %a.btn.btn-primary.btn-large{href: registers_path}
+      .glyphicon.glyphicon-chevron-left
+      Atrás
+
+  %br/
+  %br/
 :javascript
   var register = new Runpa.Views.Registers.NewView()
