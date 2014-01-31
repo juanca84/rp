@@ -101,16 +101,20 @@
       = render 'registrar_agent'
 
   .well.form-actions
-    %input.btn.btn-success.pull-right{type: "submit", value: "Crear Registro"}
+    - text_submit = @register.new_record? ? "Crear Registro" : ' Guardar Cambios' 
+    %input.btn.btn-success.pull-right{type: "submit", value: text_submit }
     %br/
     %br/
 
-  .form-actions
-    %a.btn.btn-primary.btn-large{href: registers_path}
-      .glyphicon.glyphicon-chevron-left
-      Atrás
+.form-actions
+  %a.btn.btn-primary.btn-large{ href: registers_path }
+    .glyphicon.glyphicon-chevron-left
+    Atrás
 
-  %br/
-  %br/
+  - unless @register.new_record?
+    %a.btn.btn-success.btn-small.pull-right{href: register_path(@register)}
+      .glyphicon.glyphicon-eye-open
+      Ver
+
 :javascript
   var register = new Runpa.Views.Registers.NewView()
