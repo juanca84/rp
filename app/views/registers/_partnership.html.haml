@@ -1,12 +1,13 @@
-%table.table.table_register.table_partnerships
-  %tbody
-    %tr
-      %td.col-sm-9
-        /= f.input_field :partnerships, as: :select, collection: Partnership.pluck(:name)
-      %td.col-sm-1
-        Cód:
-      %td.col-sm-2
-        %input#register_aggregates_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][name]", size: "50", type: "text", readonly: true}
-      %td.col-sm-1
-        %a.btn.btn-danger.btn-small.static_partnerships
-          .glyphicon.glyphicon-remove
+.table-responsive
+  %table.table.table-bordered.table_register.table_partnerships
+    %tbody
+      %tr
+        %td.col-sm-9
+          /= f.input_field :partnerships, as: :select, collection: Partnership.pluck(:name)
+        %td.col-sm-1
+          Cód:
+        %td.col-sm-2
+          %input#register_aggregates_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][name]", size: "50", type: "text", readonly: true}
+        %td.col-sm-1
+          %a.btn.btn-danger.btn-small.static_partnerships
+            .glyphicon.glyphicon-remove

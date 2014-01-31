@@ -1,34 +1,35 @@
-%table.table.table_register.table_lands
-  %thead
-    %tr
-      %th.col-sm-2 Departamento
-      %th.col-sm-2 Municipio
-      %th.col-sm-2 Comunidad/zona/otra
-      %th.col-sm-2 Superficie
-      %th.col-sm-1 Unidad de Medida
-      %th.col-sm-2 Tenencia
-      %th.col-sm-1 Desmonte Sin Autorizacion
-      %th.col-sm-1 
-  %tbody
-    = f.simple_fields_for :lands do |land|
+.table-responsive
+  %table.table.table-bordered.table_register.table_lands
+    %thead
       %tr
-        %td
-          .col-sm-12
-            = land.association :department, label: false 
-        %td
-          .col-sm-12
-            = land.association :community, label: false
-        %td
-          = land.input_field :another_community
-        %td
-          = land.input_field :surface
-        %td
-          = land.input_field :unit_of_measure
-        %td
-          = land.input_field :tenure
-        %td
-          .col-sm-12
-            = land.input :disassemble_without_permission, label: false, as: :radio_buttons, item_wrapper_class: 'radio-inline'
-        %td
-          %a.btn.btn-danger.btn-small.static_lands
-            .glyphicon.glyphicon-remove
+        %th.col-sm-2 Departamento
+        %th.col-sm-2 Municipio
+        %th.col-sm-2 Comunidad/zona/otra
+        %th.col-sm-2 Superficie
+        %th.col-sm-1 Unidad de Medida
+        %th.col-sm-2 Tenencia
+        %th.col-sm-1 Desmonte Sin Autorizacion
+        %th.col-sm-1 
+    %tbody
+      = f.simple_fields_for :lands do |land|
+        %tr
+          %td
+            .col-sm-12
+              = land.association :department, label: false 
+          %td
+            .col-sm-12
+              = land.association :community, label: false
+          %td
+            = land.input_field :another_community
+          %td
+            = land.input_field :surface
+          %td
+            = land.input_field :unit_of_measure
+          %td
+            = land.input_field :tenure
+          %td
+            .col-sm-12
+              = land.input :disassemble_without_permission, label: false, as: :radio_buttons, item_wrapper_class: 'radio-inline'
+          %td
+            %a.btn.btn-danger.btn-small.static_lands
+              .glyphicon.glyphicon-remove

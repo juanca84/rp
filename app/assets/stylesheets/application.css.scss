@@ -33,6 +33,7 @@ form{
 		font-weight: normal;
 	}
 }
-th{
+.table > thead > tr > th {
+  vertical-align: inherit;
   text-align: center;
 }
