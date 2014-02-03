@@ -26,7 +26,9 @@
         %a.btn.btn-danger.btn-small.static_works{ href: register_path(register),  data: { method: :delete, confirm: '¿Estás seguro?' } }
           .glyphicon.glyphicon-remove
           Eliminar
-%br
+
+= will_paginate @registers, renderer: BootstrapPagination::Rails
+%br/
 
 %a.btn.btn-success.btn-large{href: new_register_path}
   .glyphicon.glyphicon-plus

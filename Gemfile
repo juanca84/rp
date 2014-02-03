@@ -32,7 +32,8 @@ gem "cancan"
 gem 'rolify'
 
 #pagination
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 #for administrador
 gem 'activeadmin', github: 'gregbell/active_admin'
