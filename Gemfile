@@ -31,9 +31,12 @@ gem "rego-devise-lastseenable", "~> 0.1.0"
 gem "cancan"
 gem 'rolify'
 
-#pagination
+#paginación
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+
+#dividir por pasos el formulario
+gem 'wicked'
 
 #for administrador
 gem 'activeadmin', github: 'gregbell/active_admin'
