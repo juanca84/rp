@@ -31,7 +31,23 @@ form{
 		font-weight: normal;
 	}
 }
-.table > thead > tr > th {
-  vertical-align: inherit;
-  text-align: center;
+
+.table{ 
+  thead{
+    tr{
+      th{
+          vertical-align: inherit;
+          text-align: center;
+      }
+    }
+  }
+  tbody{
+    td{
+      div{
+        .control-group{
+          margin-bottom: 0px; 
+        }         
+      }
+    }
+  }
 }
