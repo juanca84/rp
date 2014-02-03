@@ -18,7 +18,7 @@
       = field_set_tag 'Hijos e Hijas' do
         #sons
           = render 'son_aggregate', f: f, resources: :sons
-          %a.btn.btn-success.btn-large.add_son
+          %a.btn.btn-success.btn-large.add_son{ data: { type: 'son' } }
             .glyphicon.glyphicon-plus-sign
             adicionar hijo/a
 
@@ -26,7 +26,7 @@
       = field_set_tag 'Agregados y Agregadas' do
         #aggregates
           = render 'son_aggregate', f: f, resources: :aggregates
-          %a.btn.btn-success.btn-large.add_aggregate
+          %a.btn.btn-success.btn-large.add_aggregate{ data: { type: 'aggregate' } }
             .glyphicon.glyphicon-plus-sign
             adicionar agregado/a
 
@@ -36,7 +36,7 @@
       = field_set_tag 'A que asociaciones pertenece' do
         #partnerships
           = render 'partnership', f: f
-          %a.btn.btn-success.btn-large.add_partnership 
+          %a.btn.btn-success.btn-large.add_partnership{ data: { type: 'partnership' } } 
             .glyphicon.glyphicon-plus-sign
             adicionar asociacion productiva 
 
@@ -50,7 +50,7 @@
       = field_set_tag 'Tierra' do
         #lands
           = render 'land', f: f
-          %a.btn.btn-success.btn-large.add_land
+          %a.btn.btn-success.btn-large.add_land{ data: { type: 'land' } }
             .glyphicon.glyphicon-plus-sign
             adicionar tierra
 
@@ -58,7 +58,7 @@
       = field_set_tag 'Trabajo' do
         #lands
           = render 'work', f: f
-          %a.btn.btn-success.btn-large.add_work
+          %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
             .glyphicon.glyphicon-plus-sign
             adicionar trabajo
 
@@ -66,7 +66,7 @@
       = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
         #capitals
           = render 'capital', f: f
-          %a.btn.btn-success.btn-large.add_capital
+          %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
             .glyphicon.glyphicon-plus-sign
             adicionar capital
 
@@ -76,7 +76,7 @@
       = field_set_tag 'Producción agropecuaria en el establecimiento' do
         #lands
           = render 'agricultural_production', f: f
-          %a.btn.btn-success.btn-large.add_capital
+          %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
             .glyphicon.glyphicon-plus-sign
             adicionar producción
 

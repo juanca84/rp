@@ -31,6 +31,9 @@ gem "rego-devise-lastseenable", "~> 0.1.0"
 gem "cancan"
 gem 'rolify'
 
+#pagination
+gem 'will_paginate'
+
 #for administrador
 gem 'activeadmin', github: 'gregbell/active_admin'
 
