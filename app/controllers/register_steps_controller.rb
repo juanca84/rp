@@ -1,0 +1,2 @@
+class RegisterStepsController < ApplicationController
+end
