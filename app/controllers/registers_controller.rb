@@ -32,12 +32,13 @@ class RegistersController < RunpaController
 
   def create
     @register = Register.new(params[:register])
-    respond_to do |wants|
-      if @register.save
-        flash[:notice] = 'Register was successfully created.'
-        wants.html { redirect_to(@register) }
-        wants.xml  { render :xml => @register, :status => :created, :location => @register }
-      else
+    if @register.save
+      redirect_to register_register_step_path(@register, :family)
+      #flash[:notice] = 'Register was successfully created.'
+      #wants.html { redirect_to(@register) }
+      #wants.xml  { render :xml => @register, :status => :created, :location => @register }
+    else
+       respond_to do |wants| 
         wants.html { render :action => "new" }
         wants.xml  { render :xml => @register.errors, :status => :unprocessable_entity }
       end
