@@ -43,10 +43,16 @@
             = f.label :residence, class: "col-sm-2"
             .col-sm-4
               = f.input_field :residence
+
           .form-group
             = f.label :address, class: "col-sm-2"
-            .col-sm-10
+            .col-sm-6
               = f.input_field :address
+
+            = person.label :phone, class: 'col-sm-2'
+            .col-sm-2
+              = person.input_field :phone
+
           .form-group
             = f.label :community, class: "col-sm-3"
             .col-sm-4

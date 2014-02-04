@@ -1,6 +1,6 @@
 class RegistersController < RunpaController
   def index
-    @registers = Register.paginate( page: params[:page] , per_page: 10)
+    @registers = Register.order('code asc').page params[:page]
 
     respond_to do |wants|
       wants.html # index.html.erb
