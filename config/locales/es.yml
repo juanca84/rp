@@ -89,6 +89,7 @@ es:
         education: Nivel de instrucción
         identification: Cédula de Identidad
         name: Nombre y Apellidos
+        phone: Teléfono/celular
         sex: Sexo
 
       profile:
