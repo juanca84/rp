@@ -27,7 +27,7 @@
           .glyphicon.glyphicon-remove
           Eliminar
 
-= will_paginate @registers, renderer: BootstrapPagination::Rails
+= paginate @registers
 %br/
 
 %a.btn.btn-success.btn-large{href: new_register_path}

@@ -31,10 +31,6 @@ gem "rego-devise-lastseenable", "~> 0.1.0"
 gem "cancan"
 gem 'rolify'
 
-#paginación
-gem 'will_paginate', '~> 3.0'
-gem 'will_paginate-bootstrap'
-
 #dividir por pasos el formulario
 gem 'wicked'
 
@@ -43,6 +39,10 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 #for staging in heroku
 gem 'rails_12factor', group: :production
+
+#paginación
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :development do
   gem 'better_errors'
