@@ -6,8 +6,9 @@ Runpa::Application.routes.draw do
 
   devise_for :users
 
-  resources :registers
-  resources :register_steps
+  resources :registers do 
+    resources :register_steps, only: [:show, :update]
+  end
 
   root :to => 'home#index'
 end

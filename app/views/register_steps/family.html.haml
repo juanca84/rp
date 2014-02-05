@@ -1,0 +1,34 @@
+= simple_form_for @register, url: wizard_path, method: :put, html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
+  .form-group
+    .col-sm-9
+    = f.label :code, class: "col-sm-1"
+    .col-sm-2
+      = f.input_field :code, readonly: true
+    = f.hidden_field :user_id
+
+  = f.error_notification
+
+  .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
+    .well.form-actions
+      = field_set_tag 'Hijos e Hijas' do
+        #sons
+          = render 'son_aggregate', f: f, resources: :sons
+          %a.btn.btn-success.btn-large.add_son{ data: { type: 'son' } }
+            .glyphicon.glyphicon-plus-sign
+            adicionar hijo/a
+
+    .well.form-actions
+      = field_set_tag 'Agregados y Agregadas' do
+        #aggregates
+          = render 'son_aggregate', f: f, resources: :aggregates
+          %a.btn.btn-success.btn-large.add_aggregate{ data: { type: 'aggregate' } }
+            .glyphicon.glyphicon-plus-sign
+            adicionar agregado/a
+
+  = render "form_submit", register: @register
+
+= render 'navsteps'
+
+:javascript
+  var register = new Runpa.Views.Registers.NewView()
