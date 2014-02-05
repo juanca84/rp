@@ -1,12 +1,3 @@
-.well.form-actions
-  %a.btn.btn-primary.btn-large{href: registers_path}
-    .glyphicon.glyphicon-chevron-left
-    Atrás
-
-  %a.btn.btn-primary.pull-right.btn-large{ href: edit_register_path(@register) }
-    .glyphicon.glyphicon-pencil
-    Editar
-    
 .container  
   %h1 Vista de Registro
   %form#new_register.simple_form.form-horizontal{"accept-charset" => "UTF-8", action: "/registers", method: "post", novalidate: "novalidate", role: "form"}
@@ -622,7 +613,8 @@
           %label.string.optional.control-label.col-sm-2 Razón Social
           .col-sm-6
             %input#register_residence.string.optional.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text", value: ""}/
-.well.form-actions
+
+.form-actions.navsteps
   %a.btn.btn-primary.btn-large{href: registers_path}
     .glyphicon.glyphicon-chevron-left
     Atrás

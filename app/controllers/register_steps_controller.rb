@@ -9,15 +9,15 @@ class RegisterStepsController < ApplicationController
   end
   
   def update
-    @register = Register.find params[:id] 
-    @user.update_attributes params[:register]
-    case step
-    when :family
-    when :partnerships
-    when :factors
-    when :production
-    end
-    render_wizard @user
+    @register = Register.find params[:register_id] 
+    @register.update_attributes params[:register]
+    # case step
+    # when :family
+    # when :partnerships
+    # when :factors
+    # when :production
+    # end
+    render_wizard @register
   end
 
   def finish_wizard_path
