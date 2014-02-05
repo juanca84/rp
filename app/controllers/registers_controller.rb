@@ -12,13 +12,6 @@ class RegistersController < RunpaController
     @register = Register.new(code: Register.new_code_number, user_id: current_user.id)
 
     2.times{ @register.holders.build(type_person: 'holder').build_person }
-    4.times{ @register.sons.build(type_person: 'son').build_person }
-    4.times{ @register.aggregates.build(type_person: 'aggregate').build_person }
-    @register.lands.build
-    @register.works.build
-    @register.capitals.build
-    @register.agricultural_productions.build
-    @register.partnerships_registers.build
 
     respond_to do |wants|
       wants.html # new.html.erb
@@ -38,7 +31,7 @@ class RegistersController < RunpaController
       #wants.html { redirect_to(@register) }
       #wants.xml  { render :xml => @register, :status => :created, :location => @register }
     else
-       respond_to do |wants| 
+      respond_to do |wants| 
         wants.html { render :action => "new" }
         wants.xml  { render :xml => @register.errors, :status => :unprocessable_entity }
       end
@@ -47,13 +40,14 @@ class RegistersController < RunpaController
 
   def update
     @register = Register.find(params[:id])
-
-    respond_to do |wants|
-      if @register.update_attributes(params[:register])
-        flash[:notice] = 'Register was successfully updated.'
-        wants.html { redirect_to(@register) }
-        wants.xml  { head :ok }
-      else
+    
+    if @register.update_attributes(params[:register])
+      redirect_to register_register_step_path(@register, :family)
+      #flash[:notice] = 'Register was successfully updated.'
+      #wants.html { redirect_to(@register) }
+      #wants.xml  { head :ok }
+    else
+      respond_to do |wants|
         wants.html { render :action => "edit" }
         wants.xml  { render :xml => @register.errors, :status => :unprocessable_entity }
       end

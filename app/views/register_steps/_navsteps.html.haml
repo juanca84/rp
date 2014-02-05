@@ -1,13 +1,14 @@
-.form-actions.navsteps  
-  %a.btn.btn-primary.btn-large{ href: @step == 'family' ? edit_register_path(@register) : previous_wizard_path }
-    .glyphicon.glyphicon-chevron-left
-    Atrás
-  
-  %a.btn.btn-primary.btn-large.pull-right{ href: next_wizard_path }
-    - if @step == 'production'
-      .glyphicon.glyphicon-eye-open
-      Ver
+.form-actions.navsteps
+  - if !@register.new_record?
+    %a.btn.btn-primary.btn-large{ href: @step == 'family' ? edit_register_path(@register) : previous_wizard_path }
+      .glyphicon.glyphicon-chevron-left
+      Atrás
 
-    - else 
-      Siguiente
-      .glyphicon.glyphicon-chevron-right
+    %a.btn.btn-primary.btn-large.pull-right{ href: next_wizard_path }
+      - if @step == 'production'
+        .glyphicon.glyphicon-eye-open
+        Ver
+
+      - else 
+        Siguiente
+        .glyphicon.glyphicon-chevron-right

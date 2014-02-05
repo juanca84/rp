@@ -21,7 +21,7 @@ class RegisterStepsController < ApplicationController
   end
 
   def finish_wizard_path
-    @register = Register.find params[:id]
+    @register = Register.find params[:register_id]
     register_path(@register)
   end
 end

@@ -106,11 +106,10 @@
   %a.btn.btn-primary.btn-large{ href: registers_path }
     .glyphicon.glyphicon-chevron-left
     Atrás
-
   - unless @register.new_record?
-    %a.btn.btn-success.btn-small.pull-right{href: register_path(@register)}
-      .glyphicon.glyphicon-eye-open
-      Ver
+    %a.btn.btn-primary.btn-large.pull-right{ href: register_register_step_path(@register, :family) }
+      Siguiente
+      .glyphicon.glyphicon-chevron-right
 
 :javascript
   var register = new Runpa.Views.Registers.NewView()
