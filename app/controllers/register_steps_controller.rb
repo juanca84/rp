@@ -4,6 +4,7 @@ class RegisterStepsController < ApplicationController
 
   def show
     @register = Register.find params[:register_id]
+    @step = params[:id]
     render_wizard
   end
   
