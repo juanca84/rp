@@ -38,11 +38,7 @@
     .well.form-actions
       = render 'registrar_agent'
 
-  .well.form-actions
-    - text_submit = @register.new_record? ? "Crear Registro" : ' Guardar Cambios' 
-    %input.btn.btn-success.pull-right{type: "submit", value: text_submit }
-    %br/
-    %br/
+  = render "form_submit", register: @register
 
 = render 'navsteps'
 

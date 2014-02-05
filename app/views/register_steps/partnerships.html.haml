@@ -20,8 +20,9 @@
 
     .well.form-actions
       = field_set_tag 'Actividad Principal' do
-        = render 'main_activity', f: f                    
-
+        = render 'main_activity', f: f  
+  
+  = render "form_submit", register: @register
  
 = render 'navsteps'
 
