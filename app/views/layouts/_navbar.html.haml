@@ -18,6 +18,9 @@
           - if current_user.module_administrador?
             %li
               %a{href: admin_root_path} Administrador
+          - if current_user.module_reportes?
+            %li
+              %a{href: reports_path} Reportes
         /
           %li
             %a{href: "#about"} Acerca de RUNPA

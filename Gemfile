@@ -44,6 +44,13 @@ gem 'rails_12factor', group: :production
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 
+#buscador 
+gem "ransack"
+
+#generador de pdfs
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

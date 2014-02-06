@@ -1,4 +1,6 @@
 class RegistersController < RunpaController
+  load_and_authorize_resource
+  
   def index
     @registers = Register.order('code asc').page params[:page]
 
