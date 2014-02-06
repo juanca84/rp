@@ -1,0 +1,12 @@
+%td.col-sm-9
+  %select.optional.form-control{ id: "register_partnerships_registers_attributes_#{ @id }_partnership_id.select", name: "register[partnerships_registers_attributes][#{ @id }][partnership_id]" }
+    %option{value: ""}
+    %option{value: "1"} asociacion de caneros
+    %option{value: "2"} Asociacion de Ganaderos
+%td.col-sm-1
+  Cód:
+%td.col-sm-2
+  %input.string.required.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text"}
+%td.col-sm-1
+  %a.btn.btn-danger.btn-small.remove
+    .glyphicon.glyphicon-remove

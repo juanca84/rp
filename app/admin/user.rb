@@ -1,5 +1,12 @@
 ActiveAdmin.register User do
   controller do
+    def edit
+      @user = User.find(params[:id])
+      if @user.present? && @user.profile.blank?
+        @user.build_profile
+      end
+    end
+
     def new
       @user = User.new
       @user.build_profile

@@ -21,6 +21,7 @@ end
 gem "jquery-rails", "~> 3.0.0"
 gem "simple_form", "~> 2.1.0"
 gem 'anjlab-bootstrap-rails', '~> 3.0.2.0', :require => 'bootstrap-rails'
+gem 'anjlab-widgets'
 gem "haml", "~> 4.0.4"
 gem "rails-backbone"
 
@@ -30,11 +31,25 @@ gem "rego-devise-lastseenable", "~> 0.1.0"
 gem "cancan"
 gem 'rolify'
 
+#dividir por pasos el formulario
+gem 'wicked'
+
 #for administrador
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 #for staging in heroku
 gem 'rails_12factor', group: :production
+
+#paginación
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+#buscador 
+gem "ransack"
+
+#generador de pdfs
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 group :development do
   gem 'better_errors'
@@ -47,4 +62,5 @@ end
 #for documentation
 group :development, :test do
   gem "rails-erd"
+  gem 'rspec-rails'
 end

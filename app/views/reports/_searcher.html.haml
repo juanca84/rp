@@ -1,0 +1,11 @@
+= search_form_for @q, url: reports_path do |f|
+  = f.label :code
+  = f.text_field :code_eq
+
+  = f.label :holder
+  = f.text_field :holders_person_name_cont
+
+  = f.label :identification
+  = f.text_field :holders_person_identification_cont
+
+  = f.submit "Buscar"

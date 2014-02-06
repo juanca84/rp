@@ -5,19 +5,31 @@
     %th Código
     %th Titular 1
     %th Titular 2
-    %th
-    %th
-    %th
+    %th.col-sm-1
+    %th.col-sm-1
+    %th.col-sm-1
 
   - @registers.each do |register|
     %tr
       %td= register.code
       %td= register.holders.first.person.name rescue ''
       %td= register.holders.last.person.name rescue ''
-      %td= link_to 'Ver', register
-      %td= link_to 'Editar', edit_register_path(register)
-      %td= link_to 'Eliminar', register, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+        %a.btn.btn-success.btn-small{href: register_path(register)}
+          .glyphicon.glyphicon-eye-open
+          Ver
+      %td
+        %a.btn.btn-primary.btn-large{href: edit_register_path(register)}
+          .glyphicon.glyphicon-pencil
+          Editar
+      %td
+        %a.btn.btn-danger.btn-small.static_works{ href: register_path(register),  data: { method: :delete, confirm: '¿Estás seguro?' } }
+          .glyphicon.glyphicon-remove
+          Eliminar
 
-%br
+= paginate @registers
 
-= link_to 'Nuevo Registro', new_register_path
+.form-actions.navsteps 
+  %a.btn.btn-success.btn-large{href: new_register_path}
+    .glyphicon.glyphicon-plus
+    Nuevo registro

@@ -1,0 +1,42 @@
+.table-responsive
+  %table.table.table_register.table-bordered.table_agricultural_productions
+    %thead
+      %tr
+        %th.col-sm-2{ rowspan: 2 } Departamento
+        %th.col-sm-2{ rowspan: 2 } Municipio
+        %th.col-sm-2{ rowspan: 2 } Rubro
+        %th{ colspan: 2 } Cobertura Física Productiva           
+        %th{ colspan: 2 } Producción
+        %th.col-sm-2{ rowspan: 2 } Sistema de Producción
+        %th.col-sm-2{ rowspan: 2 } Destino de la Producción
+      %tr
+        %th.col-sm-1 Cantidad           
+        %th.col-sm-1 Unidad         
+        %th.col-sm-1 Cantidad
+        %th.col-sm-1 Unidad
+    %tbody
+      = f.simple_fields_for :agricultural_productions do |agricultural_production|
+        %tr
+          %td
+            .col-sm-12
+              = agricultural_production.association :department, label: false 
+          %td
+            .col-sm-12
+              = agricultural_production.association :community, label: false
+          %td
+            = agricultural_production.input_field :entry
+          %td
+            = agricultural_production.input_field :productive_physical_coverage_amount
+          %td
+            = agricultural_production.input_field :productive_physical_coverage_unit
+          %td
+            = agricultural_production.input_field :production_quantity
+          %td
+            = agricultural_production.input_field :production_unit
+          %td
+            = agricultural_production.input_field :production_system
+          %td
+            = agricultural_production.input_field :production_destination
+          %td
+            %a.btn.btn-danger.btn-small.static_agricultural_productionss
+              .glyphicon.glyphicon-remove

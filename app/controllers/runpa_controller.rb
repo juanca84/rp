@@ -1,5 +1,4 @@
 class RunpaController < ActionController::Base
-  load_and_authorize_resource
   before_filter :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|
