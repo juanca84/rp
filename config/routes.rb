@@ -1,5 +1,4 @@
 Runpa::Application.routes.draw do
-
   ActiveAdmin.routes(self)
 
   get "home/index"
@@ -9,6 +8,8 @@ Runpa::Application.routes.draw do
   resources :registers do 
     resources :register_steps, only: [:show, :update]
   end
+  
+  resources :reports, only: [:index]
 
   root :to => 'home#index'
 end

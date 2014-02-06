@@ -1,4 +1,6 @@
 class RunpaModule < ActiveRecord::Base
+  MODULES = %w(formulario administrador reportes servicio_web)
+
   attr_accessible :name
 
   has_many :roles_runpa_modules

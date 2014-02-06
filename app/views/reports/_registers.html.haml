@@ -1,0 +1,19 @@
+%h1 Lista de Registros
+
+%table.table.table-striped
+  %tr
+    %th Código
+    %th Titular 1
+    %th Titular 2
+    %th
+    %th
+
+  - @registers.each do |register|
+    %tr
+      %td= register.code
+      %td= register.holders.first.person.name rescue ''
+      %td= register.holders.last.person.name rescue ''
+      %td
+        %a.btn.btn-success.btn-small{href: register_path(register)}
+          .glyphicon.glyphicon-eye-open
+          Ver

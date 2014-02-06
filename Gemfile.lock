@@ -232,6 +232,9 @@ GEM
       rack (>= 1.0)
     wicked (1.0.2)
       rails (>= 3.0.7)
+    wicked_pdf (0.9.10)
+      rails
+    wkhtmltopdf-binary (0.9.9.1)
 
 PLATFORMS
   ruby
@@ -259,6 +262,7 @@ DEPENDENCIES
   rails-backbone
   rails-erd
   rails_12factor
+  ransack
   rego-devise-lastseenable (~> 0.1.0)
   rolify
   rspec-rails
@@ -266,3 +270,5 @@ DEPENDENCIES
   simple_form (~> 2.1.0)
   uglifier (>= 1.0.3)
   wicked
+  wicked_pdf
+  wkhtmltopdf-binary

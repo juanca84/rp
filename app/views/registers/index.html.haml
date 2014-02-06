@@ -28,10 +28,8 @@
           Eliminar
 
 = paginate @registers
-%br/
 
-%a.btn.btn-success.btn-large{href: new_register_path}
-  .glyphicon.glyphicon-plus
-  Nuevo registro
-%br/
-%br/
+.form-actions.navsteps 
+  %a.btn.btn-success.btn-large{href: new_register_path}
+    .glyphicon.glyphicon-plus
+    Nuevo registro

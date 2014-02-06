@@ -1,0 +1,10 @@
+= render 'searcher'
+
+= render 'registers'
+
+= paginate @registers
+
+.form-actions.navsteps 
+  %a.btn.btn-primary.btn-large{href: reports_path(format: "pdf"), target: "_blank" }
+    .glyphicon.glyphicon-download-alt
+    PDF
