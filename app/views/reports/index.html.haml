@@ -4,7 +4,14 @@
 
 = paginate @registers
 
-.form-actions.navsteps 
-  %a.btn.btn-primary.btn-large{href: reports_path(format: "pdf"), target: "_blank" }
-    .glyphicon.glyphicon-download-alt
-    PDF
+.form-actions.navsteps
+  = search_form_for @q, url: reports_path(format: "pdf"),  html: { target: "_blank" } do |f|
+    .hide 
+      = f.text_field :code_eq
+      = f.text_field :holders_person_name_cont
+      = f.text_field :holders_person_identification_cont
+
+    %button.btn.btn-primary{type: "submit"}
+      %i.icon-user.icon-white
+      .glyphicon.glyphicon-download-alt
+      PDF
