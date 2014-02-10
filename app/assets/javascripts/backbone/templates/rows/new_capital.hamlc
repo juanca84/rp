@@ -1,35 +1,14 @@
 %td
   .col-sm-12
-    .control-group.form-group.select.optional.register_capitals_department
-      .control
-        %select.select.optional.form-control{ id: "register_capitals_attributes_#{ @id }_department_id", name: "register[capitals_attributes][ #{ @id }][department_id]" }
-          %option{value: ""}
-          %option{value: "10"} Tarija
-          %option{value: "11"} Potosi
-          %option{value: "12"} Chuquisaca
-          %option{value: "13"} Santa Cruz
-          %option{value: "14"} Oruro
-          %option{value: "15"} Cochabamba
-          %option{value: "16"} La Paz
-          %option{value: "17"} Beni
-          %option{value: "18"} Pando
+    %input.string.optional.form-control.department{ type: "text", readonly: true }
 %td
   .col-sm-12
-    .control-group.form-group.select.optional.register_capitals_community
-      .control
-        %select.select.optional.form-control{ id: "register_capitals_attributes_#{ @id }_community_id", name: "register[capitals_attributes][#{ @id }][community_id]" }
-          %option{value: ""}
+    %input.string.optional.form-control.department{ type: "text", readonly: true }
 %td
-  %input.string.optional.form-control{ id: "register_capitals_attributes_#{ @id }_capital_item", maxlength: "255", name: "register[capitals_attributes][#{ @id }][capital_item]", size: "50", type: "text" }
+  %input.string.optional.form-control{ id: "register_capitals_attributes_#{ @id }_capital_item", maxlength: "255", name: "register[lands_attributes][#{ @id }][capital_item]", size: "50", type: "text" }
 %td
-  %input.date.optional.form-control{ id: "register_capitals_attributes_#{ @id }_start_year","data-date-allow-blank" => "true", "data-rails" => "true", "data-widget" => "datepicker", name: "register[capitals_attributes][#{ @id }][start_year]", placeholder: "", size: "30", type: "text", value: "" }
-  %input.js-aw-1i{ id: "register_capitals_attributes_#{ @id }_start_year(1i)", name: "register[capitals_attributes][#{ @id }][start_year(1i)]", type: "hidden", value: "" }
-  %input.js-aw-2i{id: "register_capitals_attributes_#{ @id }_start_year(2i)", name: "register[capitals_attributes][#{ @id }][start_year(2i)]", type: "hidden", value: "" }
-  %input.js-aw-3i{id: "register_capitals_attributes_#{ @id }_start_year(3i)", name: "register[capitals_attributes][#{ @id }][start_year(3i)]", type: "hidden", value: "" }
+  %input.integer.optional.form-control{ id: "#register_lands_attributes_#{ @id}_start_year.numeric", name: "register[lands_attributes][#{ @id }][start_year]", type: "text"}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_capitals_attributes_#{ @id }_lifespan_future",name: "register[capitals_attributes][#{ @id }][lifespan_future]", type: "text" }
+  %input.numeric.float.optional.form-control{ id: "register_capitals_attributes_#{ @id }_lifespan_future",name: "register[lands_attributes][#{ @id }][lifespan_future]", type: "text" }
 %td
-  %input.numeric.float.optional.form-control{ id: "register_capitals_attributes_#{ @id }_current_value", name: "register[capitals_attributes][#{ @id }][current_value]", type: "text"}
-%td
-  %a.btn.btn-danger.btn-small.remove
-    .glyphicon.glyphicon-remove
+  %input.numeric.float.optional.form-control{ id: "register_capitals_attributes_#{ @id }_current_value", name: "register[lands_attributes][#{ @id }][current_value]", type: "text"}

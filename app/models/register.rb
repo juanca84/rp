@@ -32,7 +32,10 @@ class Register < ActiveRecord::Base
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :agricultural_productions, :aggregates, :capitals, :holders, :lands, :partnerships_registers, :sons, :works
+  accepts_nested_attributes_for :aggregates, :holders, :partnerships_registers, 
+                                :sons
+
+  accepts_nested_attributes_for :lands, allow_destroy: true
 
   before_validation :generate_code
 

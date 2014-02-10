@@ -1,36 +1,21 @@
 %td
   .col-sm-12
-    .control-group.form-group.select.optional.register_works_department
-      .control
-        %select.select.optional.form-control{ id: "register_works_attributes_#{ @id }_department_id", name: "register[works_attributes][#{ @id }][department_id]" }
-          %option{value: ""}
-          %option{value: "10"} Tarija
-          %option{value: "11"} Potosi
-          %option{value: "12"} Chuquisaca
-          %option{value: "13"} Santa Cruz
-          %option{value: "14"} Oruro
-          %option{value: "15"} Cochabamba
-          %option{value: "16"} La Paz
-          %option{value: "17"} Beni
-          %option{value: "18"} Pando
+    %input.string.optional.form-control.department{ type: "text", readonly: true }
 %td
   .col-sm-12
-    .control-group.form-group.select.optional.register_works_community
-      .control
-        %select.select.optional.form-control{ id: "register_works_attributes_#{ @id }_community_id", name: "register[works_attributes][#{ @id }][community_id]"}
-          %option{value: ""}
+    %input.string.optional.form-control.department{ type: "text", readonly: true }
 %td
-  %input.numeric.integer.optional.form-control{ id: "register_works_attributes_#{ @id }_own_labor", name: "register[works_attributes][#{ @id }][own_labor]", type: "text"}
+  %input.numeric.integer.optional.form-control{ id: "register_works_attributes_#{ @id }_own_labor", name: "register[lands_attributes][#{ @id }][own_labor]", type: "text"}
 %td
-  %input.numeric.integer.optional.form-control{ id: "register_works_attributes_#{ @id }_eventual_labor", name: "register[works_attributes][#{ @id }][eventual_labor]", type: "text"}
+  %input.numeric.integer.optional.form-control{ id: "register_works_attributes_#{ @id }_eventual_labor", name: "register[lands_attributes][#{ @id }][eventual_labor]", type: "text"}
 %td
-  %input.numeric.integer.optional.form-control{ id: "register_works_attributes_#{ @id }_permanent_labor", name: "register[works_attributes][#{ @id }][permanent_labor]", type: "text"}
+  %input.numeric.integer.optional.form-control{ id: "register_works_attributes_#{ @id }_permanent_labor", name: "register[lands_attributes][#{ @id }][permanent_labor]", type: "text"}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_works_attributes_#{ @id }_men_per_year_own", name: "register[works_attributes][#{ @id }][men_per_year_own]", type: "text"}
+  %input.numeric.float.optional.form-control{ id: "register_works_attributes_#{ @id }_men_per_year_own", name: "register[lands_attributes][#{ @id }][men_per_year_own]", type: "text"}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_works_attributes_#{ @id }_men_per_year_eventually", name: "register[works_attributes][#{ @id }][men_per_year_eventually]", type: "text"}
+  %input.numeric.float.optional.form-control{ id: "register_works_attributes_#{ @id }_men_per_year_eventually", name: "register[lands_attributes][#{ @id }][men_per_year_eventually]", type: "text"}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_works_attributes_#{ @id }_men_per_year_total", name: "register[works_attributes][#{ @id }][men_per_year_total]", type: "text"}
+  %input.numeric.float.optional.form-control{ id: "register_works_attributes_#{ @id }_men_per_year_total", name: "register[lands_attributes][#{ @id }][men_per_year_total]", type: "text"}
 %td
-  %a.btn.btn-danger.btn-small.remove
+  %a.btn.btn-danger.btn-small.remove.hide
     .glyphicon.glyphicon-remove

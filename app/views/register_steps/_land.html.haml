@@ -10,12 +10,13 @@
         %th.col-sm-2 Tenencia
         %th.col-sm-1 Desmonte Sin Autorizacion
         %th.col-sm-1 
+        %th
     %tbody
       = f.simple_fields_for :lands do |land|
-        %tr
+        %tr{ id: "land-#{ land.object.id }" }
           %td
             .col-sm-12
-              = land.association :department, label: false 
+              = land.association :department, label: false, input_html: { class: "form-control department-select" }
           %td
             .col-sm-12
               = land.association :community, label: false
@@ -33,3 +34,5 @@
           %td
             %a.btn.btn-danger.btn-small.static_lands
               .glyphicon.glyphicon-remove
+          %td
+            = land.check_box :_destroy

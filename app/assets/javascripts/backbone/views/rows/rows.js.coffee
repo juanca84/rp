@@ -14,14 +14,18 @@ class Runpa.Views.Rows.NewView extends Backbone.View
 
   tagName: "tr"
 
+  remove: -> 
+    id_land = @el.id
+    console.log id_land
+    $("#" + id_land.replace("land", "work")).remove()
+    $("#" + id_land.replace("land", "capital")).remove()
+    @el.remove()
+
   initialize: ->
-    @id = @options.id
+    @id = @options.tr_id
     @type = @options.type
     _.bindAll this, "render"
     @render()
-
-  remove_son: -> 
-    this.remove() 
 
   render: ->
     if @type is "agricultural_production"

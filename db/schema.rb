@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140204155628) do
+ActiveRecord::Schema.define(:version => 20140209213211) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -27,41 +27,6 @@ ActiveRecord::Schema.define(:version => 20140204155628) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
-
-  create_table "agricultural_productions", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "community_id"
-    t.integer  "register_id"
-    t.string   "entry"
-    t.integer  "productive_physical_coverage_amount"
-    t.string   "productive_physical_coverage_unit"
-    t.integer  "production_quantity"
-    t.string   "production_unit"
-    t.string   "production_system"
-    t.string   "production_destination"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-  end
-
-  add_index "agricultural_productions", ["community_id"], :name => "index_agricultural_productions_on_community_id"
-  add_index "agricultural_productions", ["department_id"], :name => "index_agricultural_productions_on_department_id"
-  add_index "agricultural_productions", ["register_id"], :name => "index_agricultural_productions_on_register_id"
-
-  create_table "capitals", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "community_id"
-    t.integer  "register_id"
-    t.string   "capital_item"
-    t.date     "start_year"
-    t.float    "lifespan_future"
-    t.float    "current_value"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "capitals", ["community_id"], :name => "index_capitals_on_community_id"
-  add_index "capitals", ["department_id"], :name => "index_capitals_on_department_id"
-  add_index "capitals", ["register_id"], :name => "index_capitals_on_register_id"
 
   create_table "civil_statuses", :force => true do |t|
     t.string   "code"
@@ -120,13 +85,30 @@ ActiveRecord::Schema.define(:version => 20140204155628) do
     t.float    "surface"
     t.string   "unit_of_measure"
     t.string   "tenure"
-    t.boolean  "disassemble_without_permission", :default => false
+    t.boolean  "disassemble_without_permission",      :default => false
     t.integer  "register_id"
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
     t.integer  "department_id"
     t.integer  "community_id"
     t.string   "another_community"
+    t.integer  "own_labor"
+    t.integer  "eventual_labor"
+    t.integer  "permanent_labor"
+    t.integer  "men_per_year_own"
+    t.integer  "men_per_year_eventually"
+    t.integer  "men_per_year_total"
+    t.string   "capital_item"
+    t.integer  "start_year"
+    t.float    "lifespan_future"
+    t.float    "current_value"
+    t.string   "entry"
+    t.float    "productive_physical_coverage_amount"
+    t.string   "productive_physical_coverage_unit"
+    t.float    "production_quantity"
+    t.string   "production_unit"
+    t.string   "production_system"
+    t.string   "production_destination"
   end
 
   add_index "lands", ["community_id"], :name => "index_lands_on_community_id"
@@ -299,23 +281,5 @@ ActiveRecord::Schema.define(:version => 20140204155628) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
-
-  create_table "works", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "community_id"
-    t.integer  "register_id"
-    t.integer  "own_labor"
-    t.integer  "eventual_labor"
-    t.integer  "permanent_labor"
-    t.float    "men_per_year_own"
-    t.float    "men_per_year_eventually"
-    t.float    "men_per_year_total"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  add_index "works", ["community_id"], :name => "index_works_on_community_id"
-  add_index "works", ["department_id"], :name => "index_works_on_department_id"
-  add_index "works", ["register_id"], :name => "index_works_on_register_id"
 
 end

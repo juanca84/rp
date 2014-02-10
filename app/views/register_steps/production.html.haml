@@ -14,9 +14,10 @@
       = field_set_tag 'Producción agropecuaria en el establecimiento' do
         #lands
           = render 'agricultural_production', f: f
-          %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
-            .glyphicon.glyphicon-plus-sign
-            adicionar producción
+          /
+            %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar producción
 
   .well.form-actions
     %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
