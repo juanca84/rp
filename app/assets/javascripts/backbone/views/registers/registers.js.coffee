@@ -9,6 +9,7 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .add_aggregate"   : "add_row"
     "click .add_partnership" : "add_row"
     "click .add_land"        : "add_row"
+    "change #department_holder" : "update_communities"
     "click .static.remove-sons" : "remove_static_son_aggregate"
     "click .static.remove-aggregates" : "remove_static_son_aggregate"
 
@@ -41,6 +42,18 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     
   generate_id: ->
     new Date().getTime()
+
+  update_communities: (event)->
+    element =  $(event.currentTarget)
+    select_id = element.attr('id')
+    department_id =  element.val()
+    $.ajax(
+      url: '/registers/' + department_id + '/get_communities'
+      dataType: 'html'
+    ).success (data) ->
+      $('#' + select_id.replace('department', 'community')).html(data)
+    
+    false
 
   render: ->
     return this

@@ -30,10 +30,6 @@
           .col-sm-3
             = person.input_field :education_id, as: :select, collection: Education.all
 
-        .form-group
-          = holder.label :time_to_land, class: "col-sm-7"
-          .col-sm-5
-            = holder.input_field :time_to_land, as: :string
         - if index == 1
           .form-group
             = person.label :civil_status, class: "col-sm-2"
@@ -54,13 +50,14 @@
               = person.input_field :phone
 
           .form-group
-            = f.label :community, class: "col-sm-3"
-            .col-sm-4
-              = f.input_field :community_id, as: :select, collection: Community.all
-
             = f.label :department, class: "col-sm-2"
             .col-sm-3
-              = f.input_field :department_id, as: :select, collection: Department.all
+              = f.input_field :department_id, as: :select, collection: Department.all, id: 'department_holder'
+
+            = f.label :community, class: "col-sm-3"
+            .col-sm-4
+              = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
+
           .form-group
             = f.label :geodesic_ns, class: "col-sm-2"
             .col-sm-2
@@ -73,4 +70,10 @@
             = f.label :code_ine, class: "col-sm-2"
             .col-sm-2
               = f.input_field :code_ine
+
+        .form-group
+          = holder.label :time_to_land, class: "col-sm-7"
+          .col-sm-5
+            = holder.input_field :time_to_land, as: :string
+
   - index +=1

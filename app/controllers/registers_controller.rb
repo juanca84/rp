@@ -1,5 +1,5 @@
 class RegistersController < RunpaController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :get_communities
   
   def index
     @registers = Register.order('code asc').page params[:page]
@@ -74,4 +74,11 @@ class RegistersController < RunpaController
       wants.xml  { head :ok }
     end
   end
+
+  def get_communities
+    @department = Department.find_by_id(params[:id])
+    @communities = @department.communities
+    render layout: false
+  end
+
 end
