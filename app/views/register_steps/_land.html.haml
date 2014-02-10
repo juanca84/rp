@@ -13,10 +13,10 @@
         %th
     %tbody
       = f.simple_fields_for :lands do |land|
-        %tr
+        %tr{ id: "land-#{ land.object.id }" }
           %td
             .col-sm-12
-              = land.association :department, label: false 
+              = land.association :department, label: false, input_html: { class: "form-control department-select" }
           %td
             .col-sm-12
               = land.association :community, label: false

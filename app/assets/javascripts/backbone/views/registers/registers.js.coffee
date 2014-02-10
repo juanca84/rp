@@ -9,9 +9,6 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .add_aggregate"   : "add_row"
     "click .add_partnership" : "add_row"
     "click .add_land"        : "add_row"
-    #"click .add_work"        : "add_row"
-    #"click .add_capital"     : "add_row"
-    #"click .add_production"  : "add_row"
     "click .static.remove-sons" : "remove_static_son_aggregate"
     "click .static.remove-aggregates" : "remove_static_son_aggregate"
 
