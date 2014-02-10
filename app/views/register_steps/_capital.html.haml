@@ -8,16 +8,15 @@
         %th.col-sm-1 Año de Compra y/o Construcción           
         %th.col-sm-1 Vida útil futura         
         %th.col-sm-2 Valor actual (Bs)
-        %th.col-sm-1 
     %tbody
       = f.simple_fields_for :lands do |capital|
         %tr
           %td
             .col-sm-12
-              = capital.association :department, label: false 
+              %input.string.optional.form-control.department{ type: "text", readonly: true, value: capital.object.try(:department).try(:name) }
           %td
             .col-sm-12
-              = capital.association :community, label: false
+              %input.string.optional.form-control.department{ type: "text", readonly: true, value: capital.object.try(:community).try(:name)}
           %td
             = capital.input_field :capital_item
           %td
@@ -26,6 +25,3 @@
             = capital.input_field :lifespan_future
           %td
             = capital.input_field :current_value
-          %td
-            %a.btn.btn-danger.btn-small.static_capitals
-              .glyphicon.glyphicon-remove

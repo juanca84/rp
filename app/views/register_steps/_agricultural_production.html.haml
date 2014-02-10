@@ -19,10 +19,10 @@
         %tr
           %td
             .col-sm-12
-              = agricultural_production.association :department, label: false 
+              %input.string.optional.form-control.department{ type: "text", readonly: true, value: agricultural_production.object.try(:department).try(:name) }
           %td
             .col-sm-12
-              = agricultural_production.association :community, label: false
+              %input.string.optional.form-control.community{ type: "text", readonly: true, value: agricultural_production.object.try(:community).try(:name) }
           %td
             = agricultural_production.input_field :entry
           %td
@@ -37,6 +37,3 @@
             = agricultural_production.input_field :production_system
           %td
             = agricultural_production.input_field :production_destination
-          %td
-            %a.btn.btn-danger.btn-small.static_agricultural_productionss
-              .glyphicon.glyphicon-remove

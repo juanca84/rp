@@ -10,6 +10,7 @@
         %th.col-sm-2 Tenencia
         %th.col-sm-1 Desmonte Sin Autorizacion
         %th.col-sm-1 
+        %th
     %tbody
       = f.simple_fields_for :lands do |land|
         %tr
@@ -33,3 +34,5 @@
           %td
             %a.btn.btn-danger.btn-small.static_lands
               .glyphicon.glyphicon-remove
+          %td
+            = land.check_box :_destroy

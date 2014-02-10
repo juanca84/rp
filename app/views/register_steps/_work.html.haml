@@ -6,7 +6,6 @@
         %th.col-sm-3{ rowspan: 2 } Municipio
         %th.col-sm-2{ colspan: 3 } Mano de Obra 
         %th.col-sm-2{ colspan: 3 } Conversión - hombre año
-        %th.col-sm-1{ rowspan: 2 }
       %tr
         %th.col-sm-1 Propia
         %th.col-sm-1 Eventual
@@ -19,10 +18,10 @@
         %tr
           %td
             .col-sm-12
-              = work.association :department, label: false 
+              %input.string.optional.form-control.department{ type: "text", readonly: true, value: work.object.try(:department).try(:name) }
           %td
             .col-sm-12
-              = work.association :community, label: false
+              %input.string.optional.form-control.community{ type: "text", readonly: true, value: work.object.try(:community).try(:name) }
           %td
             = work.input_field :own_labor
           %td
@@ -35,6 +34,3 @@
             = work.input_field :men_per_year_eventually
           %td
             = work.input_field :men_per_year_total
-          %td
-            %a.btn.btn-danger.btn-small.static_works
-              .glyphicon.glyphicon-remove

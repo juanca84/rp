@@ -16,9 +16,10 @@ class Runpa.Views.Rows.NewView extends Backbone.View
 
   remove: -> 
     id_land = @el.id
-    $()
+    console.log id_land
+    $("#" + id_land.replace("land", "work")).remove()
+    $("#" + id_land.replace("land", "capital")).remove()
     @el.remove()
-    #this.remove() 
 
   initialize: ->
     @id = @options.tr_id
