@@ -22,17 +22,19 @@
       = field_set_tag 'Trabajo' do
         #lands
           = render 'work', f: f
-          %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
-            .glyphicon.glyphicon-plus-sign
-            adicionar trabajo
+          /
+            %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar trabajo
 
     .well.form-actions
       = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
         #capitals
           = render 'capital', f: f
-          %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
-            .glyphicon.glyphicon-plus-sign
-            adicionar capital
+          /
+            %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar capital
 
   = render "form_submit", register: @register
 
