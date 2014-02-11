@@ -13,6 +13,9 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "change #department_register" : "update_communities"
     "change .department_lands" : "update_communities" 
     "change .community_lands" : "update_another_communities"
+    "keyup .table_works tbody tr:nth-child(2) input.eventual_labor" : 'update_eventual_and_permanet_labor' 
+    "keyup .table_works tbody tr:nth-child(2) input.permanent_labor" : 'update_eventual_and_permanet_labor' 
+    
     "click .static.remove-sons" : "remove_static_son_aggregate"
     "click .static.remove-aggregates" : "remove_static_son_aggregate"
 
@@ -98,9 +101,14 @@ class Runpa.Views.Registers.NewView extends Backbone.View
       else
         permanent_labor_val =  0
 
-      men_per_year_total.val(men_per_year_own.val() + eventual_labor.val() + permanent_labor_val)
+      men_per_year_total.val(parseFloat(men_per_year_own.val()) + parseFloat(men_per_year_eventually.val()) + parseFloat(permanent_labor_val))
 
       $('.table_works tbody tr:first').find('input.own_labor').attr('readonly', true)
+
+  update_eventual_and_permanet_labor: (event) ->
+    labor = $(event.currentTarget).val()
+    if Math.floor(labor).toString() == labor.toString() && $.isNumeric(labor)
+      @update_summation()
 
   render: ->
     return this
