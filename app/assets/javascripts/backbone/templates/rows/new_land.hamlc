@@ -17,7 +17,7 @@
   .col-sm-12
     .control-group.form-group.select.optional.register_lands_community
       .control
-        %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[lands_attributes][#{ @id }][community_id]" }
+        %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[lands_attributes][#{ @id }][community_id]", class: 'community_lands' }
           %option{value: ""}
 
 %td
