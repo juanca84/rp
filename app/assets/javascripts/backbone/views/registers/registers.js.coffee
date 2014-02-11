@@ -11,7 +11,7 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .add_land"        : "add_row"
     "change #department_holder" : "update_communities"
     "change #department_register" : "update_communities"
-    "change .department_lands" : "update_communities"
+    "change .department_lands" : "update_communities" 
     "change .community_lands" : "update_another_communities"
     "click .static.remove-sons" : "remove_static_son_aggregate"
     "click .static.remove-aggregates" : "remove_static_son_aggregate"
@@ -24,20 +24,20 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     type = $(e.currentTarget).attr('data-type')
     tr_id = @generate_id()
     view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
-    @$('table.table_' + type + 's tr:last').after(view.render().el)
+    @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
 
     if type is 'land'
       #columna para trabajo
       type = 'work'
       view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
-      @$('table.table_' + type + 's tr:last').after(view.render().el)
+      @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
 
       @update_summation()
 
       #columna para capital
       type = 'capital'
       view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
-      @$('table.table_' + type + 's tr:last').after(view.render().el)  
+      @$('table.table_' + type + 's tbody tr:last').after(view.render().el)  
         
     false
 
@@ -70,13 +70,13 @@ class Runpa.Views.Registers.NewView extends Backbone.View
 
   update_summation: () -> 
     #esto solo funciona para el primer registro de tierra
-    own_labor = $('.table_works tbody tr:first').find('input.own_labor')
-    eventual_labor = $('.table_works tbody tr:first').find('input.eventual_labor')
-    permanent_labor = $('.table_works tbody tr:first').find('input.permanent_labor')
+    own_labor = $('.table_works tbody tr').eq(1).find('input.own_labor')
+    eventual_labor = $('.table_works tbody tr').eq(1).find('input.eventual_labor')
+    permanent_labor = $('.table_works tbody tr').eq(1).find('input.permanent_labor')
 
-    men_per_year_own = $('.table_works tbody tr:first').find('input.men_per_year_own')
-    men_per_year_eventually = $('.table_works tbody tr:first').find('input.men_per_year_eventually')
-    men_per_year_total = $('.table_works tbody tr:first').find('input.men_per_year_total')
+    men_per_year_own = $('.table_works tbody tr').eq(1).find('input.men_per_year_own')
+    men_per_year_eventually = $('.table_works tbody tr').eq(1).find('input.men_per_year_eventually')
+    men_per_year_total = $('.table_works tbody tr').eq(1).find('input.men_per_year_total')
     
     total_time_to_land = $('#total_time_to_land').val()
 
@@ -100,7 +100,7 @@ class Runpa.Views.Registers.NewView extends Backbone.View
 
       men_per_year_total.val(men_per_year_own.val() + eventual_labor.val() + permanent_labor_val)
 
-    own_labor.attr('readonly', true)
+      $('.table_works tbody tr:first').find('input.own_labor').attr('readonly', true)
 
   render: ->
     return this

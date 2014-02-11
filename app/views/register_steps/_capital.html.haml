@@ -9,6 +9,7 @@
         %th.col-sm-1 Vida útil futura         
         %th.col-sm-2 Valor actual (Bs)
     %tbody
+      %tr
       = f.simple_fields_for :lands do |capital|
         %tr{ id: "capital-#{ capital.object.id }" }
           %td

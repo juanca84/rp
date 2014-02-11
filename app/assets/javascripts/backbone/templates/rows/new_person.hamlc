@@ -1,7 +1,7 @@
 %td
   %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_name", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][name]", size: "50", type: "text"}
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_birthdate", name: "register[sons_attributes][#{ @id }][person_attributes][birthdate]", size: "50", type: "text"}
+  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_age", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][age]", size: "50", type: "text"}
 %td
   %select.select.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_sex", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][sex]"}
     %option{value: ""}
@@ -10,7 +10,7 @@
 %td
   %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_time_to_land", name: "register[#{ @type }s_attributes][#{ @id }][time_to_land]", size: "50", type: "text", value: 0}
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_identification", maxlength: "255", name: "register[#{ @type }s_attributes][3][person_attributes][identification]", size: "50", type: "text"}
+  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_identification", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][identification]", size: "50", type: "text"}
 %td
   %a.btn.btn-danger.btn-small.remove 
     .glyphicon.glyphicon-remove

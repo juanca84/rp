@@ -12,6 +12,7 @@
         %th.col-sm-1 
         %th
     %tbody
+      %tr
       = f.simple_fields_for :lands do |land|
         %tr{ id: "land-#{ land.object.id }" }
           %td
