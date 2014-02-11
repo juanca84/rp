@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140211031612) do
+ActiveRecord::Schema.define(:version => 20140211152921) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -99,12 +99,6 @@ ActiveRecord::Schema.define(:version => 20140211031612) do
     t.integer  "department_id"
     t.integer  "community_id"
     t.string   "another_community"
-    t.integer  "own_labor"
-    t.integer  "eventual_labor"
-    t.integer  "permanent_labor"
-    t.integer  "men_per_year_own"
-    t.integer  "men_per_year_eventually"
-    t.integer  "men_per_year_total"
     t.string   "capital_item"
     t.integer  "start_year"
     t.float    "lifespan_future"
@@ -116,6 +110,12 @@ ActiveRecord::Schema.define(:version => 20140211031612) do
     t.string   "production_unit"
     t.string   "production_system"
     t.string   "production_destination"
+    t.integer  "own_labor",                           :default => 0
+    t.integer  "eventual_labor",                      :default => 0
+    t.integer  "permanent_labor",                     :default => 0
+    t.float    "men_per_year_own",                    :default => 0.0
+    t.float    "men_per_year_eventually",             :default => 0.0
+    t.float    "men_per_year_total",                  :default => 0.0
   end
 
   add_index "lands", ["community_id"], :name => "index_lands_on_community_id"
@@ -157,10 +157,10 @@ ActiveRecord::Schema.define(:version => 20140211031612) do
     t.integer  "person_id"
     t.integer  "register_id"
     t.string   "type_person"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "time_to_land"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "town_of_birth"
+    t.integer  "time_to_land",  :default => 0
   end
 
   add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"

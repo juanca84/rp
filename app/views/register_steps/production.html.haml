@@ -29,7 +29,7 @@
 
         = f.label :emission_community, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_community_id, as: :select, collection: f.object.try(:emission_department).communities, id: "community_register"
+          = f.input_field :emission_community_id, as: :select, collection: f.object.try(:emission_department).try(:communities), id: "community_register"
 
       .form-group
         =  f.label :emission_date, class: "col-sm-3"

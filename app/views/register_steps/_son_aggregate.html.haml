@@ -10,6 +10,7 @@
         %th.col-sm-1
 
     %tbody
+      %tr
       = f.simple_fields_for resources do |resource|
         = resource.hidden_field :type_person
         = resource.simple_fields_for :person do |person|
