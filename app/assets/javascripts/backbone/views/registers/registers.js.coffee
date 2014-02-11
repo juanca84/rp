@@ -17,7 +17,7 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .static.remove-aggregates" : "remove_static_son_aggregate"
 
   initialize: ->
-    _.bindAll this, "render", "add_row"
+    _.bindAll this, "render", "add_row", 'update_summation'
     @render()
 
   add_row: (e)->
@@ -31,9 +31,8 @@ class Runpa.Views.Registers.NewView extends Backbone.View
       type = 'work'
       view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
       @$('table.table_' + type + 's tr:last').after(view.render().el)
-      first_work  = $($('.table_works .own_labor')[0])
-      first_work.val($('#total_time_to_land').val())
-      first_work.attr('readonly', true)
+
+      @update_summation()
 
       #columna para capital
       type = 'capital'
@@ -68,6 +67,40 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     $('#' + select_id.replace('community_lands_', 'work-') + ' .community').val($('#' + select_id + ' option:selected').text())
     $('#' + select_id.replace('community_lands_', 'capital-') + ' .community').val($('#' + select_id + ' option:selected').text())
     false
+
+  update_summation: () -> 
+    #esto solo funciona para el primer registro de tierra
+    own_labor = $('.table_works tbody tr:first').find('input.own_labor')
+    eventual_labor = $('.table_works tbody tr:first').find('input.eventual_labor')
+    permanent_labor = $('.table_works tbody tr:first').find('input.permanent_labor')
+
+    men_per_year_own = $('.table_works tbody tr:first').find('input.men_per_year_own')
+    men_per_year_eventually = $('.table_works tbody tr:first').find('input.men_per_year_eventually')
+    men_per_year_total = $('.table_works tbody tr:first').find('input.men_per_year_total')
+    
+    total_time_to_land = $('#total_time_to_land').val()
+
+    if total_time_to_land
+      own_labor.val(total_time_to_land)
+
+      if own_labor.val()
+        men_per_year_own.val(own_labor.val()/250)
+      else
+        men_per_year_own.val(0)
+
+      if eventual_labor.val()
+        men_per_year_eventually.val(eventual_labor.val()/250)
+      else
+        men_per_year_eventually.val(0)    
+      
+      if permanent_labor.val()
+        permanent_labor_val = permanent_labor.val()
+      else
+        permanent_labor_val =  0
+
+      men_per_year_total.val(men_per_year_own.val() + eventual_labor.val() + permanent_labor_val)
+
+    own_labor.attr('readonly', true)
 
   render: ->
     return this

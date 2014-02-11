@@ -25,12 +25,12 @@
           %td
             = work.input_field :own_labor, class: 'own_labor form-control'
           %td
-            = work.input_field :eventual_labor
+            = work.input_field :eventual_labor, class: 'eventual_labor form-control'
           %td
-            = work.input_field :permanent_labor
+            = work.input_field :permanent_labor, class: 'permanent_labor form-control'
           %td
             = work.input_field :men_per_year_own, readonly: true, class: 'men_per_year_own form-control'
           %td
-            = work.input_field :men_per_year_eventually, readonly: true, class: 'men_per_year_own form-control'
+            = work.input_field :men_per_year_eventually, readonly: true, class: 'men_per_year_eventually form-control'
           %td
-            = work.input_field :men_per_year_total, readonly: true, class: 'men_per_year_own form-control'
+            = work.input_field :men_per_year_total, readonly: true, class: 'men_per_year_total form-control'
