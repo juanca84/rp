@@ -1,7 +1,7 @@
 .form-group
-  = f.label :subsector, class: "col-sm-1"
+  = f.label :economic_activity, class: "col-sm-1"
   .col-sm-3
-    = f.input_field :subsector
+    = f.input_field :economic_activity_id, as: :select, collection: EconomicActivity.all
 
   = f.label :first_entry, class: "col-sm-1"
   .col-sm-3

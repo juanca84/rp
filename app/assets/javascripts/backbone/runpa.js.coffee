@@ -7,3 +7,5 @@ window.Runpa =
   Collections: {}
   Routers: {}
   Views: {}
+$ -> 
+  $('.table_works tbody tr').eq(1).find('input.own_labor').attr('readonly', true)

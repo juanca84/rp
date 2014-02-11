@@ -7,6 +7,9 @@ Runpa::Application.routes.draw do
 
   resources :registers do 
     resources :register_steps, only: [:show, :update]
+    member do
+      get :get_communities
+    end 
   end
   
   resources :reports, only: [:index]

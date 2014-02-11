@@ -1,3 +1,4 @@
+= hidden_field_tag :total_time_to_land, @register.total_time_to_land, id: 'total_time_to_land'
 = simple_form_for @register, url: wizard_path, method: :put, html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
   .form-group
     .col-sm-9
@@ -20,19 +21,21 @@
 
     .well.form-actions
       = field_set_tag 'Trabajo' do
-        #lands
+        #works
           = render 'work', f: f
-          %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
-            .glyphicon.glyphicon-plus-sign
-            adicionar trabajo
+          /
+            %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar trabajo
 
     .well.form-actions
       = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
         #capitals
           = render 'capital', f: f
-          %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
-            .glyphicon.glyphicon-plus-sign
-            adicionar capital
+          /
+            %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar capital
 
   = render "form_submit", register: @register
 

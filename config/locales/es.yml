@@ -98,6 +98,7 @@ es:
         identification: Número de Identificación
         birthdate: Fecha de nacimiento
         sex: Sexo
+
       register:
         address: Dirección
         civil_union: Unión Civil
@@ -105,6 +106,7 @@ es:
         code_ine: Código INE
         community: Municipio de Residencia
         department: Departamento
+        economic_activity: Subsector
         emission_date: Fecha de emisión
         emission_community: Municipio de emisión
         emission_department: Departamento de emisión

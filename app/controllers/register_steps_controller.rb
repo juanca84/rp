@@ -9,7 +9,7 @@ class RegisterStepsController < ApplicationController
   end
   
   def update
-    @register = Register.find params[:register_id] 
+    @register = Register.find params[:register_id]
     @register.update_attributes params[:register]
     # case step
     # when :family

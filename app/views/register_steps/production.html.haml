@@ -14,9 +14,10 @@
       = field_set_tag 'Producción agropecuaria en el establecimiento' do
         #lands
           = render 'agricultural_production', f: f
-          %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
-            .glyphicon.glyphicon-plus-sign
-            adicionar producción
+          /
+            %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar producción
 
   .well.form-actions
     %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
@@ -24,11 +25,11 @@
       .form-group
         = f.label :emission_department, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_department_id, as: :select, collection: Department.all
+          = f.input_field :emission_department_id, as: :select, collection: Department.all, id: "department_register"
 
         = f.label :emission_community, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_community_id, as: :select, collection: Community.all
+          = f.input_field :emission_community_id, as: :select, collection: f.object.try(:emission_department).try(:communities), id: "community_register"
 
       .form-group
         =  f.label :emission_date, class: "col-sm-3"

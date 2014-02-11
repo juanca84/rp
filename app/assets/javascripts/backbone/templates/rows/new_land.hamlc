@@ -2,7 +2,7 @@
   .col-sm-12
     .control-group.form-group.select.optional.register_lands_department
       .control
-        %select.select.optional.form-control{ id: "register_lands_attributes_#{ @id }_department_id", name: "register[lands_attributes][#{ @id }][department_id]" }
+        %select.select.optional.form-control{ id: "department_lands_#{ @id }", class: 'department_lands', name: "register[lands_attributes][#{ @id }][department_id]" }
           %option{value: ""}
           %option{value: "10"} Tarija
           %option{value: "11"} Potosi
@@ -17,8 +17,9 @@
   .col-sm-12
     .control-group.form-group.select.optional.register_lands_community
       .control
-        %select.select.optional.form-control{ id: "register_lands_attributes_#{ @id }_community_id", name: "register[lands_attributes][#{ @id }][community_id]" }
+        %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[lands_attributes][#{ @id }][community_id]", class: 'community_lands' }
           %option{value: ""}
+
 %td
   %input.string.optional.form-control{ id: "register_lands_attributes_#{ @id }_another_community", maxlength: "255", name: "register[lands_attributes][#{ @id }][another_community]", size: "50", type: "text"}
 %td
