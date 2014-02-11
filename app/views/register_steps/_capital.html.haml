@@ -10,13 +10,13 @@
         %th.col-sm-2 Valor actual (Bs)
     %tbody
       = f.simple_fields_for :lands do |capital|
-        %tr
+        %tr{ id: "capital-#{ capital.object.id }" }
           %td
             .col-sm-12
               %input.string.optional.form-control.department{ type: "text", readonly: true, value: capital.object.try(:department).try(:name) }
           %td
             .col-sm-12
-              %input.string.optional.form-control.department{ type: "text", readonly: true, value: capital.object.try(:community).try(:name)}
+              %input.string.optional.form-control.community{ type: "text", readonly: true, value: capital.object.try(:community).try(:name)}
           %td
             = capital.input_field :capital_item
           %td

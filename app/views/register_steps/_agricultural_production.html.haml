@@ -36,4 +36,4 @@
           %td
             = agricultural_production.input_field :production_system
           %td
-            = agricultural_production.input_field :production_destination
+            = agricultural_production.input_field :production_destination, as: :select, collection: ['autoconsumo', 'mercado interno', 'mercado externo']

@@ -9,6 +9,10 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .add_aggregate"   : "add_row"
     "click .add_partnership" : "add_row"
     "click .add_land"        : "add_row"
+    "change #department_holder" : "update_communities"
+    "change #department_register" : "update_communities"
+    "change .department_lands" : "update_communities"
+    "change .community_lands" : "update_another_communities"
     "click .static.remove-sons" : "remove_static_son_aggregate"
     "click .static.remove-aggregates" : "remove_static_son_aggregate"
 
@@ -41,6 +45,26 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     
   generate_id: ->
     new Date().getTime()
+
+  update_communities: (event) ->
+    element =  $(event.currentTarget)
+    select_id = element.attr('id')
+    department_id =  element.val()
+    $.ajax(
+      url: '/registers/' + department_id + '/get_communities'
+      dataType: 'html'
+    ).success (data) ->
+      $('#' + select_id.replace('department', 'community')).html(data) 
+      $('#' + select_id.replace('department_lands_', 'work-') + ' .department').val($('#' + select_id + ' option:selected').text())
+      $('#' + select_id.replace('department_lands_', 'capital-') + ' .department').val($('#' + select_id + ' option:selected').text())
+    false
+
+  update_another_communities: (event) -> 
+    element =  $(event.currentTarget)
+    select_id = element.attr('id')
+    $('#' + select_id.replace('community_lands_', 'work-') + ' .community').val($('#' + select_id + ' option:selected').text())
+    $('#' + select_id.replace('community_lands_', 'capital-') + ' .community').val($('#' + select_id + ' option:selected').text())
+    false
 
   render: ->
     return this

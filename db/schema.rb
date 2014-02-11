@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209213211) do
+ActiveRecord::Schema.define(:version => 20140211031612) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20140209213211) do
   add_index "communities", ["province_id"], :name => "index_communities_on_province_id"
 
   create_table "departments", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "economic_activities", :force => true do |t|
     t.string   "code"
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -205,16 +212,17 @@ ActiveRecord::Schema.define(:version => 20140209213211) do
     t.string   "geodesic_ew"
     t.string   "code_ine"
     t.integer  "user_id"
-    t.string   "subsector"
     t.string   "first_entry"
     t.string   "second_entry"
     t.date     "emission_date"
     t.integer  "emission_department_id"
     t.integer  "emission_community_id"
+    t.integer  "economic_activity_id"
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
   add_index "registers", ["department_id"], :name => "index_registers_on_department_id"
+  add_index "registers", ["economic_activity_id"], :name => "index_registers_on_economic_activity_id"
   add_index "registers", ["emission_community_id"], :name => "index_registers_on_emission_community_id"
   add_index "registers", ["emission_department_id"], :name => "index_registers_on_emission_department_id"
   add_index "registers", ["user_id"], :name => "index_registers_on_user_id"

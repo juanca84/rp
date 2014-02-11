@@ -15,7 +15,7 @@
         %th.col-sm-1 Total
     %tbody
       = f.simple_fields_for :lands do |work|
-        %tr
+        %tr{ id: "work-#{ work.object.id }" }
           %td
             .col-sm-12
               %input.string.optional.form-control.department{ type: "text", readonly: true, value: work.object.try(:department).try(:name) }
