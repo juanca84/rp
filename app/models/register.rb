@@ -55,9 +55,18 @@ class Register < ActiveRecord::Base
     end
   end
 
-  #método pra crear los identificadores de numero
+  #método para crear los identificadores de numero
   def self.new_code_number
     code_number = Register.maximum("code")
     return code_number.nil? ? 1 : code_number + 1
+  end
+
+  #método para determinar la sumatoria de los dias 
+  def total_time_to_land
+    total = 0
+    people_registers.pluck(:time_to_land).each do |time|
+      total += time if time.present?
+    end
+    total
   end
 end

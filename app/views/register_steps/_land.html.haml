@@ -19,7 +19,7 @@
               = land.association :department, label: false, input_html: { id: "department_lands_#{ land.object.id }", class: "form-control department_lands" }
           %td
             .col-sm-12
-              = land.association :community, label: false, input_html: { id: "community_lands_#{ land.object.id }", class: "form-control community_lands" }, collection: land.object.try(:department).communities
+              = land.association :community, label: false, input_html: { id: "community_lands_#{ land.object.id }", class: "form-control community_lands" }, collection: land.object.try(:department).try(:communities)
           %td
             = land.input_field :another_community
           %td

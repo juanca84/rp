@@ -31,6 +31,9 @@ class Runpa.Views.Registers.NewView extends Backbone.View
       type = 'work'
       view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
       @$('table.table_' + type + 's tr:last').after(view.render().el)
+      first_work  = $($('.table_works .own_labor')[0])
+      first_work.val($('#total_time_to_land').val())
+      first_work.attr('readonly', true)
 
       #columna para capital
       type = 'capital'
