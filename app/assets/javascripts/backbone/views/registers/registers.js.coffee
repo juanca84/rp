@@ -103,8 +103,6 @@ class Runpa.Views.Registers.NewView extends Backbone.View
 
       men_per_year_total.val(parseFloat(men_per_year_own.val()) + parseFloat(men_per_year_eventually.val()) + parseFloat(permanent_labor_val))
 
-      $('.table_works tbody tr:first').find('input.own_labor').attr('readonly', true)
-
   update_eventual_and_permanet_labor: (event) ->
     labor = $(event.currentTarget).val()
     if Math.floor(labor).toString() == labor.toString() && $.isNumeric(labor)
