@@ -9,6 +9,17 @@
   = f.error_notification
 
   .well.form-actions
+    %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+    .well.form-actions
+      = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
+        #capitals
+          = render 'capital', f: f
+          /
+            %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
+              .glyphicon.glyphicon-plus-sign
+              adicionar capital
+
+  .well.form-actions
     %legend PRODUCCIÓN
     .well.form-actions
       = field_set_tag 'Producción agropecuaria en el establecimiento' do
