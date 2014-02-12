@@ -4,7 +4,7 @@ class Register < ActiveRecord::Base
   
   attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes, :code, 
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
-                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_registers_attributes, :residence, 
+                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :residence, 
                   :second_entry, :sons_attributes, :user_id, :works_attributes
 
   belongs_to :civil_union
@@ -25,17 +25,19 @@ class Register < ActiveRecord::Base
   has_many :people_registers
   has_many :people, through: :people_registers
 
-  has_many :partnerships_registers
-  has_many :partnerships, through: :partnerships_registers 
+  #has_many :partnerships_registers
+  #has_many :partnerships, through: :partnerships_registers 
+  has_many :partnerships 
 
   validates :code, :user_id,  presence: true
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :aggregates, :holders, :partnerships_registers, 
-                                :sons
+  accepts_nested_attributes_for :aggregates, :holders, :sons
 
   accepts_nested_attributes_for :lands, allow_destroy: true
+  
+  accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
 
   before_validation :generate_code
 

@@ -2,13 +2,15 @@
   %table.table.table-bordered.table_register.table_partnerships
     %tbody
       %tr
-        %td.col-sm-9
-          = f.simple_fields_for :partnerships_registers do |partnerships_register| 
-            = partnerships_register.input_field :partnership_id, as: :select, collection: Partnership.all
-        %td.col-sm-1
-          Cód:
-        %td.col-sm-2
-          %input#register_aggregates_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][name]", size: "50", type: "text", readonly: true}
-        %td.col-sm-1
-          %a.btn.btn-danger.btn-small.static_partnerships
-            .glyphicon.glyphicon-remove
+      = f.simple_fields_for :partnerships do |partnership| 
+        %tr
+          %td.col-sm-9
+            = partnership.input_field :name
+          %td.col-sm-1
+            Cód:
+          %td.col-sm-2
+            = partnership.input_field :code
+          %td.col-sm-1
+            = partnership.check_box :_destroy, class: 'hide' 
+            %a.btn.btn-danger.btn-small.static_partnerships
+              .glyphicon.glyphicon-remove

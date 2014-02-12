@@ -5,18 +5,19 @@ class RegisterStepsController < ApplicationController
   def show
     @register = Register.find params[:register_id]
     @step = params[:id]
+    #case @step
+    # when :family
+    #when 'partnerships'
+    #  @register.partnerships.build
+    # when :factors
+    # when :production
+    #end
     render_wizard
   end
   
   def update
     @register = Register.find params[:register_id]
     @register.update_attributes params[:register]
-    # case step
-    # when :family
-    # when :partnerships
-    # when :factors
-    # when :production
-    # end
     render_wizard @register
   end
 

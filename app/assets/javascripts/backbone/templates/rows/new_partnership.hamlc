@@ -1,12 +1,9 @@
 %td.col-sm-9
-  %select.optional.form-control{ id: "register_partnerships_registers_attributes_#{ @id }_partnership_id.select", name: "register[partnerships_registers_attributes][#{ @id }][partnership_id]" }
-    %option{value: ""}
-    %option{value: "1"} asociacion de caneros
-    %option{value: "2"} Asociacion de Ganaderos
+  %input.string.optional.form-control{ id: "register_partnerships_attributes_#{ @id }_name", maxlength: "255", name: "register[partnerships_attributes][#{ @id }][name]", size: "50", type: "text"}
 %td.col-sm-1
   Cód:
 %td.col-sm-2
-  %input.string.required.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text"}
+  %input.string.optional.form-control{ id: "register_partnerships_attributes_#{ @id }_code", maxlength: "255", name: "register[partnerships_attributes][#{ @id }][code]", size: "50", type: "text"}
 %td.col-sm-1
-  %a.btn.btn-danger.btn-small.remove
+  %a.btn.btn-danger.btn-small.static_partnerships
     .glyphicon.glyphicon-remove
