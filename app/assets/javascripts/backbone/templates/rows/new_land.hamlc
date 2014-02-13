@@ -27,17 +27,23 @@
 %td
   %input.string.optional.form-control{id: "register_lands_attributes_#{ @id }_unit_of_measure", maxlength: "255", name: "register[lands_attributes][#{ @id }][unit_of_measure]", size: "50", type: "text" }
 %td
-  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @id }_tenure",maxlength: "255", name: "register[lands_attributes][#{ @id }][tenure]", size: "50", type: "text" }
+  %select.select.optional.form-control{ id: "register_lands_attributes_#{ @id }_tenure", name: "register[lands_attributes][#{ @id }][tenure]"}
+    %option{value: ""}
+    %option{value: "propiedad"} propiedad
+    %option{value: "a modo de propiedad(tramite)"} a modo de propiedad(tramite)
+    %option{value: "alquiler"} alquiler
+    %option{value: "anticrético"} anticrético
+    %option{value: "comodato"} comodato
+    %option{value: "ocupada de hecho"} ocupada de hecho
+    %option{value: "arrimados y/o prestados"} arrimados y/o prestados
 %td
   .col-sm-12
-    .control-group.form-group.radio_buttons.optional.register_lands_disassemble_without_permission
-      .control
-        %label.radio.radio-inline
-          %input.radio_buttons.optional.form-control{ id: "register_lands_attributes_#{ @id }_disassemble_without_permission_true", name: "register[lands_attributes][#{ @id }][disassemble_without_permission]", type: "radio", value: "true"}>
-          Si
-        %label.radio.radio-inline
-          %input.radio_buttons.optional.form-control{ id: "register_lands_attributes_#{ @id }_disassemble_without_permission_false", checked: "checked", name: "register[lands_attributes][#{ @id }][disassemble_without_permission]", type: "radio", value: "false"}>
-          No
+    %label.radio.radio-inline
+      %input.radio_buttons.optional.form-control{ id: "register_lands_attributes_#{ @id }_disassemble_without_permission_true", name: "register[lands_attributes][#{ @id }][disassemble_without_permission]", type: "radio", value: "true"}>
+      Si
+    %label.radio.radio-inline
+      %input.radio_buttons.optional.form-control{ id: "register_lands_attributes_#{ @id }_disassemble_without_permission_false", checked: "checked", name: "register[lands_attributes][#{ @id }][disassemble_without_permission]", type: "radio", value: "false"}>
+      No
 %td
   %a.btn.btn-danger.btn-small.remove
     .glyphicon.glyphicon-remove

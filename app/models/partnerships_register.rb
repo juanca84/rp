@@ -1,3 +1,4 @@
+#deshabilitada por el momento
 class PartnershipsRegister < ActiveRecord::Base
   belongs_to :register
   belongs_to :partnership

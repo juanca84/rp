@@ -7,5 +7,7 @@ window.Runpa =
   Collections: {}
   Routers: {}
   Views: {}
-$ -> 
-  $('.table_works tbody tr').eq(1).find('input.own_labor').attr('readonly', true)
+  
+$(document).on "click", ".remove-static-field", ->
+  $(this).siblings().eq(1).click()
+  return 

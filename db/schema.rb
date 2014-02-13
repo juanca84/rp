@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140211152921) do
+ActiveRecord::Schema.define(:version => 20140212151509) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(:version => 20140211152921) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "capitals", :force => true do |t|
+    t.string   "capital_item"
+    t.float    "current_value",   :default => 0.0
+    t.float    "lifespan_future"
+    t.integer  "start_year"
+    t.integer  "land_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "capitals", ["land_id"], :name => "index_capitals_on_land_id"
 
   create_table "civil_statuses", :force => true do |t|
     t.string   "code"
@@ -92,30 +104,19 @@ ActiveRecord::Schema.define(:version => 20140211152921) do
     t.float    "surface"
     t.string   "unit_of_measure"
     t.string   "tenure"
-    t.boolean  "disassemble_without_permission",      :default => false
+    t.boolean  "disassemble_without_permission", :default => false
     t.integer  "register_id"
-    t.datetime "created_at",                                             :null => false
-    t.datetime "updated_at",                                             :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.integer  "department_id"
     t.integer  "community_id"
     t.string   "another_community"
-    t.string   "capital_item"
-    t.integer  "start_year"
-    t.float    "lifespan_future"
-    t.float    "current_value"
-    t.string   "entry"
-    t.float    "productive_physical_coverage_amount"
-    t.string   "productive_physical_coverage_unit"
-    t.float    "production_quantity"
-    t.string   "production_unit"
-    t.string   "production_system"
-    t.string   "production_destination"
-    t.integer  "own_labor",                           :default => 0
-    t.integer  "eventual_labor",                      :default => 0
-    t.integer  "permanent_labor",                     :default => 0
-    t.float    "men_per_year_own",                    :default => 0.0
-    t.float    "men_per_year_eventually",             :default => 0.0
-    t.float    "men_per_year_total",                  :default => 0.0
+    t.integer  "own_labor",                      :default => 0
+    t.integer  "eventual_labor",                 :default => 0
+    t.integer  "permanent_labor",                :default => 0
+    t.float    "men_per_year_own",               :default => 0.0
+    t.float    "men_per_year_eventually",        :default => 0.0
+    t.float    "men_per_year_total",             :default => 0.0
   end
 
   add_index "lands", ["community_id"], :name => "index_lands_on_community_id"
@@ -125,8 +126,9 @@ ActiveRecord::Schema.define(:version => 20140211152921) do
   create_table "partnerships", :force => true do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "register_id"
   end
 
   create_table "partnerships_registers", :force => true do |t|
@@ -165,6 +167,21 @@ ActiveRecord::Schema.define(:version => 20140211152921) do
 
   add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
   add_index "people_registers", ["register_id"], :name => "index_people_registers_on_register_id"
+
+  create_table "productions", :force => true do |t|
+    t.integer  "land_id"
+    t.string   "entry"
+    t.string   "production_destination"
+    t.float    "production_quantity",                 :default => 0.0
+    t.string   "production_system"
+    t.string   "production_unit"
+    t.float    "productive_physical_coverage_amount", :default => 0.0
+    t.string   "productive_physical_coverage_unit"
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+  end
+
+  add_index "productions", ["land_id"], :name => "index_productions_on_land_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "name"

@@ -1,618 +1,101 @@
-.container  
-  %h1 Vista de Registro
-  %form#new_register.simple_form.form-horizontal{"accept-charset" => "UTF-8", action: "/registers", method: "post", novalidate: "novalidate", role: "form"}
-    %div{style: "margin:0;padding:0;display:inline"}
-      %input{name: "utf8", type: "hidden", value: "✓"}/
-      %input{name: "authenticity_token", type: "hidden", value: "D6uK24f6ohikHHxsZgdvaD8wIM9slSSxp8nnfUZTptA="}/
+.container{style: 'width:100%'}
+  = simple_form_for @register, url: "#", html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
     .form-group
       .col-sm-9
-      %label.integer.required.control-label.col-sm-1{for: "register_code"}
-        %abbr{title: "requerido"} *
-        No.
+      = f.label :code, class: "col-sm-1"
       .col-sm-2
-        %input#register_code.numeric.integer.required.readonly.form-control{name: "register[code]", readonly: "readonly", type: "text", value: "27"}/
-      %input#register_user_id{name: "register[user_id]", type: "hidden", value: "1"}/
+        = f.input_field :code, readonly: true
+      = f.hidden_field :user_id
+
     .well.form-actions
       %legend IDENTIFICACIÓN DE LOS TITULARES
-      .well.form-actions
-        %fieldset
-          %legend Titular 01
-          %input#register_holders_attributes_0_type_person{name: "register[holders_attributes][0][type_person]", type: "hidden", value: "holder"}/
-          / = person.input :name
-          .form-group.control-group
-            %label.string.required.control-label.col-sm-3{for: "register_holders_attributes_0_person_attributes_name"}
-              %abbr{title: "requerido"} *
-              Nombre y Apellidos
-            .col-sm-9.control
-              %input#register_holders_attributes_0_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[holders_attributes][0][person_attributes][name]", size: "50", type: "text"}/
-          .form-group
-            %label.string.optional.control-label.col-sm-3{for: "register_holders_attributes_0_person_attributes_community_of_birth"} Municipio de Nacimiento
-            .col-sm-4
-              %select#register_holders_attributes_0_person_attributes_community_of_birth_id.select.optional.form-control{name: "register[holders_attributes][0][person_attributes][community_of_birth_id]"}
-                %option{value: ""}
-            %label.date.optional.control-label.col-sm-2{for: "register_holders_attributes_0_person_attributes_birthdate"} Fecha de nacimiento
-            .col-sm-3
-              %input#register_holders_attributes_0_person_attributes_birthdate.date.optional.form-control{"data-date-allow-blank" => "true", "data-rails" => "true", "data-widget" => "datepicker", name: "register[holders_attributes][0][person_attributes][birthdate]", placeholder: "", size: "30", type: "text", value: ""}/
-              %input.js-aw-1i{id: "register_holders_attributes_0_person_attributes_birthdate(1i)", name: "register[holders_attributes][0][person_attributes][birthdate(1i)]", type: "hidden", value: ""}/
-              %input.js-aw-2i{id: "register_holders_attributes_0_person_attributes_birthdate(2i)", name: "register[holders_attributes][0][person_attributes][birthdate(2i)]", type: "hidden", value: ""}/
-              %input.js-aw-3i{id: "register_holders_attributes_0_person_attributes_birthdate(3i)", name: "register[holders_attributes][0][person_attributes][birthdate(3i)]", type: "hidden", value: ""}/
-          .form-group
-            %label.string.optional.control-label.col-sm-2{for: "register_holders_attributes_0_person_attributes_identification"} Cédula de Identidad
-            .col-sm-2
-              %input#register_holders_attributes_0_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[holders_attributes][0][person_attributes][identification]", size: "50", type: "text"}/
-            %label.string.optional.control-label.col-sm-1{for: "register_holders_attributes_0_person_attributes_sex"} Sexo
-            .col-sm-2
-              %select#register_holders_attributes_0_person_attributes_sex.select.optional.form-control{name: "register[holders_attributes][0][person_attributes][sex]"}
-                %option{value: ""}
-                %option{value: "M"} M
-                %option{value: "F"} F
-            %label.string.optional.control-label.col-sm-2{for: "register_holders_attributes_0_person_attributes_education"} Nivel de instrucción
-            .col-sm-3
-              %select#register_holders_attributes_0_person_attributes_education_id.select.optional.form-control{name: "register[holders_attributes][0][person_attributes][education_id]"}
-                %option{value: ""}
-          .form-group
-            %label.integer.optional.control-label.col-sm-7{for: "register_holders_attributes_0_time_to_land"} Número de días al año dedicado a actividades agropecuarias en el establecimiento
-            .col-sm-5
-              %input#register_holders_attributes_0_time_to_land.string.optional.form-control{name: "register[holders_attributes][0][time_to_land]", size: "50", type: "text"}/
-          .form-group
-            %label.string.optional.control-label.col-sm-2{for: "register_holders_attributes_0_person_attributes_civil_status"} Estado Civil
-            .col-sm-4
-              %select#register_holders_attributes_0_person_attributes_civil_status_id.select.optional.form-control{name: "register[holders_attributes][0][person_attributes][civil_status_id]"}
-                %option{value: ""}
-            %label.string.optional.control-label.col-sm-2{for: "register_residence"} Lugar de Residencia
-            .col-sm-4
-              %input#register_residence.string.optional.form-control{maxlength: "255", name: "register[residence]", size: "50", type: "text"}/
-          .form-group
-            %label.string.optional.control-label.col-sm-2{for: "register_address"} Dirección
-            .col-sm-10
-              %input#register_address.string.optional.form-control{maxlength: "255", name: "register[address]", size: "50", type: "text"}/
-          .form-group
-            %label.string.optional.control-label.col-sm-3{for: "register_community"} Municipio de Residencia
-            .col-sm-4
-              %select#register_community_id.select.optional.form-control{name: "register[community_id]"}
-                %option{value: ""}
- 
-            %label.string.optional.control-label.col-sm-2{for: "register_department"} Departamento
-            .col-sm-3
-              %select#register_department_id.select.optional.form-control{name: "register[department_id]"}
-                %option{value: ""}
-          .form-group
-            %label.string.optional.control-label.col-sm-2{for: "register_geodesic_ns"} Punto Geodésico NS
-            .col-sm-2
-              %input#register_geodesic_ns.string.optional.form-control{maxlength: "255", name: "register[geodesic_ns]", size: "50", type: "text"}/
-            %label.string.optional.control-label.col-sm-2{for: "register_geodesic_ns"} Punto Geodésico NS
-            .col-sm-2
-              %input#register_geodesic_ew.string.optional.form-control{maxlength: "255", name: "register[geodesic_ew]", size: "50", type: "text"}/
-            %label.string.optional.control-label.col-sm-2{for: "register_code_ine"} Código INE
-            .col-sm-2
-              %input#register_code_ine.string.optional.form-control{maxlength: "255", name: "register[code_ine]", size: "50", type: "text"}/
-      .well.form-actions
-        %fieldset
-          %legend Titular 02
-          %input#register_holders_attributes_1_type_person{name: "register[holders_attributes][1][type_person]", type: "hidden", value: "holder"}/
-          / = person.input :name
-          .form-group.control-group
-            %label.string.required.control-label.col-sm-3{for: "register_holders_attributes_1_person_attributes_name"}
-              %abbr{title: "requerido"} *
-              Nombre y Apellidos
-            .col-sm-9.control
-              %input#register_holders_attributes_1_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[holders_attributes][1][person_attributes][name]", size: "50", type: "text"}/
-          .form-group
-            %label.string.optional.control-label.col-sm-3{for: "register_holders_attributes_1_person_attributes_community_of_birth"} Municipio de Nacimiento
-            .col-sm-4
-              %select#register_holders_attributes_1_person_attributes_community_of_birth_id.select.optional.form-control{name: "register[holders_attributes][1][person_attributes][community_of_birth_id]"}
-                %option{value: ""}
+      = render 'holder', f: f
 
-            %label.date.optional.control-label.col-sm-2{for: "register_holders_attributes_1_person_attributes_birthdate"} Fecha de nacimiento
-            .col-sm-3
-              %input#register_holders_attributes_1_person_attributes_birthdate.date.optional.form-control{"data-date-allow-blank" => "true", "data-rails" => "true", "data-widget" => "datepicker", name: "register[holders_attributes][1][person_attributes][birthdate]", placeholder: "", size: "30", type: "text", value: ""}/
-              %input.js-aw-1i{id: "register_holders_attributes_1_person_attributes_birthdate(1i)", name: "register[holders_attributes][1][person_attributes][birthdate(1i)]", type: "hidden", value: ""}/
-              %input.js-aw-2i{id: "register_holders_attributes_1_person_attributes_birthdate(2i)", name: "register[holders_attributes][1][person_attributes][birthdate(2i)]", type: "hidden", value: ""}/
-              %input.js-aw-3i{id: "register_holders_attributes_1_person_attributes_birthdate(3i)", name: "register[holders_attributes][1][person_attributes][birthdate(3i)]", type: "hidden", value: ""}/
-          .form-group
-            %label.string.optional.control-label.col-sm-2{for: "register_holders_attributes_1_person_attributes_identification"} Cédula de Identidad
-            .col-sm-2
-              %input#register_holders_attributes_1_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[holders_attributes][1][person_attributes][identification]", size: "50", type: "text"}/
-            %label.string.optional.control-label.col-sm-1{for: "register_holders_attributes_1_person_attributes_sex"} Sexo
-            .col-sm-2
-              %select#register_holders_attributes_1_person_attributes_sex.select.optional.form-control{name: "register[holders_attributes][1][person_attributes][sex]"}
-                %option{value: ""}
-                %option{value: "M"} M
-                %option{value: "F"} F
-            %label.string.optional.control-label.col-sm-2{for: "register_holders_attributes_1_person_attributes_education"} Nivel de instrucción
-            .col-sm-3
-              %select#register_holders_attributes_1_person_attributes_education_id.select.optional.form-control{name: "register[holders_attributes][1][person_attributes][education_id]"}
-                %option{value: ""}
-          .form-group
-            %label.integer.optional.control-label.col-sm-7{for: "register_holders_attributes_1_time_to_land"} Número de días al año dedicado a actividades agropecuarias en el establecimiento
-            .col-sm-5
-              %input#register_holders_attributes_1_time_to_land.string.optional.form-control{name: "register[holders_attributes][1][time_to_land]", size: "50", type: "text"}/
     .well.form-actions
       %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
       .well.form-actions
-        %fieldset
-          %legend Hijos e Hijas
+        = field_set_tag 'Hijos e Hijas' do
           #sons
-            .table-responsive
-              %table.table.table-bordered.table_register.table_sons
-                %thead
-                  %tr
-                    %th.col-sm-6 Nombre y Apellidos
-                    %th.col-sm-1 Edad
-                    %th.col-sm-1 Sexo
-                    %th.col-sm-2 Nº de días al año dedicado a las actividades agropecuarias en el establecimiento
-                    %th.col-sm-2 Número de Cédula de Identidad
-                    %th.col-sm-1
-                %tbody
-                  %input#register_sons_attributes_0_type_person{name: "register[sons_attributes][0][type_person]", type: "hidden", value: "son"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_sons_attributes_0_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[sons_attributes][0][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_sons_attributes_0_person_attributes_age.numeric.integer.optional.form-control{name: "register[sons_attributes][0][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_sons_attributes_0_person_attributes_sex.select.optional.form-control{name: "register[sons_attributes][0][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_sons_attributes_0_time_to_land.string.optional.form-control{name: "register[sons_attributes][0][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_sons_attributes_0_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[sons_attributes][0][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-sons.static
-                        .glyphicon.glyphicon-remove
-                  %input#register_sons_attributes_1_type_person{name: "register[sons_attributes][1][type_person]", type: "hidden", value: "son"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_sons_attributes_1_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[sons_attributes][1][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_sons_attributes_1_person_attributes_age.numeric.integer.optional.form-control{name: "register[sons_attributes][1][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_sons_attributes_1_person_attributes_sex.select.optional.form-control{name: "register[sons_attributes][1][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_sons_attributes_1_time_to_land.string.optional.form-control{name: "register[sons_attributes][1][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_sons_attributes_1_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[sons_attributes][1][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-sons.static
-                        .glyphicon.glyphicon-remove
-                  %input#register_sons_attributes_2_type_person{name: "register[sons_attributes][2][type_person]", type: "hidden", value: "son"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_sons_attributes_2_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[sons_attributes][2][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_sons_attributes_2_person_attributes_age.numeric.integer.optional.form-control{name: "register[sons_attributes][2][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_sons_attributes_2_person_attributes_sex.select.optional.form-control{name: "register[sons_attributes][2][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_sons_attributes_2_time_to_land.string.optional.form-control{name: "register[sons_attributes][2][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_sons_attributes_2_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[sons_attributes][2][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-sons.static
-                        .glyphicon.glyphicon-remove
-                  %input#register_sons_attributes_3_type_person{name: "register[sons_attributes][3][type_person]", type: "hidden", value: "son"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_sons_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[sons_attributes][3][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_sons_attributes_3_person_attributes_age.numeric.integer.optional.form-control{name: "register[sons_attributes][3][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_sons_attributes_3_person_attributes_sex.select.optional.form-control{name: "register[sons_attributes][3][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_sons_attributes_3_time_to_land.string.optional.form-control{name: "register[sons_attributes][3][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_sons_attributes_3_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[sons_attributes][3][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-sons.static
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_son
-              .glyphicon.glyphicon-plus-sign
-              adicionar hijo/a
+            = render 'register_steps/son_aggregate', f: f, resources: :sons
+            / 
+              %a.btn.btn-success.btn-large.add_son{ data: { type: 'son' } }
+                .glyphicon.glyphicon-plus-sign
+                adicionar hijo/a
+
       .well.form-actions
-        %fieldset
-          %legend Agregados y Agregadas
+        = field_set_tag 'Agregados y Agregadas' do
           #aggregates
-            .table-responsive
-              %table.table.table-bordered.table_aggregates.table_register
-                %thead
-                  %tr
-                    %th.col-sm-6 Nombre y Apellidos
-                    %th.col-sm-1 Edad
-                    %th.col-sm-1 Sexo
-                    %th.col-sm-2 Nº de días al año dedicado a las actividades agropecuarias en el establecimiento
-                    %th.col-sm-2 Número de Cédula de Identidad
-                    %th.col-sm-1
-                %tbody
-                  %input#register_aggregates_attributes_0_type_person{name: "register[aggregates_attributes][0][type_person]", type: "hidden", value: "aggregate"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_aggregates_attributes_0_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][0][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_aggregates_attributes_0_person_attributes_age.numeric.integer.optional.form-control{name: "register[aggregates_attributes][0][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_aggregates_attributes_0_person_attributes_sex.select.optional.form-control{name: "register[aggregates_attributes][0][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_0_time_to_land.string.optional.form-control{name: "register[aggregates_attributes][0][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_0_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[aggregates_attributes][0][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-aggregates.static
-                        .glyphicon.glyphicon-remove
-                  %input#register_aggregates_attributes_1_type_person{name: "register[aggregates_attributes][1][type_person]", type: "hidden", value: "aggregate"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_aggregates_attributes_1_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][1][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_aggregates_attributes_1_person_attributes_age.numeric.integer.optional.form-control{name: "register[aggregates_attributes][1][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_aggregates_attributes_1_person_attributes_sex.select.optional.form-control{name: "register[aggregates_attributes][1][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_1_time_to_land.string.optional.form-control{name: "register[aggregates_attributes][1][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_1_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[aggregates_attributes][1][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-aggregates.static
-                        .glyphicon.glyphicon-remove
-                  %input#register_aggregates_attributes_2_type_person{name: "register[aggregates_attributes][2][type_person]", type: "hidden", value: "aggregate"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_aggregates_attributes_2_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][2][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_aggregates_attributes_2_person_attributes_age.numeric.integer.optional.form-control{name: "register[aggregates_attributes][2][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_aggregates_attributes_2_person_attributes_sex.select.optional.form-control{name: "register[aggregates_attributes][2][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_2_time_to_land.string.optional.form-control{name: "register[aggregates_attributes][2][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_2_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[aggregates_attributes][2][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-aggregates.static
-                        .glyphicon.glyphicon-remove
-                  %input#register_aggregates_attributes_3_type_person{name: "register[aggregates_attributes][3][type_person]", type: "hidden", value: "aggregate"}/
-                  %tr
-                    %td.col-sm-6
-                      %input#register_aggregates_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][name]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %input#register_aggregates_attributes_3_person_attributes_age.numeric.integer.optional.form-control{name: "register[aggregates_attributes][3][person_attributes][age]", type: "text"}/
-                    %td.col-sm-1
-                      %select#register_aggregates_attributes_3_person_attributes_sex.select.optional.form-control{name: "register[aggregates_attributes][3][person_attributes][sex]"}
-                        %option{value: ""}
-                        %option{value: "M"} M
-                        %option{value: "F"} F
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_3_time_to_land.string.optional.form-control{name: "register[aggregates_attributes][3][time_to_land]", size: "50", type: "text"}/
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_3_person_attributes_identification.string.optional.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][identification]", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.remove-aggregates.static
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_aggregate
-              .glyphicon.glyphicon-plus-sign
-              adicionar agregado/a
-    .well.form-actions
-      %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
-      .well.form-actions
-        %fieldset
-          %legend A que asociaciones pertenece
-          #partnerships
-            .table-responsive
-              %table.table.table-bordered.table_register.table_partnerships
-                %tbody
-                  %tr
-                    %td.col-sm-9
-                      / = f.input_field :partnerships, as: :select, collection: Partnership.pluck(:name)
-                    %td.col-sm-1
-                      Cód:
-                    %td.col-sm-2
-                      %input#register_aggregates_attributes_3_person_attributes_name.string.required.form-control{maxlength: "255", name: "register[aggregates_attributes][3][person_attributes][name]", readonly: "readonly", size: "50", type: "text"}/
-                    %td.col-sm-1
-                      %a.btn.btn-danger.btn-small.static_partnerships
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_partnership
-              .glyphicon.glyphicon-plus-sign
-              adicionar asociacion productiva
-      .well.form-actions
-        %fieldset
-          %legend Actividad Principal
-          .form-group
-            %label.string.optional.control-label.col-sm-1{for: "register_subsector"} Subsector
-            .col-sm-3
-              %input#register_subsector.string.optional.form-control{maxlength: "255", name: "register[subsector]", size: "50", type: "text"}/
-            %label.string.optional.control-label.col-sm-1{for: "register_first_entry"} Rubro 1
-            .col-sm-3
-              %input#register_first_entry.string.optional.form-control{maxlength: "255", name: "register[first_entry]", size: "50", type: "text"}/
-            %label.string.optional.control-label.col-sm-1{for: "register_second_entry"} Rubro 2
-            .col-sm-3
-              %input#register_second_entry.string.optional.form-control{maxlength: "255", name: "register[second_entry]", size: "50", type: "text"}/
-    .well.form-actions
-      %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
-      .well.form-actions
-        %fieldset
-          %legend Tierra
-          #lands
-            .table-responsive
-              %table.table.table-bordered.table_register.table_lands
-                %thead
-                  %tr
-                    %th.col-sm-2 Departamento
-                    %th.col-sm-2 Municipio
-                    %th.col-sm-2 Comunidad/zona/otra
-                    %th.col-sm-2 Superficie
-                    %th.col-sm-1 Unidad de Medida
-                    %th.col-sm-2 Tenencia
-                    %th.col-sm-1 Desmonte Sin Autorizacion
-                    %th.col-sm-1
-                %tbody
-                  %tr
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_lands_department
-                          .control
-                            %select#register_lands_attributes_0_department_id.select.optional.form-control{name: "register[lands_attributes][0][department_id]"}
-                              %option{value: ""}
+            = render 'register_steps/son_aggregate', f: f, resources: :aggregates
+            /
+              %a.btn.btn-success.btn-large.add_aggregate{ data: { type: 'aggregate' } }
+                .glyphicon.glyphicon-plus-sign
+                adicionar agregado/a
 
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_lands_community
-                          .control
-                            %select#register_lands_attributes_0_community_id.select.optional.form-control{name: "register[lands_attributes][0][community_id]"}
-                              %option{value: ""}
- 
-                    %td
-                      %input#register_lands_attributes_0_another_community.string.optional.form-control{maxlength: "255", name: "register[lands_attributes][0][another_community]", size: "50", type: "text"}/
-                    %td
-                      %input#register_lands_attributes_0_surface.numeric.float.optional.form-control{name: "register[lands_attributes][0][surface]", type: "text"}/
-                    %td
-                      %input#register_lands_attributes_0_unit_of_measure.string.optional.form-control{maxlength: "255", name: "register[lands_attributes][0][unit_of_measure]", size: "50", type: "text"}/
-                    %td
-                      %input#register_lands_attributes_0_tenure.string.optional.form-control{maxlength: "255", name: "register[lands_attributes][0][tenure]", size: "50", type: "text"}/
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.radio_buttons.optional.register_lands_disassemble_without_permission
-                          .control
-                            %label.radio.radio-inline
-                              %input#register_lands_attributes_0_disassemble_without_permission_true.radio_buttons.optional.form-control{name: "register[lands_attributes][0][disassemble_without_permission]", type: "radio", value: "true"}>/
-                              Si
-                            %label.radio.radio-inline
-                              %input#register_lands_attributes_0_disassemble_without_permission_false.radio_buttons.optional.form-control{checked: "checked", name: "register[lands_attributes][0][disassemble_without_permission]", type: "radio", value: "false"}>/
-                              No
-                    %td
-                      %a.btn.btn-danger.btn-small.static_lands
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_land
-              .glyphicon.glyphicon-plus-sign
-              adicionar tierra
       .well.form-actions
-        %fieldset
-          %legend Trabajo
-          #lands
-            .table-responsive
-              %table.table.table-bordered.table_register.table_works
-                %thead
-                  %tr
-                    %th.col-sm-3{rowspan: "2"} Departamento
-                    %th.col-sm-3{rowspan: "2"} Municipio
-                    %th.col-sm-2{colspan: "3"} Mano de Obra
-                    %th.col-sm-2{colspan: "3"} Conversión - hombre año
-                    %th.col-sm-1{rowspan: "2"}
-                  %tr
-                    %th.col-sm-1 Propia
-                    %th.col-sm-1 Eventual
-                    %th.col-sm-1 Permanente
-                    %th.col-sm-1 Propia
-                    %th.col-sm-1 Eventual
-                    %th.col-sm-1 Total
-                %tbody
-                  %tr
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_works_department
-                          .control
-                            %select#register_works_attributes_0_department_id.select.optional.form-control{name: "register[works_attributes][0][department_id]"}
-                              %option{value: ""}
-                              %option{value: "10"} Tarija
-                              %option{value: "11"} Potosi
-                              %option{value: "12"} Chuquisaca
-                              %option{value: "13"} Santa Cruz
-                              %option{value: "14"} Oruro
-                              %option{value: "15"} Cochabamba
-                              %option{value: "16"} La Paz
-                              %option{value: "17"} Beni
-                              %option{value: "18"} Pando
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_works_community
-                          .control
-                            %select#register_works_attributes_0_community_id.select.optional.form-control{name: "register[works_attributes][0][community_id]"}
-                              %option{value: ""}
+        %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
+        .well.form-actions
+          = field_set_tag 'A que asociaciones pertenece' do
+            #partnerships
+              = render 'register_steps/partnership', f: f
 
-                    %td
-                      %input#register_works_attributes_0_own_labor.numeric.integer.optional.form-control{name: "register[works_attributes][0][own_labor]", type: "text"}/
-                    %td
-                      %input#register_works_attributes_0_eventual_labor.numeric.integer.optional.form-control{name: "register[works_attributes][0][eventual_labor]", type: "text"}/
-                    %td
-                      %input#register_works_attributes_0_permanent_labor.numeric.integer.optional.form-control{name: "register[works_attributes][0][permanent_labor]", type: "text"}/
-                    %td
-                      %input#register_works_attributes_0_men_per_year_own.numeric.float.optional.form-control{name: "register[works_attributes][0][men_per_year_own]", type: "text"}/
-                    %td
-                      %input#register_works_attributes_0_men_per_year_eventually.numeric.float.optional.form-control{name: "register[works_attributes][0][men_per_year_eventually]", type: "text"}/
-                    %td
-                      %input#register_works_attributes_0_men_per_year_total.numeric.float.optional.form-control{name: "register[works_attributes][0][men_per_year_total]", type: "text"}/
-                    %td
-                      %a.btn.btn-danger.btn-small.static_works
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_work
-              .glyphicon.glyphicon-plus-sign
-              adicionar trabajo
-      .well.form-actions
-        %fieldset
-          %legend Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)
-          #capitals
-            .table-responsive
-              %table.table.table-bordered.table_register.table_capitals
-                %thead
-                  %tr
-                    %th.col-sm-3 Departamento
-                    %th.col-sm-3 Municipio
-                    %th.col-sm-2 Item Capital
-                    %th.col-sm-1 Año de Compra y/o Construcción
-                    %th.col-sm-1 Vida útil futura
-                    %th.col-sm-2 Valor actual (Bs)
-                    %th.col-sm-1
-                %tbody
-                  %tr
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_capitals_department
-                          .control
-                            %select#register_capitals_attributes_0_department_id.select.optional.form-control{name: "register[capitals_attributes][0][department_id]"}
-                              %option{value: ""}
+        .well.form-actions
+          = field_set_tag 'Actividad Principal' do
+            = render 'register_steps/main_activity', f: f  
 
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_capitals_community
-                          .control
-                            %select#register_capitals_attributes_0_community_id.select.optional.form-control{name: "register[capitals_attributes][0][community_id]"}
-                              %option{value: ""}
-                    %td
-                      %input#register_capitals_attributes_0_capital_item.string.optional.form-control{maxlength: "255", name: "register[capitals_attributes][0][capital_item]", size: "50", type: "text"}/
-                    %td
-                      %input#register_capitals_attributes_0_start_year.date.optional.form-control{"data-date-allow-blank" => "true", "data-rails" => "true", "data-widget" => "datepicker", name: "register[capitals_attributes][0][start_year]", placeholder: "", size: "30", type: "text", value: ""}/
-                      %input.js-aw-1i{id: "register_capitals_attributes_0_start_year(1i)", name: "register[capitals_attributes][0][start_year(1i)]", type: "hidden", value: ""}/
-                      %input.js-aw-2i{id: "register_capitals_attributes_0_start_year(2i)", name: "register[capitals_attributes][0][start_year(2i)]", type: "hidden", value: ""}/
-                      %input.js-aw-3i{id: "register_capitals_attributes_0_start_year(3i)", name: "register[capitals_attributes][0][start_year(3i)]", type: "hidden", value: ""}/
-                    %td
-                      %input#register_capitals_attributes_0_lifespan_future.numeric.float.optional.form-control{name: "register[capitals_attributes][0][lifespan_future]", type: "text"}/
-                    %td
-                      %input#register_capitals_attributes_0_current_value.numeric.float.optional.form-control{name: "register[capitals_attributes][0][current_value]", type: "text"}/
-                    %td
-                      %a.btn.btn-danger.btn-small.static_capitals
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_capital
-              .glyphicon.glyphicon-plus-sign
-              adicionar capital
-    .well.form-actions
-      %legend PRODUCCIÓN
-      .well.form-actions
-        %fieldset
-          %legend Producción agropecuaria en el establecimiento
-          #lands
-            .table-responsive
-              %table.table.table_register.table-bordered.table_agricultural_productions
-                %thead
-                  %tr
-                    %th.col-sm-2{rowspan: "2"} Departamento
-                    %th.col-sm-2{rowspan: "2"} Municipio
-                    %th.col-sm-2{rowspan: "2"} Rubro
-                    %th{colspan: "2"} Cobertura Física Productiva
-                    %th{colspan: "2"} Producción
-                    %th.col-sm-2{rowspan: "2"} Sistema de Producción
-                    %th.col-sm-2{rowspan: "2"} Destino de la Producción
-                  %tr
-                    %th.col-sm-1 Cantidad
-                    %th.col-sm-1 Unidad
-                    %th.col-sm-1 Cantidad
-                    %th.col-sm-1 Unidad
-                %tbody
-                  %tr
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_agricultural_productions_department
-                          .control
-                            %select#register_agricultural_productions_attributes_0_department_id.select.optional.form-control{name: "register[agricultural_productions_attributes][0][department_id]"}
-                              %option{value: ""}
-                              %option{value: "10"} Tarija
-                              %option{value: "11"} Potosi
-                              %option{value: "12"} Chuquisaca
-                              %option{value: "13"} Santa Cruz
-                              %option{value: "14"} Oruro
-                              %option{value: "15"} Cochabamba
-                              %option{value: "16"} La Paz
-                              %option{value: "17"} Beni
-                              %option{value: "18"} Pando
-                    %td
-                      .col-sm-12
-                        .control-group.form-group.select.optional.register_agricultural_productions_community
-                          .control
-                            %select#register_agricultural_productions_attributes_0_community_id.select.optional.form-control{name: "register[agricultural_productions_attributes][0][community_id]"}
- 
-                    %td
-                      %input#register_agricultural_productions_attributes_0_entry.string.optional.form-control{maxlength: "255", name: "register[agricultural_productions_attributes][0][entry]", size: "50", type: "text"}/
-                    %td
-                      %input#register_agricultural_productions_attributes_0_productive_physical_coverage_amount.numeric.integer.optional.form-control{name: "register[agricultural_productions_attributes][0][productive_physical_coverage_amount]", type: "text"}/
-                    %td
-                      %input#register_agricultural_productions_attributes_0_productive_physical_coverage_unit.string.optional.form-control{maxlength: "255", name: "register[agricultural_productions_attributes][0][productive_physical_coverage_unit]", size: "50", type: "text"}/
-                    %td
-                      %input#register_agricultural_productions_attributes_0_production_quantity.numeric.integer.optional.form-control{name: "register[agricultural_productions_attributes][0][production_quantity]", type: "text"}/
-                    %td
-                      %input#register_agricultural_productions_attributes_0_production_unit.string.optional.form-control{maxlength: "255", name: "register[agricultural_productions_attributes][0][production_unit]", size: "50", type: "text"}/
-                    %td
-                      %input#register_agricultural_productions_attributes_0_production_system.string.optional.form-control{maxlength: "255", name: "register[agricultural_productions_attributes][0][production_system]", size: "50", type: "text"}/
-                    %td
-                      %input#register_agricultural_productions_attributes_0_production_destination.string.optional.form-control{maxlength: "255", name: "register[agricultural_productions_attributes][0][production_destination]", size: "50", type: "text"}/
-                    %td
-                      %a.btn.btn-danger.btn-small.static_agricultural_productionss
-                        .glyphicon.glyphicon-remove
-            %a.btn.btn-success.btn-large.add_capital
-              .glyphicon.glyphicon-plus-sign
-              adicionar producción
-    .well.form-actions
-      %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
-      .well.form-actions
-        .form-group
-          %label.string.optional.control-label.col-sm-3{for: "register_emission_department"} Departamento de emisión
-          .col-sm-3
-            %select#register_emission_department_id.select.optional.form-control{name: "register[emission_department_id]"}
-              %option{value: ""}
-              %option{value: "10"} Tarija
 
-          %label.string.optional.control-label.col-sm-3{for: "register_emission_community"} Municipio de emisión
-          .col-sm-3
-            %select#register_emission_community_id.select.optional.form-control{name: "register[emission_community_id]"}
-              %option{value: ""}
+        .well.form-actions
+          %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+          .well.form-actions
+            = field_set_tag 'Tierra' do
+              #lands
+                = render 'register_steps/land', f: f
 
-        .form-group
-          %label.date.optional.control-label.col-sm-3{for: "register_emission_date"} Fecha de emisión
-          .col-sm-3
-            %input#register_emission_date.date.optional.form-control{"data-date-allow-blank" => "true", "data-rails" => "true", "data-widget" => "datepicker", name: "register[emission_date]", placeholder: "", size: "30", type: "text", value: ""}/
-            %input.js-aw-1i{id: "register_emission_date(1i)", name: "register[emission_date(1i)]", type: "hidden", value: ""}/
-            %input.js-aw-2i{id: "register_emission_date(2i)", name: "register[emission_date(2i)]", type: "hidden", value: ""}/
-            %input.js-aw-3i{id: "register_emission_date(3i)", name: "register[emission_date(3i)]", type: "hidden", value: ""}/
-      .well.form-actions
-        .form-group
-          %label.string.optional.control-label.col-sm-2 CI
-          .col-sm-2
-            %input.optional.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text", value: ""}/
-          %label.string.optional.control-label.col-sm-2 Nombre y Apellidos
-          .col-sm-6
-            %input#register_residence.string.optional.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text", value: " "}/
-        .form-group
-          %label.string.optional.control-label.col-sm-2 NIT y/o PJ
-          .col-sm-2
-            %input.optional.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text", value: ""}/
-          %label.string.optional.control-label.col-sm-2 Razón Social
-          .col-sm-6
-            %input#register_residence.string.optional.form-control{maxlength: "255", readonly: "readonly", size: "50", type: "text", value: ""}/
+          .well.form-actions
+            = field_set_tag 'Trabajo' do
+              #works
+                = render 'register_steps/work', f: f
+
+        .well.form-actions
+          %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+          .well.form-actions
+            = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
+              #capitals
+                = render 'register_steps/capital', f: f
+                /
+                  %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
+                    .glyphicon.glyphicon-plus-sign
+                    adicionar capital
+
+        .well.form-actions
+          %legend PRODUCCIÓN
+          .well.form-actions
+            = field_set_tag 'Producción agropecuaria en el establecimiento' do
+              #lands
+                = render 'register_steps/production', f: f
+                /
+                  %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
+                    .glyphicon.glyphicon-plus-sign
+                    adicionar producción
+
+        .well.form-actions
+          %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
+          .well.form-actions
+            .form-group
+              = f.label :emission_department, class: "col-sm-3"
+              .col-sm-3
+                = f.input_field :emission_department_id, as: :select, collection: Department.all, id: "department_register"
+
+              = f.label :emission_community, class: "col-sm-3"
+              .col-sm-3
+                = f.input_field :emission_community_id, as: :select, collection: f.object.try(:emission_department).try(:communities), id: "community_register"
+
+            .form-group
+              =  f.label :emission_date, class: "col-sm-3"
+              .col-sm-3
+                = f.input_field :emission_date, as: :date
+
+          .well.form-actions
+            = render 'register_steps/registrar_agent'
 
 .form-actions.navsteps
   %a.btn.btn-primary.btn-large{href: registers_path}
@@ -622,3 +105,6 @@
   %a.btn.btn-primary.pull-right.btn-large{ href: edit_register_path(@register) }
     .glyphicon.glyphicon-pencil
     Editar
+
+:javascript
+  $('input, select').attr('readonly', 'readonly')

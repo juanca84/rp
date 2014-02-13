@@ -5,12 +5,11 @@
         %th.col-sm-2 Departamento
         %th.col-sm-2 Municipio
         %th.col-sm-2 Comunidad/zona/otra
-        %th.col-sm-2 Superficie
+        %th.col-sm-1 Superficie
         %th.col-sm-1 Unidad de Medida
         %th.col-sm-2 Tenencia
-        %th.col-sm-1 Desmonte Sin Autorizacion
+        %th.col-sm-2 Desmonte Sin Autorizacion
         %th.col-sm-1 
-        %th
     %tbody
       %tr
       = f.simple_fields_for :lands do |land|
@@ -28,12 +27,12 @@
           %td
             = land.input_field :unit_of_measure
           %td
-            = land.input_field :tenure
+            = land.input_field :tenure, as: :select, collection: [ 'propiedad', 'a modo de propiedad(tramite)', 'alquiler', 'anticrético', 'comodato', 'ocupada de hecho', 'arrimados y/o prestados']
+
           %td
             .col-sm-12
               = land.input_field :disassemble_without_permission, label: false, as: :radio_buttons, item_wrapper_class: 'radio-inline'
           %td
-            %a.btn.btn-danger.btn-small.static_lands
+            %a.btn.btn-danger.btn-small.remove-static-field
               .glyphicon.glyphicon-remove
-          %td
-            = land.check_box :_destroy
+            = land.check_box :_destroy, class: 'hide'
