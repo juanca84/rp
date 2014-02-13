@@ -71,7 +71,7 @@
           .well.form-actions
             = field_set_tag 'Producción agropecuaria en el establecimiento' do
               #lands
-                = render 'register_steps/agricultural_production', f: f
+                = render 'register_steps/production', f: f
                 /
                   %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
                     .glyphicon.glyphicon-plus-sign

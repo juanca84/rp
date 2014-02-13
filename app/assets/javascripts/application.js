@@ -16,5 +16,4 @@
 //= require anjlab/datepicker
 //= require underscore
 //= require backbone
-//= require backbone/runpa	
-//= require typeahead.bundle.min
+//= require backbone/runpa

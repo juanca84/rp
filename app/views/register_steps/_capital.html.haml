@@ -1,28 +1,36 @@
-.table-responsive
-  %table.table.table-bordered.table_register.table_capitals
-    %thead
-      %tr
-        %th.col-sm-3 Departamento
-        %th.col-sm-3 Municipio
-        %th.col-sm-2 Item Capital
-        %th.col-sm-1 Año de Compra y/o Construcción           
-        %th.col-sm-1 Vida útil futura         
-        %th.col-sm-2 Valor actual (Bs)
-    %tbody
-      %tr
-      = f.simple_fields_for :lands do |capital|
-        %tr{ id: "capital-#{ capital.object.id }" }
-          %td
-            .col-sm-12
-              %input.string.optional.form-control.department{ type: "text", readonly: true, value: capital.object.try(:department).try(:name) }
-          %td
-            .col-sm-12
-              %input.string.optional.form-control.community{ type: "text", readonly: true, value: capital.object.try(:community).try(:name)}
-          %td
-            = capital.input_field :capital_item
-          %td
-            = capital.input_field :start_year
-          %td
-            = capital.input_field :lifespan_future
-          %td
-            = capital.input_field :current_value
+= f.simple_fields_for :lands do |land|
+  .table-responsive
+    %table.table.table-bordered.table_register.table_capitals{ id: "land-capital-#{ land.object.id }" }
+      %thead
+        %tr
+          %th{ colspan: 6 }
+            Departamento: #{ land.object.try(:department).try(:name) } - Municipio: #{ land.object.try(:community).try(:name) }
+        %tr
+          %th.col-sm-7 Item Capital
+          %th.col-sm-2 Año de Compra y/o Construcción           
+          %th.col-sm-1 Vida útil futura         
+          %th.col-sm-2 Valor actual (Bs)
+          %th
+      %tbody
+        %tr
+        = land.simple_fields_for :capitals do |capital|
+          %tr{ id: "capital-#{ capital.object.id }" }
+            %td
+              = capital.input_field :capital_item
+            %td
+              = capital.input_field :start_year
+            %td
+              = capital.input_field :lifespan_future
+            %td
+              = capital.input_field :current_value
+            %td
+              %a.btn.btn-danger.btn-small.static_lands
+                .glyphicon.glyphicon-remove
+              = land.check_box :_destroy, class: 'hide'
+
+  %a.btn.btn-success.btn-large{ id: "land-capital-#{ land.object.id }", data: { type: 'capital' } }
+    .glyphicon.glyphicon-plus-sign
+    adicionar capital
+
+  %br 
+  %br

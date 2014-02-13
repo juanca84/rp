@@ -5,13 +5,15 @@ class RegisterStepsController < ApplicationController
   def show
     @register = Register.find params[:register_id]
     @step = params[:id]
-    #case @step
+    case @step
     # when :family
     #when 'partnerships'
     #  @register.partnerships.build
     # when :factors
-    # when :production
-    #end
+    when 'production'
+      @register.lands.map{ |l| l.capitals.build }  
+      @register.lands.map{ |l| l.productions.build }  
+    end
     render_wizard
   end
   

@@ -4,7 +4,7 @@ class Register < ActiveRecord::Base
   
   attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes, :code, 
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
-                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :residence, 
+                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
                   :second_entry, :sons_attributes, :user_id, :works_attributes
 
   belongs_to :civil_union
@@ -14,12 +14,12 @@ class Register < ActiveRecord::Base
   belongs_to :department
   belongs_to :user
 
-  has_many :agricultural_productions
   has_many :aggregates
-  has_many :capitals
+  #has_many :capitals, through: :lands
   has_many :holders
   has_many :lands
   has_many :sons
+  #has_many :productions, through: :lands
   has_many :works
 
   has_many :people_registers
@@ -33,7 +33,7 @@ class Register < ActiveRecord::Base
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :aggregates, :holders, :sons
+  accepts_nested_attributes_for :aggregates, :holders, :sons, allow_destroy: true
 
   accepts_nested_attributes_for :lands, allow_destroy: true
   
