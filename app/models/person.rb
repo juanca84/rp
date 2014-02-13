@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   SEX = %w(M F)
 
+  default_scope order('people.created_at ASC')
+
   attr_accessible :age, :birthdate, :community_of_birth_id, :civil_status_id, :education_id, :first_lastname, :identification, 
                   :name, :phone, :people_registers_attributes, :sex
 

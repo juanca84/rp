@@ -14,28 +14,30 @@ class Register < ActiveRecord::Base
   belongs_to :department
   belongs_to :user
 
-  has_many :aggregates
+  has_many :aggregates, dependent: :destroy
   #has_many :capitals, through: :lands
-  has_many :holders
-  has_many :lands
-  has_many :sons
+  has_many :holders, dependent: :destroy
+  has_many :lands, dependent: :destroy
+  has_many :sons, dependent: :destroy
   #has_many :productions, through: :lands
-  has_many :works
+  has_many :works, dependent: :destroy
 
-  has_many :people_registers
+  has_many :people_registers, dependent: :destroy
   has_many :people, through: :people_registers
 
   #has_many :partnerships_registers
   #has_many :partnerships, through: :partnerships_registers 
-  has_many :partnerships 
+  has_many :partnerships, dependent: :destroy
 
   validates :code, :user_id,  presence: true
   validates :code, uniqueness: true
   validate :validate_holders
 
-  accepts_nested_attributes_for :aggregates, :holders, :sons, allow_destroy: true
+  accepts_nested_attributes_for :holders
 
-  accepts_nested_attributes_for :lands, allow_destroy: true
+  accepts_nested_attributes_for :aggregates, :sons, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }, allow_destroy: true
+
+  accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
   
   accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
 

@@ -12,11 +12,11 @@
     %tbody
       %tr
       = f.simple_fields_for resources do |resource|
-        = resource.hidden_field :type_person
         = resource.simple_fields_for :person do |person|
           %tr
             %td.col-sm-6
               = person.input_field :name
+              = resource.hidden_field :type_person
             %td.col-sm-1
               = person.input_field :age
             %td.col-sm-1
@@ -26,5 +26,6 @@
             %td.col-sm-2
               = person.input_field :identification
             %td.col-sm-1
-              %a.btn.btn-danger.btn-small.static{class: "remove-#{ resources.to_s }"}
+              %a.btn.btn-danger.btn-small.remove-static-field{class: "remove-#{ resources.to_s }"}
                 .glyphicon.glyphicon-remove
+              = resource.check_box :_destroy, class: 'hide'

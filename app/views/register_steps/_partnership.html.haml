@@ -12,5 +12,6 @@
             = partnership.input_field :code
           %td.col-sm-1
             = partnership.check_box :_destroy, class: 'hide' 
-            %a.btn.btn-danger.btn-small.static_partnerships
+            %a.btn.btn-danger.btn-small.remove-static-field
               .glyphicon.glyphicon-remove
+            = partnership.check_box :_destroy, class: 'hide'

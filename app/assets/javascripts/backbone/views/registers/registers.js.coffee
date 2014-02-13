@@ -20,12 +20,12 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "keyup .table_works tbody tr:nth-child(2) input.eventual_labor" : 'update_eventual_and_permanet_labor' 
     "keyup .table_works tbody tr:nth-child(2) input.permanent_labor" : 'update_eventual_and_permanet_labor' 
     
-    "click .static.remove-sons" : "remove_static_son_aggregate"
-    "click .static.remove-aggregates" : "remove_static_son_aggregate"
+    "click .remove-static-field" : "remove_static_field"
 
   initialize: ->
     _.bindAll this, "render", "add_row", 'update_summation'
     @render()
+
 
   add_row: (e)->
     type = $(e.currentTarget).attr('data-type')
@@ -48,9 +48,9 @@ class Runpa.Views.Registers.NewView extends Backbone.View
         
     false
 
-  remove_static_son_aggregate: (event) ->
+  remove_static_field: (event) -> 
     son_cell = $(event.currentTarget).parent().parent()
-    son_cell.remove()
+    son_cell.addClass('hide')
     
   generate_id: ->
     new Date().getTime()

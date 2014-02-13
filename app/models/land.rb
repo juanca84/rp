@@ -3,8 +3,8 @@ class Land < ActiveRecord::Base
   belongs_to :department
   belongs_to :register
 
-  has_many :capitals
-  has_many :productions
+  has_many :capitals, dependent: :destroy
+  has_many :productions, dependent: :destroy
 
   accepts_nested_attributes_for :capitals, reject_if: lambda { |a| a[:capital_item].blank? }, allow_destroy: true
   accepts_nested_attributes_for :productions, reject_if: lambda { |a| a[:entry].blank? }, allow_destroy: true

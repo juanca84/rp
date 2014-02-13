@@ -20,7 +20,6 @@ class RegisterStepsController < ApplicationController
   end
   
   def update
-    #debugger
     @register = Register.find params[:register_id]
     @register.update_attributes params[:register]
     render_wizard @register

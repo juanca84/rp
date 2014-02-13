@@ -7,3 +7,7 @@ window.Runpa =
   Collections: {}
   Routers: {}
   Views: {}
+  
+$(document).on "click", ".remove-static-field", ->
+  $(this).siblings().eq(1).click()
+  return 
