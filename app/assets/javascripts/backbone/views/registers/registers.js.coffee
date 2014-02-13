@@ -49,8 +49,8 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     false
 
   remove_static_field: (event) -> 
-    son_cell = $(event.currentTarget).parent().parent()
-    son_cell.addClass('hide')
+    row = $(event.currentTarget).parent().parent()
+    row.addClass('hide')
     
   generate_id: ->
     new Date().getTime()

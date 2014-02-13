@@ -5,5 +5,5 @@
 %td.col-sm-2
   %input.string.optional.form-control{ id: "register_partnerships_attributes_#{ @id }_code", maxlength: "255", name: "register[partnerships_attributes][#{ @id }][code]", size: "50", type: "text"}
 %td.col-sm-1
-  %a.btn.btn-danger.btn-small.static_partnerships
+  %a.btn.btn-danger.btn-small.remove
     .glyphicon.glyphicon-remove
