@@ -1,4 +1,4 @@
-= hidden_field_tag :total_time_to_land, @register.total_time_to_land, id: 'total_time_to_land'
+
 = simple_form_for @register, url: wizard_path, method: :put, html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
   .form-group
     .col-sm-9
@@ -23,10 +23,11 @@
       = field_set_tag 'Trabajo' do
         #works
           = render 'work', f: f
-          /
-            %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
-              .glyphicon.glyphicon-plus-sign
-              adicionar trabajo
+
+      .form-group
+        %label.integer.required.control-label.col-sm-5 Sumatoria de número de días al año dedicado a actividades agropecuarias en el establecimiento
+        .col-sm-5
+          %input.form-control{ value: @register.total_time_to_land, readonly: true }
 
   = render "form_submit", register: @register
 
@@ -34,3 +35,4 @@
 
 :javascript
   var register = new Runpa.Views.Registers.NewView()
+  var work = new Runpa.Views.Works.NewView({total: #{ @register.total_time_to_land } })
