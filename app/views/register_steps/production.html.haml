@@ -14,10 +14,6 @@
       = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
         #capitals
           = render 'capital', f: f
-          /
-            %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
-              .glyphicon.glyphicon-plus-sign
-              adicionar capital
 
   .well.form-actions
     %legend PRODUCCIÓN
@@ -25,10 +21,6 @@
       = field_set_tag 'Producción agropecuaria en el establecimiento' do
         #lands
           = render 'production', f: f
-          /
-            %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
-              .glyphicon.glyphicon-plus-sign
-              adicionar producción
 
   .well.form-actions
     %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN

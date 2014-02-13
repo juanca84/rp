@@ -1,4 +1,6 @@
 class Production < ActiveRecord::Base
+  default_scope order('productions.created_at ASC')
+
   belongs_to :land
   has_one :register, through: :land
 

@@ -1,0 +1,25 @@
+%td
+  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_entry", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][entry]", size: "50", type: "text"}
+%td
+  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_productive_physical_coverage_amount", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][productive_physical_coverage_amount]", type: "text", value: "0.0"}
+%td
+  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_productive_physical_coverage_unit", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][productive_physical_coverage_unit]", size: "50", type: "text"}
+%td
+  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_quantity", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][production_quantity]", type: "text", value: "0.0"}
+%td
+  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_unit", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][production_unit]", size: "50", type: "text"}
+%td
+  %select.select.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_system", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][production_system]"}
+    %option{value: ""}
+    %option{value: "Intensivo"} Intensivo
+    %option{value: "Extensivo"} Extensivo
+    %option{value: "Semi Intensivo"} Semi Intensivo
+%td
+  %select.select.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_destination", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][production_destination]"}
+    %option{value: ""}
+    %option{value: "Autoconsumo"} Autoconsumo
+    %option{value: "Mercado Interno"} Mercado Interno
+    %option{value: "Mercado Externo"} Mercado Externo
+%td
+  %a.btn.btn-danger.btn-small.static_lands
+    .glyphicon.glyphicon-remove

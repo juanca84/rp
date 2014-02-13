@@ -1,6 +1,7 @@
+- index = 0
 = f.simple_fields_for :lands do |land|
   .table-responsive
-    %table.table.table_register.table-bordered.table_productions{ id: "land-production-#{ land.object.id }" }
+    %table.table.table_register.table-bordered{ class: "table_land-#{ index }-productions" }
       %thead
         %tr
           %th{ colspan: 9 }
@@ -40,11 +41,11 @@
             %td
               %a.btn.btn-danger.btn-small.static_lands
                 .glyphicon.glyphicon-remove
-              = land.check_box :_destroy, class: 'hide'
 
-  %a.btn.btn-success.btn-large.add_aggregate{ data: { type: 'production' } }
+  %a.btn.btn-success.btn-large.add_production{ data: { type: "land-#{ index }-production" } }
     .glyphicon.glyphicon-plus-sign
     adicionar producción
 
   %br 
   %br
+  - index += 1

@@ -1,6 +1,7 @@
+- index = 0
 = f.simple_fields_for :lands do |land|
   .table-responsive
-    %table.table.table-bordered.table_register.table_capitals{ id: "land-capital-#{ land.object.id }" }
+    %table.table.table-bordered.table_register{ class: "table_land-#{ index }-capitals" }
       %thead
         %tr
           %th{ colspan: 6 }
@@ -26,11 +27,12 @@
             %td
               %a.btn.btn-danger.btn-small.static_lands
                 .glyphicon.glyphicon-remove
-              = land.check_box :_destroy, class: 'hide'
+              = capital.check_box :_destroy#, class: 'hide'
 
-  %a.btn.btn-success.btn-large{ id: "land-capital-#{ land.object.id }", data: { type: 'capital' } }
+  %a.btn.btn-success.btn-large.add_capital{ data: { type: "land-#{ index }-capital" } }
     .glyphicon.glyphicon-plus-sign
     adicionar capital
 
   %br 
   %br
+  - index += 1

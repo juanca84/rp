@@ -1,4 +1,6 @@
 class Capital < ActiveRecord::Base
+  default_scope order('capitals.created_at ASC')
+
   belongs_to :land
   has_one :register, through: :land
   

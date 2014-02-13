@@ -9,10 +9,14 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .add_aggregate"   : "add_row"
     "click .add_partnership" : "add_row"
     "click .add_land"        : "add_row"
-    "change #department_holder" : "update_communities"
+    "click .add_capital"     : "add_row"
+    "click .add_production"  : "add_row"
+
+    "change #department_holder"   : "update_communities"
     "change #department_register" : "update_communities"
-    "change .department_lands" : "update_communities" 
-    "change .community_lands" : "update_another_communities"
+    "change .department_lands"    : "update_communities" 
+    "change .community_lands"     : "update_another_communities"
+
     "keyup .table_works tbody tr:nth-child(2) input.eventual_labor" : 'update_eventual_and_permanet_labor' 
     "keyup .table_works tbody tr:nth-child(2) input.permanent_labor" : 'update_eventual_and_permanet_labor' 
     
