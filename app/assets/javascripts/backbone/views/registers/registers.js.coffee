@@ -9,19 +9,23 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .add_aggregate"   : "add_row"
     "click .add_partnership" : "add_row"
     "click .add_land"        : "add_row"
-    "change #department_holder" : "update_communities"
+    "click .add_capital"     : "add_row"
+    "click .add_production"  : "add_row"
+
+    "change #department_holder"   : "update_communities"
     "change #department_register" : "update_communities"
-    "change .department_lands" : "update_communities" 
-    "change .community_lands" : "update_another_communities"
+    "change .department_lands"    : "update_communities" 
+    "change .community_lands"     : "update_another_communities"
+
     "keyup .table_works tbody tr:nth-child(2) input.eventual_labor" : 'update_eventual_and_permanet_labor' 
     "keyup .table_works tbody tr:nth-child(2) input.permanent_labor" : 'update_eventual_and_permanet_labor' 
     
-    "click .static.remove-sons" : "remove_static_son_aggregate"
-    "click .static.remove-aggregates" : "remove_static_son_aggregate"
+    "click .remove-static-field" : "remove_static_field"
 
   initialize: ->
     _.bindAll this, "render", "add_row", 'update_summation'
     @render()
+
 
   add_row: (e)->
     type = $(e.currentTarget).attr('data-type')
@@ -44,9 +48,12 @@ class Runpa.Views.Registers.NewView extends Backbone.View
         
     false
 
-  remove_static_son_aggregate: (event) ->
-    son_cell = $(event.currentTarget).parent().parent()
-    son_cell.remove()
+  remove_static_field: (event) -> 
+    row = $(event.currentTarget).parent().parent()
+    row.addClass('hide')
+    id  = $(row).attr('id') 
+    if id.indexOf('land') != -1
+      $('#' + id.replace('land','work')).remove()
     
   generate_id: ->
     new Date().getTime()
@@ -102,8 +109,6 @@ class Runpa.Views.Registers.NewView extends Backbone.View
         permanent_labor_val =  0
 
       men_per_year_total.val(parseFloat(men_per_year_own.val()) + parseFloat(men_per_year_eventually.val()) + parseFloat(permanent_labor_val))
-
-      $('.table_works tbody tr:first').find('input.own_labor').attr('readonly', true)
 
   update_eventual_and_permanet_labor: (event) ->
     labor = $(event.currentTarget).val()
