@@ -7,5 +7,5 @@
 %td
   %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_current_value",name: "register[lands_attributes][#{ @parent_id }][capitals_attributes][#{ @id }][current_value]", type: "text", value: "0.0"}
 %td
-  %a.btn.btn-danger.btn-small.static_lands
+  %a.btn.btn-danger.btn-small.remove
     .glyphicon.glyphicon-remove

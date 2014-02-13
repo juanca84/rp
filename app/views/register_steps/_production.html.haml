@@ -39,8 +39,9 @@
             %td
               = production.input_field :production_destination, as: :select, collection: ['Autoconsumo', 'Mercado Interno', 'Mercado Externo']
             %td
-              %a.btn.btn-danger.btn-small.static_lands
+              %a.btn.btn-danger.btn-small.remove-static-field
                 .glyphicon.glyphicon-remove
+              = production.check_box :_destroy, class: 'hide'
 
   %a.btn.btn-success.btn-large.add_production{ data: { type: "land-#{ index }-production" } }
     .glyphicon.glyphicon-plus-sign

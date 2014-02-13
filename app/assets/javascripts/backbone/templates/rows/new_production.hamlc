@@ -21,5 +21,5 @@
     %option{value: "Mercado Interno"} Mercado Interno
     %option{value: "Mercado Externo"} Mercado Externo
 %td
-  %a.btn.btn-danger.btn-small.static_lands
+  %a.btn.btn-danger.btn-small.remove
     .glyphicon.glyphicon-remove

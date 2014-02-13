@@ -25,9 +25,9 @@
             %td
               = capital.input_field :current_value
             %td
-              %a.btn.btn-danger.btn-small.static_lands
+              %a.btn.btn-danger.btn-small.remove-static-field
                 .glyphicon.glyphicon-remove
-              = capital.check_box :_destroy#, class: 'hide'
+              = capital.check_box :_destroy, class: 'hide'
 
   %a.btn.btn-success.btn-large.add_capital{ data: { type: "land-#{ index }-capital" } }
     .glyphicon.glyphicon-plus-sign
