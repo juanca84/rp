@@ -64,3 +64,7 @@ group :development, :test do
   gem "rails-erd"
   gem 'rspec-rails'
 end
+
+group :production do
+  gem 'heroku_rails_deflate'
+end
