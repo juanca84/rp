@@ -15,11 +15,11 @@
       %td= register.holders.first.person.name rescue ''
       %td= register.holders.last.person.name rescue ''
       %td
-        %a.btn.btn-success.btn-small{href: register_path(register)}
+        %a.btn.btn-success.btn-small{ href: register_path(register) }
           .glyphicon.glyphicon-eye-open
           Ver
       %td
-        %a.btn.btn-primary.btn-large{href: edit_register_path(register)}
+        %a.btn.btn-primary.btn-large{ href: edit_register_path(register) }
           .glyphicon.glyphicon-pencil
           Editar
       %td

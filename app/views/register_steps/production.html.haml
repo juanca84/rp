@@ -37,7 +37,7 @@
       .form-group
         =  f.label :emission_date, class: "col-sm-3"
         .col-sm-3
-          = f.input_field :emission_date, placeholder: 'DD/MM/AAAA', as: :string
+          = f.input_field :emission_date, placeholder: 'DD/MM/AAAA', as: :string, value: (l f.object.emission_date if f.object.emission_date)
 
     .well.form-actions
       = render 'registrar_agent'
