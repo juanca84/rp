@@ -4,15 +4,15 @@
       .control
         %select.select.optional.form-control{ id: "department_lands_#{ @id }", class: 'department_lands', name: "register[lands_attributes][#{ @id }][department_id]" }
           %option{value: ""}
-          %option{value: "10"} Tarija
-          %option{value: "11"} Potosi
-          %option{value: "12"} Chuquisaca
-          %option{value: "13"} Santa Cruz
-          %option{value: "14"} Oruro
-          %option{value: "15"} Cochabamba
-          %option{value: "16"} La Paz
-          %option{value: "17"} Beni
-          %option{value: "18"} Pando
+          %option{value: "1"} Tarija
+          %option{value: "2"} Potosi
+          %option{value: "3"} Chuquisaca
+          %option{value: "4"} Santa Cruz
+          %option{value: "5"} Oruro
+          %option{value: "6"} Cochabamba
+          %option{value: "7"} La Paz
+          %option{value: "8"} Beni
+          %option{value: "9"} Pando
 %td
   .col-sm-12
     .control-group.form-group.select.optional.register_lands_community
