@@ -17,7 +17,7 @@
 
           = person.label :birthdate, class: "col-sm-2"
           .col-sm-3
-            = person.input_field :birthdate, as: :date
+            = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string
 
         .form-group
           = person.label :identification, class: "col-sm-2"

@@ -15,5 +15,11 @@ class Person < ActiveRecord::Base
   has_many :people_registers
   has_many :registers, through: :people_registers
 
+  #before_validation :convert_date
+
+  def convert_date
+    debugger
+    self.birthdate = Date.strptime(birthdate, "%d/%m/%Y") if birthdate.present?
+  end
   #validates :name, presence: true
 end
