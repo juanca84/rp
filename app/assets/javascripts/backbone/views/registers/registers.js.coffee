@@ -24,7 +24,6 @@ class Runpa.Views.Registers.NewView extends Backbone.View
 
   initialize: ->
     _.bindAll this, "render", "add_row"
-    @inputToUpperCase()
     @render()
 
 
@@ -45,7 +44,6 @@ class Runpa.Views.Registers.NewView extends Backbone.View
       view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
       @$('table.table_' + type + 's tbody tr:last').after(view.render().el)  
     
-    @inputToUpperCase()
     false
 
   remove_static_field: (event) -> 
@@ -77,11 +75,6 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     $('#' + select_id.replace('community_lands_', 'work-') + ' .community').val($('#' + select_id + ' option:selected').text())
     $('#' + select_id.replace('community_lands_', 'capital-') + ' .community').val($('#' + select_id + ' option:selected').text())
     false
-
-  inputToUpperCase: () -> 
-    $("input[type=text]").keyup ->
-      @value = @value.toUpperCase()
-      return
 
   render: ->
     return this
