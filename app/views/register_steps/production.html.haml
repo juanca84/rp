@@ -40,7 +40,7 @@
           = f.input_field :emission_date, placeholder: 'DD/MM/AAAA', as: :string, value: (l f.object.emission_date if f.object.emission_date)
 
     .well.form-actions
-      = render 'registrar_agent'
+      = render 'registrar_agent', f: f
 
   = render "form_submit", register: @register
 

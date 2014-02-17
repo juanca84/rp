@@ -95,7 +95,7 @@
                 = f.input_field :emission_date, as: :date
 
           .well.form-actions
-            = render 'register_steps/registrar_agent'
+            = render 'register_steps/registrar_agent', f: f
 
 .form-actions.navsteps
   %a.btn.btn-primary.btn-large{href: registers_path}
