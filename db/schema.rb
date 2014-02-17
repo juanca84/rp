@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140212151509) do
+ActiveRecord::Schema.define(:version => 20140217163639) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20140212151509) do
     t.integer  "age"
     t.integer  "community_of_birth_id"
     t.string   "phone"
+    t.string   "birthplace"
   end
 
   create_table "people_registers", :force => true do |t|

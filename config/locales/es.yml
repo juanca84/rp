@@ -111,8 +111,8 @@ es:
 
       person:
         birthdate: Fecha de nacimiento
+        birthplace: Municipio de Nacimiento
         civil_status: Estado Civil
-        community_of_birth: Municipio de Nacimiento
         education: Nivel de instrucción
         identification: Cédula de Identidad
         name: Nombre y Apellidos

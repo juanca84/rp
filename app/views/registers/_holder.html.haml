@@ -11,9 +11,13 @@
             = person.input_field :name, class: 'form-control'
 
         .form-group
-          = person.label :community_of_birth, class: "col-sm-3"
+          = person.label :birthplace, class: "col-sm-3"
           .col-sm-4
-            = person.input_field :community_of_birth_id, as: :select, collection: Community.all
+            = person.input_field :birthplace, data: { provide: "typeahead" } 
+
+          / = person.label :community_of_birth, class: "col-sm-3"
+          / .col-sm-4
+          /   = person.input_field :community_of_birth_id, as: :select, collection: Community.all
 
           = person.label :birthdate, class: "col-sm-2"
           .col-sm-3
