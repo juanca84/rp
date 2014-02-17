@@ -1,0 +1,35 @@
+.table-responsive
+  %table.table.table-bordered.table_register.table_works
+    %thead
+      %tr
+        %th.col-sm-3{ rowspan: 2 } Departamento
+        %th.col-sm-3{ rowspan: 2 } Municipio
+        %th.col-sm-2{ colspan: 3 } Mano de Obra 
+        %th.col-sm-2{ colspan: 3 } Conversión - hombre año
+      %tr
+        %th.col-sm-1 Propia
+        %th.col-sm-1 Eventual
+        %th.col-sm-1 Permanente
+        %th.col-sm-1 Propia
+        %th.col-sm-1 Eventual
+        %th.col-sm-1 Total
+    %tbody
+      %tr
+      = f.simple_fields_for :lands do |work|
+        %tr{ id: "work-#{ work.object.id }" }
+          %td
+            %input.string.optional.form-control.department{ type: "text", readonly: true, value: work.object.try(:department).try(:name) }
+          %td
+            %input.string.optional.form-control.community{ type: "text", readonly: true, value: work.object.try(:community).try(:name) }
+          %td
+            = work.input_field :own_labor, class: 'own_labor form-control'
+          %td
+            = work.input_field :eventual_labor, class: 'eventual_labor form-control'
+          %td
+            = work.input_field :permanent_labor, class: 'permanent_labor form-control'
+          %td
+            = work.input_field :men_per_year_own, readonly: true, class: 'men_per_year_own form-control'
+          %td
+            = work.input_field :men_per_year_eventually, readonly: true, class: 'men_per_year_eventually form-control'
+          %td
+            = work.input_field :men_per_year_total, readonly: true, class: 'men_per_year_total form-control'

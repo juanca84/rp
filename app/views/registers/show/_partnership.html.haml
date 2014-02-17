@@ -1,0 +1,12 @@
+.table-responsive
+  %table.table.table-bordered.table_register.table_partnerships
+    %tbody
+      %tr
+      = f.simple_fields_for :partnerships do |partnership| 
+        %tr
+          %td.col-sm-9
+            = partnership.input_field :name
+          %td.col-sm-1
+            Cód:
+          %td.col-sm-2
+            = partnership.input_field :code

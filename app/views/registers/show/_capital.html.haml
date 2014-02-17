@@ -9,9 +9,8 @@
         %tr
           %th.col-sm-7 Item Capital
           %th.col-sm-2 Año de Compra y/o Construcción           
-          %th.col-sm-1 Vida útil futura (Años)      
+          %th.col-sm-1 Vida útil futura (Años)         
           %th.col-sm-2 Valor actual (Bs)
-          %th
       %tbody
         %tr
         = land.simple_fields_for :capitals do |capital|
@@ -24,14 +23,6 @@
               = capital.input_field :lifespan_future
             %td
               = capital.input_field :current_value
-            %td
-              %a.btn.btn-danger.btn-small.remove-static-field
-                .glyphicon.glyphicon-remove
-              = capital.check_box :_destroy, class: 'hide'
-
-  %a.btn.btn-success.btn-large.add_capital{ data: { type: "land-#{ index }-capital" } }
-    .glyphicon.glyphicon-plus-sign
-    adicionar capital
 
   %br 
   %br

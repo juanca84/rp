@@ -8,6 +8,7 @@ class Register < ActiveRecord::Base
                   :second_entry, :sons_attributes, :user_id, :works_attributes
 
   belongs_to :civil_union
+  belongs_to :economic_activity
   belongs_to :emission_community, class_name: Community
   belongs_to :emission_department, class_name: Department
   belongs_to :community

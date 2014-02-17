@@ -1,0 +1,12 @@
+.form-group
+  = f.label :economic_activity, class: "col-sm-1"
+  .col-sm-5
+    = f.input_field :economic_activity, value: f.object.try(:economic_activity).try(:name)
+
+  = f.label :first_entry, class: "col-sm-1"
+  .col-sm-2
+    = f.input_field :first_entry
+
+  = f.label :second_entry, class: "col-sm-1"
+  .col-sm-2
+    = f.input_field :second_entry
