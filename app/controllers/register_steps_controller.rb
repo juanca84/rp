@@ -7,7 +7,7 @@ class RegisterStepsController < ApplicationController
     @step = params[:id]
     case @step
     when 'production'
-      @register.emission_date = Date.today
+      @register.emission_date = Date.today if @register.emission_date.blank?
     end
     render_wizard
   end
