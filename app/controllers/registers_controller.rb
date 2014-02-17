@@ -2,7 +2,7 @@ class RegistersController < RunpaController
   load_and_authorize_resource except: :get_communities
   
   def index
-    @registers = Register.order('code asc').page params[:page]
+    @registers = Register.order('code desc').page params[:page]
 
     respond_to do |wants|
       wants.html # index.html.erb
