@@ -1,4 +1,6 @@
 class Land < ActiveRecord::Base
+  default_scope order('lands.created_at ASC')
+
   belongs_to :community
   belongs_to :department
   belongs_to :register
