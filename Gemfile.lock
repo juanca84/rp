@@ -19,6 +19,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    aasm (3.1.0)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
       mail (~> 2.5.3)
@@ -246,6 +247,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   activeadmin!
   anjlab-bootstrap-rails (~> 3.0.2.0)
   anjlab-widgets

@@ -4,7 +4,8 @@
       .col-sm-9
       = f.label :code, class: "col-sm-1"
       .col-sm-2
-        = f.input_field :code, readonly: true
+        %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code) }
+        
       = f.hidden_field :user_id
 
     .well.form-actions

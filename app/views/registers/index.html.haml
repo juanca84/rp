@@ -10,7 +10,7 @@
     %th.col-sm-1
 
   - @registers.each do |register|
-    %tr
+    %tr{ class: ('danger' unless register.finished?) }
       %td= register.code
       %td= register.holders.first.person.name rescue ''
       %td= register.holders.last.person.name rescue ''

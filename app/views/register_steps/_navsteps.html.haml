@@ -3,9 +3,10 @@
     %a.btn.btn-primary.btn-large{ href: @step == 'family' ? edit_register_path(@register) : previous_wizard_path }
       .glyphicon.glyphicon-chevron-left
       Atrás
-
+  
+  - if @register.finished? || ( @step == 'family' && ( @register.step_family? ||@register.step_partnership? || @register.step_factors?) ) || ( @step == 'partnerships' && ( @register.step_partnership? || @register.step_factors? ) ) || ( @step == 'factors' && @register.step_factors? )
     %a.btn.btn-primary.btn-large.pull-right{ href: next_wizard_path }
-      - if @step == 'production'
+      - if @step == 'production' && @register.finished?
         .glyphicon.glyphicon-eye-open
         Ver
 

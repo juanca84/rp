@@ -25,6 +25,9 @@ gem 'anjlab-widgets'
 gem "haml", "~> 4.0.4"
 gem "rails-backbone"
 
+#para cambiar de estados
+gem 'aasm'
+
 #authentication/authorizations
 gem "devise", "~> 3.2.0"
 gem "rego-devise-lastseenable", "~> 0.1.0"
