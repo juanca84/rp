@@ -19,7 +19,7 @@
       %td= register.holders.last.person.name rescue ''
 
       %td
-        -if current_user == register.user
+        -if current_user == register.user || current_user.module_administrador? 
           %a.btn.btn-primary.btn-small{ href: edit_register_path(register) }
             .glyphicon.glyphicon-pencil
             Editar
