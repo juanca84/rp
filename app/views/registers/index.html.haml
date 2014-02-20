@@ -1,38 +1,4 @@
-- if @register_no_valids.present?
-  .panel.panel-danger
-    .panel-heading
-      - plural  = @register_no_valids.size > 1 ? 's' : ''
-      %strong Tienes #{ @register_no_valids.size } registro#{ plural } imcompleto#{ plural }!
-      Por favor solucione estos registros antes de continuar.
-    .panel-body
-      %h1 Registros Imcompletos
-
-      %table.table.table-bordered.table-hover
-        %tr
-          %th.col-sm-4 Descripción
-          %th.col-sm-5 Problema
-          %th{ colspan: 3 }
-
-        - @register_no_valids.each do |register|
-          %tr{ class: 'danger' }
-            %td
-              = truncate(register.summary, length: 60)
-            %td
-              El registro está incompleto, se encuentra en el paso de  
-              %strong= t register.status, scope: [:status]
-
-            %td
-              %a.btn.btn-success.btn-small{ href: register_path(register) }
-                .glyphicon.glyphicon-eye-open
-                Ver
-            %td
-              %a.btn.btn-primary.btn-small{ href: edit_register_path(register) }
-                .glyphicon.glyphicon-pencil
-                Editar
-            %td
-              %a.btn.btn-danger.btn-small{ href: register_path(register),  data: { method: :delete, confirm: '¿Estás seguro?' } }
-                .glyphicon.glyphicon-remove
-                Eliminar
+= render 'no_valids', register_no_valids: @register_no_valids   
 
 %h1 Lista de Registros
 

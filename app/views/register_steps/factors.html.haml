@@ -1,3 +1,4 @@
+= render 'registers/message_no_valids', register_no_valids: @register_no_valids 
 
 = simple_form_for @register, url: wizard_path, method: :put, html: { class: 'form-horizontal form-register', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
   .form-group

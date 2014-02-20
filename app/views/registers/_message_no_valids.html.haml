@@ -1,0 +1,6 @@
+- if @register_no_valids.present? 
+  .alert.alert-danger
+    - plural  = register_no_valids.size > 1 ? 's' : ''
+    = link_to registers_path do
+      %strong Tienes #{ register_no_valids.size } registro#{ plural } imcompleto#{ plural }!
+      Haz click acá para más detalles.

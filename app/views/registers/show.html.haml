@@ -1,3 +1,5 @@
+= render 'message_no_valids', register_no_valids: @register_no_valids 
+
 .container{style: 'width:100%'}
   = simple_form_for @register, url: "#", html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { readonly: true, class: 'form-control' } }  do |f|
     .form-group

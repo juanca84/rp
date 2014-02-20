@@ -1,4 +1,5 @@
 class RegisterStepsController < ApplicationController
+  before_filter :registers_no_valids, only: :show
   include Wicked::Wizard
   steps :family, :partnerships, :factors, :production
 
@@ -59,5 +60,9 @@ class RegisterStepsController < ApplicationController
   def finish_wizard_path
     @register = Register.find params[:register_id]
     register_path(@register)
+  end
+
+  def registers_no_valids
+    @register_no_valids = Register.no_valid.by_user(current_user)
   end
 end

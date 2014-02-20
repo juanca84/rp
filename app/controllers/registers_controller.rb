@@ -1,8 +1,8 @@
 class RegistersController < RunpaController
-  load_and_authorize_resource except: :get_communities
-  
+  load_and_authorize_resource except: [:get_communities, :registers_no_valids]
+  before_filter :registers_no_valids, only: [:index, :new, :edit, :show]
+
   def index
-    @register_no_valids = Register.no_valid.by_user(current_user)
     @registers = Register.valid.order('code desc').page params[:page]
 
     respond_to do |wants|
@@ -82,4 +82,7 @@ class RegistersController < RunpaController
     render layout: false
   end
 
+  def registers_no_valids
+    @register_no_valids = Register.no_valid.by_user(current_user)
+  end
 end
