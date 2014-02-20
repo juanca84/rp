@@ -1,10 +1,12 @@
 class RegisterStepsController < ApplicationController
   before_filter :registers_no_valids, only: :show
+
   include Wicked::Wizard
   steps :family, :partnerships, :factors, :production
 
   def show
     @register = Register.find params[:register_id]
+    @register_no_valids -= [@register]
     @step = params[:id]
 
     case @step
