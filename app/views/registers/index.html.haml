@@ -3,7 +3,7 @@
     .panel-heading
       - plural  = @register_no_valids.size > 1 ? 's' : ''
       %strong Tienes #{ @register_no_valids.size } registro#{ plural } imcompleto#{ plural }!
-      Por favor soluciona estos registros antes de continuar.
+      Por favor solucione estos registros antes de continuar.
     .panel-body
       %h1 Registros Imcompletos
 
@@ -18,6 +18,8 @@
             %td
               = truncate(register.summary, length: 60)
             %td
+              El registro está incompleto, se encuentra en el paso de  
+              %strong= t register.status, scope: [:status]
 
             %td
               %a.btn.btn-success.btn-small{ href: register_path(register) }
@@ -49,14 +51,16 @@
       %td= register.code
       %td= register.holders.first.person.name rescue ''
       %td= register.holders.last.person.name rescue ''
+
+      %td
+        -if current_user == register.user
+          %a.btn.btn-primary.btn-small{ href: edit_register_path(register) }
+            .glyphicon.glyphicon-pencil
+            Editar
       %td
         %a.btn.btn-success.btn-small{ href: register_path(register) }
           .glyphicon.glyphicon-eye-open
           Ver
-      %td
-        %a.btn.btn-primary.btn-small{ href: edit_register_path(register) }
-          .glyphicon.glyphicon-pencil
-          Editar
       - if current_user.module_administrador? 
         %td
           %a.btn.btn-danger.btn-small{ href: register_path(register),  data: { method: :delete, confirm: '¿Estás seguro?' } }

@@ -142,6 +142,7 @@ es:
         geodesic_ns: Punto Geodésico NS
         residence: Lugar de Residencia
         second_entry: Rubro 2
+        status: Estado
       role:
         name: nombre
         resource_type: Tipo de Recurso
@@ -172,3 +173,10 @@ es:
   will_paginate:
     previous_label: «
     next_label: »
+  status:
+    step_holder: datos de los titulares
+    step_family: datos de los demás miembros de la familia
+    step_partnership: datos de la organización social 
+    step_factors: datos de los factores de producción
+    active: registro Activo
+    inactive: registo Inactivo
