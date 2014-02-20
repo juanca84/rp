@@ -2,6 +2,7 @@ class RegistersController < RunpaController
   load_and_authorize_resource except: :get_communities
   
   def index
+    @register_no_valids = Register.no_valid.by_user(current_user)
     @registers = Register.valid.order('code desc').page params[:page]
 
     respond_to do |wants|

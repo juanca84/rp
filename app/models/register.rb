@@ -44,7 +44,14 @@ class Register < ActiveRecord::Base
   
   accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
 
-  scope :valid, where("registers.status = ? OR registers.status = ?", 'active', 'inactive') 
+  #scope para encontrar los registros que fueron completados es decir que estan en estados 'active' o 'inactive' 
+  scope :valid, where("registers.status = ? OR registers.status = ?", 'active', 'inactive')
+
+  #scope para encontar los registros que estan incompletos es decir los que no estan en estado 'active' o 'inactive'
+  scope :no_valid, where("registers.status <> ? AND registers.status <> ?", 'active', 'inactive')
+
+  #scope para encontrar los registros de un usuario
+  scope :by_user, lambda { |user| where(user_id: (user.present? && user.id) ) }
 
   #before_save :uppercase_fields
   before_validation :add_code
@@ -121,6 +128,11 @@ class Register < ActiveRecord::Base
       self.code_ine.upcase! if residence.present?
       self.first_entry.upcase! if first_entry .present?
       self.second_entry.upcase! if second_entry.present?
+  end
+
+  def summary
+    "titular 1:#{ holders.first.try(:person).try(:name) },\n 
+    titular 2: #{ holders.last.try(:person).try(:name) }"
   end
 
 end
