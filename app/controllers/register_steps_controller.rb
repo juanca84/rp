@@ -5,11 +5,36 @@ class RegisterStepsController < ApplicationController
   def show
     @register = Register.find params[:register_id]
     @step = params[:id]
+
     case @step
+    when 'family'
+      render_wizard and return
+    when 'partnerships'
+      if @register.active? || @register.inactive? || @register.step_family? || @register.step_partnership? || @register.step_factors?
+        render_wizard and return
+      else
+        redirect_to edit_register_path(@register)
+      end  
+    when 'factors'
+      if @register.active? || @register.inactive? || @register.step_partnership? || @register.step_factors?
+        render_wizard and return
+      else
+        redirect_to edit_register_path(@register)
+      end 
     when 'production'
-      @register.emission_date = Date.today if @register.emission_date.blank?
+      if @register.active? || @register.inactive? || @register.step_factors?
+        @register.emission_date = Date.today if @register.emission_date.blank?
+        render_wizard and return
+      else
+        redirect_to edit_register_path(@register)
+      end 
+    when 'wicked_finish'
+      if @register.active? || @register.inactive?
+        render_wizard and return
+      else
+        redirect_to edit_register_path(@register)
+      end 
     end
-    render_wizard
   end
   
   def update
@@ -24,7 +49,7 @@ class RegisterStepsController < ApplicationController
     when 'factors'
       @register.fill_factors if @register.may_fill_factors?
     when 'production'
-      @register.finish if @register.may_finish?
+      @register.activate if @register.may_activate?
     end
 
     @register.update_attributes params[:register]

@@ -4,9 +4,9 @@
       .glyphicon.glyphicon-chevron-left
       Atrás
   
-  - if @register.finished? || ( @step == 'family' && ( @register.step_family? ||@register.step_partnership? || @register.step_factors?) ) || ( @step == 'partnerships' && ( @register.step_partnership? || @register.step_factors? ) ) || ( @step == 'factors' && @register.step_factors? )
+  - if @register.active? || ( @step == 'family' && ( @register.step_family? ||@register.step_partnership? || @register.step_factors?) ) || ( @step == 'partnerships' && ( @register.step_partnership? || @register.step_factors? ) ) || ( @step == 'factors' && @register.step_factors? )
     %a.btn.btn-primary.btn-large.pull-right{ href: next_wizard_path }
-      - if @step == 'production' && @register.finished?
+      - if @step == 'production' && @register.active?
         .glyphicon.glyphicon-eye-open
         Ver
 

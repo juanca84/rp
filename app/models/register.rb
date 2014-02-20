@@ -33,7 +33,7 @@ class Register < ActiveRecord::Base
   has_many :partnerships, dependent: :destroy
 
   validates :user_id,  presence: true
-  validates :code, presence: true, uniqueness: true, if: lambda { |o| o.finished? }
+  validates :code, presence: true, uniqueness: true, if: lambda { |o| o.active? }
   validate :validate_holders
 
   accepts_nested_attributes_for :holders
@@ -43,6 +43,8 @@ class Register < ActiveRecord::Base
   accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
   
   accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+
+  scope :valid, where("registers.status = ? OR registers.status = ?", 'active', 'inactive') 
 
   #before_save :uppercase_fields
   before_validation :add_code
@@ -55,7 +57,8 @@ class Register < ActiveRecord::Base
     state :step_family
     state :step_partnership
     state :step_factors
-    state :finished
+    state :active
+    state :inactive
 
     event :fill_family do
       transitions from: :step_holder, to: :step_family
@@ -69,8 +72,12 @@ class Register < ActiveRecord::Base
       transitions from: :step_partnership, to: :step_factors
     end
 
-    event :finish do
-      transitions from: :step_factors, to: :finished
+    event :activate do
+      transitions from: [:step_factors, :inactive], to: :active
+    end
+
+    event :deactivate do
+      transitions from: :active, to: :inactive
     end
   end
 
@@ -85,7 +92,7 @@ class Register < ActiveRecord::Base
 
   #adicionar código
   def add_code
-    if finished? && code.blank?
+    if active? && code.blank?
       self.code = Register.new_code_number
     end
   end
