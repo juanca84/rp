@@ -2,7 +2,7 @@ class ReportsController < RunpaController
   load_and_authorize_resource class: "Register"
 
   def index
-    @q = Register.search(params[:q])
+    @q = Register.valid.order('code desc').search(params[:q])
 
     @registers =
       if params[:format] == "pdf"

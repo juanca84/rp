@@ -1,0 +1,14 @@
+%h1 Lista de Registros
+
+%table.table
+  %tr
+    %th Código
+    %th Titular 1
+    %th Titular 2
+    %th
+
+  - @registers.each do |register|
+    %tr
+      %td= register.code
+      %td= register.holders.first.person.name rescue ''
+      %td= register.holders.last.person.name rescue ''

@@ -24,6 +24,7 @@ class RegistersController < RunpaController
 
   def edit
     @register = Register.find(params[:id])
+    @register_no_valids -= [@register]
   end
 
   def create
