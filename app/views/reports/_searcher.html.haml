@@ -1,11 +1,17 @@
-= search_form_for @q, url: reports_path do |f|
-  = f.label :code
-  = f.text_field :code_eq
+.well.form-actions
+  = search_form_for @q, url: reports_path, html: { class: 'form-horizontal', role: 'form' } do |f|
+    .form-group
+      %label.string.optional.control-label.col-sm-1 Código
+      .col-sm-2
+        = f.text_field :code_eq, class: 'form-control'
 
-  = f.label :holder
-  = f.text_field :holders_person_name_cont
+      %label.string.optional.control-label.col-sm-1 Titular
+      .col-sm-5
+        = f.text_field :holders_person_name_cont, class: 'form-control'
 
-  = f.label :identification
-  = f.text_field :holders_person_identification_cont
+      %label.sring.optional.control-label.col-sm-1 Identificación
+      .col-sm-2
+        = f.text_field :holders_person_identification_cont, class: 'form-control'
 
-  = f.submit "Buscar"
+    .form-group
+      = f.submit "Buscar", class: 'btn btn-success pull-right', style: "margin-right: 17px;margin-top: 10px;"
