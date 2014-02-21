@@ -3,7 +3,10 @@ class RegistersController < RunpaController
   before_filter :registers_no_valids, only: [:index, :new, :edit, :show]
 
   def index
-    @registers = Register.valid.order('code desc').page params[:page]
+    params[:q][:holders_type_person_cont] = 'holder' if params[:q].present? &&  params[:q][:holders_person_name_cont].present?
+    
+    @q = Register.valid.order('code desc').search(params[:q])
+    @registers = @q.result(distinct: true).page params[:page]
 
     respond_to do |wants|
       wants.html # index.html.erb

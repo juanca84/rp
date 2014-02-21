@@ -1,0 +1,13 @@
+.well.form-actions
+  = search_form_for @q, url: registers_path, html: { class: 'form-horizontal', role: 'form' } do |f|
+    .form-group
+      %label.string.optional.control-label.col-sm-1 Código
+      .col-sm-2
+        = f.text_field :code_eq, class: 'form-control'
+
+      %label.string.optional.control-label.col-sm-1 Titular
+      .col-sm-7
+        = f.text_field :holders_person_name_cont, class: 'form-control'
+        
+      .col-sm-1
+        = f.submit "Buscar", class: 'btn btn-success pull-right'
