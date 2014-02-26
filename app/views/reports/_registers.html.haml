@@ -1,6 +1,20 @@
 %h1 Resumen
 
 %table.table.table-striped
+  - if @department
+    %tr
+      %th.col-sm-1 Departemento
+      %td.col-sm-1= @department
+
+  - if @community
+    %tr
+      %th.col-sm-1 Municipio
+      %td.col-sm-1= @community
+
+  - if @partnership
+    %tr
+      %th.col-sm-1 Asociación
+      %td.col-sm-1= @partnership
   %tr
     %th.col-sm-1 total de registros
     %td.col-sm-1= @total_registers

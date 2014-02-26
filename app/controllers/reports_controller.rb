@@ -5,11 +5,17 @@ class ReportsController < RunpaController
   def index
     @q = Register.valid.order('code desc').search(params[:q])
 
+    if params[:q].present?
+      @department = params[:q][:lands_department_id_eq].present? && Department.find(params[:q][:lands_department_id_eq]).try(:name)
+      @community = params[:q][:lands_community_id_eq].present? && Community.find(params[:q][:lands_community_id_eq]).try(:name)
+      @partnership = params[:q][:partnerships_name_cont]
+    end 
+    @total_registers = @q.result(distinct: true).size
+
     @registers =
       if params[:format] == "pdf"
         @q.result(distinct: true)
       else
-        @total_registers = @q.result(distinct: true).size
         @q.result(distinct: true).page params[:page]
       end
 
