@@ -16,7 +16,7 @@
         - register_no_valids.each do |register|
           %tr{ class: 'danger' }
             %td
-              = truncate(register.summary, length: 60)
+              = truncate(register.summary_holders, length: 60)
             %td
               El registro está incompleto, se encuentra en el paso de  
               %strong= t register.status, scope: [:status]
