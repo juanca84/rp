@@ -8,7 +8,8 @@ class ReportsController < RunpaController
     @registers =
       if params[:format] == "pdf"
         @q.result(distinct: true)
-      else 
+      else
+        @total_registers = @q.result(distinct: true).size
         @q.result(distinct: true).page params[:page]
       end
 
