@@ -14,4 +14,13 @@
         = f.text_field :holders_person_identification_cont, class: 'form-control'
 
     .form-group
+      %label.string.optional.control-label.col-sm-1 Departamento
+      .col-sm-3
+        = f.select :lands_department_id_eq, options_from_collection_for_select(@departments, :id, :name, params[:q].present? && params[:q][:lands_department_id_eq]), { include_blank: true  }, class: 'select form-control'
+
+      %label.string.optional.control-label.col-sm-1 Municipio
+      .col-sm-3
+        = f.select :lands_community_id_eq, options_from_collection_for_select(@communities, :id, :name, params[:q].present? && params[:q][:lands_community_id_eq]), { include_blank: true  }, class: 'select form-control'     
+
+    .form-group
       = f.submit "Buscar", class: 'btn btn-success pull-right', style: "margin-right: 17px;margin-top: 10px;"

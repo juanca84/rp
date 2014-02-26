@@ -1,17 +1,34 @@
+%h1 Resumen
+
+%table.table.table-striped
+  %tr
+    %th.col-sm-1 total de registros
+    %td.col-sm-1= @registers.size 
+
 %h1 Lista de Registros
 
 %table.table.table-striped
   %tr
-    %th.col-sm-1 Código
-    %th.col-sm-5 Titular 1
-    %th.col-sm-5 Titular 2
-    %th.col-sm-1
+    %th Código
+    %th Titulares
+    %th Número de hijos
+    %th Número de agregados
+    %th Total dias dedicados a actividades productivas
+    %th Asociaciones a las que pertenece
+    %th Actividad Principal
+    %th Rubros
+    %th
 
   - @registers.each do |register|
     %tr
       %td= register.code
-      %td= register.holders.first.person.name rescue ''
-      %td= register.holders.last.person.name rescue ''
+      %td= register.summary_holders
+      %td= register.sons.size
+      %td= register.aggregates.size
+      %td= register.total_time_to_land
+      %td= register.summary_partnerships
+      %td= register.summary_economic_activity
+      %td= register.summary_entries
       %td
         %a.btn.btn-success.btn-small{href: register_path(register)}
           .glyphicon.glyphicon-eye-open

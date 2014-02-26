@@ -1,5 +1,6 @@
 class ReportsController < RunpaController
   load_and_authorize_resource class: "Register"
+  before_filter :set_location
 
   def index
     @q = Register.valid.order('code desc').search(params[:q])
@@ -17,5 +18,10 @@ class ReportsController < RunpaController
         render :pdf => "file_name"
       end
     end
+  end
+
+  def set_location
+    @departments = Department.all
+    @communities = Community.all
   end
 end

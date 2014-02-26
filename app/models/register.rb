@@ -130,9 +130,21 @@ class Register < ActiveRecord::Base
       self.second_entry.upcase! if second_entry.present?
   end
 
-  def summary
-    "titular 1:#{ holders.first.try(:person).try(:name) },\n 
-    titular 2: #{ holders.last.try(:person).try(:name) }"
+  def summary_holders
+    "#{ holders.first.try(:person).try(:name) },\n 
+     #{ holders.last.try(:person).try(:name) }"
+  end
+
+  def summary_partnerships
+    partnerships.pluck(:name).join(', ')
+  end
+
+  def summary_economic_activity
+    economic_activity.try(:name)
+  end
+
+  def summary_entries
+    "#{ first_entry }, #{ second_entry }"
   end
 
 end

@@ -3,12 +3,21 @@
 %table.table
   %tr
     %th Código
-    %th Titular 1
-    %th Titular 2
-    %th
+    %th Titulares
+    %th Número de hijos
+    %th Número de agregados
+    %th Total dias dedicados a actividades productivas
+    %th Asociaciones a las que pertenece
+    %th Actividad Principal
+    %th Rubros
 
   - @registers.each do |register|
     %tr
       %td= register.code
-      %td= register.holders.first.person.name rescue ''
-      %td= register.holders.last.person.name rescue ''
+      %td= register.summary_holders
+      %td= register.sons.size
+      %td= register.aggregates.size
+      %td= register.total_time_to_land
+      %td= register.summary_partnerships
+      %td= register.summary_economic_activity
+      %td= register.summary_entries
