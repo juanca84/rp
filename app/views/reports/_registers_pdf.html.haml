@@ -23,22 +23,34 @@
 
 %table.table
   %tr
-    %th Código
-    %th Titulares
+    %th Cod
+    %th Titular
+    %th CI
+    %th Estado Civil
+    %th Edad
+    %th Zona
+    %th Lugar de Residencia
     %th Número de hijos
     %th Número de agregados
-    %th Total dias dedicados a actividades productivas
-    %th Asociaciones a las que pertenece
-    %th Actividad Principal
     %th Rubros
+    %th Superficie
+    %th Producción
+    %th Asociaciones
+    %th
 
   - @registers.each do |register|
     %tr
       %td= register.code
-      %td= register.summary_holders
+      %td= register.holder_main.try(:name)
+      %td= register.holder_main.try(:identification)
+      %td= register.holder_main.try(:civil_status).try(:name)
+      %td= register.holder_main.try(:get_age)
+      %td
+      %td= register.residence
       %td= register.sons.size
       %td= register.aggregates.size
-      %td= register.total_time_to_land
-      %td= register.summary_partnerships
-      %td= register.summary_economic_activity
       %td= register.summary_entries
+      %td
+      %td
+      %td= register.summary_partnerships
+      %td
