@@ -130,6 +130,10 @@ class Register < ActiveRecord::Base
       self.second_entry.upcase! if second_entry.present?
   end
 
+  def holder_main
+    holders.first.try(:person)
+  end
+
   def summary_holders
     "#{ holders.first.try(:person).try(:name) },\n 
      #{ holders.last.try(:person).try(:name) }"
