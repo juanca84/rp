@@ -13,6 +13,7 @@
       = f.text_field :lands_department_id_eq
       = f.text_field :lands_community_id_eq
       = f.text_field :partnerships_name_cont
+      = text_field_tag :page, params[:page]
 
     %button.btn.btn-primary{type: "submit"}
       %i.icon-user.icon-white
