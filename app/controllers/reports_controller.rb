@@ -14,7 +14,7 @@ class ReportsController < RunpaController
 
     @registers =
       if params[:format] == "pdf"
-        @q.result(distinct: true, include: { people_registers: :people} )
+        @q.result(distinct: true)
       else
         @q.result(distinct: true).page params[:page]
       end
