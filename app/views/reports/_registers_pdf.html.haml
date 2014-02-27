@@ -41,7 +41,7 @@
   - @registers.each do |register|
     %tr
       %td= register.code
-      %td= register.holder_main.try(:name)
+      %td.col-sm-2= register.holder_main.try(:name)
       %td= register.holder_main.try(:identification)
       %td= register.holder_main.try(:civil_status).try(:name)
       %td= register.holder_main.try(:get_age)

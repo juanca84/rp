@@ -22,7 +22,7 @@ class ReportsController < RunpaController
     respond_to do |wants|
       wants.html
       wants.pdf do
-        render :pdf => "file_name"
+        render pdf: "file_name", page_size: 'Letter'  
       end
     end
   end
