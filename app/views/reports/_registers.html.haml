@@ -45,13 +45,13 @@
       %td= register.holder_main.try(:identification)
       %td= register.holder_main.try(:civil_status).try(:name)
       %td= register.holder_main.try(:get_age)
-      %td
+      %td= register.zone_productions("CAÑA")
       %td= register.residence
       %td= register.sons.size
       %td= register.aggregates.size
-      %td= register.summary_entries
-      %td
-      %td
+      %td= register.entries_productions("CAÑA")
+      %td= register.surface_productions("CAÑA")
+      %td= register.total_productions("CAÑA")
       %td= register.summary_partnerships
       %td
         %a.btn.btn-success.btn-small{href: register_path(register)}

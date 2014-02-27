@@ -29,7 +29,9 @@ class Register < ActiveRecord::Base
   has_many :people, through: :people_registers
 
   #has_many :partnerships_registers
-  #has_many :partnerships, through: :partnerships_registers 
+  #has_many :partnerships, through: :partnerships_registers
+  has_many :productions, through: :lands
+
   has_many :partnerships, dependent: :destroy
 
   validates :user_id,  presence: true
@@ -131,7 +133,7 @@ class Register < ActiveRecord::Base
   end
 
   def holder_main
-    holders.first.try(:person)
+    holders.includes(:person).first.try(:person)
   end
 
   def summary_holders
@@ -149,6 +151,71 @@ class Register < ActiveRecord::Base
 
   def summary_entries
     "#{ first_entry }, #{ second_entry }"
+  end
+
+  def zones
+  end
+
+  def total_surface
+  end
+
+  def total_production
+  end
+
+  def entries_productions(entry = nil)
+    result = 
+      if entry.present?
+        res = productions.search( entry_cont: entry )
+        res.result.pluck(:entry)
+      else
+        productions.pluck(:entry)
+      end
+    result.uniq.join(', ')
+  end
+
+  def zone_productions(entry = nil)
+    result = 
+      if entry.present?
+        res = productions.search( entry_cont: entry )
+        res.result
+      else
+        productions
+      end
+    locations = []
+    result.each do |p|
+      locations << "#{ p.land.try(:community).try(:name) } - #{p.land.try(:another_community)}"
+    end 
+    locations.uniq.join(",")
+  end
+
+  def surface_productions(entry = nil)
+    result = 
+      if entry.present?
+        res = productions.search( entry_cont: entry )
+        res.result
+      else
+        productions
+      end
+    total = 0
+    result.each do |p|
+      total += p.productive_physical_coverage_amount if p.productive_physical_coverage_amount.present?
+    end 
+    "#{total} HAS"
+  end
+
+    def total_productions(entry = nil)
+    result = 
+      if entry.present?
+        res = productions.search( entry_cont: entry )
+        res.result
+      else
+        productions
+      end
+    total = 0
+    result.each do |p|
+      total += p.production_quantity if p.production_quantity.present?
+    end 
+    "#{total} TON"
   end
 
 end
