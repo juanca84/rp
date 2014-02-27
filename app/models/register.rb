@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class Register < ActiveRecord::Base
-  paginates_per 10
+  paginates_per 200
 
   include AASM
   
