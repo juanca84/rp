@@ -183,7 +183,7 @@ class Register < ActiveRecord::Base
       end
     locations = []
     result.each do |p|
-      locations << "#{ p.land.try(:community).try(:name) } - #{p.land.try(:another_community)}"
+      locations << "#{ p.land.try(:community).try(:name).upcase rescue "" } - #{p.land.try(:another_community)}"
     end 
     locations.uniq.join(",")
   end
