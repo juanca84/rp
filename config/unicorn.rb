@@ -1,1 +1,1 @@
-timeout 15
+timeout 30
