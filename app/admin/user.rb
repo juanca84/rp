@@ -16,6 +16,11 @@ ActiveAdmin.register User do
       update_method = attributes.first[:password].present? ? :update_attributes : :update_without_password
       object.send(update_method, *attributes)
     end
+
+    def show
+      @user = User.find(params[:id])
+      @dates = @user.registers.valid.order("DATE(created_at)").group("DATE(created_at)").count
+    end
   end
 
   index do
@@ -53,9 +58,17 @@ ActiveAdmin.register User do
       row :roles do
         u.roles_name.join(", ")
       end
+      if u.module_formulario?
+        row :number_of_ballots do 
+          u.registers.valid.size
+        end 
+      end
       row :departments do |u|
         u.departments.pluck(:name).join(", ")
       end
     end
+
+    render 'show'
+
   end
 end

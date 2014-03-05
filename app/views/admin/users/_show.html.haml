@@ -1,0 +1,16 @@
+- if @user.module_formulario? 
+  %h1 Fechas y cantidad de registros  
+  .panel
+    %table.index_table.index
+      %thead
+        %th Fechas
+        %th Cantidad
+      %tbody
+        - total = 0
+        - @dates.each do |d|
+          %tr
+            %td= l d.first.try(:to_date)
+            %td= d.last
+        %tr
+          %td Total
+          %td= @user.registers.valid.size
