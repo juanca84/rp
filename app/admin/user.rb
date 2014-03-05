@@ -31,7 +31,9 @@ ActiveAdmin.register User do
     column :active do |u|
       u.active? ? "Si" : "No"
     end
-    column :created_at
+    column :number_of_ballots do |u|
+      u.registers.valid.size
+    end
     column :sign_in_count
     column :last_seen_at
     column :departments do |u|
@@ -49,6 +51,9 @@ ActiveAdmin.register User do
   show title: "usuario" do |u|
     attributes_table  do
       row :email
+      row :full_name do |u|
+        u.full_name
+      end
       row :active do |u|
         u.active? ? "Si" : "No"
       end  
@@ -69,6 +74,5 @@ ActiveAdmin.register User do
     end
 
     render 'show'
-
   end
 end

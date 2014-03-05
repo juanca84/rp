@@ -151,8 +151,9 @@ es:
         created_at: Creado en
         departments: Departamentos
         email: email
+        full_name: Nombre completo
         last_seen_at: Visto por última vez
-        number_of_ballots: Número de boletas llenadas
+        number_of_ballots: Número de boletas introducidas
         password: Contraseña
         password_confirmation: Confirmacion de contraseña
         sign_in_count: Contador de inicio de sesión

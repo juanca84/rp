@@ -12,5 +12,7 @@
             %td= l d.first.try(:to_date)
             %td= d.last
         %tr
-          %td Total
-          %td= @user.registers.valid.size
+          %td 
+            %strong Total
+          %td
+            %strong= @user.registers.valid.size
