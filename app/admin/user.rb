@@ -25,6 +25,7 @@ ActiveAdmin.register User do
 
   index do
     column :email
+    column :full_name
     column :roles do |u|
       u.roles_name.join(", ")
     end
@@ -34,8 +35,8 @@ ActiveAdmin.register User do
     column :number_of_ballots do |u|
       u.registers.valid.size
     end
-    column :sign_in_count
-    column :last_seen_at
+    #column :sign_in_count
+    #column :last_seen_at
     column :departments do |u|
       u.departments.pluck(:name).join(", ")
     end
