@@ -57,6 +57,9 @@ gem 'wicked_pdf'
 #autocomplete
 gem 'bootstrap-typeahead-rails'
 
+#versionamiento base de datos
+gem 'paper_trail', '~> 3.0.0'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

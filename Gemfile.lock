@@ -145,6 +145,9 @@ GEM
     mime-types (1.25.1)
     multi_json (1.8.2)
     orm_adapter (0.5.0)
+    paper_trail (3.0.0)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pg (0.17.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
@@ -267,6 +270,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap (~> 3.0.1)
   meta_request
+  paper_trail (~> 3.0.0)
   pg
   rails (= 3.2.13)
   rails-backbone

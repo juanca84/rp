@@ -2,6 +2,8 @@
 class Register < ActiveRecord::Base
   paginates_per 100
 
+  has_paper_trail
+
   include AASM
   
   attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes,
