@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140306145720) do
+ActiveRecord::Schema.define(:version => 20140310142724) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20140306145720) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "departments_users", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "departments_users", ["department_id"], :name => "index_departments_users_on_department_id"
+  add_index "departments_users", ["user_id"], :name => "index_departments_users_on_user_id"
 
   create_table "economic_activities", :force => true do |t|
     t.string   "code"
@@ -310,12 +320,13 @@ ActiveRecord::Schema.define(:version => 20140306145720) do
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "versions", :force => true do |t|
-    t.string   "item_type",  :null => false
-    t.integer  "item_id",    :null => false
-    t.string   "event",      :null => false
+    t.string   "item_type",      :null => false
+    t.integer  "item_id",        :null => false
+    t.string   "event",          :null => false
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.text     "object_changes"
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
