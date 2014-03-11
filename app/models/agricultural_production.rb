@@ -1,2 +1,0 @@
-class AgriculturalProduction < Land
-end

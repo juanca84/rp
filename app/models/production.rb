@@ -1,6 +1,8 @@
 class Production < ActiveRecord::Base
   default_scope order('productions.created_at ASC')
 
+  has_paper_trail
+
   belongs_to :land
   has_one :register, through: :land
 

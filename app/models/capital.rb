@@ -1,6 +1,8 @@
 class Capital < ActiveRecord::Base
   default_scope order('capitals.created_at ASC')
 
+  has_paper_trail
+
   belongs_to :land
   has_one :register, through: :land
   

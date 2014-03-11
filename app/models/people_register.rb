@@ -3,7 +3,9 @@ class PeopleRegister < ActiveRecord::Base
   belongs_to :person, dependent: :destroy
   belongs_to :register
 
-  attr_accessible :type_person, :person_attributes, :time_to_land
+  has_paper_trail
+    
+  attr_accessible :type_person, :person_attributes, :register_id, :time_to_land
 
   #validates :person, presence: true
 end
