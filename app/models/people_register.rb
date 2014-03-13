@@ -7,5 +7,7 @@ class PeopleRegister < ActiveRecord::Base
     
   attr_accessible :type_person, :person_attributes, :register_id, :time_to_land
 
-  #validates :person, presence: true
+  def type_class
+    type_person == 'holder' ? 'Titular' : type_person == 'son' ? 'Hijo' : type_person == 'aggregate' ? 'Aggregado' : ''     
+  end
 end

@@ -26,7 +26,7 @@ class RegistersController < RunpaController
   end
 
   def edit
-    @register = Register.find(params[:id])
+    @register = Register.includes(holders: { person: [:education, :civil_status] }).find(params[:id])
     @register_no_valids -= [@register]
   end
 
@@ -62,13 +62,13 @@ class RegistersController < RunpaController
   end
 
   def show
-    options_includes = { holders: { person: [:education, :civil_status] }, sons: :person, lands: [:department, :community, :capitals, :productions] } 
+    options_includes = { holders: { person: [:education, :civil_status] }, sons: :person, aggregates: :person, lands: [:department, :community, :capitals, :productions] } 
     @register = Register.includes(options_includes).find(params[:id])
 
     respond_to do |wants|
       wants.html # show.html.erb
       wants.xml  { render :xml => @register }
-    end
+    end 
   end
 
   def destroy

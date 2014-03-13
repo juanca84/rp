@@ -20,4 +20,8 @@ class Person < ActiveRecord::Base
   def get_age
     birthdate.present? ? (Date.today.year - birthdate.year) : ''
   end
+
+  def type_class 
+    (pr = people_registers.try(:first)).present? && pr.type_class
+  end 
 end
