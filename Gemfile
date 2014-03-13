@@ -67,6 +67,7 @@ group :development do
   gem 'meta_request'
   gem "haml-rails", "~> 0.4"
   gem "debugger", "~> 1.6.2"
+  gem 'bullet'
 end
 
 #for documentation

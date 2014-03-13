@@ -6,7 +6,7 @@ class RegistersController < RunpaController
     params[:q][:holders_type_person_cont] = 'holder' if params[:q].present? &&  params[:q][:holders_person_name_cont].present?
     
     @q = Register.valid.order('code desc').search(params[:q])
-    @registers = @q.result(distinct: true).page(params[:page]).per(10)
+    @registers = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
 
     respond_to do |wants|
       wants.html # index.html.erb
