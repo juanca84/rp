@@ -2,6 +2,8 @@ module PaperTrail
   class Version < ActiveRecord::Base
     attr_accessible :parent_id, :parent_type, :register_id
 
+    belongs_to :user, class_name: 'User', foreign_key: :whodunnit
+
     scope :by_register, lambda { |register_id| where(register_id: register_id) }
 
     before_save :save_parent

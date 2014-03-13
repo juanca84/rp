@@ -1,0 +1,15 @@
+.container
+  .page-header
+    %h1#timeline Linea de Tiempo
+  %ul.timeline
+    - @versions.each do |version|
+
+      - case version.event
+        - when 'create'
+          = render 'registers/versions/create', version: version
+
+        - when 'destroy'
+          = render 'registers/versions/destroy', version: version
+
+        - when 'update'
+          = render 'registers/versions/update', version: version

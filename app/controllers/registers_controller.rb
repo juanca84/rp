@@ -89,4 +89,9 @@ class RegistersController < RunpaController
   def registers_no_valids
     @register_no_valids = Register.no_valid.by_user(current_user)
   end
+
+  def versions
+    @register = Register.find(params[:id])
+    @versions = @register.versions
+  end
 end

@@ -9,6 +9,7 @@ Runpa::Application.routes.draw do
     resources :register_steps, only: [:show, :update]
     member do
       get :get_communities
+      get :versions
     end 
   end
   
