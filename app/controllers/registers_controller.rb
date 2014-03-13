@@ -62,7 +62,8 @@ class RegistersController < RunpaController
   end
 
   def show
-    @register = Register.find(params[:id])
+    options_includes = { holders: { person: [:education, :civil_status] }, sons: :person, lands: [:department, :community, :capitals, :productions] } 
+    @register = Register.includes(options_includes).find(params[:id])
 
     respond_to do |wants|
       wants.html # show.html.erb
