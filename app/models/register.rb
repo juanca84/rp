@@ -209,7 +209,7 @@ class Register < ActiveRecord::Base
     "#{total} HAS"
   end
 
-    def total_productions(entry = nil)
+  def total_productions(entry = nil)
     result = 
       if entry.present?
         res = productions.search( entry_cont: entry )
@@ -224,4 +224,7 @@ class Register < ActiveRecord::Base
     "#{total} TON"
   end
 
+  def type_class
+    'Registro' 
+  end
 end

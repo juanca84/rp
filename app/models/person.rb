@@ -23,5 +23,10 @@ class Person < ActiveRecord::Base
 
   def type_class 
     (pr = people_registers.try(:first)).present? && pr.type_class
+  end
+
+  #metodo para obtener el registro
+  def register
+    registers.first
   end 
 end

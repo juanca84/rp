@@ -23,4 +23,7 @@ class Land < ActiveRecord::Base
                   :capitals_attributes, #campos para el modelo capital
                   
                   :productions_attributes #campos para el modelo producción agricultura
+  def type_class
+    'Tierra'
+  end
 end
