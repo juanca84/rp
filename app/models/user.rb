@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :departments, through: :regions_users, :source => :regionable, :source_type => "Department"
   has_many :provinces,   through: :regions_users, :source => :regionable, :source_type => "Province"
   has_many :communities, through: :regions_users, :source => :regionable, :source_type => "Community"
+  has_many :versions, class_name: 'PaperTrail::Version', foreign_key: :whodunnit
 
   accepts_nested_attributes_for :profile
 
@@ -67,6 +68,12 @@ class User < ActiveRecord::Base
   def full_name
     "#{ profile.try(:name) } #{ profile.try(:last_name) }"
   end  
+
+  #metodo para devolver un nombre o email
+
+  def full_name_or_email 
+    full_name.present? ? full_name : email    
+  end
 
   #metodo para mostrar el ci del usuario 
   def identification

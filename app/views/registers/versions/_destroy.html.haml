@@ -1,0 +1,13 @@
+%li.timeline-inverted
+  .timeline-badge.danger
+    %i.glyphicon.glyphicon-floppy-remove
+  .timeline-panel
+    .timeline-heading
+      %h4.timeline-title ELIMINACIÓN #{ version.type_class }
+      %p
+        %small.text-muted
+          %i.glyphicon.glyphicon-time
+          #{ l version.created_at, format: :short } #{ ( user = version.try(:user).try(:full_name_or_email) ).present? ? "por #{ user }" : '' }
+    .timeline-body
+      %p 
+        = version.object

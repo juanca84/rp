@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   SEX = %w(M F)
 
+  has_paper_trail
+
   default_scope order('people.created_at ASC')
 
   attr_accessible :age, :birthdate, :birthplace, :community_of_birth_id, :civil_status_id, :education_id, :first_lastname, :identification, 
@@ -18,4 +20,13 @@ class Person < ActiveRecord::Base
   def get_age
     birthdate.present? ? (Date.today.year - birthdate.year) : ''
   end
+
+  def type_class 
+    (pr = people_registers.try(:first)).present? && pr.type_class
+  end
+
+  #metodo para obtener el registro
+  def register
+    registers.first
+  end 
 end

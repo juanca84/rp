@@ -57,12 +57,17 @@ gem 'wicked_pdf'
 #autocomplete
 gem 'bootstrap-typeahead-rails'
 
+#versionamiento base de datos
+gem 'paper_trail', '~> 3.0.0'
+gem 'activerecord-diff'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem "haml-rails", "~> 0.4"
   gem "debugger", "~> 1.6.2"
+  gem 'bullet'
 end
 
 #for documentation

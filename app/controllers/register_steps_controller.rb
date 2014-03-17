@@ -5,26 +5,34 @@ class RegisterStepsController < ApplicationController
   steps :family, :partnerships, :factors, :production
 
   def show
-    @register = Register.find params[:register_id]
-    @register_no_valids -= [@register]
+    #options_includes = { holders: { person: [:education, :civil_status] }, sons: :person, lands: [:department, :community, :capitals, :productions] } 
+
     @step = params[:id]
 
     case @step
     when 'family'
+      @register = Register.includes(sons: :person).find params[:register_id]
+      @register_no_valids -= [@register]
       render_wizard and return
     when 'partnerships'
+      @register = Register.find params[:register_id]
+      @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_family? || @register.step_partnership? || @register.step_factors?
         render_wizard and return
       else
         redirect_to edit_register_path(@register)
       end  
     when 'factors'
+      @register = Register.includes(lands: [:department, :community]).find params[:register_id]
+      @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_partnership? || @register.step_factors?
         render_wizard and return
       else
         redirect_to edit_register_path(@register)
       end 
     when 'production'
+      @register = Register.includes(lands: [:department, :community, :capitals, :productions]).find params[:register_id]
+      @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_factors?
         @register.emission_date = Date.today if @register.emission_date.blank?
         render_wizard and return
@@ -32,6 +40,8 @@ class RegisterStepsController < ApplicationController
         redirect_to edit_register_path(@register)
       end 
     when 'wicked_finish'
+      @register = Register.find params[:register_id]
+      @register_no_valids -= [@register]
       if @register.active? || @register.inactive?
         render_wizard and return
       else
