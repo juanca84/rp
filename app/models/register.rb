@@ -224,7 +224,4 @@ class Register < ActiveRecord::Base
     "#{total} TON"
   end
 
-  def type_class
-    'Registro' 
-  end
 end

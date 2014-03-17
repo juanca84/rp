@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 module PaperTrail
   class Version < ActiveRecord::Base
 
@@ -7,9 +9,12 @@ module PaperTrail
 
     belongs_to :user, class_name: 'User', foreign_key: :whodunnit
 
-    scope :all_versions, lambda { |register_id| where("(item_id = ? AND item_type = ?) OR (register_id = ? )", register_id, 'Register', register_id)   }
+    scope :all_versions, lambda { |register_id| where("(item_id = ? AND item_type = ?) OR (register_id = ? )", register_id, 'Register', register_id) }
+    scope :by_item_type, lambda { |item_type|   where("item_type = ?", item_type) }
+    scope :by_item_id,   lambda { |item_id|     where("item_id = ?", item_id) }
+    scope :by_event,     lambda { |event|       where("event = ?", event) }
 
-    before_save :add_owner_register
+    before_create :add_owner_register
 
     #metodo para determinar el tipo de 
     ["update", "create", "destroy"].each do |e|
@@ -20,32 +25,40 @@ module PaperTrail
 
     #metodo para definir la propiedad de los registros
     def add_owner_register
-      if update?
+      if update? 
         self.register_id = item.try(:register).try(:id) unless item.is_a?(Register)
       elsif create?
-        debugger
-        puts 'unos'
+        if item_type == 'PeopleRegister' && item.present? && (person_id = item.person_id).present?
+          version_person = PaperTrail::Version.by_item_type('Person').by_item_id(person_id).by_event('create').first
+          version_person.update_attribute(:register_id, item.register.id) if version_person.present?
+        end
+        self.register_id = item.try(:register).try(:id) unless item.is_a?(Register)
       elsif destroy?
+        if item_type == 'PeopleRegister' &&  (person_id = YAML.load(object)["person_id"]).present?
+          version_person = PaperTrail::Version.by_item_type('Person').by_item_id(person_id).by_event('destroy').first
+          version_person.update_attribute(:register_id, reify.register.id) if version_person.present?
+        end
+        self.register_id = reify.try(:register).try(:id) unless reify.is_a?(Register)
       end
-        
-        
-      # if (resource = self.reify).present?
-      #     case resource.class.to_s
-      #       when 'PeopleRegister'
-      #         self.parent_id   = resource.register_id
-      #         self.parent_type = 'Register'
-      #         self.register_id = resource.register_id
-      #       when 'Person'debugger
-      puts 'unos'
-      #         if resource.try(:people_registers).try(:size) == 1
-      #           self.parent_id = resource.people_registers.first.id
-      #           self.parent_type = 'PeopleRegister'
-      #           self.register_id = resource.try(:registers).try(:first).try(:id)
-      #         end
-      #       when 'Register'
-      #        self.register_id = id 
-      #     end
-      # end 
+    end
+
+    def type_class
+      case item_type
+        when 'PeopleRegister'
+          'PERSONA REGISTRO'
+        when 'Person'
+          'PERSONA'
+        when 'Partnership'
+          'ASOCIACIÓN'
+        when 'Land'
+          'TIERRA'
+        when 'Capital'
+          'CAPITAL'
+        when 'Production'
+          'PRODUCCIÓN'
+        when 'Register'
+          'REGISTER'
+      end
     end
   end
 end

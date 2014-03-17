@@ -10,7 +10,4 @@ class Production < ActiveRecord::Base
 
   attr_accessible :entry, :production_destination, :production_quantity, :production_system, :production_unit, :productive_physical_coverage_amount, :productive_physical_coverage_unit
 
-  def type_class
-    'PRODUCCIÓN'
-  end
 end
