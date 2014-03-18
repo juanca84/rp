@@ -101,8 +101,13 @@ class User < ActiveRecord::Base
   #metodo para generar token para el manejo de la API
   def new_authentication_token
     if active?  && module_servicio_web?
-      self.authentication_token = generate_authentication_token
+      self.update_attribute(:authentication_token, generate_authentication_token)
     end
+  end
+
+  #metodo para verificar si un token es valido
+  def self.verify_token(token = nil)
+    token.present? && (user = User.find_by_authentication_token(token)).present? && user.active? && user.module_servicio_web?
   end
 
   private

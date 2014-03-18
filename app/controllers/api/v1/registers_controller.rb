@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 class Api::V1::RegistersController < ApplicationController
 
   def index
@@ -13,13 +15,16 @@ class Api::V1::RegistersController < ApplicationController
   end
 
   def show
-    options_includes = { holders: { person: [:education, :civil_status] }, sons: :person, aggregates: :person, lands: [:department, :community, :capitals, :productions] } 
-    @register = Register.includes(options_includes).find(params[:id])
-
-    respond_to do |wants|
-      wants.html # show.html.erb
-      wants.xml  { render :xml => @register }
-    end 
+    if User.verify_token(params[:token])
+      @register = Register.find_by_code(params[:id])
+      if  @register.present?
+        render json: @register
+      else
+        render json: { success: false, message: "Error con código del registro" }, status: 401
+        return  
+      end
+    else
+      render json: { success: false, message: "Error con token" }, status: 401
+    end
   end
-
 end
