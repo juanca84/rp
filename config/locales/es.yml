@@ -108,6 +108,20 @@ es:
         business_name: Razón Social
         description: Descripción
         nit: NIT/PJ
+
+      land:
+        another_community: Comunidad/zona/otra
+        department: Departamento
+        disassemble_without_permission: Desmonte Sin Autorizacion
+        community: Municipio
+        surface: Superficie
+        tenure: Tenencia
+        unit_of_measure: Unidad de Medida
+
+      partnership:
+        name: Nombre
+        code: Código
+
       people_register:
         mothers_name: Nombre de la Madre
         time_to_land: Número de días al año dedicado a actividades agropecuarias en el establecimiento

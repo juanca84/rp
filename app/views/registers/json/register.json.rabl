@@ -18,14 +18,22 @@ node(I18n.t("activerecord.attributes.register.emission_date"))       { |p| p.emi
 node(I18n.t("activerecord.attributes.register.emission_department")) { |p| p.emission_department.try(:name) }
 node(I18n.t("activerecord.attributes.register.emission_community"))  { |p| p.emission_community.try(:name) }
 
-child holders: I18n.t("activerecord.models.holder") do
+child holders: "titulares" do
   extends "registers/json/people_register"
 end
 
-child sons: I18n.t("activerecord.models.son") do
+child sons: "hijos" do
   extends "registers/json/people_register"
 end
 
-child aggregates: I18n.t("activerecord.models.aggregate") do
+child aggregates: "agregados" do
   extends "registers/json/people_register"
+end
+
+child partnerships: "asociaciones" do
+  extends "registers/json/partnership"
+end
+
+child lands: "tierras" do
+  extends "registers/json/lands"
 end

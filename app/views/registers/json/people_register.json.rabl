@@ -5,7 +5,7 @@ node(I18n.t("activerecord.attributes.people_register.type_person")) do |p|
   p.type_person == 'holder' ? 'Titular' : p.type_person == 'son' ? 'Hijo' : p.type_person == 'aggregate' ? 'Agregado' :''
 end
 
-child :person do
+child person: "persona" do
   extends "registers/json/person"
 end
 
