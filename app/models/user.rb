@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
 
   before_destroy :not_admin
 
+  #metodo para formatear el json del registro
+  def as_json(options={})
+    debugger
+    super({ only: [:id, :code] })
+  end
+
   #metodo para no eliminar al usuario administrador por defecto
   def not_admin
     false if self.email == "runpa.mdryt@gmail.com"

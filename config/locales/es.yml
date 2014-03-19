@@ -129,7 +129,7 @@ es:
       register:
         address: Dirección
         civil_union: Unión Civil
-        code: No.
+        code: Código
         code_ine: Código INE
         community: Municipio de Residencia
         department: Departamento

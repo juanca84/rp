@@ -1,16 +1,16 @@
 #encoding: UTF-8
 
 class Api::V1::RegistersController < ApplicationController
+  respond_to :json
 
   def index
-    params[:q][:holders_type_person_cont] = 'holder' if params[:q].present? &&  params[:q][:holders_person_name_cont].present?
-    
-    @q = Register.valid.order('code desc').search(params[:q])
-    @registers = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
-
-    respond_to do |wants|
-      wants.html # index.html.erb
-      wants.xml  { render :xml => @registers }
+    if User.verify_token(params[:token])
+      @registers = params[:per_page].present? ? Register.page(params[:page]).per(params[:per_page]) : Register.page(params[:page]).per(50)
+      if @registers.present?
+        respond_with @registers.as_json
+      end
+    else
+      render json: { success: false, message: "Error con token" }, status: 401
     end
   end
 
@@ -18,7 +18,9 @@ class Api::V1::RegistersController < ApplicationController
     if User.verify_token(params[:token])
       @register = Register.find_by_code(params[:id])
       if  @register.present?
-        render json: @register
+        #render 'registers/show'
+        
+        render inline: Rabl::Renderer.json(@register, 'registers/json/register')
       else
         render json: { success: false, message: "Error con código del registro" }, status: 401
         return  

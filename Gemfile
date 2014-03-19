@@ -46,6 +46,7 @@ gem 'rails_12factor', group: :production
 #paginación
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'api-pagination'
 
 #buscador 
 gem "ransack"
@@ -60,6 +61,9 @@ gem 'bootstrap-typeahead-rails'
 #versionamiento base de datos
 gem 'paper_trail', '~> 3.0.0'
 gem 'activerecord-diff'
+
+#exportacion a json
+gem 'rabl'
 
 group :development do
   gem 'better_errors'
