@@ -2,7 +2,7 @@ object @register
 
 node(I18n.t("activerecord.attributes.register.code"))                { |p| p.code }
 node(I18n.t("activerecord.attributes.register.residence"))           { |p| p.residence }
-node(I18n.t("activerecord.attributes.register.address"))             { |p| p.code }
+node(I18n.t("activerecord.attributes.register.address"))             { |p| p.address }
 
 node(I18n.t("activerecord.attributes.register.department"))          { |p| p.department.try(:name) }
 node(I18n.t("activerecord.attributes.register.community"))           { |p| p.community.try(:name) }

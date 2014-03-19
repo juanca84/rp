@@ -7,7 +7,7 @@ class Api::V1::RegistersController < ApplicationController
     if User.verify_token(params[:token])
       @registers = params[:per_page].present? ? Register.page(params[:page]).per(params[:per_page]) : Register.page(params[:page]).per(50)
       if @registers.present?
-        respond_with @registers.as_json
+        render inline: Rabl::Renderer.json(@registers, 'registers/json/registers')
       end
     else
       render json: { success: false, message: "Error con token" }, status: 401
