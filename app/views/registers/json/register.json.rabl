@@ -34,10 +34,18 @@ child partnerships: "asociaciones" do
   extends "registers/json/partnership"
 end
 
-child lands: "tierras" do
+child lands: "tierra" do
   extends "registers/json/land"
 end
 
-child lands: "trabajos" do
+child lands: "trabajo" do
   extends "registers/json/work"
+end
+
+child capitals: "capital" do
+  extends "registers/json/capital"
+end
+
+child productions: "production" do
+  extends "registers/json/production"
 end
