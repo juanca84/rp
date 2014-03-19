@@ -57,6 +57,7 @@ es:
         other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
   activerecord:
     models:
+      aggregate: Agregado
       civil_status:
         one: Estado Civil
         other: Estados Civiles
@@ -78,9 +79,16 @@ es:
       ethnicity:
         one: Origen Étnico
         other: Orígenes Étnicos
+      holder: Titular
+      partnership:
+        one: Asociación Productiva
+        other: Asociaciones Productivas  
       person:
         one: Persona
         other: Personas
+      profile:
+        one: Perfil
+        other: Perfiles
       province:
         one: Provincia
         other: Provincias
@@ -93,12 +101,8 @@ es:
       user:
         one: Usuario
         other: Usuarios
-      partnership:
-        one: Asociación Productiva
-        other: Asociaciones Productivas  
-      profile:
-        one: Perfil
-        other: Perfiles
+      son: Hijo
+
     attributes:
       entity:
         business_name: Razón Social
@@ -110,6 +114,7 @@ es:
         type_person: Tipo de persona
 
       person:
+        age: Edad
         birthdate: Fecha de nacimiento
         birthplace: Municipio de Nacimiento
         civil_status: Estado Civil
