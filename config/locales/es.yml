@@ -114,6 +114,12 @@ es:
         department: Departamento
         disassemble_without_permission: Desmonte Sin Autorizacion
         community: Municipio
+        eventual_labor: Mano de Obra - Eventual
+        men_per_year_eventually: Conversión - Eventual
+        men_per_year_own: Conversión - Propia
+        men_per_year_total: Conversión - Total
+        permanent_labor: Mano de Obra - Permanente
+        own_labor: Mano de Obra - Propia
         surface: Superficie
         tenure: Tenencia
         unit_of_measure: Unidad de Medida

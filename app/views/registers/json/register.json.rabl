@@ -35,5 +35,9 @@ child partnerships: "asociaciones" do
 end
 
 child lands: "tierras" do
-  extends "registers/json/lands"
+  extends "registers/json/land"
+end
+
+child lands: "trabajos" do
+  extends "registers/json/work"
 end
