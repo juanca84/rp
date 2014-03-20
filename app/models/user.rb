@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   rolify
 
   devise :database_authenticatable, #:registerable,
-    :recoverable, :rememberable, :trackable, :validatable, :lastseenable
+         :recoverable, :rememberable, :trackable, :validatable, :lastseenable
 
   attr_accessible :active, :community_ids, :department_ids, :email, :entity_id, :lastseenable, :password, :password_confirmation, 
                   :profile_attributes, :province_ids, :remember_me, :role_ids 
@@ -22,10 +22,17 @@ class User < ActiveRecord::Base
   has_many :departments, through: :regions_users, :source => :regionable, :source_type => "Department"
   has_many :provinces,   through: :regions_users, :source => :regionable, :source_type => "Province"
   has_many :communities, through: :regions_users, :source => :regionable, :source_type => "Community"
+  has_many :versions, class_name: 'PaperTrail::Version', foreign_key: :whodunnit
 
   accepts_nested_attributes_for :profile
 
   before_destroy :not_admin
+
+  #metodo para formatear el json del registro
+  def as_json(options={})
+    debugger
+    super({ only: [:id, :code] })
+  end
 
   #metodo para no eliminar al usuario administrador por defecto
   def not_admin
@@ -68,6 +75,12 @@ class User < ActiveRecord::Base
     "#{ profile.try(:name) } #{ profile.try(:last_name) }"
   end  
 
+  #metodo para devolver un nombre o email
+
+  def full_name_or_email 
+    full_name.present? ? full_name : email    
+  end
+
   #metodo para mostrar el ci del usuario 
   def identification
     "#{ profile.try(:identification) }"
@@ -81,6 +94,36 @@ class User < ActiveRecord::Base
   #metodo para mostrar el nit o pj del usuario
   def nit
     "#{ entity.try(:nit) }"
+  end
+
+  #método para tomar el token usuario con una contraseña y si tiene habilitado el modulo servicio web
+  def get_authentication_token(password)
+    if active? && module_servicio_web? && valid_password?(password)
+      new_authentication_token unless authentication_token.present?  
+      authentication_token
+    end
+  end
+
+  #metodo para generar token para el manejo de la API
+  def new_authentication_token
+    if active?  && module_servicio_web?
+      self.update_attribute(:authentication_token, generate_authentication_token)
+    end
+  end
+
+  #metodo para verificar si un token es valido
+  def self.verify_token(token = nil)
+    token.present? && (user = User.find_by_authentication_token(token)).present? && user.active? && user.module_servicio_web?
+  end
+
+  private
+
+  #metodo para generar un nuevo authentication token
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
   end
 
 end

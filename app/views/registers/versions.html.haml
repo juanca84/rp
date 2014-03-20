@@ -1,0 +1,33 @@
+.container
+  .page-header
+    %h1#timeline Linea de Tiempo
+  %ul.timeline
+    - @versions.each do |version|
+
+      - case version.event
+        - when 'create'
+          = render 'registers/versions/create', version: version
+
+        - when 'destroy'
+          = render 'registers/versions/destroy', version: version
+
+        - when 'update'
+          = render 'registers/versions/update', version: version
+
+.form-actions.navsteps
+  %a.btn.btn-primary.btn-large{href: registers_path}
+    .glyphicon.glyphicon-list
+    Registros
+
+  %a.btn.btn-success.btn-large{href: new_register_path}
+    .glyphicon.glyphicon-plus
+    Nuevo registro
+
+  - if @register.present? && ( @register.user == current_user || current_user.module_administrador? )
+    %a.btn.btn-primary.pull-right.btn-large{ href: edit_register_path(@register) }
+      .glyphicon.glyphicon-pencil
+      Editar
+
+  %a.btn.btn-success.pull-right.btn-large{href: register_path(@register)}
+    .glyphicon.glyphicon-eye-open
+    Ver

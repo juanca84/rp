@@ -57,6 +57,7 @@ es:
         other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
   activerecord:
     models:
+      aggregate: Agregado
       civil_status:
         one: Estado Civil
         other: Estados Civiles
@@ -78,9 +79,16 @@ es:
       ethnicity:
         one: Origen Étnico
         other: Orígenes Étnicos
+      holder: Titular
+      partnership:
+        one: Asociación Productiva
+        other: Asociaciones Productivas  
       person:
         one: Persona
         other: Personas
+      profile:
+        one: Perfil
+        other: Perfiles
       province:
         one: Provincia
         other: Provincias
@@ -93,23 +101,48 @@ es:
       user:
         one: Usuario
         other: Usuarios
-      partnership:
-        one: Asociación Productiva
-        other: Asociaciones Productivas  
-      profile:
-        one: Perfil
-        other: Perfiles
+      son: Hijo
+
     attributes:
+      capital:
+        capital_item: Item Capital
+        community: Municipio
+        current_value: Valor actual
+        department: Departamento
+        lifespan_future: Vida útil futura
+        start_year: Año de Compra y/o Construcción
+
       entity:
         business_name: Razón Social
         description: Descripción
         nit: NIT/PJ
+
+      land:
+        another_community: Comunidad/zona/otra
+        department: Departamento
+        disassemble_without_permission: Desmonte Sin Autorizacion
+        community: Municipio
+        eventual_labor: Mano de Obra - Eventual
+        men_per_year_eventually: Conversión - Eventual
+        men_per_year_own: Conversión - Propia
+        men_per_year_total: Conversión - Total
+        permanent_labor: Mano de Obra - Permanente
+        own_labor: Mano de Obra - Propia
+        surface: Superficie
+        tenure: Tenencia
+        unit_of_measure: Unidad de Medida
+
+      partnership:
+        name: Nombre
+        code: Código
+
       people_register:
         mothers_name: Nombre de la Madre
         time_to_land: Número de días al año dedicado a actividades agropecuarias en el establecimiento
         type_person: Tipo de persona
 
       person:
+        age: Edad
         birthdate: Fecha de nacimiento
         birthplace: Municipio de Nacimiento
         civil_status: Estado Civil
@@ -118,6 +151,17 @@ es:
         name: Nombre y Apellidos
         phone: Teléfono/celular
         sex: Sexo
+      production:
+        community: Municipio
+        department: Departamento
+        entry: Rubro
+        production_destination: Sistema de Producción
+        productive_physical_coverage_amount: Cobertura Física Productiva - cantidad
+        productive_physical_coverage_unit: Cobertura Física Productiva - unidad
+        production_quantity: Producción - cantidad
+        production_unit: Producción - unidad
+        production_system: Sistema de Producción
+
 
       profile:
         name: Nombre
@@ -129,7 +173,7 @@ es:
       register:
         address: Dirección
         civil_union: Unión Civil
-        code: No.
+        code: Código
         code_ine: Código INE
         community: Municipio de Residencia
         department: Departamento

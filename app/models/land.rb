@@ -1,6 +1,8 @@
 class Land < ActiveRecord::Base
   default_scope order('lands.created_at ASC')
 
+  has_paper_trail
+
   belongs_to :community
   belongs_to :department
   belongs_to :register
@@ -21,4 +23,5 @@ class Land < ActiveRecord::Base
                   :capitals_attributes, #campos para el modelo capital
                   
                   :productions_attributes #campos para el modelo producción agricultura
+
 end

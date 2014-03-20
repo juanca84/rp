@@ -6,7 +6,7 @@ class RegistersController < RunpaController
     params[:q][:holders_type_person_cont] = 'holder' if params[:q].present? &&  params[:q][:holders_person_name_cont].present?
     
     @q = Register.valid.order('code desc').search(params[:q])
-    @registers = @q.result(distinct: true).page(params[:page]).per(10)
+    @registers = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
 
     respond_to do |wants|
       wants.html # index.html.erb
@@ -26,7 +26,7 @@ class RegistersController < RunpaController
   end
 
   def edit
-    @register = Register.find(params[:id])
+    @register = Register.includes(holders: { person: [:education, :civil_status] }).find(params[:id])
     @register_no_valids -= [@register]
   end
 
@@ -62,12 +62,13 @@ class RegistersController < RunpaController
   end
 
   def show
-    @register = Register.find(params[:id])
+    options_includes = { holders: { person: [:education, :civil_status] }, sons: :person, aggregates: :person, lands: [:department, :community, :capitals, :productions] } 
+    @register = Register.includes(options_includes).find(params[:id])
 
     respond_to do |wants|
       wants.html # show.html.erb
       wants.xml  { render :xml => @register }
-    end
+    end 
   end
 
   def destroy
@@ -88,5 +89,10 @@ class RegistersController < RunpaController
 
   def registers_no_valids
     @register_no_valids = Register.no_valid.by_user(current_user)
+  end 
+
+  def versions
+    @register = Register.find(params[:id])
+    @versions = PaperTrail::Version.includes(:user).all_versions(@register.id)
   end
 end

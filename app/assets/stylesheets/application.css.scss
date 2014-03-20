@@ -11,6 +11,7 @@
  *= require_self
  *= require main
  *= require bootstrap-typeahead-rails
+ *= require timeline
  */
 @import "twitter/bootstrap";
 @import 'anjlab/datepicker';

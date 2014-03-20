@@ -41,6 +41,7 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-diff (2.0.0)
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -52,6 +53,7 @@ GEM
       sass (>= 3.2)
     anjlab-widgets (3.0.4)
       anjlab-bootstrap-rails (>= 3.0)
+    api-pagination (2.1.1)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (3.0.3)
@@ -68,6 +70,9 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    bullet (4.8.0)
+      activesupport
+      uniform_notifier (>= 1.4.0)
     callsite (0.0.11)
     cancan (1.6.10)
     choice (0.1.6)
@@ -145,10 +150,15 @@ GEM
     mime-types (1.25.1)
     multi_json (1.8.2)
     orm_adapter (0.5.0)
+    paper_trail (3.0.0)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pg (0.17.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
+    rabl (0.9.3)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -235,6 +245,7 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     wicked (1.0.2)
@@ -249,11 +260,14 @@ PLATFORMS
 DEPENDENCIES
   aasm
   activeadmin!
+  activerecord-diff
   anjlab-bootstrap-rails (~> 3.0.2.0)
   anjlab-widgets
+  api-pagination
   better_errors
   binding_of_caller
   bootstrap-typeahead-rails
+  bullet
   cancan
   coffee-rails (~> 3.2.1)
   debugger (~> 1.6.2)
@@ -267,7 +281,9 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap (~> 3.0.1)
   meta_request
+  paper_trail (~> 3.0.0)
   pg
+  rabl
   rails (= 3.2.13)
   rails-backbone
   rails-erd

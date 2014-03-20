@@ -1,8 +1,14 @@
 #encoding: UTF-8
+require 'active_record/diff'
+
 class Register < ActiveRecord::Base
   paginates_per 100
 
+  has_paper_trail
+
   include AASM
+
+  include ActiveRecord::Diff
   
   attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
@@ -18,7 +24,7 @@ class Register < ActiveRecord::Base
   belongs_to :user
 
   has_many :aggregates, dependent: :destroy
-  #has_many :capitals, through: :lands
+  has_many :capitals, through: :lands
   has_many :holders, dependent: :destroy
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy
@@ -203,7 +209,7 @@ class Register < ActiveRecord::Base
     "#{total} HAS"
   end
 
-    def total_productions(entry = nil)
+  def total_productions(entry = nil)
     result = 
       if entry.present?
         res = productions.search( entry_cont: entry )
