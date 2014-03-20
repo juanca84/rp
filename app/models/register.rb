@@ -10,7 +10,7 @@ class Register < ActiveRecord::Base
 
   include ActiveRecord::Diff
   
-  attr_accessible :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes,
+  attr_accessible :activation_date, :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
                   :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
                   :second_entry, :sons_attributes, :user_id, :works_attributes
@@ -105,10 +105,11 @@ class Register < ActiveRecord::Base
     end
   end
 
-  #adicionar código
+  #método para adicionar código y poner la fecha de actualización de la fecha actulización
   def add_code
     if active? && code.blank?
       self.code = Register.new_code_number
+      self.activation_date = DateTime.now
     end
   end
 
@@ -125,17 +126,6 @@ class Register < ActiveRecord::Base
       total += time if time.present?
     end
     total
-  end
-
-  #metodo para convertir todo los campos a mayusculas
-  def uppercase_fields
-      self.address.upcase! if address.present?
-      self.residence.upcase! if residence.present?
-      self.geodesic_ns.upcase! if geodesic_ns.present?
-      self.geodesic_ew.upcase! if geodesic_ew.present?
-      self.code_ine.upcase! if residence.present?
-      self.first_entry.upcase! if first_entry .present?
-      self.second_entry.upcase! if second_entry.present?
   end
 
   def holder_main
