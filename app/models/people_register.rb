@@ -1,4 +1,5 @@
 class PeopleRegister < ActiveRecord::Base
+  default_scope order('people_registers.created_at ASC')
   TYPES = %w( holder son aggregate )
   belongs_to :person, dependent: :destroy
   belongs_to :register

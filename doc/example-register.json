@@ -1,0 +1,404 @@
+[
+  { 
+    "Código":25,"Lugar de Residencia":"BERMEJO",
+    "Dirección":"CALLE TARIJA ESQUINA MADRID Bº ANICETO ARCE",
+    "Departamento":"Tarija",
+    "Municipio de Residencia":"Bermejo",
+    "Punto Geodésico NS":"",
+    "Punto Geodésico EW":"",
+    "Código INE":"",
+    "Subsector":"Agricultura",
+    "Rubro 1":"CAÑA","Rubro 2":"",
+    "Fecha de emisión":"2014-01-17",
+    "Departamento de emisión":"Tarija",
+    "Municipio de emisión":"Bermejo",
+    "titulares":
+    [
+      {
+        "Tipo de persona":"Titular",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":50,
+        "persona":
+          {
+            "Nombre y Apellidos":"MARGARITA CARO VDA. DE GARCIA",
+            "Cédula de Identidad":"1799118",
+            "Fecha de nacimiento":"1950-03-07",
+            "Sexo":"F",
+            "Nivel de instrucción":
+            "Primaria","Estado Civil":"VIUDO",
+            "Edad":null,"Teléfono/celular":"",
+            "Municipio de Nacimiento":"AVILES - TARIJA "
+          }
+      },
+      {
+        "Tipo de persona":"Titular",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":null,
+            "Sexo":"",
+            "Nivel de instrucción":null,
+            "Estado Civil":null,
+            "Edad":null,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":""
+          }
+      }
+    ],
+    "hijos":
+    [
+    ],
+    "agregados":
+    [
+      {
+        "Tipo de persona":"Agregado",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"BRANDON GARCIA",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":null,
+            "Sexo":"M",
+            "Nivel de instrucción":null,
+            "Estado Civil":null,
+            "Edad":13,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":null
+          }
+      }
+    ],
+    "asociaciones":
+    [
+      {
+        "Nombre":"UCABE (FEPROCAB)",
+        "Código":""
+      }
+    ],
+    "tierra":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Comunidad/zona/otra":"LA TALITA",
+        "Superficie":8.0,
+        "Unidad de Medida":"HAS",
+        "Tenencia":"propiedad",
+        "Desmonte Sin Autorizacion":"No"
+      }
+    ],
+    "trabajo":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Mano de Obra - Propia":50,
+        "Mano de Obra - Eventual":350,
+        "Mano de Obra - Permanente":0,
+        "Conversión - Propia":0.2,
+        "Conversión - Eventual":1.4,
+        "Conversión - Total":1.6
+      }
+    ],
+    "capital":
+    [
+    ],
+    "production":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Rubro":"CAÑA",
+        "Cobertura Física Productiva - cantidad":8.0,
+        "Cobertura Física Productiva - unidad":"HAS",
+        "Producción - cantidad":380.0,
+        "Producción - unidad":"TON",
+        "Sistema de Producción":"Mercado Interno"
+      },
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Rubro":"MANI",
+        "Cobertura Física Productiva - cantidad":1.0,
+        "Cobertura Física Productiva - unidad":"HAS",
+        "Producción - cantidad":30.0,
+        "Producción - unidad":"QUINTAL",
+        "Sistema de Producción":"Mercado Interno"
+      }
+    ]
+  },
+  {
+    "Código":8,
+    "Lugar de Residencia":"Bermejo",
+    "Dirección":"Bº MOTO MENDEZ ANILLER ENTRE HEROES DEL CHACO Y ARANCIBE ",
+    "Departamento":"Tarija",
+    "Municipio de Residencia":"Bermejo",
+    "Punto Geodésico NS":"",
+    "Punto Geodésico EW":"",
+    "Código INE":"",
+    "Subsector":"Agricultura",
+    "Rubro 1":"CAÑA",
+    "Rubro 2":"",
+    "Fecha de emisión":"2014-01-17",
+    "Departamento de emisión":"Tarija",
+    "Municipio de emisión":"Bermejo",
+    "titulares":
+    [
+      {
+        "Tipo de persona":"Titular",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":50,
+        "persona":
+          {
+            "Nombre y Apellidos":"BARTHY FERNANDO ALVAREZ G.",
+            "Cédula de Identidad":"2068519",
+            "Fecha de nacimiento":"1965-08-25",
+            "Sexo":"M",
+            "Nivel de instrucción":"Técnico (Medio, Superior)",
+            "Estado Civil":"CASADO",
+            "Edad":null,
+            "Teléfono/celular":"",
+            "Municipio de Nacimiento":""
+          }
+      },
+      {
+        "Tipo de persona":"Titular","Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"DORA ROJAS",
+            "Cédula de Identidad":"1867065",
+            "Fecha de nacimiento":"1971-07-03",
+            "Sexo":"F",
+            "Nivel de instrucción":"Técnico (Medio, Superior)",
+            "Estado Civil":null,
+            "Edad":null,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":"BERMEJO"
+          }
+      }
+    ],
+    "hijos":
+    [
+      {
+        "Tipo de persona":"Hijo",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"JOSE FERNANDEZ ALVAREZ R.",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":null,
+            "Sexo":"M",
+            "Nivel de instrucción":null,
+            "Estado Civil":null,
+            "Edad":5,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":null
+          }
+      },
+      {
+        "Tipo de persona":"Hijo",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"ALINA ELOBE ALVAREZ R.",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":null,
+            "Sexo":"F",
+            "Nivel de instrucción":null,
+            "Estado Civil":null,
+            "Edad":2,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":null
+          }
+      }
+    ],
+    "agregados":
+    [
+      {
+        "Tipo de persona":"Agregado",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"TEODORO ROJAS",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":null,
+            "Sexo":"F",
+            "Nivel de instrucción":null,
+            "Estado Civil":null,
+            "Edad":65,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":null
+          }
+      }
+    ],
+    "asociaciones":
+    [
+      {
+        "Nombre":"FEDERACION DE CAÑEROS (FEBROCAB)",
+        "Código":""
+      }
+    ],
+    "tierra":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Comunidad/zona/otra":"CAMPO GRANDE",
+        "Superficie":6.5,
+        "Unidad de Medida":"HAS",
+        "Tenencia":"propiedad",
+        "Desmonte Sin Autorizacion":"No"
+      }
+    ],
+    "trabajo":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Mano de Obra - Propia":0,
+        "Mano de Obra - Eventual":150,
+        "Mano de Obra - Permanente":0,
+        "Conversión - Propia":0.0,
+        "Conversión - Eventual":0.6,
+        "Conversión - Total":0.6
+      }
+    ],
+    "capital":
+    [
+    ],
+    "production":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Rubro":"CAÑA",
+        "Cobertura Física Productiva - cantidad":6.0,
+        "Cobertura Física Productiva - unidad":"HAS",
+        "Producción - cantidad":167.0,
+        "Producción - unidad":"TON",
+        "Sistema de Producción":"Mercado Interno"
+      }
+    ]
+  },
+  {
+    "Código":5,
+    "Lugar de Residencia":"BERMEJO",
+    "Dirección":"CALLE PANDO BARRIO AVAROA",
+    "Departamento":"Tarija",
+    "Municipio de Residencia":"Bermejo",
+    "Punto Geodésico NS":"",
+    "Punto Geodésico EW":"",
+    "Código INE":"",
+    "Subsector":"Agricultura",
+    "Rubro 1":"CAÑA",
+    "Rubro 2":"",
+    "Fecha de emisión":"2014-01-09",
+    "Departamento de emisión":"Tarija",
+    "Municipio de emisión":"Bermejo",
+    "titulares":
+    [
+      {
+        "Tipo de persona":"Titular",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":100,
+        "persona":
+          {
+            "Nombre y Apellidos":"GERONIMO JEREZ",
+            "Cédula de Identidad":"1657545 TJ",
+            "Fecha de nacimiento":"1944-09-24",
+            "Sexo":"M",
+            "Nivel de instrucción":"Primaria",
+            "Estado Civil":"CASADO",
+            "Edad":null,
+            "Teléfono/celular":"",
+            "Municipio de Nacimiento":"SAN LORENZO"
+          }
+      },
+      {
+        "Tipo de persona":"Titular",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":50,
+        "persona":
+          {
+            "Nombre y Apellidos":"CIRA VALDEZ",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":"1950-10-28",
+            "Sexo":"F",
+            "Nivel de instrucción":"Primaria",
+            "Estado Civil":null,
+            "Edad":null,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":
+            "TARIJA - CERCADO"
+          }
+      }
+    ],
+    "hijos":
+    [
+      {
+        "Tipo de persona":"Hijo",
+        "Número de días al año dedicado a actividades agropecuarias en el establecimiento":0,
+        "persona":
+          {
+            "Nombre y Apellidos":"FERNANDO JERZ VALDEZ",
+            "Cédula de Identidad":"",
+            "Fecha de nacimiento":null,
+            "Sexo":"M",
+            "Nivel de instrucción":null,
+            "Estado Civil":null,
+            "Edad":20,
+            "Teléfono/celular":null,
+            "Municipio de Nacimiento":null
+          }
+      }
+    ],
+    "agregados":
+    [
+    ],
+    "asociaciones":
+    [
+      {
+        "Nombre":"FEDERACION DE CAÑEROS DE BERMEJO",
+        "Código":""
+      }
+    ],
+    "tierra":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Comunidad/zona/otra":"CERCADO",
+        "Superficie":10.0,
+        "Unidad de Medida":"HAS",
+        "Tenencia":"propiedad",
+        "Desmonte Sin Autorizacion":"No"
+      }
+    ],
+    "trabajo":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Mano de Obra - Propia":150,
+        "Mano de Obra - Eventual":100,
+        "Mano de Obra - Permanente":0,
+        "Conversión - Propia":0.6,
+        "Conversión - Eventual":0.4,
+        "Conversión - Total":1.0
+      }
+    ],
+    "capital":
+    [
+    ],
+    "production":
+    [
+      {
+        "Departamento":"Tarija",
+        "Municipio":"Bermejo",
+        "Rubro":"CAÑA",
+        "Cobertura Física Productiva - cantidad":2.5,
+        "Cobertura Física Productiva - unidad":"HAS",
+        "Producción - cantidad":50.0,
+        "Producción - unidad":"TN",
+        "Sistema de Producción":"Mercado Interno"
+      }
+    ]
+  }
+]

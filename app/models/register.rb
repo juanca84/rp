@@ -24,7 +24,7 @@ class Register < ActiveRecord::Base
   belongs_to :user
 
   has_many :aggregates, dependent: :destroy
-  #has_many :capitals, through: :lands
+  has_many :capitals, through: :lands
   has_many :holders, dependent: :destroy
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy

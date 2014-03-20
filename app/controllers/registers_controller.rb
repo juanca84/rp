@@ -93,6 +93,6 @@ class RegistersController < RunpaController
 
   def versions
     @register = Register.find(params[:id])
-    @versions = PaperTrail::Version.all_versions(@register.id).includes([:user, :item])
+    @versions = PaperTrail::Version.includes(:user).all_versions(@register.id)
   end
 end
