@@ -70,15 +70,15 @@ es:
       department:
         one: Departamento
         other: Departamentos
+      economic_activity:
+        one: Actividad Económica
+        other: Actividades Económicas
       education:
         one: Escolaridad
         other: Escolaridades
       entity:
         one: Entidad
         other: Entidades
-      ethnicity:
-        one: Origen Étnico
-        other: Orígenes Étnicos
       holder: Titular
       partnership:
         one: Asociación Productiva
