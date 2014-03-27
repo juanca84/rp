@@ -21,9 +21,8 @@ class ReportsController < RunpaController
 
     respond_to do |wants|
       wants.html
-      wants.pdf do
-        render pdf: "file_name", page_size: 'Letter'  
-      end
+      wants.pdf { render pdf: "file_name", page_size: 'Letter' }
+      wants.csv { send_data @registers.to_csv }
     end
   end
 
