@@ -1,4 +1,5 @@
 class ReportsController < RunpaController
+  require 'iconv'
   load_and_authorize_resource class: "Register"
   before_filter :set_location
 
@@ -22,7 +23,11 @@ class ReportsController < RunpaController
     respond_to do |wants|
       wants.html
       wants.pdf { render pdf: "file_name", page_size: 'Letter' }
-      wants.csv { send_data @registers.to_csv }
+      wants.csv do
+        send_data Iconv.conv('iso-8859-1//IGNORE', 'utf-8', @registers.to_csv), 
+          type: 'text/csv; charset=iso-8859-1; header=present',
+          disposition: "attachment; filename=#{ DateTime.now.to_i }.csv" 
+      end  
     end
   end
 

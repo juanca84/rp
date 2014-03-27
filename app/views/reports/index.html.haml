@@ -5,7 +5,7 @@
 = paginate @registers
 
 .form-actions.navsteps
-  = search_form_for @q, url: reports_path(format: "pdf"),  html: { target: "_blank" } do |f|
+  = search_form_for @q, url: reports_path(format: "pdf"),  html: { class: "downloader_file", target: "_blank" } do |f|
     = render 'search_params', f: f
 
     %button.btn.btn-primary{type: "submit"}
@@ -13,7 +13,7 @@
       .glyphicon.glyphicon-download-alt
       PDF
 
-  = search_form_for @q, url: reports_path(format: "csv"),  html: { target: "_blank" } do |f|
+  = search_form_for @q, url: reports_path(format: "csv"),  html: { class: "downloader_file", target: "_blank" } do |f|
     = render 'search_params', f: f
 
     %button.btn.btn-primary{type: "submit"}
@@ -21,7 +21,7 @@
       .glyphicon.glyphicon-download-alt 
       CSV
 
-  = search_form_for @q, url: reports_path(format: "xls"),  html: { target: "_blank" } do |f|
+  = search_form_for @q, url: reports_path(format: "xls"),  html: { class: "downloader_file", target: "_blank" } do |f|
     = render 'search_params', f: f 
 
     %button.btn.btn-primary{type: "submit"}
