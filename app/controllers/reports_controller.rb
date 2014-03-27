@@ -28,6 +28,7 @@ class ReportsController < RunpaController
           type: 'text/csv; charset=iso-8859-1; header=present',
           disposition: "attachment; filename=#{ DateTime.now.to_i }.csv" 
       end  
+      wants.xls
     end
   end
 

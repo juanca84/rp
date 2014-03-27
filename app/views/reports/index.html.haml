@@ -13,13 +13,14 @@
       .glyphicon.glyphicon-download-alt
       PDF
 
-  = search_form_for @q, url: reports_path(format: "csv"),  html: { class: "downloader_file", target: "_blank" } do |f|
-    = render 'search_params', f: f
+  / 
+    = search_form_for @q, url: reports_path(format: "csv"),  html: { class: "downloader_file", target: "_blank" } do |f|
+      = render 'search_params', f: f
 
-    %button.btn.btn-primary{type: "submit"}
-      %i.icon-user.icon-white
-      .glyphicon.glyphicon-download-alt 
-      CSV
+      %button.btn.btn-primary{type: "submit"}
+        %i.icon-user.icon-white
+        .glyphicon.glyphicon-download-alt 
+        CSV
 
   = search_form_for @q, url: reports_path(format: "xls"),  html: { class: "downloader_file", target: "_blank" } do |f|
     = render 'search_params', f: f 
