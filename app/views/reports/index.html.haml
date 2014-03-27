@@ -5,17 +5,27 @@
 = paginate @registers
 
 .form-actions.navsteps
-  = search_form_for @q, url: reports_path(format: "pdf"),  html: { target: "_blank" } do |f|
-    .hide 
-      = f.text_field :code_eq
-      = f.text_field :holders_person_name_cont
-      = f.text_field :holders_person_identification_cont
-      = f.text_field :lands_department_id_eq
-      = f.text_field :lands_community_id_eq
-      = f.text_field :partnerships_name_cont
-      = text_field_tag :page, params[:page]
+  = search_form_for @q, url: reports_path(format: "pdf"),  html: { class: "downloader_file", target: "_blank" } do |f|
+    = render 'search_params', f: f
 
     %button.btn.btn-primary{type: "submit"}
       %i.icon-user.icon-white
       .glyphicon.glyphicon-download-alt
       PDF
+
+  / 
+    = search_form_for @q, url: reports_path(format: "csv"),  html: { class: "downloader_file", target: "_blank" } do |f|
+      = render 'search_params', f: f
+
+      %button.btn.btn-primary{type: "submit"}
+        %i.icon-user.icon-white
+        .glyphicon.glyphicon-download-alt 
+        CSV
+
+  = search_form_for @q, url: reports_path(format: "xls"),  html: { class: "downloader_file", target: "_blank" } do |f|
+    = render 'search_params', f: f 
+
+    %button.btn.btn-primary{type: "submit"}
+      %i.icon-user.icon-white
+      .glyphicon.glyphicon-download-alt
+      XLS

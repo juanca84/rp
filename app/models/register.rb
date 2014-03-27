@@ -169,6 +169,7 @@ class Register < ActiveRecord::Base
     result.uniq.join(', ')
   end
 
+  #método para mostrar la zona de produccion (para el factor de producción Tierra)
   def zone_productions(entry = nil)
     result = 
       if entry.present?
@@ -179,11 +180,12 @@ class Register < ActiveRecord::Base
       end
     locations = []
     result.each do |p|
-      locations << "#{ p.land.try(:community).try(:name).upcase rescue "" } - #{p.land.try(:another_community)}"
+      locations << "#{ p.land.try(:community).try(:name).upcase rescue "" } - #{ p.land.try(:another_community) }"
     end 
     locations.uniq.join(",")
   end
 
+  #método para generar la superficie total de la tierra
   def surface_productions(entry = nil)
     result = 
       if entry.present?
@@ -196,9 +198,10 @@ class Register < ActiveRecord::Base
     result.each do |p|
       total += p.productive_physical_coverage_amount if p.productive_physical_coverage_amount.present?
     end 
-    "#{total} HAS"
+    total
   end
 
+  #método para generar el total de la producción
   def total_productions(entry = nil)
     result = 
       if entry.present?
@@ -211,7 +214,17 @@ class Register < ActiveRecord::Base
     result.each do |p|
       total += p.production_quantity if p.production_quantity.present?
     end 
-    "#{total} TON"
+    total
+  end
+
+  #método para generar un file csv
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |product|
+        csv << product.attributes.values_at(*column_names)
+      end
+    end
   end
 
 end
