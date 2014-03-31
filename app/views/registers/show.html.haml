@@ -89,14 +89,20 @@
           .well.form-actions
             = render 'register_steps/registrar_agent', f: f
 
-.form-actions.navsteps
-  %a.btn.btn-primary.btn-large{href: registers_path}
+.form-actions.navsteps#non-printable
+  %a.btn.btn-primary.btn-large{ href: registers_path }
     .glyphicon.glyphicon-list
     Registros
 
-  %a.btn.btn-success.btn-large{href: new_register_path}
+  %a.btn.btn-success.btn-large{ href: new_register_path }
     .glyphicon.glyphicon-plus
     Nuevo registro
+
+  
+  %a.btn.btn-primary.btn-large{ href: "javascript:window.print()" }
+    .glyphicon.glyphicon-print
+    Imprimir registro
+
 
   - if @register.present? && ( @register.user == current_user || current_user.module_administrador? )
     %a.btn.btn-primary.pull-right.btn-large{ href: edit_register_path(@register) }

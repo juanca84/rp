@@ -74,3 +74,9 @@ form{
 .downloader_file{
   display: inline-block;
 }
+
+@media print
+{
+  #non-printable { display: none; }
+  //#printable { display: block; }
+}
