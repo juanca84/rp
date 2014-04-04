@@ -76,7 +76,8 @@ end
 
 #for documentation
 group :development, :test do
-  gem "rails-erd"
+  gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
+  gem 'railroady'
   gem 'rspec-rails'
 end
 
