@@ -12,6 +12,7 @@
  *= require main
  *= require bootstrap-typeahead-rails
  *= require timeline
+ *= require print
  */
 @import "twitter/bootstrap";
 @import 'anjlab/datepicker';
@@ -73,10 +74,4 @@ form{
 
 .downloader_file{
   display: inline-block;
-}
-
-@media print
-{
-  #non-printable { display: none; }
-  //#printable { display: block; }
 }

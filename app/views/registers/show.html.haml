@@ -1,117 +1,146 @@
-= render 'message_no_valids', register_no_valids: @register_no_valids 
+#non-printable
+  = render 'message_no_valids', register_no_valids: @register_no_valids 
 
-.container{style: 'width:100%'}
-  = simple_form_for @register, url: "#", html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { readonly: true, class: 'form-control' } }  do |f|
-    .form-group
-      .col-sm-9
-      = f.label :code, class: "col-sm-1"
-      .col-sm-2
-        %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code) }
-        
-      = f.hidden_field :user_id
-
-    .well.form-actions
-      %legend IDENTIFICACIÓN DE LOS TITULARES
-      = render 'registers/show/holder', f: f
-
-    .well.form-actions
-      %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
-      .well.form-actions
-        = field_set_tag 'Hijos e Hijas' do
-          #sons
-            = render 'registers/show/son_aggregate', f: f, resources: :sons
+  .container{style: 'width:100%'}
+    = simple_form_for @register, url: "#", html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { readonly: true, class: 'form-control' } }  do |f|
+      .form-group
+        .col-sm-9
+        = f.label :code, class: "col-sm-1"
+        .col-sm-2
+          %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code) }
+          
+        = f.hidden_field :user_id
 
       .well.form-actions
-        = field_set_tag 'Agregados y Agregadas' do
-          #aggregates
-            = render 'registers/show/son_aggregate', f: f, resources: :aggregates
+        %legend IDENTIFICACIÓN DE LOS TITULARES
+        = render 'registers/show/holder', f: f
 
       .well.form-actions
-        %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
+        %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
         .well.form-actions
-          = field_set_tag 'A que asociaciones pertenece' do
-            #partnerships
-              = render 'registers/show/partnership', f: f
+          = field_set_tag 'Hijos e Hijas' do
+            #sons
+              = render 'registers/show/son_aggregate', f: f, resources: :sons
 
         .well.form-actions
-          = field_set_tag 'Actividad Principal' do
-            = render 'registers/show/main_activity', f: f  
-
+          = field_set_tag 'Agregados y Agregadas' do
+            #aggregates
+              = render 'registers/show/son_aggregate', f: f, resources: :aggregates
 
         .well.form-actions
-          %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+          %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
           .well.form-actions
-            = field_set_tag 'Tierra' do
-              #lands
-                = render 'registers/show/land', f: f
+            = field_set_tag 'A que asociaciones pertenece' do
+              #partnerships
+                = render 'registers/show/partnership', f: f
 
           .well.form-actions
-            = field_set_tag 'Trabajo' do
-              #works
-                = render 'registers/show/work', f: f
+            = field_set_tag 'Actividad Principal' do
+              = render 'registers/show/main_activity', f: f  
+
+
+          .well.form-actions
+            %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+            .well.form-actions
+              = field_set_tag 'Tierra' do
+                #lands
+                  = render 'registers/show/land', f: f
+
+            .well.form-actions
+              = field_set_tag 'Trabajo' do
+                #works
+                  = render 'registers/show/work', f: f
+
+                .form-group
+                  %label.integer.required.control-label.col-sm-6 Sumatoria de número de días al año dedicado a actividades agropecuarias en el establecimiento
+                  .col-sm-6
+                    %input.form-control{ value: @register.total_time_to_land, readonly: true }
+
+          .well.form-actions
+            %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
+            .well.form-actions
+              = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
+                #capitals
+                  = render 'registers/show/capital', f: f
+
+          .well.form-actions
+            %legend PRODUCCIÓN
+            .well.form-actions
+              = field_set_tag 'Producción agropecuaria en el establecimiento' do
+                #lands
+                  = render 'registers/show/production', f: f
+
+          .well.form-actions
+            %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
+            .well.form-actions
+              .form-group
+                = f.label :emission_department, class: "col-sm-3"
+                .col-sm-3
+                  = f.input_field :emission_department, value: f.object.try(:emission_department).try(:name)
+
+                = f.label :emission_community, class: "col-sm-3"
+                .col-sm-3
+                  = f.input_field :emission_community, value: f.object.try(:emission_community).try(:name)
 
               .form-group
-                %label.integer.required.control-label.col-sm-6 Sumatoria de número de días al año dedicado a actividades agropecuarias en el establecimiento
-                .col-sm-6
-                  %input.form-control{ value: @register.total_time_to_land, readonly: true }
+                =  f.label :emission_date, class: "col-sm-3"
+                .col-sm-3
+                  = f.input_field :emission_date, as: :date
 
-        .well.form-actions
-          %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
-          .well.form-actions
-            = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
-              #capitals
-                = render 'registers/show/capital', f: f
+            .well.form-actions
+              = render 'register_steps/registrar_agent', f: f
 
-        .well.form-actions
-          %legend PRODUCCIÓN
-          .well.form-actions
-            = field_set_tag 'Producción agropecuaria en el establecimiento' do
-              #lands
-                = render 'registers/show/production', f: f
+  .form-actions.navsteps
+    %a.btn.btn-primary.btn-large{ href: registers_path }
+      .glyphicon.glyphicon-list
+      Registros
 
-        .well.form-actions
-          %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
-          .well.form-actions
-            .form-group
-              = f.label :emission_department, class: "col-sm-3"
-              .col-sm-3
-                = f.input_field :emission_department, value: f.object.try(:emission_department).try(:name)
+    %a.btn.btn-success.btn-large{ href: new_register_path }
+      .glyphicon.glyphicon-plus
+      Nuevo registro
 
-              = f.label :emission_community, class: "col-sm-3"
-              .col-sm-3
-                = f.input_field :emission_community, value: f.object.try(:emission_community).try(:name)
-
-            .form-group
-              =  f.label :emission_date, class: "col-sm-3"
-              .col-sm-3
-                = f.input_field :emission_date, as: :date
-
-          .well.form-actions
-            = render 'register_steps/registrar_agent', f: f
-
-.form-actions.navsteps#non-printable
-  %a.btn.btn-primary.btn-large{ href: registers_path }
-    .glyphicon.glyphicon-list
-    Registros
-
-  %a.btn.btn-success.btn-large{ href: new_register_path }
-    .glyphicon.glyphicon-plus
-    Nuevo registro
-
-  
-  %a.btn.btn-primary.btn-large{ href: "javascript:window.print()" }
-    .glyphicon.glyphicon-print
-    Imprimir registro
-
-
-  - if @register.present? && ( @register.user == current_user || current_user.module_administrador? )
-    %a.btn.btn-primary.pull-right.btn-large{ href: edit_register_path(@register) }
-      .glyphicon.glyphicon-pencil
-      Editar
-
-  %a.btn.btn-success.pull-right.btn-large{href: versions_register_path(@register)}
-    .glyphicon.glyphicon-calendar
-    Línea de tiempo
     
+    %a.btn.btn-primary.btn-large{ href: "javascript:window.print()" }
+      .glyphicon.glyphicon-print
+      Imprimir registro
 
 
+    - if @register.present? && ( @register.user == current_user || current_user.module_administrador? )
+      %a.btn.btn-primary.pull-right.btn-large{ href: edit_register_path(@register) }
+        .glyphicon.glyphicon-pencil
+        Editar
+
+    %a.btn.btn-success.pull-right.btn-large{href: versions_register_path(@register)}
+      .glyphicon.glyphicon-calendar
+      Línea de tiempo
+
+#printable
+  .book
+    .page
+      .subpage
+        = simple_form_for @register, url: "#", html: { class: 'form-horizontal', role: 'form' }, defaults: { input_html: { readonly: true, class: 'form-control' } }  do |f|
+          .form-group
+            .col-sm-9
+            = f.label :code, class: "col-sm-1"
+            .col-sm-2
+              %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code) }
+              
+            = f.hidden_field :user_id
+
+          .well.form-actions
+            %legend IDENTIFICACIÓN DE LOS TITULARES
+            = render 'registers/show/holder', f: f
+
+    .page
+      .subpage
+        Page 2/2 ajsjasjasjasj
+        
+        sa
+        as
+        sa
+        asas
+        
+        as
+        s
+        s
+        %p ksklsaklasklaskl
