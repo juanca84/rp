@@ -1,4 +1,7 @@
+#encoding: UTF-8
 ActiveAdmin.register User do
+  menu parent: 'Administración de Usuarios'
+
   controller do
     def edit
       @user = User.find(params[:id])
