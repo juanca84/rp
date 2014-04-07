@@ -16,11 +16,21 @@ m_Aggregate [label = <<table border="0" align="center" cellspacing="0.5" cellpad
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="mothers_name">mothers_name <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="person_id">person_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="time_to_land">time_to_land <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="town_of_birth">town_of_birth <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="type_person">type_person <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Capital [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Capital</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="capital_item">capital_item <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="current_value">current_value <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="lifespan_future">lifespan_future <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer</font></td></tr>
 </table>
 >];
 m_CivilStatus [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -28,17 +38,8 @@ m_CivilStatus [label = <<table border="0" align="center" cellspacing="0.5" cellp
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
-</table>
->];
-m_CivilUnion [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
-  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CivilUnion</font></td></tr>
-</table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
 >];
 m_Community [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -59,22 +60,32 @@ m_Department [label = <<table border="0" align="center" cellspacing="0.5" cellpa
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
+m_EconomicActivity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">EconomicActivity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
 m_Education [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Education</font></td></tr>
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
 >];
-m_Ethnicity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
-  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ethnicity</font></td></tr>
+m_Entity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Entity</font></td></tr>
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="business_name">business_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="nit">nit <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
 m_Holder [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -82,11 +93,56 @@ m_Holder [label = <<table border="0" align="center" cellspacing="0.5" cellpaddin
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="mothers_name">mothers_name <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="person_id">person_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="time_to_land">time_to_land <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="town_of_birth">town_of_birth <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="type_person">type_person <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Land [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Land</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="another_community">another_community <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="disassemble_without_permission">disassemble_without_permission <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="eventual_labor">eventual_labor <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="men_per_year_eventually">men_per_year_eventually <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="men_per_year_own">men_per_year_own <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="men_per_year_total">men_per_year_total <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="own_labor">own_labor <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="permanent_labor">permanent_labor <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="surface">surface <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="tenure">tenure <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="unit_of_measure">unit_of_measure <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+"m_PaperTrail::Version" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">PaperTrail::Version</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="event">event <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="item_type">item_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="object">object <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="object_changes">object_changes <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="parent_id">parent_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="parent_type">parent_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="register_id">register_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="whodunnit">whodunnit <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Partnership [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Partnership</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_PartnershipsRegister [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">PartnershipsRegister</font></td></tr>
 </table>
 >];
 m_PeopleRegister [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -94,7 +150,6 @@ m_PeopleRegister [label = <<table border="0" align="center" cellspacing="0.5" ce
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="mothers_name">mothers_name <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="time_to_land">time_to_land <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="town_of_birth">town_of_birth <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="type_person">type_person <font face="Arial Italic" color="grey60">string</font></td></tr>
@@ -105,11 +160,38 @@ m_Person [label = <<table border="0" align="center" cellspacing="0.5" cellpaddin
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="age">age <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="birthdate">birthdate <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="first_lastname">first_lastname <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="birthplace">birthplace <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="identification">identification <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="second_lastname">second_lastname <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="phone">phone <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="sex">sex <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Production [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Production</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="entry">entry <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="production_destination">production_destination <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="production_quantity">production_quantity <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="production_system">production_system <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="production_unit">production_unit <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="productive_physical_coverage_amount">productive_physical_coverage_amount <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="productive_physical_coverage_unit">productive_physical_coverage_unit <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Profile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Profile</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="birthdate">birthdate <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="identification">identification <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="last_name">last_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="sex">sex <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
@@ -122,17 +204,30 @@ m_Province [label = <<table border="0" align="center" cellspacing="0.5" cellpadd
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
+m_RegionsUser [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">RegionsUser</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="regionable_type">regionable_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
 m_Register [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Register</font></td></tr>
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="activation_date">activation_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="address">address <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
   <tr><td align="left" width="130" port="code_ine">code_ine <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="emission_date">emission_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="first_entry">first_entry <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="geodesic_ew">geodesic_ew <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="geodesic_ns">geodesic_ns <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="residence">residence <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="second_entry">second_entry <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
 m_Role [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -145,25 +240,27 @@ m_Role [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   <tr><td align="left" width="130" port="resource_type">resource_type <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
+m_RolesRunpaModule [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">RolesRunpaModule</font></td></tr>
+</table>
+>];
+m_RunpaModule [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">RunpaModule</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
 m_Son [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Son</font></td></tr>
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="mothers_name">mothers_name <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="person_id">person_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="time_to_land">time_to_land <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="town_of_birth">town_of_birth <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="type_person">type_person <font face="Arial Italic" color="grey60">string</font></td></tr>
-</table>
->];
-m_TypeIdentification [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
-  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">TypeIdentification</font></td></tr>
-</table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
 m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -171,6 +268,8 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="active">active <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="authentication_token">authentication_token <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
@@ -184,21 +283,58 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
 </table>
 >];
-  m_Province -> m_Community [arrowhead = "normal", arrowtail = "none", weight = "1"];
-  m_TypeIdentification -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "1"];
-  m_Ethnicity -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Capital -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Holder -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Land -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Partnership -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_PeopleRegister -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Person -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Production -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Register -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> "m_PaperTrail::Version" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Province -> m_Community [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Community -> m_RegionsUser [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Department -> m_RegionsUser [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Province -> m_RegionsUser [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Community -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Community -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Community -> m_Land [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Education -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "1"];
   m_CivilStatus -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "1"];
   m_Person -> m_PeopleRegister [arrowhead = "normal", arrowtail = "none", weight = "5"];
   m_Person -> m_Register [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
-  m_Department -> m_Province [arrowhead = "normal", arrowtail = "none", weight = "1"];
-  m_User -> m_Role [arrowhead = "normal", arrowtail = "normal", weight = "1"];
-  m_CivilUnion -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_EconomicActivity -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Department -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Community -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "1"];
   m_Department -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "1"];
-  m_Register -> m_PeopleRegister [arrowhead = "normal", arrowtail = "none", weight = "5"];
+  m_User -> m_Register [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Register -> m_Aggregate [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Register -> m_Capital [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
   m_Register -> m_Holder [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Register -> m_Land [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Register -> m_Son [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Register -> m_PeopleRegister [arrowhead = "normal", arrowtail = "none", weight = "5"];
+  m_Register -> m_Production [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Register -> m_Partnership [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Department -> m_Province [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Department -> m_Community [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Department -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Department -> m_Land [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Entity -> m_User [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Role -> m_User [arrowhead = "normal", arrowtail = "normal", weight = "1"];
+  m_Role -> m_RolesRunpaModule [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Role -> m_RunpaModule [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_User -> m_Role [arrowhead = "normal", arrowtail = "normal", weight = "1"];
+  m_User -> m_Profile [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_RunpaModule [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_User -> m_RegionsUser [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Province [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_Community [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Land -> m_Capital [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Capital -> m_Register [style = "dotted", arrowhead = "none", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Land -> m_Production [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Register -> m_PartnershipsRegister [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Partnership -> m_PartnershipsRegister [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Production -> m_Register [style = "dotted", arrowhead = "none", arrowtail = "none", weight = "1", constraint = "false"];
+  m_RunpaModule -> m_RolesRunpaModule [arrowhead = "normal", arrowtail = "none", weight = "2"];
 }

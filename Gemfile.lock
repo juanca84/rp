@@ -16,6 +16,17 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
+GIT
+  remote: git://github.com/paulwittmann/rails-erd.git
+  revision: 9ccb094fa29b095d5549271f48c65af8bb53f749
+  branch: mavericks
+  specs:
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -168,6 +179,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.1.1)
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -180,11 +192,6 @@ GEM
       coffee-script (~> 2.2.0)
       ejs (~> 1.0.0)
       railties (>= 3.1.0)
-    rails-erd (1.1.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      choice (~> 0.1.6)
-      ruby-graphviz (~> 1.0.4)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -284,9 +291,10 @@ DEPENDENCIES
   paper_trail (~> 3.0.0)
   pg
   rabl
+  railroady
   rails (= 3.2.13)
   rails-backbone
-  rails-erd
+  rails-erd!
   rails_12factor
   ransack
   rego-devise-lastseenable (~> 0.1.0)
