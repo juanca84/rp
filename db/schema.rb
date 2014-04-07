@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324134912) do
+ActiveRecord::Schema.define(:version => 20140407135310) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -60,8 +60,9 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   create_table "departments", :force => true do |t|
     t.string   "code"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "abbreviation"
   end
 
   create_table "departments_users", :force => true do |t|
@@ -144,12 +145,17 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.string   "sex"
     t.integer  "education_id"
     t.integer  "civil_status_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "age"
     t.integer  "community_of_birth_id"
     t.string   "phone"
     t.string   "birthplace"
+    t.string   "first_lastname"
+    t.string   "second_lastname"
+    t.integer  "department_of_birth_id"
+    t.string   "province_of_birth_id"
+    t.integer  "type_of_identification_id"
   end
 
   create_table "people_registers", :force => true do |t|
@@ -234,6 +240,8 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.integer  "economic_activity_id"
     t.string   "status"
     t.datetime "activation_date"
+    t.integer  "issued_id"
+    t.integer  "type_residence_id"
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
@@ -265,6 +273,20 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   add_index "roles_runpa_modules", ["runpa_module_id"], :name => "index_roles_runpa_modules_on_runpa_module_id"
 
   create_table "runpa_modules", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "type_of_identifications", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "type_residences", :force => true do |t|
+    t.string   "code"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

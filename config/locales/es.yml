@@ -95,9 +95,12 @@ es:
       register:
         one: Registro
         others: Registros
-      type_identification:
+      type_of_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones
+      type_residence:
+        one: Tipo de Residencia
+        other: Tipos de Residencias
       user:
         one: Usuario
         other: Usuarios
@@ -111,6 +114,9 @@ es:
         department: Departamento
         lifespan_future: Vida útil futura
         start_year: Año de Compra y/o Construcción
+
+      department:
+        abbreviation: Abreviación
 
       entity:
         business_name: Razón Social
@@ -147,9 +153,11 @@ es:
         birthplace: Municipio de Nacimiento
         civil_status: Estado Civil
         education: Nivel de instrucción
+        first_lastname: Apellido Paterno
         identification: Cédula de Identidad
-        name: Nombre y Apellidos
+        name: Nombre
         phone: Teléfono/celular
+        second_lastname: Apellido Materno
         sex: Sexo
       production:
         community: Municipio
