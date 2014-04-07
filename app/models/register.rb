@@ -13,7 +13,8 @@ class Register < ActiveRecord::Base
   attr_accessible :activation_date, :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
                   :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
-                  :second_entry, :sons_attributes, :user_id, :works_attributes
+                  :second_entry, :sons_attributes, :type_residence_id, :user_id, :works_attributes
+                  
 
   belongs_to :civil_union
   belongs_to :economic_activity
@@ -22,6 +23,7 @@ class Register < ActiveRecord::Base
   belongs_to :community
   belongs_to :department
   belongs_to :user
+  belongs_to :type_residence
 
   has_many :aggregates, dependent: :destroy
   has_many :capitals, through: :lands

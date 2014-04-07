@@ -152,15 +152,20 @@ es:
         birthdate: Fecha de nacimiento
         birthplace: Municipio de Nacimiento
         civil_status: Estado Civil
+        community_of_birth: Municipio de nacimiento
         education: Nivel de instrucción
+        department_of_birth: Departamento de nacimiento
         first_lastname: Apellido Paterno
-        identification: Cédula de Identidad
-        name: Nombre
+        identification: Número de Identificación
+        name: Nombres
         phone: Teléfono/celular
+        province_of_birth: Provincia de nacimiento
         second_lastname: Apellido Materno
         sex: Sexo
+        type_of_identification: Tipo de identificación
+        issued: Expedido en 
       production:
-        community: Municipio
+        community: Municipios
         department: Departamento
         entry: Rubro
         production_destination: Sistema de Producción
@@ -184,7 +189,7 @@ es:
         code: Código
         code_ine: Código INE
         community: Municipio de Residencia
-        department: Departamento
+        department: Departamento de Residencia
         economic_activity: Subsector
         emission_date: Fecha de emisión
         emission_community: Municipio de emisión
@@ -195,6 +200,7 @@ es:
         residence: Lugar de Residencia
         second_entry: Rubro 2
         status: Estado
+        type_residence: Tipo de residencia
       role:
         name: nombre
         resource_type: Tipo de Recurso

@@ -156,7 +156,13 @@ ActiveRecord::Schema.define(:version => 20140407135310) do
     t.integer  "department_of_birth_id"
     t.string   "province_of_birth_id"
     t.integer  "type_of_identification_id"
+    t.integer  "issued_id"
   end
+
+  add_index "people", ["department_of_birth_id"], :name => "index_people_on_department_of_birth_id"
+  add_index "people", ["issued_id"], :name => "index_people_on_issued_id"
+  add_index "people", ["province_of_birth_id"], :name => "index_people_on_province_of_birth_id"
+  add_index "people", ["type_of_identification_id"], :name => "index_people_on_type_of_identification_id"
 
   create_table "people_registers", :force => true do |t|
     t.integer  "person_id"
@@ -240,7 +246,6 @@ ActiveRecord::Schema.define(:version => 20140407135310) do
     t.integer  "economic_activity_id"
     t.string   "status"
     t.datetime "activation_date"
-    t.integer  "issued_id"
     t.integer  "type_residence_id"
   end
 
@@ -249,6 +254,7 @@ ActiveRecord::Schema.define(:version => 20140407135310) do
   add_index "registers", ["economic_activity_id"], :name => "index_registers_on_economic_activity_id"
   add_index "registers", ["emission_community_id"], :name => "index_registers_on_emission_community_id"
   add_index "registers", ["emission_department_id"], :name => "index_registers_on_emission_department_id"
+  add_index "registers", ["type_residence_id"], :name => "index_registers_on_type_residence_id"
   add_index "registers", ["user_id"], :name => "index_registers_on_user_id"
 
   create_table "roles", :force => true do |t|
