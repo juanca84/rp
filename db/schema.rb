@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140407135310) do
+ActiveRecord::Schema.define(:version => 20140407214710) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(:version => 20140407135310) do
     t.integer  "land_id"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.integer  "register_id"
+    t.integer  "department_id"
+    t.integer  "community_id"
   end
 
   add_index "capitals", ["land_id"], :name => "index_capitals_on_land_id"
@@ -344,5 +347,19 @@ ActiveRecord::Schema.define(:version => 20140407135310) do
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
   add_index "versions", ["parent_id"], :name => "index_versions_on_parent_id"
   add_index "versions", ["register_id"], :name => "index_versions_on_register_id"
+
+  create_table "works", :force => true do |t|
+    t.integer  "own_labor",               :default => 0
+    t.integer  "eventual_labor",          :default => 0
+    t.integer  "permanent_labor",         :default => 0
+    t.float    "men_per_year_own",        :default => 0.0
+    t.float    "men_per_year_eventually", :default => 0.0
+    t.float    "men_per_year_total",      :default => 0.0
+    t.integer  "register_id"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  add_index "works", ["register_id"], :name => "index_works_on_register_id"
 
 end

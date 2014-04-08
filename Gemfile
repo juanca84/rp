@@ -60,7 +60,6 @@ gem 'bootstrap-typeahead-rails'
 
 #versionamiento base de datos
 gem 'paper_trail', '~> 3.0.0'
-gem 'activerecord-diff'
 
 #exportacion a json
 gem 'rabl'

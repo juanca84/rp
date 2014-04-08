@@ -14,63 +14,66 @@
  *= require timeline
  */
 @import "twitter/bootstrap";
-@import 'anjlab/datepicker';
-@import 'anjlab/timepicker';
-.container{
-  width: 90%;
-}
-body {
-    color: #333333;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-}
-legend{
-	font-weight: bold;
-}
-form{
-	label{
-		font-weight: normal;
-	}
-}
+// .container{
+//   width: 90%;
+// }
+// body {
+//     color: #333333;
+//     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+//     font-size: 14px;
+//     line-height: 20px;
+// }
+// legend{
+// 	font-weight: bold;
+// }
+// form{
+// 	label{
+// 		font-weight: normal;
+// 	}
+// }
 
-.table{ 
-  thead{
-    tr{
-      th{
-          vertical-align: inherit;
-          text-align: center;
-      }
-    }
-  }
-  tbody{
-    td{
-      div{
-        .control-group{
-          margin-bottom: 0px; 
-        }         
-      }
-    }
-  }
-}
+// .table{ 
+//   thead{
+//     tr{
+//       th{
+//           vertical-align: inherit;
+//           text-align: center;
+//       }
+//     }
+//   }
+//   tbody{
+//     td{
+//       div{
+//         .control-group{
+//           margin-bottom: 0px; 
+//         }         
+//       }
+//     }
+//   }
+// }
 
 .well.form-actions.well_submit{
   height: 70px;
 }
 
-.form-actions.navsteps{
-  margin-bottom: 20px;
-  .btn-success{
-    margin: 0 20px 0 20px;
-  }
-}
-
-// .form-register{
-//   input[type=text]{
-//     text-transform: uppercase;
+// .form-actions.navsteps{
+//   margin-bottom: 20px;
+//   .btn-success{
+//     margin: 0 20px 0 20px;
 //   }
 // }
 
+.form-register{
+  input[type=text]{
+    text-transform: uppercase;
+  }
+  select {text-transform: uppercase}
+}
+
 .downloader_file{
   display: inline-block;
+}
+.radio_buttons{
+  height: 18px !important;;
+  width: 18px !important;
 }
