@@ -10,7 +10,7 @@ class Register < ActiveRecord::Base
 
   include ActiveRecord::Diff
   
-  attr_accessible :activation_date, :address, :aggregates_attributes, :agricultural_productions_attributes, :capitals_attributes,
+  attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
                   :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
                   :second_entry, :sons_attributes, :user_id, :works_attributes
