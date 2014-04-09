@@ -1,5 +1,4 @@
 #encoding: UTF-8
-require 'active_record/diff'
 
 class Register < ActiveRecord::Base
   paginates_per 100
@@ -7,8 +6,6 @@ class Register < ActiveRecord::Base
   has_paper_trail
 
   include AASM
-
-  include ActiveRecord::Diff
   
   attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
