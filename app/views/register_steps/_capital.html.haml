@@ -5,7 +5,13 @@
       %thead
         %tr
           %th{ colspan: 6 }
-            Departamento: #{ land.object.try(:department).try(:name) } - Municipio: #{ land.object.try(:community).try(:name) }
+            Departamento: 
+            %span.upcase
+              #{ land.object.try(:department).try(:name).try(:upcase) }
+            \- Municipio: 
+            %span.upcase
+              #{ land.object.try(:community).try(:name).try(:upcase) }
+
         %tr
           %th.col-sm-7 Item Capital
           %th.col-sm-2 Año de Compra y/o Construcción           

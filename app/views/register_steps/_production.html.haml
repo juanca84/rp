@@ -5,7 +5,12 @@
       %thead
         %tr
           %th{ colspan: 9 }
-            Departamento: #{ land.object.try(:department).try(:name) } - Municipio: #{ land.object.try(:community).try(:name) }
+            Departamento: 
+            %span.upcase
+              #{ land.object.try(:department).try(:name).try(:upcase) }
+            \- Municipio: 
+            %span.upcase
+              #{ land.object.try(:community).try(:name).try(:upcase) }
         %tr
           %th.col-sm-4{ rowspan: 2 } Rubro
           %th.col-sm-1{ colspan: 2 } Cobertura Física Productiva           

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140407214710) do
+ActiveRecord::Schema.define(:version => 20140407214802) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -184,13 +184,16 @@ ActiveRecord::Schema.define(:version => 20140407214710) do
     t.integer  "land_id"
     t.string   "entry"
     t.string   "production_destination"
-    t.float    "production_quantity",                 :default => 0.0
+    t.float    "production_quantity",      :default => 0.0
     t.string   "production_system"
     t.string   "production_unit"
     t.float    "physical_coverage_amount", :default => 0.0
     t.string   "physical_coverage_unit"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "register_id"
+    t.integer  "department_id"
+    t.integer  "community_id"
   end
 
   add_index "productions", ["land_id"], :name => "index_productions_on_land_id"

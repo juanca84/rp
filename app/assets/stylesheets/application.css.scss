@@ -32,36 +32,39 @@
 // 	}
 // }
 
-// .table{ 
-//   thead{
-//     tr{
-//       th{
-//           vertical-align: inherit;
-//           text-align: center;
-//       }
-//     }
-//   }
-//   tbody{
-//     td{
-//       div{
-//         .control-group{
-//           margin-bottom: 0px; 
-//         }         
-//       }
-//     }
-//   }
-// }
+.table{ 
+  thead{
+    tr{
+      th{
+          vertical-align: inherit;
+          text-align: center;
+        span.upcase{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  tbody{
+    td{
+      div{
+        .control-group{
+          margin-bottom: 0px; 
+        }         
+      }
+    }
+  }
+}
 
 .well.form-actions.well_submit{
   height: 70px;
 }
 
-// .form-actions.navsteps{
-//   margin-bottom: 20px;
-//   .btn-success{
-//     margin: 0 20px 0 20px;
-//   }
-// }
+.form-actions.navsteps{
+  margin-bottom: 20px;
+  .btn-success{
+    margin: 0 20px 0 20px;
+  }
+}
 
 .form-register{
   input[type=text]{
