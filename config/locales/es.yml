@@ -169,8 +169,8 @@ es:
         department: Departamento
         entry: Rubro
         production_destination: Sistema de Producción
-        productive_physical_coverage_amount: Cobertura Física Productiva - cantidad
-        productive_physical_coverage_unit: Cobertura Física Productiva - unidad
+        physical_coverage_amount: Cobertura Física Productiva - cantidad
+        physical_coverage_unit: Cobertura Física Productiva - unidad
         production_quantity: Producción - cantidad
         production_unit: Producción - unidad
         production_system: Sistema de Producción

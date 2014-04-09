@@ -5,8 +5,8 @@ class CreateAgriculturalProductions < ActiveRecord::Migration
       t.references :community
       t.references :register
       t.string :entry
-      t.integer :productive_physical_coverage_amount
-      t.string :productive_physical_coverage_unit
+      t.integer :physical_coverage_amount
+      t.string :physical_coverage_unit
       t.integer :production_quantity
       t.string :production_unit
       t.string :production_system
