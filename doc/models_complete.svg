@@ -326,8 +326,8 @@
 <text text-anchor="start" x="767.843" y="-177.8" font-family="Times,serif" font-size="14.00">production_quantity :float</text>
 <text text-anchor="start" x="767.843" y="-163.8" font-family="Times,serif" font-size="14.00">production_system :string</text>
 <text text-anchor="start" x="767.843" y="-149.8" font-family="Times,serif" font-size="14.00">production_unit :string</text>
-<text text-anchor="start" x="767.843" y="-135.8" font-family="Times,serif" font-size="14.00">productive_physical_coverage_amount :float</text>
-<text text-anchor="start" x="767.843" y="-121.8" font-family="Times,serif" font-size="14.00">productive_physical_coverage_unit :string</text>
+<text text-anchor="start" x="767.843" y="-135.8" font-family="Times,serif" font-size="14.00">physical_coverage_amount :float</text>
+<text text-anchor="start" x="767.843" y="-121.8" font-family="Times,serif" font-size="14.00">physical_coverage_unit :string</text>
 <text text-anchor="start" x="767.843" y="-107.8" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="767.843" y="-93.8" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
 </g>

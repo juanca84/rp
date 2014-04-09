@@ -179,8 +179,8 @@ m_Production [label = <<table border="0" align="center" cellspacing="0.5" cellpa
   <tr><td align="left" width="130" port="production_quantity">production_quantity <font face="Arial Italic" color="grey60">float</font></td></tr>
   <tr><td align="left" width="130" port="production_system">production_system <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="production_unit">production_unit <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="productive_physical_coverage_amount">productive_physical_coverage_amount <font face="Arial Italic" color="grey60">float</font></td></tr>
-  <tr><td align="left" width="130" port="productive_physical_coverage_unit">productive_physical_coverage_unit <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="physical_coverage_amount">physical_coverage_amount <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="physical_coverage_unit">physical_coverage_unit <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
 m_Profile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">

@@ -296,6 +296,7 @@ DEPENDENCIES
   rails-backbone
   rails-erd!
   rails_12factor
+  rake (= 10.1.0)
   ransack
   rego-devise-lastseenable (~> 0.1.0)
   rolify

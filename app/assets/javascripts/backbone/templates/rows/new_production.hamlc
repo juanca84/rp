@@ -1,9 +1,9 @@
 %td
   %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_entry", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][entry]", size: "50", type: "text"}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_productive_physical_coverage_amount", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][productive_physical_coverage_amount]", type: "text", value: "0.0"}
+  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_physical_coverage_amount", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][physical_coverage_amount]", type: "text", value: "0.0"}
 %td
-  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_productive_physical_coverage_unit", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][productive_physical_coverage_unit]", size: "50", type: "text"}
+  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_physical_coverage_unit", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][physical_coverage_unit]", size: "50", type: "text"}
 %td
   %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_quantity", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][production_quantity]", type: "text", value: "0.0"}
 %td

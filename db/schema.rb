@@ -172,8 +172,8 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.float    "production_quantity",                 :default => 0.0
     t.string   "production_system"
     t.string   "production_unit"
-    t.float    "productive_physical_coverage_amount", :default => 0.0
-    t.string   "productive_physical_coverage_unit"
+    t.float    "physical_coverage_amount", :default => 0.0
+    t.string   "physical_coverage_unit"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
   end
