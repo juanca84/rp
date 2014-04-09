@@ -5,13 +5,13 @@ class RemoveObsoleteFiledsForProductionFromLands < ActiveRecord::Migration
     remove_column :lands, :production_quantity
     remove_column :lands, :production_system
     remove_column :lands, :production_unit
-    remove_column :lands, :productive_physical_coverage_amount
-    remove_column :lands, :productive_physical_coverage_unit
+    remove_column :lands, :physical_coverage_amount
+    remove_column :lands, :physical_coverage_unit
   end
 
   def down
-    add_column :lands, :productive_physical_coverage_unit, :string
-    add_column :lands, :productive_physical_coverage_amount, :float
+    add_column :lands, :physical_coverage_unit, :string
+    add_column :lands, :physical_coverage_amount, :float
     add_column :lands, :production_unit, :string
     add_column :lands, :production_system, :string
     add_column :lands, :production_quantity, :float

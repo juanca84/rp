@@ -196,7 +196,7 @@ class Register < ActiveRecord::Base
       end
     total = 0
     result.each do |p|
-      total += p.productive_physical_coverage_amount if p.productive_physical_coverage_amount.present?
+      total += p.physical_coverage_amount if p.physical_coverage_amount.present?
     end 
     total
   end
