@@ -73,6 +73,19 @@
   select {text-transform: uppercase}
 }
 
+.form-show{
+  font-size: 12px;
+  input[type=text]{
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  select{
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}
+
+
 .downloader_file{
   display: inline-block;
 }

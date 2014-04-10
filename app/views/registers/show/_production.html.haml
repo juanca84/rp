@@ -1,13 +1,15 @@
 - index = 0
 .table-responsive
-  %table.table.table_register.table-bordered{ class: "table_production-#{ index }-productions" }
+  %table.table.table_register.table-bordered{ class: "table_land-#{ index }-productions" }
     %thead
       %tr
-        %th.col-sm-4{ rowspan: 2 } Rubro
+        %th.col-sm-1{ rowspan: 2 } Departamento
+        %th.col-sm-2{ rowspan: 2 } Municipio
+        %th.col-sm-2{ rowspan: 2 } Rubro
         %th.col-sm-1{ colspan: 2 } Cobertura Física Productiva           
         %th.col-sm-1{ colspan: 2 } Producción
-        %th.col-sm-2{ rowspan: 2 } Sistema de Producción
-        %th.col-sm-2{ rowspan: 2 } Destino de la Producción
+        %th.col-sm-1{ rowspan: 2 } Sistema de Producción
+        %th.col-sm-3{ rowspan: 2 } Destino de la Producción
       %tr
         %th.col-sm-1 Cantidad           
         %th.col-sm-1 Unidad         
@@ -19,6 +21,10 @@
       = f.simple_fields_for :productions do |production|
 
         %tr{ id: "production-#{ production.object.id }" }
+          %td
+            = production.input_field :department, value: production.object.try(:department).try(:name)
+          %td
+            = production.input_field :community, value: production.object.try(:community).try(:name)
           %td
             = production.input_field :entry
           %td
@@ -33,7 +39,3 @@
             = production.input_field :production_system
           %td
             = production.input_field :production_destination
-
-  %br 
-  %br
-  - index += 1

@@ -86,19 +86,6 @@
             .col-sm-3
               = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
 
-          / .form-group
-          /   = f.label :geodesic_ns, class: "col-sm-2"
-          /   .col-sm-2
-          /     = f.input_field :geodesic_ns
-
-          /   = f.label :geodesic_ns, class: "col-sm-2"
-          /   .col-sm-2
-          /     = f.input_field :geodesic_ew
-
-          /   = f.label :code_ine, class: "col-sm-2"
-          /   .col-sm-2
-          /     = f.input_field :code_ine
-
         .form-group
           = holder.label :time_to_land, class: "col-sm-7"
           .col-sm-5
