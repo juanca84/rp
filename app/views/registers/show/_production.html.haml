@@ -2,9 +2,6 @@
 .table-responsive
   %table.table.table_register.table-bordered{ class: "table_production-#{ index }-productions" }
     %thead
-      / %tr
-      /   %th{ colspan: 9 }
-      /     Departamento: #{ production.object.try(:department).try(:name) } - Municipio: #{ land.object.try(:community).try(:name) }
       %tr
         %th.col-sm-4{ rowspan: 2 } Rubro
         %th.col-sm-1{ colspan: 2 } Cobertura Física Productiva           
@@ -19,7 +16,7 @@
 
     %tbody
       %tr
-      = land.simple_fields_for :productions do |production|
+      = f.simple_fields_for :productions do |production|
 
         %tr{ id: "production-#{ production.object.id }" }
           %td

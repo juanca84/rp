@@ -2,14 +2,6 @@
 .table-responsive
   %table.table.table_register.table-bordered{ class: "table_land-#{ index }-productions" }
     %thead
-      / %tr
-      /   %th{ colspan: 9 }
-      /     Departamento: 
-      /     %span.upcase
-      /       #{ production.object.try(:department).try(:name).try(:upcase) }
-      /     \- Municipio: 
-      /     %span.upcase
-      /       #{ production.object.try(:community).try(:name).try(:upcase) }
       %tr
         %th.col-sm-2{ rowspan: 2 } Departamento
         %th.col-sm-2{ rowspan: 2 } Municipio

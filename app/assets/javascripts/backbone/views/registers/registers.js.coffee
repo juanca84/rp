@@ -16,10 +16,7 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "change #department_register" : "update_communities"
     "change .department_lands"    : "update_communities" 
     "change .community_lands"     : "update_another_communities"
-
-    #"keyup .table_works tbody tr:nth-child(2) input.eventual_labor" : 'update_eventual_and_permanet_labor' 
-    #"keyup .table_works tbody tr:nth-child(2) input.permanent_labor" : 'update_eventual_and_permanet_labor' 
-    
+  
     "click .remove-static-field" : "remove_static_field"
 
   initialize: ->
@@ -32,17 +29,16 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
     @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
 
-    console.log type
-    if type is 'land'
-      #columna para trabajo
-      type = 'work'
-      view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
-      @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
+    # if type is 'land'
+    #   #columna para trabajo
+    #   type = 'work'
+    #   view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
+    #   @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
 
-      #columna para capital
-      type = 'capital'
-      view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
-      @$('table.table_' + type + 's tbody tr:last').after(view.render().el)  
+    #   #columna para capital
+    #   type = 'capital'
+    #   view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
+    #   @$('table.table_' + type + 's tbody tr:last').after(view.render().el)  
 
 
     false
