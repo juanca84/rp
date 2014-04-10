@@ -1,5 +1,5 @@
 class RegistersController < RunpaController
-  load_and_authorize_resource except: [:get_communities, :registers_no_valids]
+  load_and_authorize_resource except: [:get_communities, :get_provinces, :registers_no_valids]
   before_filter :registers_no_valids, only: [:index, :new, :edit, :show]
 
   def index
@@ -82,8 +82,21 @@ class RegistersController < RunpaController
   end
 
   def get_communities
+    @communities = 
+      if params[:province].present?
+        @province = Province.find_by_id(params[:id])
+        @province.communities
+      else
+        @department = Department.find_by_id(params[:id])
+        @department.communities
+      end
+
+    render layout: false
+  end
+
+  def get_provinces
     @department = Department.find_by_id(params[:id])
-    @communities = @department.communities
+    @provinces = @department.provinces
     render layout: false
   end
 

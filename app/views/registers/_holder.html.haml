@@ -25,7 +25,7 @@
 
           = person.label :province_of_birth, class: "col-sm-3"
           .col-sm-3
-            = person.input_field :province_of_birth_id, as: :select, collection: Province.all
+            = person.input_field :province_of_birth_id, as: :select, collection: Province.all, class: 'select optional form-control province_lands', id: "province_lands_#{ index }"
 
         .form-group
           = person.label :community_of_birth, class: "col-sm-3"

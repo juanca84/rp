@@ -15,6 +15,7 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "change #department_holder"   : "update_communities"
     "change #department_register" : "update_communities"
     "change .department_lands"    : "update_communities" 
+    "change .province_lands"      : "update_communities_by_province" 
     "change .community_lands"     : "update_another_communities"
   
     "click .remove-static-field" : "remove_static_field"
@@ -53,10 +54,21 @@ class Runpa.Views.Registers.NewView extends Backbone.View
   generate_id: ->
     new Date().getTime()
 
+
   update_communities: (event) ->
     element =  $(event.currentTarget)
     select_id = element.attr('id')
+    console.log select_id
     department_id =  element.val()
+   #actualizara las provincias
+    $.ajax(
+      url: '/registers/' + department_id + '/get_provinces'
+      dataType: 'html'
+    ).success (data) ->
+      $('#' + select_id.replace('department', 'province')).html(data) 
+      $('#' + select_id.replace('department_lands_', 'work-') + ' .department').val($('#' + select_id + ' option:selected').text())
+      $('#' + select_id.replace('department_lands_', 'capital-') + ' .department').val($('#' + select_id + ' option:selected').text())
+    #actualizara los municipios
     $.ajax(
       url: '/registers/' + department_id + '/get_communities'
       dataType: 'html'
@@ -64,6 +76,18 @@ class Runpa.Views.Registers.NewView extends Backbone.View
       $('#' + select_id.replace('department', 'community')).html(data) 
       $('#' + select_id.replace('department_lands_', 'work-') + ' .department').val($('#' + select_id + ' option:selected').text())
       $('#' + select_id.replace('department_lands_', 'capital-') + ' .department').val($('#' + select_id + ' option:selected').text())
+    false
+
+  update_communities_by_province: (event) ->
+    element =  $(event.currentTarget)
+    select_id = element.attr('id')
+    province_id =  element.val()
+    $.ajax(
+      url: '/registers/' + province_id + '/get_communities?province=true'
+      dataType: 'html'
+    ).success (data) ->
+      $('#' + select_id.replace('province', 'community')).html(data) 
+
     false
 
   update_another_communities: (event) -> 
