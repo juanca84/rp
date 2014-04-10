@@ -1,39 +1,45 @@
 - index = 0
-= f.simple_fields_for :lands do |land|
-  .table-responsive
-    %table.table.table-bordered.table_register{ class: "table_land-#{ index }-capitals" }
-      %thead
-        %tr
-          %th{ colspan: 6 }
-            Departamento: 
-            %span.upcase
-              #{ land.object.try(:department).try(:name).try(:upcase) }
-            \- Municipio: 
-            %span.upcase
-              #{ land.object.try(:community).try(:name).try(:upcase) }
 
-        %tr
-          %th.col-sm-7 Item Capital
-          %th.col-sm-2 Año de Compra y/o Construcción           
-          %th.col-sm-1 Vida útil futura (Años)      
-          %th.col-sm-2 Valor actual (Bs)
-          %th
-      %tbody
-        %tr
-        = land.simple_fields_for :capitals do |capital|
-          %tr{ id: "capital-#{ capital.object.id }" }
-            %td
-              = capital.input_field :capital_item
-            %td
-              = capital.input_field :start_year
-            %td
-              = capital.input_field :lifespan_future
-            %td
-              = capital.input_field :current_value
-            %td
-              %a.btn.btn-danger.btn-small.remove-static-field
-                .glyphicon.glyphicon-remove
-              = capital.check_box :_destroy, class: 'hide'
+.table-responsive
+  %table.table.table-bordered.table_register{ class: "table_land-#{ index }-capitals" }
+    %thead
+      /
+      / %tr
+      /   %th{ colspan: 6 }
+      /     Departamento: 
+      /     %span.upcase
+      /       #{ capital.object.try(:department).try(:name).try(:upcase) }
+      /     \- Municipio: 
+      /     %span.upcase
+      /       #{ capital.object.try(:community).try(:name).try(:upcase) }
+
+      %tr
+        %th.col-sm-2 Departamento
+        %th.col-sm-2 Municipio
+        %th.col-sm-4 Item Capital
+        %th.col-sm-2 Año de Compra y/o Construcción                 
+        %th.col-sm-2 Valor de compra (Bs)
+        %th
+    %tbody
+      %tr
+      = f.simple_fields_for :capitals do |capital|
+        %tr{ id: "capital-#{ capital.object.try(:id) }" }
+          %td
+            .col-sm-12
+              = capital.association :department, label: false, input_html: { id: "department_capitals_#{ capital.object.id }", class: "form-control department_capitals" }
+          %td
+            .col-sm-12
+              = capital.association :community, label: false, input_html: { id: "community_capitals_#{ capital.object.id }", class: "form-control community_capitals" }, collection: capital.object.try(:department).try(:communities)
+          %td
+            = capital.input_field :capital_item
+          %td
+            = capital.input_field :start_year
+          %td
+            = capital.input_field :current_value
+          %td
+            %a.btn.btn-danger.btn-small.remove-static-field
+              .glyphicon.glyphicon-remove
+            = capital.check_box :_destroy, class: 'hide'
 
   %a.btn.btn-success.btn-large.add_capital{ data: { type: "land-#{ index }-capital" } }
     .glyphicon.glyphicon-plus-sign

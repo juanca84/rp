@@ -8,9 +8,8 @@
             Departamento: #{ land.object.try(:department).try(:name) } - Municipio: #{ land.object.try(:community).try(:name) }
         %tr
           %th.col-sm-7 Item Capital
-          %th.col-sm-2 Año de Compra y/o Construcción           
-          %th.col-sm-1 Vida útil futura (Años)         
-          %th.col-sm-2 Valor actual (Bs)
+          %th.col-sm-2 Año de Compra y/o Construcción                  
+          %th.col-sm-2 Valor de compra (Bs)
       %tbody
         %tr
         = land.simple_fields_for :capitals do |capital|
@@ -19,8 +18,6 @@
               = capital.input_field :capital_item
             %td
               = capital.input_field :start_year
-            %td
-              = capital.input_field :lifespan_future
             %td
               = capital.input_field :current_value
 

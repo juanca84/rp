@@ -110,7 +110,7 @@ es:
       capital:
         capital_item: Item Capital
         community: Municipio
-        current_value: Valor actual
+        current_value: Valor de compra
         department: Departamento
         lifespan_future: Vida útil futura
         start_year: Año de Compra y/o Construcción

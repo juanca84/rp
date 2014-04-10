@@ -23,12 +23,13 @@ class Register < ActiveRecord::Base
   belongs_to :type_residence
 
   has_many :aggregates, dependent: :destroy
-  has_many :capitals, through: :lands
+  #has_many :capitals, through: :lands
+  has_many :capitals#, through: :lands
   has_many :holders, dependent: :destroy
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy
   #has_many :productions, through: :lands
-  #has_many :works
+  has_one :work
 
   has_many :people_registers, dependent: :destroy
   has_many :people, through: :people_registers
@@ -47,7 +48,9 @@ class Register < ActiveRecord::Base
 
   accepts_nested_attributes_for :aggregates, :sons, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }, allow_destroy: true
 
-  accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :capitals#, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
+  
+  accepts_nested_attributes_for :lands# ,reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
   
   accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
 
