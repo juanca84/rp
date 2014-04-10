@@ -10,9 +10,8 @@ class Register < ActiveRecord::Base
   attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
                   :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
-                  :second_entry, :sons_attributes, :type_residence_id, :user_id, :works_attributes
+                  :second_entry, :sons_attributes, :type_residence_id, :user_id, :work_attributes
                   
-
   belongs_to :civil_union
   belongs_to :economic_activity
   belongs_to :emission_community, class_name: Community
@@ -36,7 +35,7 @@ class Register < ActiveRecord::Base
 
   #has_many :partnerships_registers
   #has_many :partnerships, through: :partnerships_registers
-  has_many :productions, through: :lands
+  has_many :productions#, through: :lands
 
   has_many :partnerships, dependent: :destroy
 
@@ -48,11 +47,16 @@ class Register < ActiveRecord::Base
 
   accepts_nested_attributes_for :aggregates, :sons, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }, allow_destroy: true
 
-  accepts_nested_attributes_for :capitals#, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :capitals, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? }, allow_destroy: true
   
-  accepts_nested_attributes_for :lands# ,reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
   
   accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  
+  accepts_nested_attributes_for :productions#, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+
+  accepts_nested_attributes_for :work
+
 
   #scope para encontrar los registros que fueron completados es decir que estan en estados 'active' o 'inactive' 
   scope :valid, where("registers.status = ? OR registers.status = ?", 'active', 'inactive')

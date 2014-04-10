@@ -31,11 +31,9 @@
     = field_set_tag 'Trabajo' do
       #works
         = render 'work', f: f
-
-    .form-group
-      %label.integer.required.control-label.col-sm-5 Sumatoria de número de días al año dedicado a actividades agropecuarias en el establecimiento
-      .col-sm-5
-        %input.form-control{ value: @register.total_time_to_land, readonly: true }
+    %i 
+      %b Observación: 
+      En la conversión se asume que un hombre trabaja 250 días al año.
 
   = render "form_submit", register: @register
 

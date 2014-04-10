@@ -26,13 +26,13 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     _.bindAll this, "render", "add_row"
     @render()
 
-
   add_row: (e)->
     type = $(e.currentTarget).attr('data-type')
     tr_id = @generate_id()
     view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
     @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
 
+    console.log type
     if type is 'land'
       #columna para trabajo
       type = 'work'
@@ -43,7 +43,8 @@ class Runpa.Views.Registers.NewView extends Backbone.View
       type = 'capital'
       view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
       @$('table.table_' + type + 's tbody tr:last').after(view.render().el)  
-    
+
+
     false
 
   remove_static_field: (event) -> 

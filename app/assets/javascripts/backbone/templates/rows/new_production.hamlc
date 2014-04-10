@@ -1,4 +1,25 @@
 %td
+  .col-sm-12
+    .control-group.form-group.select.optional.register_lands_department
+      .control
+        %select.select.optional.form-control{ id: "department_lands_#{ @id }", class: 'department_lands', name: "register[lands_attributes][#{ @id }][department_id]" }
+          %option{value: ""}
+          %option{value: "1"} Tarija
+          %option{value: "2"} Potosi
+          %option{value: "3"} Chuquisaca
+          %option{value: "4"} Santa Cruz
+          %option{value: "5"} Oruro
+          %option{value: "6"} Cochabamba
+          %option{value: "7"} La Paz
+          %option{value: "8"} Beni
+          %option{value: "9"} Pando
+%td
+  .col-sm-12
+    .control-group.form-group.select.optional.register_lands_community
+      .control
+        %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[lands_attributes][#{ @id }][community_id]", class: 'community_lands' }
+          %option{value: ""}
+%td
   %input.string.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_entry", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][entry]", size: "50", type: "text"}
 %td
   %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_productions_attributes_#{ @id }_physical_coverage_amount", name: "register[lands_attributes][#{ @parent_id }][productions_attributes][#{ @id }][physical_coverage_amount]", type: "text", value: "0.0"}

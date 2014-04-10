@@ -3,16 +3,6 @@
 .table-responsive
   %table.table.table-bordered.table_register{ class: "table_land-#{ index }-capitals" }
     %thead
-      /
-      / %tr
-      /   %th{ colspan: 6 }
-      /     Departamento: 
-      /     %span.upcase
-      /       #{ capital.object.try(:department).try(:name).try(:upcase) }
-      /     \- Municipio: 
-      /     %span.upcase
-      /       #{ capital.object.try(:community).try(:name).try(:upcase) }
-
       %tr
         %th.col-sm-2 Departamento
         %th.col-sm-2 Municipio
