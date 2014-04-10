@@ -157,13 +157,14 @@ es:
         department_of_birth: Departamento de nacimiento
         first_lastname: Apellido Paterno
         identification: Número de Identificación
+        issued: Expedido en
         name: Nombres
         phone: Teléfono/celular
         province_of_birth: Provincia de nacimiento
         second_lastname: Apellido Materno
         sex: Sexo
         type_of_identification: Tipo de identificación
-        issued: Expedido en 
+
       production:
         community: Municipios
         department: Departamento
@@ -178,10 +179,14 @@ es:
 
       profile:
         name: Nombre
-        last_name: Apellidos
+        last_name: Apellido Paterno
+        second_last_name: Apellido Materno
         identification: Número de Identificación
+        issued: Expedido en
         birthdate: Fecha de nacimiento
         sex: Sexo
+        type_of_identification: Tipo de identificación
+
 
       register:
         address: Dirección

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140407214802) do
+ActiveRecord::Schema.define(:version => 20140410191439) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -204,11 +204,16 @@ ActiveRecord::Schema.define(:version => 20140407214802) do
     t.string   "identification"
     t.string   "sex"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.date     "birthdate"
+    t.string   "second_last_name"
+    t.integer  "type_of_identification_id"
+    t.integer  "issued_id"
   end
 
+  add_index "profiles", ["issued_id"], :name => "index_profiles_on_issued_id"
+  add_index "profiles", ["type_of_identification_id"], :name => "index_profiles_on_type_of_identification_id"
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "provinces", :force => true do |t|
