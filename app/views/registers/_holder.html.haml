@@ -21,7 +21,7 @@
         .form-group
           = person.label :department_of_birth, class: "col-sm-3"
           .col-sm-3
-            = person.input_field :department_of_birth_id, as: :select, collection: Department.all
+            = person.input_field :department_of_birth_id, as: :select, collection: Department.all, class: 'select optional form-control department_lands', id: "department_lands_#{ index }"
 
           = person.label :province_of_birth, class: "col-sm-3"
           .col-sm-3
@@ -30,7 +30,7 @@
         .form-group
           = person.label :community_of_birth, class: "col-sm-3"
           .col-sm-3
-            = person.input_field :community_of_birth_id, as: :select, collection: Community.all
+            = person.input_field :community_of_birth_id, as: :select, collection: Community.all, class: 'select optional form-control community_lands', id: "community_lands_#{ index }"
 
           = person.label :birthdate, class: "col-sm-3"
           .col-sm-3
@@ -61,7 +61,7 @@
 
         - if index == 1
           .form-group
-            = person.label :type_residence, class: "col-sm-2"
+            = f.label :type_residence, class: "col-sm-2"
             .col-sm-3
               = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
             = f.label :residence, class: "col-sm-2"
