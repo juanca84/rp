@@ -17,10 +17,15 @@
     = field_set_tag 'Tierra' do
       #lands
         = render 'land', f: f
+        %i 
+          %b * 
+          Deforestación sin autorización
+        %br
+        %br
         %a.btn.btn-success.btn-large.add_land{ data: { type: 'land' } }
           .glyphicon.glyphicon-plus-sign
           adicionar tierra
-
+    
   .well.form-actions
     = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
       #capitals
