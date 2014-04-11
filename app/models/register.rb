@@ -134,6 +134,7 @@ class Register < ActiveRecord::Base
     total
   end
 
+  #metodo para obtener al titular principal
   def holder_main
     holders.includes(:person).first.try(:person)
   end
