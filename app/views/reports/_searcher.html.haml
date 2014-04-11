@@ -23,16 +23,21 @@
         = f.select :holders_person_civil_status_id_eq, options_from_collection_for_select(CivilStatus.all, :id, :name, params[:q].present? && params[:q][:holders_person_civil_status_id_eq]) , { include_blank: true  }, class: 'select form-control'
 
     .form-group
-      %label.string.optional.control-label.col-sm-1 Departamento
+      %label.string.optional.control-label.col-sm-2 Sexo
+      .col-sm-4
+        = f.select :holders_person_sex_eq, options_for_select(["M", "F"], params[:q][:holders_person_sex_eq]), { include_blank: true  }, class: 'select form-control'
+
+    .form-group
+      %label.string.optional.control-label.col-sm-2 Departamento
       .col-sm-3
         = f.select :lands_department_id_eq, options_from_collection_for_select(@departments, :id, :name, params[:q].present? && params[:q][:lands_department_id_eq]), { include_blank: true  }, class: 'select form-control department_lands', id: 'department_lands_666'
 
-      %label.string.optional.control-label.col-sm-1 Municipio
+      %label.string.optional.control-label.col-sm-3 Municipio
       .col-sm-3
         = f.select :lands_community_id_eq, options_from_collection_for_select(@communities, :id, :name, params[:q].present? && params[:q][:lands_community_id_eq]), { include_blank: true  }, class: 'select form-control community_lands', id: 'community_lands_666'      
 
     .form-group
-      %label.string.optional.control-label.col-sm-1 Asociación
+      %label.string.optional.control-label.col-sm-2 Asociación
       .col-sm-4
         = f.text_field :partnership_productive_name_1_cont, class: 'form-control'
 
