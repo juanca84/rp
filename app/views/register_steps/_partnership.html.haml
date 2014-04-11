@@ -1,16 +1,71 @@
-.table-responsive
-  %table.table.table-bordered.table_register.table_partnerships
-    %tbody
-      %tr
-      = f.simple_fields_for :partnership do |partnership| 
-        %tr
-          %td.col-sm-9
-            = partnership.input_field :name
-          %td.col-sm-1
-            Cód:
-          %td.col-sm-2
-            = partnership.input_field :code
-          %td.col-sm-1
-            %a.btn.btn-danger.btn-small.remove-static-field
-              .glyphicon.glyphicon-remove
-            = partnership.check_box :_destroy, class: 'hide'
+= f.simple_fields_for :partnership do |partnership|
+  .well.form-actions
+    .form-group.control-group
+      = partnership.label :community_name, class: "col-sm-7"
+      .col-sm-5.control
+        = partnership.input_field :name, class: 'form-control'
+
+    .form-group.control-group
+      = partnership.label :community_legal_status, class: "col-sm-7"
+      .col-sm-5.control
+        = partnership.input_field :community_legal_status, class: 'form-control', as: :radio_buttons, item_wrapper_class: 'radio-inline'
+
+    .form-group.control-group
+      = partnership.label :greater_community, class: "col-sm-7"
+      .col-sm-5.control
+        = partnership.input_field :greater_community, class: 'form-control'
+
+  .well.form-actions
+    = field_set_tag 'Organización productiva 1' do
+      .form-group.control-group
+        = partnership.label :productive_name_1, class: "col-sm-5"
+        .col-sm-7.control
+          = partnership.input_field :productive_name_1, class: 'form-control'
+
+      .form-group.control-group
+        = partnership.label :productive_legal_status_1,  class: "col-sm-5"
+        .col-sm-7.control
+          = partnership.input_field :productive_legal_status_1, class: 'form-control', as: :radio_buttons, item_wrapper_class: 'radio-inline'
+
+      .form-group
+        = partnership.label :economic_activity_1, class: "col-sm-5"
+        .col-sm-5
+          = partnership.input_field :economic_activity_1_id, as: :select, collection: EconomicActivity.all
+      
+      .form-group
+        = partnership.label :first_entry_1, class: "col-sm-5"
+        .col-sm-5
+          = partnership.input_field :first_entry_1
+      
+      .form-group
+        = partnership.label :second_entry_1, class: "col-sm-5"
+        .col-sm-5
+          = partnership.input_field :second_entry_1
+
+  .well.form-actions
+    = field_set_tag 'Organización productiva 2' do
+      .form-group.control-group
+        = partnership.label :productive_name_2, class: "col-sm-5"
+        .col-sm-7.control
+          = partnership.input_field :productive_name_2, class: 'form-control'
+
+      .form-group.control-group
+        = partnership.label :productive_legal_status_2,  class: "col-sm-5"
+        .col-sm-7.control
+          = partnership.input_field :productive_legal_status_2, class: 'form-control', as: :radio_buttons, item_wrapper_class: 'radio-inline'
+
+      .form-group
+        = partnership.label :economic_activity_2, class: "col-sm-5"
+        .col-sm-5
+          = partnership.input_field :economic_activity_2_id, as: :select, collection: EconomicActivity.all
+      
+      .form-group
+        = partnership.label :first_entry_2, class: "col-sm-5"
+        .col-sm-5
+          = partnership.input_field :first_entry_2
+      
+      .form-group
+        = partnership.label :second_entry_2, class: "col-sm-5"
+        .col-sm-5
+          = partnership.input_field :second_entry_2
+  

@@ -28,16 +28,9 @@
               = render 'registers/show/son_aggregate', f: f, resources: :aggregates
 
       .well.form-actions
-        %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
-        .well.form-actions
-          = field_set_tag 'A que asociaciones pertenece' do
-            #partnerships
-              = render 'registers/show/partnership', f: f
-
-        .well.form-actions
-          = field_set_tag 'Actividad Principal' do
-            = render 'registers/show/main_activity', f: f  
-
+        %legend ORGANIZACIÓN PRODUCTIVA 
+        #partnerships
+          = render 'registers/show/partnership', f: f
 
       .well.form-actions
         %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
