@@ -238,4 +238,13 @@ class Register < ActiveRecord::Base
     end
   end
 
+  def categorization
+    if work.eventual_labor <= 50 && work.permanent_labor = 0
+      "agricultor familiar"
+    else
+      "agricultor no familiar"
+    end  
+
+  end
+
 end

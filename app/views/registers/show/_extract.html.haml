@@ -84,7 +84,7 @@
   .form-group.control-group
     %label.string.optional.control-label.col-sm-2 Categorización
     .col-sm-6
-      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:first_lastname) }
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.categorization }
 
   .well.form-actions
     %legend Actividad Principal
