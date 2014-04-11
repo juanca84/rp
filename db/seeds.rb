@@ -11,7 +11,7 @@ module_servicio_web  = RunpaModule.where(name: 'servicio_web').first_or_create
 administrador.runpa_modules << module_formulario
 administrador.runpa_modules << module_administrador
 administrador.runpa_modules << module_reportes
-administrador.runpa_modules << module_servicios_web
+administrador.runpa_modules << module_servicio_web
 
 agente_registrador.runpa_modules << module_formulario
 

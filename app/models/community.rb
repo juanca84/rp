@@ -7,6 +7,7 @@ class Community < ActiveRecord::Base
   has_many :regions_users, as: :regionable
   has_many :people_born, class_name: Person, foreign_key: :community_of_birth_id
   has_many :emission_registers, class_name: Register, foreign_key: :emission_community_id
+  has_many :capitals
  
   has_many :lands 
 end

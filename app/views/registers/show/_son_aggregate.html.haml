@@ -2,7 +2,9 @@
   %table.table.table-bordered.table_register{ class: "table_#{ resources.to_s }"}
     %thead
       %tr
-        %th.col-sm-6 Nombre y Apellidos
+        %th.col-sm-2 Nombres
+        %th.col-sm-2 Apellido Paterno
+        %th.col-sm-2 Apellido Materno
         %th.col-sm-1 Edad
         %th.col-sm-1 Sexo
         %th.col-sm-2 Nº de días al año dedicado a las actividades agropecuarias en el establecimiento
@@ -13,9 +15,12 @@
       = f.simple_fields_for resources do |resource|
         = resource.simple_fields_for :person do |person|
           %tr
-            %td.col-sm-6
+            %td.col-sm-2
               = person.input_field :name
-              = resource.hidden_field :type_person
+            %td.col-sm-2
+              = person.input_field :first_lastname
+            %td.col-sm-2
+              = person.input_field :second_lastname
             %td.col-sm-1
               = person.input_field :age
             %td.col-sm-1

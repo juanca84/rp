@@ -7,8 +7,8 @@ gem 'rails', '3.2.13'
 #for database adapter postgres
 gem 'pg'
 #for database adapter oracle
-#gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
-#gem 'ruby-oci8', '~> 2.1.0'
+#gem 'ruby-oci8'
+#gem 'activerecord-oracle_enhanced-adapter',   '~> 1.4.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -60,7 +60,6 @@ gem 'bootstrap-typeahead-rails'
 
 #versionamiento base de datos
 gem 'paper_trail', '~> 3.0.0'
-gem 'activerecord-diff'
 
 #exportacion a json
 gem 'rabl'
@@ -76,7 +75,8 @@ end
 
 #for documentation
 group :development, :test do
-  gem "rails-erd"
+  #gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
+  #gem 'railroady'
   gem 'rspec-rails'
 end
 

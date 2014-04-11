@@ -16,6 +16,7 @@ class RegisterStepsController < ApplicationController
       render_wizard and return
     when 'partnerships'
       @register = Register.find params[:register_id]
+      @register.build_partnership unless @register.partnership.present?
       @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_family? || @register.step_partnership? || @register.step_factors?
         render_wizard and return
@@ -23,7 +24,8 @@ class RegisterStepsController < ApplicationController
         redirect_to edit_register_path(@register)
       end  
     when 'factors'
-      @register = Register.includes(lands: [:department, :community]).find params[:register_id]
+      @register = Register.includes([{lands: [:department, :community]}, :capitals]).find params[:register_id]
+      @register.build_work unless @register.work.present?
       @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_partnership? || @register.step_factors?
         render_wizard and return
@@ -52,7 +54,6 @@ class RegisterStepsController < ApplicationController
   
   def update
     @register = Register.find params[:register_id]
-
     step  = params[:id]
     case step
     when 'family'

@@ -15,25 +15,23 @@
  *= require print
  */
 @import "twitter/bootstrap";
-@import 'anjlab/datepicker';
-@import 'anjlab/timepicker';
-.container{
-  width: 90%;
-}
-body {
-    color: #333333;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-}
-legend{
-	font-weight: bold;
-}
-form{
-	label{
-		font-weight: normal;
-	}
-}
+// .container{
+//   width: 90%;
+// }
+// body {
+//     color: #333333;
+//     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+//     font-size: 14px;
+//     line-height: 20px;
+// }
+// legend{
+// 	font-weight: bold;
+// }
+// form{
+// 	label{
+// 		font-weight: normal;
+// 	}
+// }
 
 .table{ 
   thead{
@@ -41,6 +39,9 @@ form{
       th{
           vertical-align: inherit;
           text-align: center;
+        span.upcase{
+          font-size: 18px;
+        }
       }
     }
   }
@@ -66,12 +67,37 @@ form{
   }
 }
 
-// .form-register{
-//   input[type=text]{
-//     text-transform: uppercase;
-//   }
-// }
+.form-register, .form-report{
+  input[type=text]{
+    text-transform: uppercase;
+  }
+  select {text-transform: uppercase}
+}
+
+.form-show{
+  font-size: 12px;
+  input[type=text]{
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  select{
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}
+
+td{
+  text-transform: uppercase;
+}
+.btn{
+  text-transform: none;
+}
+
 
 .downloader_file{
   display: inline-block;
+}
+.radio_buttons{
+  height: 18px !important;;
+  width: 18px !important;
 }

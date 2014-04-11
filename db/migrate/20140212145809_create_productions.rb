@@ -7,8 +7,8 @@ class CreateProductions < ActiveRecord::Migration
       t.float :production_quantity, default: 0
       t.string :production_system
       t.string :production_unit
-      t.float :productive_physical_coverage_amount, default: 0
-      t.string :productive_physical_coverage_unit
+      t.float :physical_coverage_amount, default: 0
+      t.string :physical_coverage_unit
 
       t.timestamps
     end

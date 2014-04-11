@@ -10,7 +10,7 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{href: home_index_path} Inicio
+          %a{ href: home_index_path } Inicio
         - if current_user.present?
           - if current_user.module_formulario?
             %li
@@ -28,7 +28,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if !current_user.present?
           %li
-            = link_to 'Iniciar Session', new_user_session_path
+            = link_to 'Iniciar Sesión', new_user_session_path
         - else
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

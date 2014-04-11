@@ -4,44 +4,68 @@
     = field_set_tag "Titular 0#{ index }" do
       = holder.hidden_field :type_person
       = holder.simple_fields_for :person do |person|
-        /= person.input :name
         .form-group.control-group
-          = person.label :name, class: "col-sm-3"
-          .col-sm-9.control
+          = person.label :name, class: "col-sm-2"
+          .col-sm-10.control
             = person.input_field :name, class: 'form-control'
 
         .form-group
-          = person.label :birthplace, class: "col-sm-3"
-          .col-sm-4
-            = person.input_field :birthplace, data: { provide: "typeahead" } 
+          = person.label :first_lastname, class: "col-sm-2"
+          .col-sm-4.control
+            = person.input_field :first_lastname, class: 'form-control'
 
-          / = person.label :community_of_birth, class: "col-sm-3"
-          / .col-sm-4
-          /   = person.input_field :community_of_birth_id, as: :select, collection: Community.all
+          = person.label :second_lastname, class: "col-sm-2"
+          .col-sm-4.control
+            = person.input_field :second_lastname, class: 'form-control'
 
-          = person.label :birthdate, class: "col-sm-2"
+        .form-group
+          = person.label :department_of_birth, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :department_of_birth_id, as: :select, collection: Department.all, class: 'select optional form-control department_lands', id: "department_lands_#{ index }"
+
+          = person.label :province_of_birth, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :province_of_birth_id, as: :select, collection: Province.all, class: 'select optional form-control province_lands', id: "province_lands_#{ index }"
+
+        .form-group
+          = person.label :community_of_birth, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :community_of_birth_id, as: :select, collection: Community.all, class: 'select optional form-control community_lands', id: "community_lands_#{ index }"
+
+          = person.label :birthdate, class: "col-sm-3"
           .col-sm-3
             = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate)
 
         .form-group
-          = person.label :identification, class: "col-sm-2"
+          = person.label :type_of_identification, class: "col-sm-3"
+          .col-sm-2
+            = person.input_field :type_of_identification_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeOfIdentification.all, prompt: "Tipo de identificación", blank: true
+          = person.label :identification, class: "col-sm-3"
           .col-sm-2
             = person.input_field :identification
-          = person.label :sex, class: "col-sm-1"
           .col-sm-2
-            = person.input_field :sex, as: :select, collection: Person::SEX
+            = person.input_field :issued_id, as: :select, collection: Department.all, first: :id, last: :abbrevation, prompt: "expedido en", blank: true
+
+        .form-group
           = person.label :education, class: "col-sm-2"
           .col-sm-3
             = person.input_field :education_id, as: :select, collection: Education.all
+          = person.label :sex, class: "col-sm-2"
+          .col-sm-1
+            = person.input_field :sex, as: :select, collection: Person::SEX
+
+          - if index == 1
+            = person.label :civil_status, class: "col-sm-2"
+            .col-sm-2
+              = person.input_field :civil_status_id, as: :select, collection: CivilStatus.all
 
         - if index == 1
           .form-group
-            = person.label :civil_status, class: "col-sm-2"
-            .col-sm-4
-              = person.input_field :civil_status_id, as: :select, collection: CivilStatus.all
-
+            = f.label :type_residence, class: "col-sm-2"
+            .col-sm-3
+              = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
             = f.label :residence, class: "col-sm-2"
-            .col-sm-4
+            .col-sm-5
               = f.input_field :residence
 
           .form-group
@@ -54,26 +78,13 @@
               = person.input_field :phone
 
           .form-group
-            = f.label :department, class: "col-sm-2"
+            = f.label :department, class: "col-sm-3"
             .col-sm-3
               = f.input_field :department_id, as: :select, collection: Department.all, id: 'department_holder'
 
             = f.label :community, class: "col-sm-3"
-            .col-sm-4
+            .col-sm-3
               = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
-
-          .form-group
-            = f.label :geodesic_ns, class: "col-sm-2"
-            .col-sm-2
-              = f.input_field :geodesic_ns
-
-            = f.label :geodesic_ns, class: "col-sm-2"
-            .col-sm-2
-              = f.input_field :geodesic_ew
-
-            = f.label :code_ine, class: "col-sm-2"
-            .col-sm-2
-              = f.input_field :code_ine
 
         .form-group
           = holder.label :time_to_land, class: "col-sm-7"

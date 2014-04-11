@@ -1,18 +1,28 @@
 .form-group
-  %label.string.optional.control-label.col-sm-2 CI
-  .col-sm-2
-    %input.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:identification) }
-
-  %label.string.optional.control-label.col-sm-2 Nombre y Apellidos
-  .col-sm-6
-    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:full_name)} 
+  %label.string.optional.control-label.col-sm-2 Nombres
+  .col-sm-10
+    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:profile).try(:name)} 
 
 .form-group
-  %label.string.optional.control-label.col-sm-2 NIT y/o PJ
-  .col-sm-2
-    %input.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:nit) } 
+  %label.string.optional.control-label.col-sm-2 Apellido Paterno
+  .col-sm-4
+    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:profile).try(:last_name)} 
 
+  %label.string.optional.control-label.col-sm-2 Apellido Materno
+  .col-sm-4
+    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:profile).try(:second_last_name)} 
+
+.form-group
+  %label.string.optional.control-label.col-sm-2= f.object.try(:user).try(:profile).try(:type_of_identification).try(:name)
+  .col-sm-4
+    %input.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:identification) }
+
+  %label.string.optional.control-label.col-sm-2 Expedido en
+  .col-sm-2
+    %input.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:identification) }
+
+.form-group
   %label.string.optional.control-label.col-sm-2 Razón Social
-  .col-sm-6
-    %input#register_residence.string.optional.form-control{maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:business_name) }
+  .col-sm-8
+    %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:business_name) }
     

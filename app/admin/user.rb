@@ -1,4 +1,7 @@
+#encoding: UTF-8
 ActiveAdmin.register User do
+  menu parent: 'Administración de Usuarios'
+
   controller do
     def edit
       @user = User.find(params[:id])
@@ -35,8 +38,6 @@ ActiveAdmin.register User do
     column :number_of_ballots do |u|
       u.registers.valid.size
     end
-    #column :sign_in_count
-    #column :last_seen_at
     column :departments do |u|
       u.departments.pluck(:name).join(", ")
     end

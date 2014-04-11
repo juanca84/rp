@@ -26,12 +26,12 @@
     <% @registers.each do |register| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= register.code %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= register.holder_main.try(:name) %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= register.holder_main.try(:identification) %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= register.holder_main.try(:civil_status).try(:name) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= register.holder_main.try(:name).try(:upcase) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= register.holder_main.try(:identification).try(:upcase) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= register.holder_main.try(:civil_status).try(:name).try(:upcase) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= register.holder_main.try(:get_age) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= register.zone_productions("CAÑA") %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= register.residence %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= register.residence.try(:upcase) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= register.sons.size %></Data></Cell>
         <Cell><Data ss:Type="String"><%= register.aggregates.size %></Data></Cell>
         <Cell><Data ss:Type="String"><%= register.entries_productions("CAÑA") %></Data></Cell>
@@ -39,7 +39,7 @@
         <Cell><Data ss:Type="String">HAS</Data></Cell>
         <Cell><Data ss:Type="String"><%= register.total_productions("CAÑA") %></Data></Cell>
         <Cell><Data ss:Type="String">TON</Data></Cell>
-        <Cell><Data ss:Type="String"><%= register.summary_partnerships %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= register.summary_partnerships.try(:upcase) %></Data></Cell>
       </Row>
     <% end %>
     </Table>

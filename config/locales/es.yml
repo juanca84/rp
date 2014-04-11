@@ -95,9 +95,12 @@ es:
       register:
         one: Registro
         others: Registros
-      type_identification:
+      type_of_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones
+      type_residence:
+        one: Tipo de Residencia
+        other: Tipos de Residencias
       user:
         one: Usuario
         other: Usuarios
@@ -107,10 +110,13 @@ es:
       capital:
         capital_item: Item Capital
         community: Municipio
-        current_value: Valor actual
+        current_value: Valor de Compra y/o Construcción
         department: Departamento
         lifespan_future: Vida útil futura
         start_year: Año de Compra y/o Construcción
+
+      department:
+        abbreviation: Abreviación
 
       entity:
         business_name: Razón Social
@@ -135,6 +141,19 @@ es:
       partnership:
         name: Nombre
         code: Código
+        community_legal_status: ¿Posee personería jurídica la organización comunitaria?
+        community_name: ¿A qué organización comunitaria pertenece? (comunidad/capitania/colonia/otros)
+        economic_activity_1: ACTIVIDAD PRINCIPAL Subsector 1
+        economic_activity_2: ACTIVIDAD PRINCIPAL Subsector 2
+        first_entry_1: Primer rubro 1
+        first_entry_2: Primer rubro 2
+        greater_community: ¿A qué organización matriz superior comunitaria pertenece?
+        productive_legal_status_1: ¿Posee personería jurídica la organización productiva?
+        productive_legal_status_2: ¿Posee personería jurídica la organización productiva?
+        productive_name_1: Nombre de la organización 
+        productive_name_2: Nombre de la organización
+        second_entry_1: Segundo rubro 1
+        second_entry_2: Segundo rubro 2
 
       people_register:
         mothers_name: Nombre de la Madre
@@ -146,18 +165,26 @@ es:
         birthdate: Fecha de nacimiento
         birthplace: Municipio de Nacimiento
         civil_status: Estado Civil
+        community_of_birth: Municipio de nacimiento
         education: Nivel de instrucción
-        identification: Cédula de Identidad
-        name: Nombre y Apellidos
+        department_of_birth: Departamento de nacimiento
+        first_lastname: Apellido Paterno
+        identification: Número de Identificación
+        issued: Expedido en
+        name: Nombres
         phone: Teléfono/celular
+        province_of_birth: Provincia de nacimiento
+        second_lastname: Apellido Materno
         sex: Sexo
+        type_of_identification: Tipo de identificación
+
       production:
-        community: Municipio
+        community: Municipios
         department: Departamento
         entry: Rubro
         production_destination: Sistema de Producción
-        productive_physical_coverage_amount: Cobertura Física Productiva - cantidad
-        productive_physical_coverage_unit: Cobertura Física Productiva - unidad
+        physical_coverage_amount: Cobertura Física Productiva - cantidad
+        physical_coverage_unit: Cobertura Física Productiva - unidad
         production_quantity: Producción - cantidad
         production_unit: Producción - unidad
         production_system: Sistema de Producción
@@ -165,10 +192,14 @@ es:
 
       profile:
         name: Nombre
-        last_name: Apellidos
+        last_name: Apellido Paterno
+        second_last_name: Apellido Materno
         identification: Número de Identificación
+        issued: Expedido en
         birthdate: Fecha de nacimiento
         sex: Sexo
+        type_of_identification: Tipo de identificación
+
 
       register:
         address: Dirección
@@ -176,7 +207,7 @@ es:
         code: Código
         code_ine: Código INE
         community: Municipio de Residencia
-        department: Departamento
+        department: Departamento de Residencia
         economic_activity: Subsector
         emission_date: Fecha de emisión
         emission_community: Municipio de emisión
@@ -187,6 +218,7 @@ es:
         residence: Lugar de Residencia
         second_entry: Rubro 2
         status: Estado
+        type_residence: Tipo de residencia
       role:
         name: nombre
         resource_type: Tipo de Recurso

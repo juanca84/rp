@@ -1,5 +1,6 @@
+#encoding: UTF-8
 ActiveAdmin.register Role do
-
+  menu parent: 'Administración de Usuarios'
   index do
     column :name
     column :runpa_modules do |u|

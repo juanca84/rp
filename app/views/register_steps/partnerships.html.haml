@@ -10,19 +10,15 @@
 
   = f.error_notification
 
-  .well.form-actions
-    %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
-    .well.form-actions
-      = field_set_tag 'A que asociaciones pertenece' do
-        #partnerships
-          = render 'partnership', f: f
-          %a.btn.btn-success.btn-large.add_partnership{ data: { type: 'partnership' } } 
-            .glyphicon.glyphicon-plus-sign
-            adicionar asociacion productiva 
 
-    .well.form-actions
-      = field_set_tag 'Actividad Principal' do
-        = render 'main_activity', f: f  
+  %legend ORGANIZACIÓN PRODUCTIVA
+  
+  #partnerships
+    = render 'partnership', f: f
+
+  / .well.form-actions
+  /   = field_set_tag 'Actividad Principal' do
+  /     = render 'main_activity', f: f  
   
   = render "form_submit", register: @register
  

@@ -6,15 +6,18 @@
     = f.input :entity_id, as: :select, collection: Entity.all.map{|e| [e.business_name, e.id]}
     = f.input :active
     = f.input :roles, as: :check_boxes
-    = f.input :departments, as: :check_boxes
-    = f.input :provinces, as: :check_boxes
-    = f.input :communities, as: :check_boxes
+    /= f.input :departments, as: :check_boxes
+    /= f.input :provinces, as: :check_boxes
+    /= f.input :communities, as: :check_boxes
 
   = f.inputs "Detalles de Perfil" do
     = f.semantic_fields_for :profile do |profile|
       = profile.input :name
       = profile.input :last_name
+      = profile.input :second_last_name
+      = profile.input :type_of_identification
       = profile.input :identification
+      = profile.input :issued
       = profile.input :birthdate, as: :date_picker
       = profile.input :sex, as: :select, collection: Person::SEX
   = f.actions

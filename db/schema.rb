@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324134912) do
+ActiveRecord::Schema.define(:version => 20140411031934) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.integer  "land_id"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.integer  "register_id"
+    t.integer  "department_id"
+    t.integer  "community_id"
   end
 
   add_index "capitals", ["land_id"], :name => "index_capitals_on_land_id"
@@ -60,8 +63,9 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   create_table "departments", :force => true do |t|
     t.string   "code"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "abbreviation"
   end
 
   create_table "departments_users", :force => true do |t|
@@ -122,10 +126,26 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   create_table "partnerships", :force => true do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.integer  "register_id"
+    t.string   "community_name"
+    t.boolean  "community_legal_status",    :default => false
+    t.string   "greater_community"
+    t.string   "productive_name_1"
+    t.boolean  "productive_legal_status_1", :default => false
+    t.integer  "economic_activity_1_id"
+    t.string   "first_entry_1"
+    t.string   "second_entry_1"
+    t.string   "productive_name_2"
+    t.boolean  "productive_legal_status_2", :default => false
+    t.integer  "economic_activity_2_id"
+    t.string   "first_entry_2"
+    t.string   "second_entry_2"
   end
+
+  add_index "partnerships", ["economic_activity_1_id"], :name => "index_partnerships_on_economic_activity_1_id"
+  add_index "partnerships", ["economic_activity_2_id"], :name => "index_partnerships_on_economic_activity_2_id"
 
   create_table "partnerships_registers", :force => true do |t|
     t.integer  "register_id"
@@ -144,13 +164,24 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.string   "sex"
     t.integer  "education_id"
     t.integer  "civil_status_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "age"
     t.integer  "community_of_birth_id"
     t.string   "phone"
     t.string   "birthplace"
+    t.string   "first_lastname"
+    t.string   "second_lastname"
+    t.integer  "department_of_birth_id"
+    t.string   "province_of_birth_id"
+    t.integer  "type_of_identification_id"
+    t.integer  "issued_id"
   end
+
+  add_index "people", ["department_of_birth_id"], :name => "index_people_on_department_of_birth_id"
+  add_index "people", ["issued_id"], :name => "index_people_on_issued_id"
+  add_index "people", ["province_of_birth_id"], :name => "index_people_on_province_of_birth_id"
+  add_index "people", ["type_of_identification_id"], :name => "index_people_on_type_of_identification_id"
 
   create_table "people_registers", :force => true do |t|
     t.integer  "person_id"
@@ -169,13 +200,16 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.integer  "land_id"
     t.string   "entry"
     t.string   "production_destination"
-    t.float    "production_quantity",                 :default => 0.0
+    t.float    "production_quantity",      :default => 0.0
     t.string   "production_system"
     t.string   "production_unit"
-    t.float    "productive_physical_coverage_amount", :default => 0.0
-    t.string   "productive_physical_coverage_unit"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.float    "physical_coverage_amount", :default => 0.0
+    t.string   "physical_coverage_unit"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "register_id"
+    t.integer  "department_id"
+    t.integer  "community_id"
   end
 
   add_index "productions", ["land_id"], :name => "index_productions_on_land_id"
@@ -186,11 +220,16 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.string   "identification"
     t.string   "sex"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.date     "birthdate"
+    t.string   "second_last_name"
+    t.integer  "type_of_identification_id"
+    t.integer  "issued_id"
   end
 
+  add_index "profiles", ["issued_id"], :name => "index_profiles_on_issued_id"
+  add_index "profiles", ["type_of_identification_id"], :name => "index_profiles_on_type_of_identification_id"
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "provinces", :force => true do |t|
@@ -234,6 +273,7 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
     t.integer  "economic_activity_id"
     t.string   "status"
     t.datetime "activation_date"
+    t.integer  "type_residence_id"
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
@@ -241,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   add_index "registers", ["economic_activity_id"], :name => "index_registers_on_economic_activity_id"
   add_index "registers", ["emission_community_id"], :name => "index_registers_on_emission_community_id"
   add_index "registers", ["emission_department_id"], :name => "index_registers_on_emission_department_id"
+  add_index "registers", ["type_residence_id"], :name => "index_registers_on_type_residence_id"
   add_index "registers", ["user_id"], :name => "index_registers_on_user_id"
 
   create_table "roles", :force => true do |t|
@@ -265,6 +306,20 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   add_index "roles_runpa_modules", ["runpa_module_id"], :name => "index_roles_runpa_modules_on_runpa_module_id"
 
   create_table "runpa_modules", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "type_of_identifications", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "type_residences", :force => true do |t|
+    t.string   "code"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -316,5 +371,19 @@ ActiveRecord::Schema.define(:version => 20140324134912) do
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
   add_index "versions", ["parent_id"], :name => "index_versions_on_parent_id"
   add_index "versions", ["register_id"], :name => "index_versions_on_register_id"
+
+  create_table "works", :force => true do |t|
+    t.integer  "own_labor",               :default => 0
+    t.integer  "eventual_labor",          :default => 0
+    t.integer  "permanent_labor",         :default => 0
+    t.float    "men_per_year_own",        :default => 0.0
+    t.float    "men_per_year_eventually", :default => 0.0
+    t.float    "men_per_year_total",      :default => 0.0
+    t.integer  "register_id"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  add_index "works", ["register_id"], :name => "index_works_on_register_id"
 
 end
