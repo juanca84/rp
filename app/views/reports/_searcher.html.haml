@@ -25,7 +25,7 @@
     .form-group
       %label.string.optional.control-label.col-sm-2 Sexo
       .col-sm-4
-        = f.select :holders_person_sex_eq, options_for_select(["M", "F"], params[:q][:holders_person_sex_eq]), { include_blank: true  }, class: 'select form-control'
+        = f.select :holders_person_sex_eq, options_for_select(["M", "F"], params[:q].present? && params[:q][:holders_person_sex_eq]), { include_blank: true  }, class: 'select form-control'
 
     .form-group
       %label.string.optional.control-label.col-sm-2 Departamento
