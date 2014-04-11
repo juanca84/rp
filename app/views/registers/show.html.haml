@@ -85,6 +85,11 @@
         .well.form-actions
           = render 'register_steps/registrar_agent', f: f
 
+    .well.form-actions
+      %legend 
+        %h3 EXTRACTO DEL REGISTRO ÚNICO NACIONAL DE PRODUCTORES AGROPECUARIOS
+      = render 'registers/show/extract', f: f
+
 .form-actions.navsteps.non-printable 
   %a.btn.btn-primary.btn-large{href: registers_path}
     .glyphicon.glyphicon-list

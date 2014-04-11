@@ -204,7 +204,7 @@ es:
       register:
         address: Dirección
         civil_union: Unión Civil
-        code: Código
+        code: Registro Nº
         code_ine: Código INE
         community: Municipio de Residencia
         department: Departamento de Residencia

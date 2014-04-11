@@ -137,6 +137,10 @@ class Register < ActiveRecord::Base
   def holder_main
     holders.includes(:person).first.try(:person)
   end
+  
+  def holder_two
+    holders.includes(:person).last.try(:person)
+  end
 
   def summary_holders
     "#{ holders.first.try(:person).try(:name) },\n 
