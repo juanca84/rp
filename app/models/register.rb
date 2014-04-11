@@ -9,7 +9,7 @@ class Register < ActiveRecord::Base
   
   attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
-                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
+                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnership_attributes, :productions_attributes, :residence, 
                   :second_entry, :sons_attributes, :type_residence_id, :user_id, :work_attributes
                   
   belongs_to :civil_union
@@ -37,7 +37,7 @@ class Register < ActiveRecord::Base
   #has_many :partnerships, through: :partnerships_registers
   has_many :productions#, through: :lands
 
-  has_many :partnerships, dependent: :destroy
+  has_one :partnership, dependent: :destroy
 
   validates :user_id,  presence: true
   validates :code, presence: true, uniqueness: true, if: lambda { |o| o.active? }
@@ -51,7 +51,7 @@ class Register < ActiveRecord::Base
   
   accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
 
-  accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :partnership, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
   
   accepts_nested_attributes_for :productions, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
 
@@ -144,7 +144,7 @@ class Register < ActiveRecord::Base
   end
 
   def summary_partnerships
-    partnerships.pluck(:name).join(', ')
+    "#{ partnership.productive_name_1 }, #{ partnership.productive_name_2 }"
   end
 
   def summary_economic_activity

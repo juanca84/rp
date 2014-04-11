@@ -16,6 +16,7 @@ class RegisterStepsController < ApplicationController
       render_wizard and return
     when 'partnerships'
       @register = Register.find params[:register_id]
+      @register.build_partnership unless @register.partnership.present?
       @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_family? || @register.step_partnership? || @register.step_factors?
         render_wizard and return

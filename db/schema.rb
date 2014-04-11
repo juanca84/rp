@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140410191439) do
+ActiveRecord::Schema.define(:version => 20140411031934) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -126,10 +126,26 @@ ActiveRecord::Schema.define(:version => 20140410191439) do
   create_table "partnerships", :force => true do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.integer  "register_id"
+    t.string   "community_name"
+    t.boolean  "community_legal_status",    :default => false
+    t.string   "greater_community"
+    t.string   "productive_name_1"
+    t.boolean  "productive_legal_status_1", :default => false
+    t.integer  "economic_activity_1_id"
+    t.string   "first_entry_1"
+    t.string   "second_entry_1"
+    t.string   "productive_name_2"
+    t.boolean  "productive_legal_status_2", :default => false
+    t.integer  "economic_activity_2_id"
+    t.string   "first_entry_2"
+    t.string   "second_entry_2"
   end
+
+  add_index "partnerships", ["economic_activity_1_id"], :name => "index_partnerships_on_economic_activity_1_id"
+  add_index "partnerships", ["economic_activity_2_id"], :name => "index_partnerships_on_economic_activity_2_id"
 
   create_table "partnerships_registers", :force => true do |t|
     t.integer  "register_id"
