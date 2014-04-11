@@ -9,7 +9,7 @@ class ReportsController < RunpaController
     if params[:q].present?
       @department = params[:q][:lands_department_id_eq].present? && Department.find(params[:q][:lands_department_id_eq]).try(:name)
       @community = params[:q][:lands_community_id_eq].present? && Community.find(params[:q][:lands_community_id_eq]).try(:name)
-      @partnership = params[:q][:partnerships_name_cont]
+      @partnership = params[:q][:partnership_productive_name_1_cont]
     end 
     @total_registers = @q.result(distinct: true).size
 

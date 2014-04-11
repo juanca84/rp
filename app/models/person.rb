@@ -5,14 +5,18 @@ class Person < ActiveRecord::Base
 
   default_scope order('people.created_at ASC')
 
-  attr_accessible :age, :birthdate, :birthplace, :community_of_birth_id, :civil_status_id, :education_id, :first_lastname, :identification, 
-                  :name, :phone, :people_registers_attributes, :sex
+  attr_accessible :age, :birthdate, :birthplace, :community_of_birth_id, :civil_status_id, :department_of_birth_id ,:education_id, 
+                  :first_lastname, :identification, :issued_id, :name, :phone, :province_of_birth_id, :people_registers_attributes, 
+                  :second_lastname, :sex, :type_of_identification_id
 
-  belongs_to :type_identification
+  belongs_to :type_of_identification
   belongs_to :education
   belongs_to :civil_status
   
   belongs_to :community_of_birth, class_name: Community
+  belongs_to :department_of_birth, class_name: Department
+  belongs_to :issued, class_name: Department
+  belongs_to :province_of_birth, class_name: Province
 
   has_many :people_registers
   has_many :registers, through: :people_registers

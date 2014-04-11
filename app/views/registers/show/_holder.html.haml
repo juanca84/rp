@@ -5,40 +5,64 @@
       = holder.hidden_field :type_person
       = holder.simple_fields_for :person do |person|
         .form-group.control-group
-          = person.label :name, class: "col-sm-3"
-          .col-sm-9.control
+          = person.label :name, class: "col-sm-2"
+          .col-sm-10.control
             = person.input_field :name, class: 'form-control'
 
         .form-group
-          = person.label :birthplace, class: "col-sm-3"
-          .col-sm-4
-            = person.input_field :birthplace
+          = person.label :first_lastname, class: "col-sm-2"
+          .col-sm-4.control
+            = person.input_field :first_lastname, class: 'form-control'
 
-          = person.label :birthdate, class: "col-sm-2"
+          = person.label :second_lastname, class: "col-sm-2"
+          .col-sm-4.control
+            = person.input_field :second_lastname, class: 'form-control'
+
+        .form-group
+          = person.label :department_of_birth, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :department_of_birth, value: person.object.try(:department_of_birth).try(:name)
+
+          = person.label :province_of_birth, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :province_of_birth, value: person.object.try(:province_of_birth).try(:name)
+
+        .form-group
+          = person.label :community_of_birth, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :community_of_birth, value: person.object.try(:community_of_birth).try(:name)
+
+          = person.label :birthdate, class: "col-sm-3"
           .col-sm-3
             = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate)
 
         .form-group
-          = person.label :identification, class: "col-sm-2"
+          %label.string.optional.control-label.col-sm-3= person.object.try(:type_of_identification).try(:name)
           .col-sm-2
             = person.input_field :identification
-
-          = person.label :sex, class: "col-sm-1"
           .col-sm-2
-            = person.input_field :sex
+            = person.input_field :issued, value: person.object.try(:issued).try(:name)
 
+        .form-group
           = person.label :education, class: "col-sm-2"
           .col-sm-3
             = person.input_field :education, value: person.object.try(:education).try(:name)
+          = person.label :sex, class: "col-sm-2"
+          .col-sm-1
+            = person.input_field :sex
+
+          - if index == 1
+            = person.label :civil_status, class: "col-sm-2"
+            .col-sm-2
+              = person.input_field :civil_status_id, value: person.object.try(:civil_status).try(:name)
 
         - if index == 1
           .form-group
-            = person.label :civil_status, class: "col-sm-2"
-            .col-sm-4
-              = person.input_field :civil_status, value: person.object.try(:civil_status).try(:name)
-
+            = f.label :type_residence, class: "col-sm-2"
+            .col-sm-3
+              = f.input_field :type_residence, value: f.object.try(:type_residence).try(:name)
             = f.label :residence, class: "col-sm-2"
-            .col-sm-4
+            .col-sm-5
               = f.input_field :residence
 
           .form-group
@@ -51,26 +75,13 @@
               = person.input_field :phone
 
           .form-group
-            = f.label :department, class: "col-sm-2"
+            = f.label :department, class: "col-sm-3"
             .col-sm-3
-              = f.input_field :department, value: f.object.try(:department).try(:name)
+              = f.input_field :department_id, value: f.object.try(:department).try(:name)
 
             = f.label :community, class: "col-sm-3"
-            .col-sm-4
-              = f.input_field :community, value: f.object.try(:community).try(:name)
-
-          .form-group
-            = f.label :geodesic_ns, class: "col-sm-2"
-            .col-sm-2
-              = f.input_field :geodesic_ns
-
-            = f.label :geodesic_ns, class: "col-sm-2"
-            .col-sm-2
-              = f.input_field :geodesic_ew
-
-            = f.label :code_ine, class: "col-sm-2"
-            .col-sm-2
-              = f.input_field :code_ine
+            .col-sm-3
+              = f.input_field :community_id, value: f.object.try(:community).try(:name)
 
         .form-group
           = holder.label :time_to_land, class: "col-sm-7"

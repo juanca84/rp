@@ -1,11 +1,30 @@
 %td
-  %input.string.optional.form-control{ id: "#register_lands_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_capital_item", maxlength: "255", name: "register[lands_attributes][#{ @parent_id }][capitals_attributes][#{ @id }][capital_item]", size: "50", type: "text" }
+  .col-sm-12
+    .control-group.form-group.select.optional.register_lands_department
+      .control
+        %select.select.optional.form-control{ id: "department_lands_#{ @id }", class: 'department_lands', name: "register[capitals_attributes][#{ @id }][department_id]" }
+          %option{value: ""}
+          %option{value: "1"} Tarija
+          %option{value: "2"} Potosi
+          %option{value: "3"} Chuquisaca
+          %option{value: "4"} Santa Cruz
+          %option{value: "5"} Oruro
+          %option{value: "6"} Cochabamba
+          %option{value: "7"} La Paz
+          %option{value: "8"} Beni
+          %option{value: "9"} Pando
 %td
-  %input.numeric.integer.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_start_year", name: "register[lands_attributes][#{ @parent_id }][capitals_attributes][#{ @id }][start_year]", type: "text" }
+  .col-sm-12
+    .control-group.form-group.select.optional.register_lands_community
+      .control
+        %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[capitals_attributes][#{ @id }][community_id]", class: 'community_lands' }
+          %option{value: ""}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_lifespan_future", name: "register[lands_attributes][#{ @parent_id }][capitals_attributes][#{ @id }][lifespan_future]", type: "text" }
+  %input.string.optional.form-control{ id: "register_capitals_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_capital_item", maxlength: "255", name: "register[capitals_attributes][#{ @id }][capital_item]", size: "50", type: "text" }
 %td
-  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_current_value",name: "register[lands_attributes][#{ @parent_id }][capitals_attributes][#{ @id }][current_value]", type: "text", value: "0.0"}
+  %input.numeric.integer.optional.form-control{ id: "register_capitals_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_start_year", name: "register[capitals_attributes][#{ @id }][start_year]", type: "text" }
+%td
+  %input.numeric.float.optional.form-control{ id: "register_capitals_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_current_value",name: "register[capitals_attributes][#{ @id }][current_value]", type: "text", value: "0.0"}
 %td
   %a.btn.btn-danger.btn-small.remove
     .glyphicon.glyphicon-remove

@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
 
   #metodo para mostrar nombre completo
   def full_name
-    "#{ profile.try(:name) } #{ profile.try(:last_name) }"
+    "#{ profile.try(:name) } #{ profile.try(:last_name) } #{ profile.try(:second_last_name) }"
   end  
 
   #metodo para devolver un nombre o email

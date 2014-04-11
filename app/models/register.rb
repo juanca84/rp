@@ -1,5 +1,4 @@
 #encoding: UTF-8
-require 'active_record/diff'
 
 class Register < ActiveRecord::Base
   paginates_per 100
@@ -7,14 +6,12 @@ class Register < ActiveRecord::Base
   has_paper_trail
 
   include AASM
-
-  include ActiveRecord::Diff
   
   attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes,
                   :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
-                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnerships_attributes, :productions_attributes, :residence, 
-                  :second_entry, :sons_attributes, :user_id, :works_attributes
-
+                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnership_attributes, :productions_attributes, :residence, 
+                  :second_entry, :sons_attributes, :type_residence_id, :user_id, :work_attributes
+                  
   belongs_to :civil_union
   belongs_to :economic_activity
   belongs_to :emission_community, class_name: Community
@@ -22,23 +19,25 @@ class Register < ActiveRecord::Base
   belongs_to :community
   belongs_to :department
   belongs_to :user
+  belongs_to :type_residence
 
   has_many :aggregates, dependent: :destroy
-  has_many :capitals, through: :lands
+  #has_many :capitals, through: :lands
+  has_many :capitals#, through: :lands
   has_many :holders, dependent: :destroy
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy
   #has_many :productions, through: :lands
-  #has_many :works
+  has_one :work
 
   has_many :people_registers, dependent: :destroy
   has_many :people, through: :people_registers
 
   #has_many :partnerships_registers
   #has_many :partnerships, through: :partnerships_registers
-  has_many :productions, through: :lands
+  has_many :productions#, through: :lands
 
-  has_many :partnerships, dependent: :destroy
+  has_one :partnership, dependent: :destroy
 
   validates :user_id,  presence: true
   validates :code, presence: true, uniqueness: true, if: lambda { |o| o.active? }
@@ -48,9 +47,16 @@ class Register < ActiveRecord::Base
 
   accepts_nested_attributes_for :aggregates, :sons, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }, allow_destroy: true
 
-  accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:department_id].blank? && a[:capitals_attributes].blank? && a[:productions_attributes].blank? && a[:own_labor].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :capitals, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
   
-  accepts_nested_attributes_for :partnerships, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
+
+  accepts_nested_attributes_for :partnership, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  
+  accepts_nested_attributes_for :productions, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
+
+  accepts_nested_attributes_for :work
+
 
   #scope para encontrar los registros que fueron completados es decir que estan en estados 'active' o 'inactive' 
   scope :valid, where("registers.status = ? OR registers.status = ?", 'active', 'inactive')
@@ -138,7 +144,7 @@ class Register < ActiveRecord::Base
   end
 
   def summary_partnerships
-    partnerships.pluck(:name).join(', ')
+    "#{ partnership.productive_name_1 }, #{ partnership.productive_name_2 }"
   end
 
   def summary_economic_activity
@@ -180,7 +186,7 @@ class Register < ActiveRecord::Base
       end
     locations = []
     result.each do |p|
-      locations << "#{ p.land.try(:community).try(:name).upcase rescue "" } - #{ p.land.try(:another_community) }"
+      locations << "#{ p.try(:department).try(:name).upcase rescue "" } - #{ p.try(:community).try(:name).upcase rescue "" }"
     end 
     locations.uniq.join(",")
   end

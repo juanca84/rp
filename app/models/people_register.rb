@@ -1,7 +1,7 @@
 class PeopleRegister < ActiveRecord::Base
   default_scope order('people_registers.created_at ASC')
   TYPES = %w( holder son aggregate )
-  belongs_to :person, dependent: :destroy
+  belongs_to :person, dependent: :destroy, include: [:department_of_birth, :province_of_birth, :community_of_birth]
   belongs_to :register
 
   has_paper_trail
