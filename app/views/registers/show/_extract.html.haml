@@ -1,0 +1,125 @@
+.well.form-actions
+  %legend Identificación del Registro
+  .form-group.control-group
+    = f.label :code, class: "col-sm-2"
+    .col-sm-2.control
+      = f.input_field :code, class: 'form-control'
+
+    = f.label :emission_date, class: "col-sm-2"
+    .col-sm-2.control
+      = f.input_field :emission_date, class: 'form-control'
+
+    %label.string.optional.control-label.col-sm-2 Validez 
+    .col-sm-2
+      - new_date = (f.object.try(:emission_date) + 5.years rescue '') 
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: (l new_date if new_date.present?)}
+
+  .form-group.control-group
+    = f.label :emission_department, class: "col-sm-2"
+    .col-sm-2.control
+      = f.input_field :emission_department, class: 'form-control', value: f.object.try(:emission_department).try(:name)
+
+    = f.label :emission_community, class: "col-sm-2"
+    .col-sm-2.control
+      = f.input_field :emission_community, class: 'form-control', value: f.object.try(:emission_community).try(:name)
+
+.well.form-actions
+  %legend Titular 01
+  .form-group.control-group
+    - holder_1 =  f.object.holder_main
+    %label.string.optional.control-label.col-sm-2 Tipo de Identificación 
+    .col-sm-3
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:type_of_identification).try(:name) } 
+
+    %label.string.optional.control-label.col-sm-2 Número de identificación 
+    .col-sm-3
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:identification) }
+
+    .col-sm-2
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:issued).try(:name) } 
+  .form-group.control-group
+    %label.string.optional.control-label.col-sm-2 Nombres
+    .col-sm-10
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:name) } 
+
+  .form-group.control-group
+    %label.string.optional.control-label.col-sm-2 Apellido Paterno
+    .col-sm-4
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:first_lastname) }
+
+    %label.string.optional.control-label.col-sm-2 Apellido Materno
+    .col-sm-4
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:second_lastname) } 
+
+.well.form-actions
+  %legend Titular 02
+  .form-group.control-group
+    - holder_1 =  f.object.holder_two
+    %label.string.optional.control-label.col-sm-2 Tipo de Identificación 
+    .col-sm-3
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:type_of_identification).try(:name) } 
+
+    %label.string.optional.control-label.col-sm-2 Número de identificación 
+    .col-sm-3
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:identification) }
+
+    .col-sm-2
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:issued).try(:name) } 
+  .form-group.control-group
+    %label.string.optional.control-label.col-sm-2 Nombres
+    .col-sm-10
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:name) } 
+
+  .form-group.control-group
+    %label.string.optional.control-label.col-sm-2 Apellido Paterno
+    .col-sm-4
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:first_lastname) }
+
+    %label.string.optional.control-label.col-sm-2 Apellido Materno
+    .col-sm-4
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:second_lastname) } 
+
+.well.form-actions
+  %legend Calificación del productor
+  .form-group.control-group
+    %label.string.optional.control-label.col-sm-2 Categorización
+    .col-sm-6
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:first_lastname) }
+
+  .well.form-actions
+    %legend Actividad Principal
+    .form-group.control-group
+      %label.string.optional.control-label.col-sm-2 Subsector 1
+      .col-sm-2
+        %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:partnership).try(:economic_activity_1).try(:name) } 
+
+      %label.string.optional.control-label.col-sm-2 Rubro 1 
+      .col-sm-2
+        %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:partnership).try(:first_entry_1) } 
+
+      %label.string.optional.control-label.col-sm-2 Rubro 2
+      .col-sm-2
+        %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:partnership).try(:second_entry_1) }
+
+    .form-group.control-group
+      %label.string.optional.control-label.col-sm-2 Subsector 1
+      .col-sm-2
+        %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:partnership).try(:economic_activity_2).try(:name) } 
+
+      %label.string.optional.control-label.col-sm-2 Rubro 1 
+      .col-sm-2
+        %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:partnership).try(:first_entry_2) } 
+
+      %label.string.optional.control-label.col-sm-2 Rubro 2
+      .col-sm-2
+        %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:partnership).try(:second_entry_2) }  
+
+.well.form-actions
+  %legend Entidad registradora
+  .form-group.control-group
+    %label.string.optional.control-label.col-sm-2 Razón Social
+    .col-sm-6
+      %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: f.object.try(:user).try(:entity).try(:business_name) }  
+
+
+    

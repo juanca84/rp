@@ -1,104 +1,16 @@
 = simple_form_for @register, html: { class: 'form-horizontal form-register', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
   .form-group
-    .col-sm-9
-    = f.label :code, class: "col-sm-1"
+    .col-sm-8
+    = f.label :code, class: "col-sm-2"
     .col-sm-2
       %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code)  }
     = f.hidden_field :user_id
 
   = f.error_notification
 
-  .well.form-actions
+  .form-actions
     %legend IDENTIFICACIÓN DE LOS TITULARES
     = render 'holder', f: f
-
-  / .well.form-actions
-  /   %legend IDENTIFICACIÓN DE LOS DEMÁS MIEMBROS DE LA FAMILIA
-  /   .well.form-actions
-  /     = field_set_tag 'Hijos e Hijas' do
-  /       #sons
-  /         = render 'register_steps/son_aggregate', f: f, resources: :sons
-  /         %a.btn.btn-success.btn-large.add_son{ data: { type: 'son' } }
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar hijo/a
-
-  /   .well.form-actions
-  /     = field_set_tag 'Agregados y Agregadas' do
-  /       #aggregates
-  /         = render 'register_steps/son_aggregate', f: f, resources: :aggregates
-  /         %a.btn.btn-success.btn-large.add_aggregate{ data: { type: 'aggregate' } }
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar agregado/a
-
-  / .well.form-actions
-  /   %legend ORGANIZACIÓN SOCIAL, PRODUCTIVA, COMERCIAL
-  /   .well.form-actions
-  /     = field_set_tag 'A que asociaciones pertenece' do
-  /       #partnerships
-  /         = render 'register_steps/partnership', f: f
-  /         %a.btn.btn-success.btn-large.add_partnership{ data: { type: 'partnership' } } 
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar asociacion productiva 
-
-  /   .well.form-actions
-  /     = field_set_tag 'Actividad Principal' do
-  /       = render 'register_steps/main_activity', f: f                    
-
-  / .well.form-actions
-  /   %legend IDENTIFICACIÓN DE LOS FACTORES DE PRODUCCIÓN
-  /   .well.form-actions
-  /     = field_set_tag 'Tierra' do
-  /       #lands
-  /         = render 'register_steps/land', f: f
-  /         %a.btn.btn-success.btn-large.add_land{ data: { type: 'land' } }
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar tierra
-
-  /   .well.form-actions
-  /     = field_set_tag 'Trabajo' do
-  /       #lands
-  /         = render 'register_steps/work', f: f
-  /         %a.btn.btn-success.btn-large.add_work{ data: { type: 'work' } }
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar trabajo
-
-  /   .well.form-actions
-  /     = field_set_tag 'Capital (Maquinaria, equipos, infraestructura productiva, semovientes y otros)' do
-  /       #capitals
-  /         = render 'register_steps/capital', f: f
-  /         %a.btn.btn-success.btn-large.add_capital{ data: { type: 'capital' } }
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar capital
-
-  / .well.form-actions
-  /   %legend PRODUCCIÓN
-  /   .well.form-actions
-  /     = field_set_tag 'Producción agropecuaria en el establecimiento' do
-  /       #lands
-  /         = render 'register_steps/agricultural_production', f: f
-  /         %a.btn.btn-success.btn-large.add_production{ data: { type: 'agricultural_production' } }
-  /           .glyphicon.glyphicon-plus-sign
-  /           adicionar producción
-
-  / .well.form-actions
-  /   %legend IDENTIFICACIÓN DEL AGENTE REGISTRADOR, FECHA Y LUGAR DE EMISIÓN
-  /   .well.form-actions
-  /     .form-group
-  /       = f.label :emission_department, class: "col-sm-3"
-  /       .col-sm-3
-  /         = f.input_field :emission_department_id, as: :select, collection: Department.all
-
-  /       = f.label :emission_community, class: "col-sm-3"
-  /       .col-sm-3
-  /         = f.input_field :emission_community_id, as: :select, collection: Community.all
-
-  /     .form-group
-  /       =  f.label :emission_date, class: "col-sm-3"
-  /       .col-sm-3
-  /         = f.input_field :emission_date, as: :date
-
-  /   .well.form-actions
-  /     = render 'register_steps/registrar_agent'
 
   = render "register_steps/form_submit", register: @register
 

@@ -12,10 +12,14 @@ class Runpa.Views.Works.NewView extends Backbone.View
     @total = $('#total_time_to_land').val()
     @total2 = @options.total
     _.bindAll this, "render"
+    @update_summations()
     @render()
 
   update_summations: (event) ->
-    tr_id = $($(event.currentTarget).parent().parent()).attr('id')
+    if event
+      tr_id = $($(event.currentTarget).parent().parent()).attr('id')
+    else
+      tr_id = $(".work")[0].id
 
     $('#' + tr_id).find('input.own_labor')
 

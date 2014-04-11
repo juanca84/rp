@@ -5,10 +5,10 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 #for database adapter postgres
-#gem 'pg'
+gem 'pg'
 #for database adapter oracle
-gem 'ruby-oci8'
-gem 'activerecord-oracle_enhanced-adapter',   '~> 1.4.0'
+#gem 'ruby-oci8'
+#gem 'activerecord-oracle_enhanced-adapter',   '~> 1.4.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -60,7 +60,6 @@ gem 'bootstrap-typeahead-rails'
 
 #versionamiento base de datos
 gem 'paper_trail', '~> 3.0.0'
-gem 'activerecord-diff'
 
 #exportacion a json
 gem 'rabl'
