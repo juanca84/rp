@@ -5,10 +5,11 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 #for database adapter postgres
-gem 'pg'
+#gem 'pg'
 #for database adapter oracle
-#gem 'ruby-oci8'
-#gem 'activerecord-oracle_enhanced-adapter',   '~> 1.4.0'
+gem 'ruby-oci8'
+gem 'activerecord-oracle_enhanced-adapter',   '~> 1.4.0'
+gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -48,7 +49,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'api-pagination'
 
-#buscador 
+#buscador
 gem "ransack"
 
 #generador de pdfs
