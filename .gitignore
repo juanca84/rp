@@ -33,7 +33,6 @@ coverage
 # Public Uploads
 public/system/*
 public/themes/*
-public/assets/*
 public/uploads/*
 
 # Public Cache
