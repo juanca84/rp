@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: runpa_development
+  database: runpa_development22
   pool: 5
   username: juanca
   password:
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: runpa_test
+  database: runpa_test22
   pool: 5
   username: juanca
   password:
@@ -17,7 +17,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: runpa_development
+  database: runpa_development22
   pool: 5
   username: juanca
   password:
