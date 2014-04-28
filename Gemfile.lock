@@ -244,6 +244,7 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
     uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
@@ -293,6 +294,7 @@ DEPENDENCIES
   simple_form (~> 2.1.0)
   thin
   uglifier (>= 1.0.3)
+  unicode_utils
   wicked
   wicked_pdf
   wkhtmltopdf-binary

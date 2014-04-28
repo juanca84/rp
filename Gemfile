@@ -65,6 +65,9 @@ gem 'paper_trail', '~> 3.0.0'
 #exportacion a json
 gem 'rabl'
 
+#conversion a mayusculas con acentos y ñ
+gem 'unicode_utils'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
