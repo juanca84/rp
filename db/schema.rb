@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140411031934) do
+ActiveRecord::Schema.define(:version => 20140428153642) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -27,25 +27,6 @@ ActiveRecord::Schema.define(:version => 20140411031934) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
-
-  create_table "agricultural_productions", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "community_id"
-    t.integer  "register_id"
-    t.string   "entry"
-    t.integer  "physical_coverage_amount"
-    t.string   "physical_coverage_unit"
-    t.integer  "production_quantity"
-    t.string   "production_unit"
-    t.string   "production_system"
-    t.string   "production_destination"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-  end
-
-  add_index "agricultural_productions", ["community_id"], :name => "index_agricultural_productions_on_community_id"
-  add_index "agricultural_productions", ["department_id"], :name => "index_agricultural_productions_on_department_id"
-  add_index "agricultural_productions", ["register_id"], :name => "index_agricultural_productions_on_register_id"
 
   create_table "capitals", :force => true do |t|
     t.string   "capital_item"
@@ -87,6 +68,16 @@ ActiveRecord::Schema.define(:version => 20140411031934) do
     t.string   "abbreviation"
   end
 
+  create_table "departments_users", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "departments_users", ["department_id"], :name => "index_departments_users_on_department_id"
+  add_index "departments_users", ["user_id"], :name => "index_departments_users_on_user_id"
+
   create_table "economic_activities", :force => true do |t|
     t.string   "code"
     t.string   "name"
@@ -106,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20140411031934) do
     t.text     "description"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.string   "nit"
   end
 
   create_table "lands", :force => true do |t|
@@ -196,10 +186,9 @@ ActiveRecord::Schema.define(:version => 20140411031934) do
     t.integer  "person_id"
     t.integer  "register_id"
     t.string   "type_person"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.string   "town_of_birth"
-    t.integer  "time_to_land",  :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "time_to_land", :default => 0
   end
 
   add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
