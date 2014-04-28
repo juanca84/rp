@@ -1,7 +1,7 @@
 class Department < ActiveRecord::Base
   attr_accessible :abbreviation, :code, :name 
 
-  default_scope order("name ASC")
+  default_scope order("departments.name ASC")
   
   has_many :provinces
   has_many :communities, through: :provinces  

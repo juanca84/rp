@@ -3,7 +3,7 @@
 module PaperTrail
   class Version < ActiveRecord::Base
 
-    default_scope order('created_at DESC') 
+    default_scope order('versions.created_at DESC') 
 
     attr_accessible :parent_id, :parent_type, :register_id
 
