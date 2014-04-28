@@ -4,7 +4,7 @@ class ReportsController < RunpaController
   before_filter :set_location
 
   def index
-    @q = Register.valid.order('code ASC').search(params[:q])
+    @q = Register.valid.order('registers.code ASC').search(params[:q])
 
     if params[:q].present?
       @department = params[:q][:lands_department_id_eq].present? && Department.find(params[:q][:lands_department_id_eq]).try(:name)

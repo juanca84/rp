@@ -5,7 +5,7 @@ class Api::V1::RegistersController < ApplicationController
 
   def index
     if User.verify_token(params[:token])
-      @registers = params[:per_page].present? ? Register.order('code ASC').page(params[:page]).per(params[:per_page]) : Register.order('code ASC').page(params[:page]).per(50)
+      @registers = params[:per_page].present? ? Register.order('registers.code ASC').page(params[:page]).per(params[:per_page]) : Register.order('registers.code ASC').page(params[:page]).per(50)
       if @registers.present?
         render inline: Rabl::Renderer.json(@registers, 'registers/json/registers')
       end
