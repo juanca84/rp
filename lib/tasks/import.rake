@@ -15,16 +15,16 @@
 #
 require 'csv'
 namespace 'import' do
-  desc "import department, province, and section municipal"
+  desc "import department, province, and town"
   task :dep_prov_mun => :environment do
     CSV.foreach("#{ Rails.root }/lib/tasks/codigos.csv", headers: true) do |row|
-      department = { code: row["COD_DEP"], name: row["NOM_DEP"] }
+      department = { code: row["COD_DEP"], name: UnicodeUtils.upcase( row["NOM_DEP"] ) }
       d = Department.find_or_create_by_code_and_name(department)
 
-      province = { code: row["COD_PROV"], name: row["NOM_PROV"], department_id: d.id }
+      province = { code: row["COD_PROV"], name: UnicodeUtils.upcase( row["NOM_PROV"] ), department_id: d.id }
       p = Province.find_or_create_by_code_and_name_and_department_id(province)
 
-      municipio = { code: row["COD_MUN"], name: row["NOM_MUN"], province_id: p.id}
+      municipio = { code: row["COD_MUN"], name: UnicodeUtils.upcase( row["NOM_MUN"] ), province_id: p.id}
       s = Community.find_or_create_by_code_and_name_and_province_id(municipio)
 
       puts s.inspect
