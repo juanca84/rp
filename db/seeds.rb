@@ -38,12 +38,12 @@ end
 puts "inicializando entidades"
 entities = 
   [
-    { name: 'FAO' },
-    { name: 'OAP- MDRyT' }
+    { code: '1', name: 'FAO' },
+    { code: '2', name: 'OAP- MDRyT' }
   ]
 entities.each do |cs|
-  entity = { name: cs[:name] }
-  en = RunpaModule.where(name: cs[:name]).first_or_create
+  entity = { code: cs[:code], business_name: cs[:name] }
+  en = Entity.find_or_create_by_code_and_business_name(entity)
 end
 
 puts "inicializando actividades economicas"

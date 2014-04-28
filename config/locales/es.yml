@@ -92,9 +92,6 @@ es:
       province:
         one: Provincia
         other: Provincias
-      register:
-        one: Registro
-        others: Registros
       type_of_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones
