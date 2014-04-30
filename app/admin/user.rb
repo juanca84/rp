@@ -2,6 +2,29 @@
 ActiveAdmin.register User do
   menu parent: 'Administración de Usuarios'
 
+  csv do
+    column :email
+    column :encrypted_password
+    column :sign_in_count
+    column :current_sign_in_at
+    column :last_sign_in_at
+    column :current_sign_in_ip
+    column :created_at
+    column :updated_at
+    column :last_seen_at
+    column :active
+    column :last_seen_at
+    column("entity") { |entity| entity.business_name }
+    column("role") { |role| role.roles_name.join(", ") }
+    column("profile_name") { |user| user.profile.try(:name) }
+    column("profile_last_name") { |user| user.profile.try(:last_name) }
+    column("profile_second_last_name") { |user| user.profile.try(:second_last_name) }
+    column("profile_identification") { |user| user.profile.try(:identification) }
+    column("profile_sex") { |user| user.profile.try(:sex) }
+    column("profile_created_at") { |user| user.profile.try(:created_at) }
+    column("profile_updated_at") { |user| user.profile.try(:updated_at) }
+  end
+
   controller do
     def edit
       @user = User.find(params[:id])
