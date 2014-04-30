@@ -21,7 +21,7 @@ if !admin.new_record? && admin.add_role("administrador")
   puts 'administrador creado! email -> runpa.mdryt@gmail.com y password -> runpa1234'
 end
 
-puts "inicializando estados civiles"
+puts "inicializando estados civiles"  
 civil_status = 
   [
     { code: '4', name: 'VIUDO' },
@@ -67,10 +67,9 @@ end
 puts "inicializando escolaridades"
 educations = 
   [
-    { code: '7', name: 'UNIVERSITARIO' },
-    { code: '6', name: 'NORMAL(SUPERIOR)' },
-    { code: '5', name: 'TÉCNICO (MEDIO, SUPERIOR)' },
-    { code: '4', name: 'SECUNDARIA' },
+    { code: '6', name: 'UNIVERSITARIO' },
+    { code: '5', name: 'TÉCNICO/NORMAL(MEDIO, SUPERIOR)' },
+    { code: '4', name: 'SECUNDARIA' },  
     { code: '3', name: 'PRIMARIA' },
     { code: '2', name: 'CURSO DE ALFABETIZACIÓN' },
     { code: '1', name: 'NINGUNO' }
@@ -83,8 +82,9 @@ end
 puts "inicializando tipos de identificación"
 identifications = 
   [
-    { code: '02', name: 'PASAPORTE' },
-    { code: '01', name: 'CÉDULA DE IDENTIDAD' }
+    { code: '3', name: 'PASAPORTE' },
+    { code: '2', name: 'RUC' },
+    { code: '1', name: 'CÉDULA DE IDENTIDAD' }
   ]
 identifications.each do |cs|
   identification = { code: cs[:code], name: cs[:name] }
@@ -94,9 +94,9 @@ end
 puts "inicializando tipos de tipos de residencias"
 type_residences = 
   [
-    { code: '03', name: 'COMUNIDAD/LOCALIDAD/ESTANCIA/RANCHO' },
-    { code: '02', name: 'CENTRO POBLADO(MUNICIPIO)' },
-    { code: '01', name: 'CAPITAL DE DEPARTAMENTO(CIUDAD)' }
+    { code: '3', name: 'COMUNIDAD/LOCALIDAD/ESTANCIA/RANCHO' },
+    { code: '2', name: 'CENTRO POBLADO(MUNICIPIO)' },
+    { code: '1', name: 'CAPITAL DE DEPARTAMENTO(CIUDAD)' }
   ]
 type_residences.each do |cs|
   type_residence = { code: cs[:code], name: cs[:name] }

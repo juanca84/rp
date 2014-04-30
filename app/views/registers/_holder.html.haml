@@ -1,7 +1,7 @@
 - index = 1
 = f.simple_fields_for :holders do |holder|
   .well.form-actions
-    = field_set_tag "Titular 0#{ index }" do
+    = field_set_tag "Titular #{ index == 1 ? "Principal" : "Alterno" }" do
       = holder.hidden_field :type_person
       = holder.simple_fields_for :person do |person|
         .form-group.control-group
@@ -37,9 +37,9 @@
             = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate)
 
         .form-group
-          = person.label :type_of_identification, class: "col-sm-3"
-          .col-sm-2
-            = person.input_field :type_of_identification_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeOfIdentification.all, prompt: "Tipo de identificación", blank: true
+          = person.label :type_of_identification, class: "col-sm-2"
+          .col-sm-3
+            = person.input_field :type_of_identification_id, as: :select, collection: TypeOfIdentification.all, include_blank: false
           = person.label :identification, class: "col-sm-3"
           .col-sm-2
             = person.input_field :identification
@@ -61,11 +61,10 @@
 
         - if index == 1
           .form-group
-            = f.label :type_residence, class: "col-sm-2"
-            .col-sm-3
-              = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
             = f.label :residence, class: "col-sm-2"
-            .col-sm-5
+            .col-sm-4
+              = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
+            .col-sm-4
               = f.input_field :residence
 
           .form-group
