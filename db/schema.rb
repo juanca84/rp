@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140428220904) do
+ActiveRecord::Schema.define(:version => 20140502131722) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(:version => 20140428220904) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "agricultural_productions", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "community_id"
+    t.integer  "register_id"
+    t.string   "entry"
+    t.integer  "physical_coverage_amount"
+    t.string   "physical_coverage_unit"
+    t.integer  "production_quantity"
+    t.string   "production_unit"
+    t.string   "production_system"
+    t.string   "production_destination"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "agricultural_productions", ["community_id"], :name => "index_agricultural_productions_on_community_id"
+  add_index "agricultural_productions", ["department_id"], :name => "index_agricultural_productions_on_department_id"
+  add_index "agricultural_productions", ["register_id"], :name => "index_agricultural_productions_on_register_id"
 
   create_table "capitals", :force => true do |t|
     t.string   "capital_item"
@@ -50,6 +69,13 @@ ActiveRecord::Schema.define(:version => 20140428220904) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "civil_unions", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "communities", :force => true do |t|
     t.string   "code"
     t.string   "name"
@@ -67,16 +93,6 @@ ActiveRecord::Schema.define(:version => 20140428220904) do
     t.datetime "updated_at",   :null => false
     t.string   "abbreviation"
   end
-
-  create_table "departments_users", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "departments_users", ["department_id"], :name => "index_departments_users_on_department_id"
-  add_index "departments_users", ["user_id"], :name => "index_departments_users_on_user_id"
 
   create_table "economic_activities", :force => true do |t|
     t.string   "code"
@@ -134,18 +150,24 @@ ActiveRecord::Schema.define(:version => 20140428220904) do
     t.string   "greater_community"
     t.string   "productive_name_1"
     t.boolean  "productive_legal_status_1", :default => false
-    t.integer  "economic_activity_1_id"
-    t.string   "first_entry_1"
-    t.string   "second_entry_1"
+    t.integer  "economic_activity_1_1_id"
+    t.string   "first_entry_1_1"
+    t.string   "second_entry_1_1"
     t.string   "productive_name_2"
     t.boolean  "productive_legal_status_2", :default => false
-    t.integer  "economic_activity_2_id"
-    t.string   "first_entry_2"
-    t.string   "second_entry_2"
+    t.integer  "economic_activity_2_1_id"
+    t.string   "first_entry_2_1"
+    t.string   "second_entry_2_1"
+    t.integer  "economic_activity_1_2_id"
+    t.string   "first_entry_1_2"
+    t.string   "second_entry_1_2"
+    t.integer  "economic_activity_2_2_id"
+    t.string   "first_entry_2_2"
+    t.string   "second_entry_2_2"
   end
 
-  add_index "partnerships", ["economic_activity_1_id"], :name => "index_partnerships_on_economic_activity_1_id"
-  add_index "partnerships", ["economic_activity_2_id"], :name => "index_partnerships_on_economic_activity_2_id"
+  add_index "partnerships", ["economic_activity_1_1_id"], :name => "index_partnerships_on_economic_activity_1_id"
+  add_index "partnerships", ["economic_activity_2_1_id"], :name => "index_partnerships_on_economic_activity_2_id"
 
   create_table "partnerships_registers", :force => true do |t|
     t.integer  "register_id"
