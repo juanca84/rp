@@ -12,7 +12,7 @@ class Register < ActiveRecord::Base
                   :first_entry, :is_owner, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, 
                   :owner_attributes, :partnership_attributes, :productions_attributes, :residence, 
                   :second_entry, :sons_attributes, :type_residence_id, :user_id, :work_attributes
-                  
+                    
   belongs_to :economic_activity
   belongs_to :emission_community, class_name: Community
   belongs_to :emission_department, class_name: Department
@@ -240,7 +240,7 @@ class Register < ActiveRecord::Base
   end
 
   def categorization
-    if work.eventual_labor <= 50 && work.permanent_labor = 0
+    if work.present? && work.eventual_labor <= 50 && work.permanent_labor = 0
       "agricultor familiar"
     else
       "agricultor no familiar"

@@ -28,6 +28,8 @@ class RegistersController < RunpaController
 
   def edit
     @register = Register.includes(holders: { person: [:education, :civil_status] }).find(params[:id])
+    @register.build_owner(type_person: 'owner').build_person
+    
     @register_no_valids -= [@register]
   end
 

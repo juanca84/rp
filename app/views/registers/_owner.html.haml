@@ -3,32 +3,32 @@
     = f.label :is_owner, class: "col-sm-6"
     .col-sm-6.control
       = f.input_field :is_owner, class: 'form-control', as: :radio_buttons, item_wrapper_class: 'radio-inline' 
+#owner.hide
+  = f.simple_fields_for :owner do |owner|
+    .well.form-actions
+      = field_set_tag "Propietario" do
+        = owner.hidden_field :type_person
+        = owner.simple_fields_for :person do |person|
+          .form-group.control-group
+            = person.label :name, class: "col-sm-2"
+            .col-sm-10.control
+              = person.input_field :name, class: 'form-control'
 
-= f.simple_fields_for :owner do |owner|
-  .well.form-actions
-    = field_set_tag "Propietario" do
-      = owner.hidden_field :type_person
-      = owner.simple_fields_for :person do |person|
-        .form-group.control-group
-          = person.label :name, class: "col-sm-2"
-          .col-sm-10.control
-            = person.input_field :name, class: 'form-control'
+          .form-group
+            = person.label :first_lastname, class: "col-sm-2"
+            .col-sm-4.control
+              = person.input_field :first_lastname, class: 'form-control'
 
-        .form-group
-          = person.label :first_lastname, class: "col-sm-2"
-          .col-sm-4.control
-            = person.input_field :first_lastname, class: 'form-control'
+            = person.label :second_lastname, class: "col-sm-2"
+            .col-sm-4.control
+              = person.input_field :second_lastname, class: 'form-control'
 
-          = person.label :second_lastname, class: "col-sm-2"
-          .col-sm-4.control
-            = person.input_field :second_lastname, class: 'form-control'
-
-        .form-group
-          = person.label :type_of_identification, class: "col-sm-2"
-          .col-sm-3
-            = person.input_field :type_of_identification_id, as: :select, collection: TypeOfIdentification.all, include_blank: false
-          = person.label :identification, class: "col-sm-3"
-          .col-sm-2
-            = person.input_field :identification
-          .col-sm-2
-            = person.input_field :issued_id, as: :select, collection: Department.all, first: :id, last: :abbrevation, prompt: "expedido en", blank: true
+          .form-group
+            = person.label :type_of_identification, class: "col-sm-2"
+            .col-sm-3
+              = person.input_field :type_of_identification_id, as: :select, collection: TypeOfIdentification.all, include_blank: false
+            = person.label :identification, class: "col-sm-3"
+            .col-sm-2
+              = person.input_field :identification
+            .col-sm-2
+              = person.input_field :issued_id, as: :select, collection: Department.all, first: :id, last: :abbrevation, prompt: "expedido en", blank: true
