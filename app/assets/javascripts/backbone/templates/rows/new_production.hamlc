@@ -41,5 +41,5 @@
     %option{value: "Mercado Interno"} Mercado Interno
     %option{value: "Mercado Externo"} Mercado Externo
 %td
-  %a.btn.btn-danger.btn-small.remove
+  %a.btn.btn-danger.btn-xs.remove
     .glyphicon.glyphicon-remove

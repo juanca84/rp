@@ -21,12 +21,10 @@ class Register < ActiveRecord::Base
   belongs_to :type_residence
 
   has_many :aggregates, dependent: :destroy
-  #has_many :capitals, through: :lands
-  has_many :capitals#, through: :lands
+  has_many :capitals
   has_many :holders, dependent: :destroy
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy
-  #has_many :productions, through: :lands
   has_one :work
 
   has_many :people_registers, dependent: :destroy
@@ -34,7 +32,7 @@ class Register < ActiveRecord::Base
 
   #has_many :partnerships_registers
   #has_many :partnerships, through: :partnerships_registers
-  has_many :productions#, through: :lands
+  has_many :productions
 
   has_one :partnership, dependent: :destroy
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502131722) do
+ActiveRecord::Schema.define(:version => 20140502155730) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -120,19 +120,19 @@ ActiveRecord::Schema.define(:version => 20140502131722) do
     t.float    "surface"
     t.string   "unit_of_measure"
     t.string   "tenure"
-    t.boolean  "disassemble_without_permission", :default => false
     t.integer  "register_id"
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "department_id"
     t.integer  "community_id"
     t.string   "another_community"
-    t.integer  "own_labor",                      :default => 0
-    t.integer  "eventual_labor",                 :default => 0
-    t.integer  "permanent_labor",                :default => 0
-    t.float    "men_per_year_own",               :default => 0.0
-    t.float    "men_per_year_eventually",        :default => 0.0
-    t.float    "men_per_year_total",             :default => 0.0
+    t.integer  "own_labor",               :default => 0
+    t.integer  "eventual_labor",          :default => 0
+    t.integer  "permanent_labor",         :default => 0
+    t.float    "men_per_year_own",        :default => 0.0
+    t.float    "men_per_year_eventually", :default => 0.0
+    t.float    "men_per_year_total",      :default => 0.0
+    t.string   "ine_code"
   end
 
   add_index "lands", ["community_id"], :name => "index_lands_on_community_id"
@@ -234,6 +234,9 @@ ActiveRecord::Schema.define(:version => 20140502131722) do
     t.integer  "register_id"
     t.integer  "department_id"
     t.integer  "community_id"
+    t.float    "consumption",              :default => 0.0
+    t.float    "national",                 :default => 0.0
+    t.float    "export",                   :default => 0.0
   end
 
   add_index "productions", ["land_id"], :name => "index_productions_on_land_id"

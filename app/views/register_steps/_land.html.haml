@@ -5,10 +5,10 @@
         %th.col-sm-2 Departamento
         %th.col-sm-2 Municipio
         %th.col-sm-2 Comunidad/zona/otra
+        %th.col-sm-2 Código INE      
         %th.col-sm-1 Superficie
         %th.col-sm-1 Unidad de Medida
         %th.col-sm-2 Tenencia
-        %th.col-sm-2 Desmonte Sin Autorizacion (*)
         %th.col-sm-1 
     %tbody
       %tr
@@ -23,16 +23,14 @@
           %td
             = land.input_field :another_community
           %td
+            = land.input_field :ine_code
+          %td
             = land.input_field :surface
           %td
             = land.input_field :unit_of_measure
           %td
             = land.input_field :tenure, as: :select, collection: [ 'propiedad', 'a modo de propiedad(tramite)', 'alquiler', 'anticrético', 'comodato', 'ocupada de hecho', 'arrimados y/o prestados']
-
           %td
-            .col-sm-12
-              = land.input_field :disassemble_without_permission, label: false, as: :radio_buttons, item_wrapper_class: 'radio-inline'
-          %td
-            %a.btn.btn-danger.btn-small.remove-static-field
+            %a.btn.btn-danger.btn-xs.remove-static-field
               .glyphicon.glyphicon-remove
             = land.check_box :_destroy, class: 'hide'

@@ -43,7 +43,7 @@
           %td
             = production.input_field :production_destination, as: :select, collection: ['Autoconsumo', 'Mercado Interno', 'Mercado Externo']
           %td
-            %a.btn.btn-danger.btn-small.remove-static-field
+            %a.btn.btn-danger.btn-xs.remove-static-field
               .glyphicon.glyphicon-remove
             = production.check_box :_destroy, class: 'hide'
 

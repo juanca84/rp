@@ -18,7 +18,8 @@
       .control
         %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[lands_attributes][#{ @id }][community_id]", class: 'community_lands' }
           %option{value: ""}
-
+%td
+  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @id }_ine_code", maxlength: "255", name: "register[lands_attributes][#{ @id }][ine_code]", size: "50", type: "text"}
 %td
   %input.string.optional.form-control{ id: "register_lands_attributes_#{ @id }_another_community", maxlength: "255", name: "register[lands_attributes][#{ @id }][another_community]", size: "50", type: "text"}
 %td
@@ -36,13 +37,5 @@
     %option{value: "ocupada de hecho"} ocupada de hecho
     %option{value: "arrimados y/o prestados"} arrimados y/o prestados
 %td
-  .col-sm-12
-    %label.radio.radio-inline
-      %input.radio_buttons.optional.form-control{ id: "register_lands_attributes_#{ @id }_disassemble_without_permission_true", name: "register[lands_attributes][#{ @id }][disassemble_without_permission]", type: "radio", value: "true"}>
-      Si
-    %label.radio.radio-inline
-      %input.radio_buttons.optional.form-control{ id: "register_lands_attributes_#{ @id }_disassemble_without_permission_false", checked: "checked", name: "register[lands_attributes][#{ @id }][disassemble_without_permission]", type: "radio", value: "false"}>
-      No
-%td
-  %a.btn.btn-danger.btn-small.remove
+  %a.btn.btn-danger.btn-xs.remove
     .glyphicon.glyphicon-remove

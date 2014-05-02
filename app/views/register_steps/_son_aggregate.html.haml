@@ -32,6 +32,6 @@
             %td.col-sm-2
               = person.input_field :identification
             %td.col-sm-1
-              %a.btn.btn-danger.btn-small.remove-static-field{class: "remove-#{ resources.to_s }"}
+              %a.btn.btn-danger.btn-xs.remove-static-field{class: "remove-#{ resources.to_s }"}
                 .glyphicon.glyphicon-remove
               = resource.check_box :_destroy, class: 'hide'

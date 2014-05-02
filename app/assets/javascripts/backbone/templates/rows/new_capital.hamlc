@@ -25,5 +25,5 @@
 %td
   %input.numeric.float.optional.form-control{ id: "register_capitals_attributes_#{ @parent_id }_capitals_attributes_#{ @id }_current_value",name: "register[capitals_attributes][#{ @id }][current_value]", type: "text", value: "0.0"}
 %td
-  %a.btn.btn-danger.btn-small.remove
+  %a.btn.btn-danger.btn-xs.remove
     .glyphicon.glyphicon-remove

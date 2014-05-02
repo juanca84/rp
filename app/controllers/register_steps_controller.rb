@@ -24,7 +24,7 @@ class RegisterStepsController < ApplicationController
         redirect_to edit_register_path(@register)
       end  
     when 'factors'
-      @register = Register.includes([{lands: [:department, :community]}, :capitals]).find params[:register_id]
+      @register = Register.includes([{lands: [:department, :community]}, :capitals, :work]).find params[:register_id]
       @register.build_work unless @register.work.present?
       @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_partnership? || @register.step_factors?
@@ -33,7 +33,7 @@ class RegisterStepsController < ApplicationController
         redirect_to edit_register_path(@register)
       end 
     when 'production'
-      @register = Register.includes(lands: [:department, :community, :capitals, :productions]).find params[:register_id]
+      @register = Register.includes(lands: [:department, :community]).find params[:register_id]
       @register_no_valids -= [@register]
       if @register.active? || @register.inactive? || @register.step_factors?
         @register.emission_date = Date.today if @register.emission_date.blank?
