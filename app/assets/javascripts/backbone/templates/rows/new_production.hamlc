@@ -35,11 +35,11 @@
     %option{value: "Extensivo"} Extensivo
     %option{value: "Semi Intensivo"} Semi Intensivo
 %td
-  %select.select.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_destination", name: "register[productions_attributes][#{ @id }][production_destination]"}
-    %option{value: ""}
-    %option{value: "Autoconsumo"} Autoconsumo
-    %option{value: "Mercado Interno"} Mercado Interno
-    %option{value: "Mercado Externo"} Mercado Externo
+  %input.numeric.float.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_consumption", name: "register[productions_attributes][#{ @id }][consumption]"}
+%td
+  %input.numeric.float.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_national", name: "register[productions_attributes][#{ @id }][national]"}
+%td
+  %input.numeric.float.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_export", name: "register[productions_attributes][#{ @id }][export]"}
 %td
   %a.btn.btn-danger.btn-xs.remove
     .glyphicon.glyphicon-remove

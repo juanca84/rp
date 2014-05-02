@@ -4,11 +4,11 @@
       %tr
         %th.col-sm-2 Departamento
         %th.col-sm-2 Municipio
-        %th.col-sm-3 Comunidad/zona/otra
+        %th.col-sm-2 Comunidad/zona/otra
+        %th.col-sm-2 Código INE
         %th.col-sm-1 Superficie
         %th.col-sm-1 Unidad de Medida
         %th.col-sm-2 Tenencia
-        %th.col-sm-1 Desmonte Sin Autorizacion (*)
     %tbody
       %tr
       = f.simple_fields_for :lands do |land|
@@ -20,10 +20,10 @@
           %td
             = land.input_field :another_community
           %td
+            = land.input_field :ine_code
+          %td
             = land.input_field :surface
           %td
             = land.input_field :unit_of_measure
           %td
             = land.input_field :tenure, value: land.object.try(:tenure)
-          %td
-            = land.object.disassemble_without_permission? ? 'SI' : 'NO'

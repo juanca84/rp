@@ -1,5 +1,5 @@
 class Land < ActiveRecord::Base
-  default_scope order('lands.created_at ASC')
+  default_scope order('lands.id ASC')
 
   has_paper_trail
 

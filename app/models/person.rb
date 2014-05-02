@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
 
   has_paper_trail
 
-  default_scope order('people.created_at ASC')
+  default_scope order('people.id ASC')
 
   attr_accessible :age, :birthdate, :birthplace, :community_of_birth_id, :civil_status_id, :department_of_birth_id ,:education_id, 
                   :first_lastname, :identification, :issued_id, :name, :phone, :province_of_birth_id, :people_registers_attributes, 

@@ -9,13 +9,16 @@
         %th.col-sm-1{ colspan: 2 } Cobertura Física Productiva           
         %th.col-sm-1{ colspan: 2 } Producción
         %th.col-sm-2{ rowspan: 2 } Sistema de Producción
-        %th.col-sm-2{ rowspan: 2 } Destino de la Producción
+        %th.col-sm-2{ colspan: 3 } Destino de la Producción(%)
         %th.col-sm-1{ rowspan: 2 }
       %tr
         %th.col-sm-1 Cantidad           
         %th.col-sm-1 Unidad         
         %th.col-sm-1 Cantidad
         %th.col-sm-1 Unidad
+        %th.col-sm-1 Autoconsumo
+        %th.col-sm-1 Nacional
+        %th.col-sm-1 Exportación
 
     %tbody
       %tr
@@ -41,7 +44,11 @@
           %td
             = production.input_field :production_system, as: :select, collection: ['Intensivo', 'Extensivo', 'Semi Intensivo']
           %td
-            = production.input_field :production_destination, as: :select, collection: ['Autoconsumo', 'Mercado Interno', 'Mercado Externo']
+            = production.input_field :consumption
+          %td
+            = production.input_field :national
+          %td
+            = production.input_field :export
           %td
             %a.btn.btn-danger.btn-xs.remove-static-field
               .glyphicon.glyphicon-remove

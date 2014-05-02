@@ -3,18 +3,22 @@
   %table.table.table_register.table-bordered{ class: "table_land-#{ index }-productions" }
     %thead
       %tr
-        %th.col-sm-1{ rowspan: 2 } Departamento
+        %th.col-sm-2{ rowspan: 2 } Departamento
         %th.col-sm-2{ rowspan: 2 } Municipio
-        %th.col-sm-2{ rowspan: 2 } Rubro
+        %th.col-sm-4{ rowspan: 2 } Rubro
         %th.col-sm-1{ colspan: 2 } Cobertura Física Productiva           
         %th.col-sm-1{ colspan: 2 } Producción
-        %th.col-sm-1{ rowspan: 2 } Sistema de Producción
-        %th.col-sm-3{ rowspan: 2 } Destino de la Producción
+        %th.col-sm-2{ rowspan: 2 } Sistema de Producción
+        %th.col-sm-2{ colspan: 3 } Destino de la Producción(%)
+        %th.col-sm-1{ rowspan: 2 }
       %tr
         %th.col-sm-1 Cantidad           
         %th.col-sm-1 Unidad         
         %th.col-sm-1 Cantidad
         %th.col-sm-1 Unidad
+        %th.col-sm-1 Autoconsumo
+        %th.col-sm-1 Nacional
+        %th.col-sm-1 Exportación
 
     %tbody
       %tr
@@ -38,4 +42,8 @@
           %td
             = production.input_field :production_system
           %td
-            = production.input_field :production_destination
+            = production.input_field :consumption, value: "#{ production.object.try(:consumption) }%"
+          %td
+            = production.input_field :national, value: "#{ production.object.try(:national) }%"
+          %td
+            = production.input_field :export, value: "#{ production.object.try(:export) }%"
