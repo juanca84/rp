@@ -140,17 +140,23 @@ es:
         code: Código
         community_legal_status: ¿Posee personería jurídica la organización comunitaria?
         community_name: ¿A qué organización comunitaria pertenece? (comunidad/capitania/colonia/otros)
-        economic_activity_1: ACTIVIDAD PRINCIPAL Subsector 1
-        economic_activity_2: ACTIVIDAD PRINCIPAL Subsector 2
-        first_entry_1: Primer rubro 1
-        first_entry_2: Primer rubro 2
+        economic_activity_1_1: Subsector 1
+        economic_activity_1_2: Subsector 2
+        economic_activity_2_1: Subsector 1
+        economic_activity_2_2: Subsector 2
+        first_entry_1_1: Rubro 1
+        first_entry_1_2: Rubro 1
+        first_entry_2_1: Rubro 1
+        first_entry_2_2: Rubro 1
         greater_community: ¿A qué organización matriz superior comunitaria pertenece?
         productive_legal_status_1: ¿Posee personería jurídica la organización productiva?
         productive_legal_status_2: ¿Posee personería jurídica la organización productiva?
         productive_name_1: Nombre de la organización 
         productive_name_2: Nombre de la organización
-        second_entry_1: Segundo rubro 1
-        second_entry_2: Segundo rubro 2
+        second_entry_1_1: Rubro 2
+        second_entry_1_2: Rubro 2
+        second_entry_2_1: Rubro 2
+        second_entry_2_2: Rubro 2
 
       people_register:
         mothers_name: Nombre de la Madre
@@ -205,20 +211,16 @@ es:
         code_ine: Código INE
         community: Municipio de Residencia
         department: Departamento de Residencia
-        economic_activity: Subsector
         emission_date: Fecha de emisión
         emission_community: Municipio de emisión
         emission_department: Departamento de emisión
-        first_entry: Rubro 1
-        geodesic_ew: Punto Geodésico EW
-        geodesic_ns: Punto Geodésico NS
         residence: Lugar de Residencia
-        second_entry: Rubro 2
         status: Estado
-        type_residence: Tipo de residencia
+
       role:
         name: nombre
         resource_type: Tipo de Recurso
+
       user:
         active: Activo
         created_at: Creado en
@@ -230,6 +232,7 @@ es:
         password: Contraseña
         password_confirmation: Confirmacion de contraseña
         sign_in_count: Contador de inicio de sesión
+
     errors:
       <<: *errors
   back: Atrás

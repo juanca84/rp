@@ -12,5 +12,12 @@ class AddSecondEconomicActivityToPartnership < ActiveRecord::Migration
     rename_column :partnerships, :economic_activity_2_id, :economic_activity_2_1_id
     rename_column :partnerships, :first_entry_2, :first_entry_2_1
     rename_column :partnerships, :second_entry_2, :second_entry_2_1
+
+    add_index :partnerships, :economic_activity_1_1_id
+    add_index :partnerships, :economic_activity_1_2_id
+    add_index :partnerships, :economic_activity_2_1_id
+    add_index :partnerships, :economic_activity_2_2_id
+    remove_index :partnerships, :economic_activity_1_id
+    remove_index :partnerships, :economic_activity_2_id
   end
 end

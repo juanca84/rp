@@ -166,8 +166,10 @@ ActiveRecord::Schema.define(:version => 20140502131722) do
     t.string   "second_entry_2_2"
   end
 
-  add_index "partnerships", ["economic_activity_1_1_id"], :name => "index_partnerships_on_economic_activity_1_id"
-  add_index "partnerships", ["economic_activity_2_1_id"], :name => "index_partnerships_on_economic_activity_2_id"
+  add_index "partnerships", ["economic_activity_1_1_id"], :name => "index_partnerships_on_economic_activity_1_1_id"
+  add_index "partnerships", ["economic_activity_1_2_id"], :name => "index_partnerships_on_economic_activity_1_2_id"
+  add_index "partnerships", ["economic_activity_2_1_id"], :name => "index_partnerships_on_economic_activity_2_1_id"
+  add_index "partnerships", ["economic_activity_2_2_id"], :name => "index_partnerships_on_economic_activity_2_2_id"
 
   create_table "partnerships_registers", :force => true do |t|
     t.integer  "register_id"
