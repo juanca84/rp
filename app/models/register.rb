@@ -7,9 +7,10 @@ class Register < ActiveRecord::Base
 
   include AASM
   
-  attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes,
-                  :code_ine, :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
-                  :first_entry, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, :partnership_attributes, :productions_attributes, :residence, 
+  attr_accessible :activation_date, :address, :aggregates_attributes, :capitals_attributes, :code_ine, 
+                  :community_id, :department_id, :economic_activity_id, :emission_community_id, :emission_date, :emission_department_id, 
+                  :first_entry, :is_owner, :geodesic_ew, :geodesic_ns, :holders_attributes, :lands_attributes, 
+                  :owner_attributes, :partnership_attributes, :productions_attributes, :residence, 
                   :second_entry, :sons_attributes, :type_residence_id, :user_id, :work_attributes
                   
   belongs_to :economic_activity
@@ -26,6 +27,7 @@ class Register < ActiveRecord::Base
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy
   has_one :work
+  has_one :owner
 
   has_many :people_registers, dependent: :destroy
   has_many :people, through: :people_registers
@@ -47,6 +49,8 @@ class Register < ActiveRecord::Base
   accepts_nested_attributes_for :capitals, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
   
   accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
+  
+  accepts_nested_attributes_for :owner, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }
 
   accepts_nested_attributes_for :partnership, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
   
