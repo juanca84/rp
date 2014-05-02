@@ -214,6 +214,7 @@ es:
         emission_date: Fecha de emisión
         emission_community: Municipio de emisión
         emission_department: Departamento de emisión
+        is_owner: ¿Es usted el propietario del establecimiento productivo?
         residence: Lugar de Residencia
         status: Estado
 

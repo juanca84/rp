@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502155730) do
+ActiveRecord::Schema.define(:version => 20140502202811) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -282,8 +282,8 @@ ActiveRecord::Schema.define(:version => 20140502155730) do
 
   create_table "registers", :force => true do |t|
     t.integer  "code"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "residence"
     t.string   "address"
     t.integer  "department_id"
@@ -301,6 +301,7 @@ ActiveRecord::Schema.define(:version => 20140502155730) do
     t.string   "status"
     t.datetime "activation_date"
     t.integer  "type_residence_id"
+    t.boolean  "is_owner",               :default => true
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
