@@ -27,8 +27,10 @@ class Register < ActiveRecord::Base
   has_many :lands, dependent: :destroy
   has_many :sons, dependent: :destroy
   has_one :work
-  has_one :owner
 
+  has_one :owner
+  has_one :person, through: :owner
+ 
   has_many :people_registers, dependent: :destroy
   has_many :people, through: :people_registers
 
@@ -50,7 +52,7 @@ class Register < ActiveRecord::Base
   
   accepts_nested_attributes_for :lands, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
   
-  accepts_nested_attributes_for :owner, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }
+  accepts_nested_attributes_for :owner#, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }
 
   accepts_nested_attributes_for :partnership, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
   

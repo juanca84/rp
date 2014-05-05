@@ -21,6 +21,9 @@ class Person < ActiveRecord::Base
   has_many :people_registers
   has_many :registers, through: :people_registers
 
+  has_one :owner
+  has_one :owner_register, through: :owner, source: "register"
+
   def get_age
     birthdate.present? ? (Date.today.year - birthdate.year) : ''
   end

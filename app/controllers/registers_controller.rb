@@ -28,7 +28,7 @@ class RegistersController < RunpaController
 
   def edit
     @register = Register.includes(holders: { person: [:education, :civil_status] }).find(params[:id])
-    @register.build_owner(type_person: 'owner').build_person
+    @register.build_owner(type_person: 'owner').build_person  unless @register.owner
     
     @register_no_valids -= [@register]
   end
@@ -50,7 +50,6 @@ class RegistersController < RunpaController
 
   def update
     @register = Register.find(params[:id])
-    
     if @register.update_attributes(params[:register])
       redirect_to register_register_step_path(@register, :family)
       #flash[:notice] = 'Register was successfully updated.'
