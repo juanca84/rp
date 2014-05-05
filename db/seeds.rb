@@ -102,3 +102,14 @@ type_residences.each do |cs|
   type_residence = { code: cs[:code], name: cs[:name] }
   en = TypeResidence.find_or_create_by_code_and_name(type_residence) 
 end
+
+puts "inicializando tipos de administradores de los establecimientos productivos"
+manager_types = 
+  [
+    { code: '1', name: 'ESPOSO/A' },
+    { code: '2', name: 'HIJO/A' }
+  ]
+manager_types.each do |mt|
+  manager_type = { code: mt[:code], name: mt[:name] }
+  manager = ManagerType.find_or_create_by_code_and_name(manager_type) 
+end

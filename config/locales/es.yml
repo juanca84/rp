@@ -80,6 +80,9 @@ es:
         one: Entidad
         other: Entidades
       holder: Titular
+      manager_type:
+        one: Tipo de Administrador de Establecimiento
+        other: Tipos de Administradores de Establecimientos
       partnership:
         one: Asociación Productiva
         other: Asociaciones Productivas  
@@ -215,6 +218,7 @@ es:
         emission_community: Municipio de emisión
         emission_department: Departamento de emisión
         is_owner: ¿Es usted el propietario del establecimiento productivo?
+        manager_type: ¿Quién trabaja y/o maneja y/o administra el establecimiento productivo?
         residence: Lugar de Residencia
         status: Estado
 

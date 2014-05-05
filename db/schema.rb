@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502202811) do
+ActiveRecord::Schema.define(:version => 20140505144923) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -138,6 +138,13 @@ ActiveRecord::Schema.define(:version => 20140502202811) do
   add_index "lands", ["community_id"], :name => "index_lands_on_community_id"
   add_index "lands", ["department_id"], :name => "index_lands_on_department_id"
   add_index "lands", ["register_id"], :name => "index_lands_on_register_id"
+
+  create_table "manager_types", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "partnerships", :force => true do |t|
     t.string   "name"
@@ -302,6 +309,7 @@ ActiveRecord::Schema.define(:version => 20140502202811) do
     t.datetime "activation_date"
     t.integer  "type_residence_id"
     t.boolean  "is_owner",               :default => true
+    t.integer  "manager_type_id"
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"
@@ -309,6 +317,7 @@ ActiveRecord::Schema.define(:version => 20140502202811) do
   add_index "registers", ["economic_activity_id"], :name => "index_registers_on_economic_activity_id"
   add_index "registers", ["emission_community_id"], :name => "index_registers_on_emission_community_id"
   add_index "registers", ["emission_department_id"], :name => "index_registers_on_emission_department_id"
+  add_index "registers", ["manager_type_id"], :name => "index_registers_on_manager_type_id"
   add_index "registers", ["type_residence_id"], :name => "index_registers_on_type_residence_id"
   add_index "registers", ["user_id"], :name => "index_registers_on_user_id"
 
