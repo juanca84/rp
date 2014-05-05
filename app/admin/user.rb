@@ -13,7 +13,6 @@ ActiveAdmin.register User do
     column :updated_at
     column :last_seen_at
     column :active
-    column :last_seen_at
     column("entity") { |entity| entity.business_name }
     column("role") { |role| role.roles_name.join(", ") }
     column("profile_name") { |user| user.profile.try(:name) }

@@ -5,7 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lastseenable
 
   attr_accessible :active, :community_ids, :department_ids, :email, :entity_id, :lastseenable, :password, :password_confirmation, 
-                  :profile_attributes, :province_ids, :remember_me, :role_ids 
+                  :profile_attributes, :province_ids, :remember_me, :role_ids,
+                  #para la migracion al nuevo sistema
+                  :encrypted_password, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, 
+                  :created_at, :updated_at, :last_seen_at
+
+
 
   validates :email, presence: true, uniqueness: true
 
