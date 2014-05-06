@@ -106,8 +106,10 @@ end
 puts "inicializando tipos de administradores de los establecimientos productivos"
 manager_types = 
   [
-    { code: '1', name: 'ESPOSO/A' },
-    { code: '2', name: 'HIJO/A' }
+    { code: '1', name: 'ESPOSO' },
+    { code: '2', name: 'ESPOSA' },
+    { code: '3', name: 'HIJO/A' },
+    { code: '4', name: 'PROPIETARIO Y/O SOCIO' }
   ]
 manager_types.each do |mt|
   manager_type = { code: mt[:code], name: mt[:name] }

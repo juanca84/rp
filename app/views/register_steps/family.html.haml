@@ -28,11 +28,6 @@
         %a.btn.btn-success.btn-large.add_aggregate{ data: { type: 'aggregate' } }
           .glyphicon.glyphicon-plus-sign
           adicionar agregado/a
-  .well
-    .form-group
-      = f.label :manager_type, class: "col-sm-7"
-      .col-sm-2.control
-        = f.input_field :manager_type_id, as: :select, collection: ManagerType.all
 
   = render "form_submit", register: @register
 

@@ -9,6 +9,12 @@
   = f.error_notification
 
   = render "owner", f: f
+  
+  .well
+    .form-group
+      = f.label :manager_type, class: "col-sm-7"
+      .col-sm-2.control
+        = f.input_field :manager_type_id, as: :select, collection: ManagerType.all
 
   .form-actions
     %legend IDENTIFICACIÓN DE LOS TITULARES
