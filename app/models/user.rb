@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   belongs_to :entity
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :registers
   has_many :runpa_modules, through: :roles
 

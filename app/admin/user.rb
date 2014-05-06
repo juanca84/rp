@@ -4,7 +4,6 @@ ActiveAdmin.register User do
 
   csv do
     column :email
-    column :encrypted_password
     column :sign_in_count
     column :current_sign_in_at
     column :last_sign_in_at
@@ -20,6 +19,7 @@ ActiveAdmin.register User do
     column("profile_second_last_name") { |user| user.profile.try(:second_last_name) }
     column("profile_identification") { |user| user.profile.try(:identification) }
     column("profile_sex") { |user| user.profile.try(:sex) }
+    column("profile_birthdate") { |user| user.profile.try(:birthdate) }
     column("profile_created_at") { |user| user.profile.try(:created_at) }
     column("profile_updated_at") { |user| user.profile.try(:updated_at) }
   end

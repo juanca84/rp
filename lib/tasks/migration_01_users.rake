@@ -27,7 +27,7 @@ namespace 'import' do
                         profile_attributes: {
                           name: row['profile_name'],
                           last_name: row['profile_last_name'],
-                          second_last_name: row['profile_last_name'],
+                          second_last_name: row['profile_second_last_name'],
                           identification: row['profile_identification'],
                           sex: row['profile_sex'],
                           created_at: row['profile_created_at'],
