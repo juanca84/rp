@@ -12,6 +12,11 @@
 
       = render 'registers/show/owner', f: f
 
+      .well
+        .form-group
+          = f.label :manager_type, class: "col-sm-7"
+          .col-sm-5.control
+            = f.input_field :manager_type_id, value: f.object.try(:manager_type).try(:name)     
       .well.form-actions
         %legend IDENTIFICACIÓN DE LOS TITULARES
         = render 'registers/show/holder', f: f
@@ -27,12 +32,6 @@
           = field_set_tag 'Agregados y Agregadas' do
             #aggregates
               = render 'registers/show/son_aggregate', f: f, resources: :aggregates
-
-      .well
-        .form-group
-          = f.label :manager_type, class: "col-sm-7"
-          .col-sm-5.control
-            = f.input_field :manager_type_id, value: f.object.try(:manager_type).try(:name)
 
       .well.form-actions
         %legend ORGANIZACIÓN PRODUCTIVA 
@@ -61,8 +60,6 @@
             %i 
               %b Observación: 
               En la conversión se asume que un hombre trabaja 250 días al año.
-
-
 
       .well.form-actions
         %legend PRODUCCIÓN

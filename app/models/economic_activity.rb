@@ -1,6 +1,6 @@
 class EconomicActivity < ActiveRecord::Base
   attr_accessible :code, :name
-  default_scope order("economic_activities.code ASC")
+  default_scope order("economic_activities.name ASC")
 
   #validates :name, :code, presence: true
   #validates :name, :code, uniqueness: true 
