@@ -153,7 +153,7 @@ class Register < ActiveRecord::Base
   end
 
   def summary_partnerships
-    "#{ partnership.productive_name_1 }, #{ partnership.productive_name_2 }"
+    "#{ partnership.try(:productive_name_1) }, #{ partnership.try(:productive_name_2)  }"
   end
 
   def summary_economic_activity
