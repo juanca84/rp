@@ -126,7 +126,7 @@ class Register < ActiveRecord::Base
   #método para crear los identificadores de numero
   def self.new_code_number
     code_number = Register.maximum("code")
-    return code_number.nil? ? 1 : code_number + 1
+    return code_number.nil? ? 888 : code_number + 1
   end
 
   #método para determinar la sumatoria de los dias 
