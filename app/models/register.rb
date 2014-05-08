@@ -55,7 +55,7 @@ class Register < ActiveRecord::Base
   
   accepts_nested_attributes_for :owner#, reject_if: lambda { |a| a[:person_attributes].blank? || (a[:person_attributes].present? && a[:person_attributes][:name].blank?) }
 
-  accepts_nested_attributes_for :partnership, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :partnership, allow_destroy: true
   
   accepts_nested_attributes_for :productions, reject_if: lambda { |a| a[:department_id].blank? && a[:community_id].blank? }, allow_destroy: true
 

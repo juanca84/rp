@@ -13,7 +13,8 @@ administrador.runpa_modules << module_formulario unless administrador.runpa_modu
 administrador.runpa_modules << module_administrador unless administrador.runpa_modules.include?(module_administrador)
 administrador.runpa_modules << module_reportes unless administrador.runpa_modules.include?(module_reportes)
 administrador.runpa_modules << module_servicio_web unless administrador.runpa_modules.include?(module_servicio_web)
-agente_registrador.runpa_modules << module_formulario unless administrador.runpa_modules.include?(module_formulario)
+
+agente_registrador.runpa_modules << module_formulario unless agente_registrador.runpa_modules.include?(module_formulario)
 
 #creacion de la cuenta de administrador
 admin = User.create(email: "runpa.mdryt@gmail.com", password: "runpa1234", password_confirmation: "runpa1234")
