@@ -1,0 +1,105 @@
+/* line 1, ../../app/assets/stylesheets/main.css.scss */
+body {
+  color: #333333;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* line 7, ../../app/assets/stylesheets/main.css.scss */
+.main {
+  margin-top: 80px;
+}
+
+/* line 10, ../../app/assets/stylesheets/main.css.scss */
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+/* line 15, ../../app/assets/stylesheets/main.css.scss */
+.form-forgot-password-heading, .form-forgot-password-edit-heading {
+  max-width: 450px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+/* line 20, ../../app/assets/stylesheets/main.css.scss */
+.form-forgot-password-heading input[type="text"] {
+  margin-bottom: -1px;
+}
+
+/* line 23, ../../app/assets/stylesheets/main.css.scss */
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* line 28, ../../app/assets/stylesheets/main.css.scss */
+.form-signin input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-bottom: 10px;
+}
+
+/* line 33, ../../app/assets/stylesheets/main.css.scss */
+.form-forgot-password-edit-heading #user_password {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* line 38, ../../app/assets/stylesheets/main.css.scss */
+.form-forgot-password-edit-heading #user_password_confirmation {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-bottom: 10px;
+}
+
+/* line 43, ../../app/assets/stylesheets/main.css.scss */
+.form-signin .form-control, .form-forgot-password-heading .form-control, .form-forgot-password-edit-heading .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 52, ../../app/assets/stylesheets/main.css.scss */
+.form-signin-heading {
+  text-align: center;
+}
+
+/* line 56, ../../app/assets/stylesheets/main.css.scss */
+form.form-horizontal {
+  font-size: 12px;
+}
+
+/* line 60, ../../app/assets/stylesheets/main.css.scss */
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 3px 6px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+/* line 78, ../../app/assets/stylesheets/main.css.scss */
+#new_register > fieldset {
+  font-weight: bold !important;
+}

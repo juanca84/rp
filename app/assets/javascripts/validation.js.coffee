@@ -8,6 +8,7 @@ Backbone.Validation.configure forceUpdate: true
 # See: http://thedersen.com/projects/backbone-validation/#configuration/callbacks
 _.extend Backbone.Validation.callbacks,
   valid: (view, attr, selector) ->
+    console.log "valid", view, attr, selector
     $el = view.$("[name=" + attr + "]")
     $group = $el.closest(".form-group")
     $group.removeClass "has-error"
@@ -15,6 +16,7 @@ _.extend Backbone.Validation.callbacks,
     return
 
   invalid: (view, attr, error, selector) ->
+    console.log "invalid", view, attr, error,selector
     $el = view.$("[name=" + attr + "]")
     $group = $el.closest(".form-group")
     $group.addClass "has-error"
@@ -23,11 +25,19 @@ _.extend Backbone.Validation.callbacks,
 
 
 # Define a model with some validation rules
-SignUpModel = Backbone.Model.extend(
+RegisterModel = Backbone.Model.extend(
   defaults:
     country: "Norway"
 
   validation:
+    name:
+      required: true
+      msg: "Escriba un nombre."
+
+    first_lastname:
+      required: true
+      msg: "Escriba un Apellido."
+
     username:
       required: true
 
@@ -38,7 +48,7 @@ SignUpModel = Backbone.Model.extend(
     password:
       minLength: 8
 
-    repeatPassword:
+    repeatPassword11:
       equalTo: "password"
       msg: "The passwords does not match"
 
@@ -61,11 +71,11 @@ SignUpModel = Backbone.Model.extend(
     terms:
       acceptance: true
 )
-SignUpForm = Backbone.View.extend(
+RegisterForm = Backbone.View.extend(
   events:
-    "click #signUpButton": (e) ->
+    "click #saveButton": (e) ->
       e.preventDefault()
-      @signUp()
+      @saveUp()
       return
 
   
@@ -73,6 +83,11 @@ SignUpForm = Backbone.View.extend(
   # the model and the view
   # See: https://github.com/NYTimes/backbone.stickit
   bindings:
+    "#register_holders_attributes_0_person_attributes_name":
+      observe: "name"
+      setOptions:
+        validate: true
+
     "[name=username]":
       observe: "username"
       setOptions:
@@ -88,8 +103,8 @@ SignUpForm = Backbone.View.extend(
       setOptions:
         validate: true
 
-    "[name=repeatPassword]":
-      observe: "repeatPassword"
+    "[name=repeatPassword11]":
+      observe: "repeatPassword11"
       setOptions:
         validate: true
 
@@ -138,7 +153,7 @@ SignUpForm = Backbone.View.extend(
     @stickit()
     this
 
-  signUp: ->
+  saveUp: ->
     
     # Check if the model is valid before saving
     # See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
@@ -155,9 +170,9 @@ SignUpForm = Backbone.View.extend(
     Backbone.View::remove.apply this, arguments_
 )
 $ ->
-  view = new SignUpForm(
-    el: "form"
-    model: new SignUpModel()
+  view = new RegisterForm(
+    el: "form.form-register"
+    model: new RegisterModel()
   )
   view.render()
   return

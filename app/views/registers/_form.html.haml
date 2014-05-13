@@ -1,5 +1,25 @@
 %form.form-horizontal{role: "form"}
+
+= simple_form_for @register, html: { class: 'form-horizontal form-register', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
+  .form-group
+    .col-sm-8
+    = f.label :code, class: "col-sm-2"
+    .col-sm-2
+      %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code)  }
+    = f.hidden_field :user_id
+
+  = f.error_notification
+
+  = render "owner", f: f
+  ///////
+  //codigo prueba
   %h3 Sign Up!
+  .form-group
+    %label.col-lg-2.control-label{for: "name"} Nombre
+    .col-lg-10
+      %input#name.form-control{name: "name", type: "text"}/
+      %span.help-block.hidden
+
   .form-group
     %label.col-lg-2.control-label{for: "username"} Username
     .col-lg-10
@@ -18,7 +38,7 @@
   .form-group
     %label.col-lg-2.control-label{for: "repeatPassword"} Repeat Password
     .col-lg-10
-      %input#repeatPassword.form-control{name: "repeatPassword", type: "password"}/
+      %input#repeatPassword.form-control{name: "repeatPassword11", type: "password"}/
       %span.help-block.hidden
   .form-group
     %label.col-lg-2.control-label{for: "country"} Country
@@ -51,18 +71,7 @@
   .form-group
     .col-lg-offset-2.col-lg-10
       %button#signUpButton.btn.btn-success{type: "button"} Sign Up
-= simple_form_for @register, html: { class: 'form-horizontal form-register', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
-  .form-group
-    .col-sm-8
-    = f.label :code, class: "col-sm-2"
-    .col-sm-2
-      %input.integer.optional.form-control{ readonly: true, type: "text", value: f.object.try(:code)  }
-    = f.hidden_field :user_id
-
-  = f.error_notification
-
-  = render "owner", f: f
-  
+  //////
   .well
     .form-group
       = f.label :manager_type, class: "col-sm-7"

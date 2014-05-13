@@ -1,3 +1,3 @@
 .well.form-actions.well_submit
   - text_submit = register.new_record? ? "Crear Registro" : 'Guardar Cambios' 
-  %input.btn.btn-success.pull-right{type: "submit", value: text_submit }
+  %input.btn.btn-success.pull-right#saveButton{type: "submit", value: text_submit }
