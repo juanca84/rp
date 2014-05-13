@@ -17,3 +17,6 @@
 //= require backbone
 //= require backbone/runpa
 //= require main
+//= require backbone-validation
+//= require validation
+//= require backbone.stickit

@@ -1,6 +1,7 @@
 #= require_self
 #= require_tree ./templates
 #= require_tree ./views
+#= require_tree ./models
 
 window.Runpa =
   Models: {}
