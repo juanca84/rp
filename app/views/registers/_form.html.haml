@@ -11,72 +11,14 @@
   = f.error_notification
 
   = render "owner", f: f
-  ///////
-  //codigo prueba
-  %h3 Sign Up!
-  .form-group
-    %label.col-lg-2.control-label{for: "name"} Nombre
-    .col-lg-10
-      %input#name.form-control{name: "name", type: "text"}/
-      %span.help-block.hidden
 
-  .form-group
-    %label.col-lg-2.control-label{for: "username"} Username
-    .col-lg-10
-      %input#username.form-control{name: "username", type: "text"}/
-      %span.help-block.hidden
-  .form-group
-    %label.col-lg-2.control-label{for: "email"} Email
-    .col-lg-10
-      %input#email.form-control{name: "email", type: "email"}/
-      %span.help-block.hidden
-  .form-group
-    %label.col-lg-2.control-label{for: "password"} Password
-    .col-lg-10
-      %input#password.form-control{name: "password", type: "password"}/
-      %span.help-block.hidden
-  .form-group
-    %label.col-lg-2.control-label{for: "repeatPassword"} Repeat Password
-    .col-lg-10
-      %input#repeatPassword.form-control{name: "repeatPassword11", type: "password"}/
-      %span.help-block.hidden
-  .form-group
-    %label.col-lg-2.control-label{for: "country"} Country
-    .col-lg-10
-      %select#country.form-control{name: "country"}
-      %span.help-block.hidden
-  .form-group
-    %label.col-lg-2.control-label Gender
-    .col-lg-offset-2.col-lg-10
-      %label.radio-inline.control-label
-        %input#genderMale{name: "gender", type: "radio", value: "male"}/
-        Male
-      %label.radio-inline.control-label
-        %input#genderFemale{name: "gender", type: "radio", value: "female"}/
-        Female
-      %span.help-block.hidden
-  .form-group
-    %label.col-lg-2.control-label{for: "age"} Age
-    .col-lg-10
-      %input#age.form-control{name: "age", type: "number"}/
-      %span.help-block.hidden
-  .form-group
-    .col-lg-offset-2.col-lg-10
-      .checkbox
-        %label.control-label
-          %input#terms{name: "terms", type: "checkbox", value: "true"}>/
-          I agree all your
-          %a{href: "#"} Terms of Services
-        %span.help-block.hidden
-  .form-group
-    .col-lg-offset-2.col-lg-10
-      %button#signUpButton.btn.btn-success{type: "button"} Sign Up
-  //////
   .well
     .form-group
-      = f.label :manager_type, class: "col-sm-7"
-      .col-sm-2.control
-        = f.input_field :manager_type_id, as: :select, collection: ManagerType.all
+      .field
+        = f.label :manager_type, class: "col-sm-7"
+        .col-sm-2.control
+          = f.input_field :manager_type_id, as: :select, collection: ManagerType.all, field: "manager_type" 
+          %span.help-block.hidden
 
   .form-actions
     %legend IDENTIFICACIÓN DE LOS TITULARES
@@ -95,3 +37,14 @@
 
 :javascript
   var register = new Runpa.Views.Registers.NewView()
+  var view = new Runpa.Views.Registers.NewHolder({
+      el: 'form',
+      model: new Runpa.Models.Holder({ 
+        manager_type: "#{ @register.try(:manager_type_id) }", 
+        holder_name: "#{ @register.try(:holder_main).try(:name) }",
+        holder_lastname: "#{ @register.try(:holder_main).try(:first_lastname) }",
+        holder_1_time_land: "#{ @register.try(:holders).try(:first).try(:time_to_land) }",
+        holder_2_time_land: "#{ @register.try(:holders).try(:last).try(:time_to_land) }"
+      })
+  });
+  view.render();

@@ -8,137 +8,77 @@ Backbone.Validation.configure forceUpdate: true
 # See: http://thedersen.com/projects/backbone-validation/#configuration/callbacks
 _.extend Backbone.Validation.callbacks,
   valid: (view, attr, selector) ->
-    console.log "valid", view, attr, selector
-    $el = view.$("[name=" + attr + "]")
-    $group = $el.closest(".form-group")
+    $el = view.$("[field=" + attr + "]")
+    $group = $el.closest(".field")
     $group.removeClass "has-error"
     $group.find(".help-block").html("").addClass "hidden"
     return
 
-  invalid: (view, attr, error, selector) ->
-    console.log "invalid", view, attr, error,selector
-    $el = view.$("[name=" + attr + "]")
-    $group = $el.closest(".form-group")
+  invalid: (view, attr, error, selector) ->     
+    $el = view.$("[field=" + attr + "]")
+    $group = $el.closest(".field")
     $group.addClass "has-error"
     $group.find(".help-block").html(error).removeClass "hidden"
     return
 
-
 # Define a model with some validation rules
-RegisterModel = Backbone.Model.extend(
-  defaults:
-    country: "Norway"
-
+class Runpa.Models.Holder extends Backbone.Model
   validation:
-    name:
+    manager_type:
+      required: true 
+      msg: "Eliga una de las opciones."
+
+    holder_name:
       required: true
       msg: "Escriba un nombre."
 
-    first_lastname:
+    holder_lastname:
       required: true
       msg: "Escriba un Apellido."
 
-    username:
+    holder_1_time_land:
       required: true
+      msg: "Introdusca un número entre 0 y 365."
+      range: [0, 365]
 
-    email:
+    holder_2_time_land:
       required: true
-      pattern: "email"
+      msg: "Introdusca un número entre 0 y 365."
+      range: [0, 365]
 
-    password:
-      minLength: 8
-
-    repeatPassword11:
-      equalTo: "password"
-      msg: "The passwords does not match"
-
-    country:
-      oneOf: [
-        "Norway"
-        "Sweeden"
-      ]
-
-    gender:
-      required: true
-
-    age:
-      required: false
-      range: [
-        18
-        100
-      ]
-
-    terms:
-      acceptance: true
-)
-RegisterForm = Backbone.View.extend(
+class Runpa.Views.Registers.NewHolder extends Backbone.View
   events:
     "click #saveButton": (e) ->
       e.preventDefault()
       @saveUp()
       return
-
   
   # Use stickit to perform binding between
   # the model and the view
   # See: https://github.com/NYTimes/backbone.stickit
   bindings:
-    "#register_holders_attributes_0_person_attributes_name":
-      observe: "name"
+    "[field=manager_type]":
+      observe: "manager_type"
       setOptions:
         validate: true
 
-    "[name=username]":
-      observe: "username"
+    "[field=holder_name]":
+      observe: "holder_name"
       setOptions:
         validate: true
 
-    "[name=email]":
-      observe: "email"
+    "[field=holder_lastname]":
+      observe: "holder_lastname"
       setOptions:
         validate: true
 
-    "[name=password]":
-      observe: "password"
+    "[field=holder_1_time_land]":
+      observe: "holder_1_time_land"
       setOptions:
         validate: true
 
-    "[name=repeatPassword11]":
-      observe: "repeatPassword11"
-      setOptions:
-        validate: true
-
-    "[name=country]":
-      observe: "country"
-      selectOptions:
-        collection: ->
-          [
-            "Norway"
-            "Sweeden"
-            "Denmark"
-            "Finland"
-            "Iceland"
-          ]
-
-      setOptions:
-        validate: true
-
-    "[name=gender]":
-      observe: "gender"
-      setOptions:
-        validate: true
-
-    "[name=age]":
-      observe: "age"
-      events: ["change"]
-      onSet: (val) ->
-        parseInt(val, 10) or `undefined`
-
-      setOptions:
-        validate: true
-
-    "[name=terms]":
-      observe: "terms"
+    "[field=holder_2_time_land]":
+      observe: "holder_2_time_land"
       setOptions:
         validate: true
 
@@ -146,12 +86,19 @@ RegisterForm = Backbone.View.extend(
     
     # This hooks up the validation
     # See: http://thedersen.com/projects/backbone-validation/#using-form-model-validation/validation-binding
+
     Backbone.Validation.bind this
     return
 
   render: ->
+    #window.onload = @fix_values
     @stickit()
     this
+
+  fix_values: ->
+    $("[field]").each (id, f) ->
+      $(f).val $(f).attr("value")
+      return
 
   saveUp: ->
     
@@ -159,8 +106,12 @@ RegisterForm = Backbone.View.extend(
     # See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
     
     # this.model.save();
-    alert "Great Success!"  if @model.isValid(true)
-    return
+    if @model.isValid(true)
+      alert "Great Success!"
+      $('form').submit()
+    else
+      alert "Se encontraron algunos errores, revise el formulario."
+      false
 
   remove: ->
     
@@ -168,11 +119,3 @@ RegisterForm = Backbone.View.extend(
     # See: http://thedersen.com/projects/backbone-validation/#using-form-model-validation/unbinding
     Backbone.Validation.unbind this
     Backbone.View::remove.apply this, arguments_
-)
-$ ->
-  view = new RegisterForm(
-    el: "form.form-register"
-    model: new RegisterModel()
-  )
-  view.render()
-  return

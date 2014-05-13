@@ -5,18 +5,22 @@
       = holder.hidden_field :type_person
       = holder.simple_fields_for :person do |person|
         .form-group.control-group
-          = person.label :name, class: "col-sm-2"
-          .col-sm-10.control
-            = person.input_field :name, class: 'form-control'
+          .field
+            = person.label :name, class: "col-sm-2"
+            .col-sm-10.control
+              = person.input_field :name, class: 'form-control', field: index == 1 ? "holder_name" : ""
+              %span.help-block.hidden
 
         .form-group
-          = person.label :first_lastname, class: "col-sm-2"
-          .col-sm-4.control
-            = person.input_field :first_lastname, class: 'form-control'
-
-          = person.label :second_lastname, class: "col-sm-2"
-          .col-sm-4.control
-            = person.input_field :second_lastname, class: 'form-control'
+          .field
+            = person.label :first_lastname, class: "col-sm-2"
+            .col-sm-4.control
+              = person.input_field :first_lastname, class: 'form-control', field: index == 1 ? "holder_lastname" : ""
+              %span.help-block.hidden
+          .field
+            = person.label :second_lastname, class: "col-sm-2"
+            .col-sm-4.control
+              = person.input_field :second_lastname, class: 'form-control'
 
         .form-group
           = person.label :department_of_birth, class: "col-sm-3"
@@ -86,8 +90,10 @@
               = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
 
         .form-group
-          = holder.label :time_to_land, class: "col-sm-7"
-          .col-sm-5
-            = holder.input_field :time_to_land, as: :string
+          .field
+            = holder.label :time_to_land, class: "col-sm-7"
+            .col-sm-5
+              = holder.input_field :time_to_land, as: :numeric, field: "holder_#{ index }_time_land" 
+              %span.help-block.hidden
 
   - index +=1
