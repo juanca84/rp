@@ -69,7 +69,7 @@
             .col-sm-4
               = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
             .col-sm-4
-              = f.input_field :residence
+              = f.input_field :residence, placeholder: "NOMBRE DEL LUGAR DE RESIDENCIA"
 
           .form-group
             = f.label :address, class: "col-sm-2"
