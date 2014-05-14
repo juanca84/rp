@@ -9,7 +9,7 @@ class Partnership < ActiveRecord::Base
                   :second_entry_2_2,
                   :third_entry_1_1, :third_entry_1_2, :economic_activity_1_3_id, :first_entry_1_3, :second_entry_1_3, 
                   :third_entry_1_3, :third_entry_2_1, :third_entry_2_2, :economic_activity_2_3_id, :first_entry_2_3, 
-                  :second_entry_2_3, :third_entry_2_3
+                  :second_entry_2_3, :third_entry_2_3, 
   has_paper_trail
   
   belongs_to :register
@@ -17,5 +17,6 @@ class Partnership < ActiveRecord::Base
   belongs_to :economic_activity_1_2, class_name: EconomicActivity
   belongs_to :economic_activity_1_3, class_name: EconomicActivity
   belongs_to :economic_activity_2_1, class_name: EconomicActivity
+  belongs_to :economic_activity_2_2, class_name: EconomicActivity
   belongs_to :economic_activity_2_3, class_name: EconomicActivity
 end

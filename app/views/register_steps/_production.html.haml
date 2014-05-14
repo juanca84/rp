@@ -8,7 +8,6 @@
         %th.col-sm-4{ rowspan: 2 } Rubro
         %th.col-sm-1{ colspan: 2 } Cobertura Física Productiva           
         %th.col-sm-1{ colspan: 2 } Producción
-        %th.col-sm-2{ rowspan: 2 } Sistema de Producción
         %th.col-sm-2{ colspan: 3 } Destino de la Producción(%)
         %th.col-sm-1{ rowspan: 2 }
       %tr
@@ -41,8 +40,6 @@
             = production.input_field :production_quantity
           %td
             = production.input_field :production_unit
-          %td
-            = production.input_field :production_system, as: :select, collection: ['Intensivo', 'Extensivo', 'Semi Intensivo']
           %td
             = production.input_field :consumption
           %td

@@ -30,12 +30,6 @@
 %td
   %input.string.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_unit", maxlength: "255", name: "register[productions_attributes][#{ @id }][production_unit]", size: "50", type: "text"}
 %td
-  %select.select.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_production_system", name: "register[productions_attributes][#{ @id }][production_system]"}
-    %option{value: ""}
-    %option{value: "Intensivo"} Intensivo
-    %option{value: "Extensivo"} Extensivo
-    %option{value: "Semi Intensivo"} Semi Intensivo
-%td
   %input.numeric.float.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_consumption", name: "register[productions_attributes][#{ @id }][consumption]"}
 %td
   %input.numeric.float.optional.form-control{ id: "register_productions_attributes_#{ @parent_id }_productions_attributes_#{ @id }_national", name: "register[productions_attributes][#{ @id }][national]"}
