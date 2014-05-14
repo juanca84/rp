@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140505144923) do
+ActiveRecord::Schema.define(:version => 20140514140849) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -155,12 +155,26 @@ ActiveRecord::Schema.define(:version => 20140505144923) do
     t.integer  "economic_activity_2_2_id"
     t.string   "first_entry_2_2"
     t.string   "second_entry_2_2"
+    t.integer  "economic_activity_1_3_id"
+    t.integer  "economic_activity_2_3_id"
+    t.string   "first_entry_1_3"
+    t.string   "second_entry_1_3"
+    t.string   "first_entry_2_3"
+    t.string   "second_entry_2_3"
+    t.string   "third_entry_1_1"
+    t.string   "third_entry_1_2"
+    t.string   "third_entry_1_3"
+    t.string   "third_entry_2_1"
+    t.string   "third_entry_2_2"
+    t.string   "third_entry_2_3"
   end
 
   add_index "partnerships", ["economic_activity_1_1_id"], :name => "index_partnerships_on_economic_activity_1_id"
   add_index "partnerships", ["economic_activity_1_2_id"], :name => "index_partnerships_on_economic_activity_1_2_id"
+  add_index "partnerships", ["economic_activity_1_3_id"], :name => "index_partnerships_on_economic_activity_1_3_id"
   add_index "partnerships", ["economic_activity_2_1_id"], :name => "index_partnerships_on_economic_activity_2_id"
   add_index "partnerships", ["economic_activity_2_2_id"], :name => "index_partnerships_on_economic_activity_2_2_id"
+  add_index "partnerships", ["economic_activity_2_3_id"], :name => "index_partnerships_on_economic_activity_2_3_id"
 
   create_table "partnerships_registers", :force => true do |t|
     t.integer  "register_id"

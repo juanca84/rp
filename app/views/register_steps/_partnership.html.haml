@@ -29,30 +29,55 @@
       .well
         = field_set_tag 'Actividad Principal' do
           .form-group
-            = partnership.label :economic_activity_1_1, class: "col-sm-2"
+            = partnership.label :economic_activity_1_1, class: "col-sm-1"
             .col-sm-2
               = partnership.input_field :economic_activity_1_1_id, as: :select, collection: EconomicActivity.all
           
             = partnership.label :first_entry_1_1, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :first_entry_1_1
           
             = partnership.label :second_entry_1_1, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :second_entry_1_1
 
+            = partnership.label :third_entry_1_1, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :third_entry_1_1
+
           .form-group
-            = partnership.label :economic_activity_1_2, class: "col-sm-2"
+            = partnership.label :economic_activity_1_2, class: "col-sm-1"
             .col-sm-2
               = partnership.input_field :economic_activity_1_2_id, as: :select, collection: EconomicActivity.all
           
             = partnership.label :first_entry_1_2, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :first_entry_1_2
           
             = partnership.label :second_entry_1_2, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :second_entry_1_2
+
+            = partnership.label :third_entry_1_2, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :third_entry_1_2
+
+          .form-group
+            = partnership.label :economic_activity_1_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :economic_activity_1_3_id, as: :select, collection: EconomicActivity.all
+          
+            = partnership.label :first_entry_1_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :first_entry_1_3
+          
+            = partnership.label :second_entry_1_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :second_entry_1_3
+
+            = partnership.label :third_entry_1_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :third_entry_1_3
 
   .well.form-actions
     = field_set_tag 'Organización productiva 2' do
@@ -68,27 +93,52 @@
       .well
         = field_set_tag 'Actividad Principal' do      
           .form-group
-            = partnership.label :economic_activity_2_1, class: "col-sm-2"
+            = partnership.label :economic_activity_2_1, class: "col-sm-1"
             .col-sm-2
               = partnership.input_field :economic_activity_2_1_id, as: :select, collection: EconomicActivity.all
           
             = partnership.label :first_entry_2_1, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :first_entry_2_1
           
             = partnership.label :second_entry_2_1, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :second_entry_2_1
 
+            = partnership.label :third_entry_2_1, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :third_entry_2_1
+
           .form-group
-            = partnership.label :economic_activity_2_2, class: "col-sm-2"
+            = partnership.label :economic_activity_2_2, class: "col-sm-1"
             .col-sm-2
               = partnership.input_field :economic_activity_2_2_id, as: :select, collection: EconomicActivity.all
           
             = partnership.label :first_entry_2_2, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :first_entry_2_2
           
             = partnership.label :second_entry_2_2, class: "col-sm-1"
-            .col-sm-3
+            .col-sm-2
               = partnership.input_field :second_entry_2_2   
+
+            = partnership.label :third_entry_2_2, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :third_entry_2_2  
+
+          .form-group
+            = partnership.label :economic_activity_2_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :economic_activity_2_3_id, as: :select, collection: EconomicActivity.all
+          
+            = partnership.label :first_entry_2_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :first_entry_2_3
+          
+            = partnership.label :second_entry_2_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :second_entry_2_3   
+
+            = partnership.label :third_entry_2_3, class: "col-sm-1"
+            .col-sm-2
+              = partnership.input_field :third_entry_2_3
