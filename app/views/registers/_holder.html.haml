@@ -93,7 +93,7 @@
           .field
             = holder.label :time_to_land, class: "col-sm-7"
             .col-sm-5
-              = holder.input_field :time_to_land, as: :numeric, field: "holder_#{ index }_time_land" 
+              = holder.input_field :time_to_land, as: :integer, field: "holder_#{ index }_time_land"
               %span.help-block.hidden
 
   - index +=1

@@ -18,5 +18,6 @@
       return false;
     }
   });
+  $(document).on("click", "[type=number]", function(e){alert("en foco")});
 
 }).call(this);
