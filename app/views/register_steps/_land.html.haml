@@ -4,8 +4,7 @@
       %tr
         %th.col-sm-2 Departamento
         %th.col-sm-2 Municipio
-        %th.col-sm-2 Comunidad/zona/otra
-        %th.col-sm-2 Código INE      
+        %th.col-sm-2 Comunidad/zona/otra   
         %th.col-sm-1 Superficie
         %th.col-sm-1 Unidad de Medida
         %th.col-sm-2 Tenencia
@@ -23,11 +22,9 @@
           %td
             = land.input_field :another_community
           %td
-            = land.input_field :ine_code
-          %td
             = land.input_field :surface
           %td
-            = land.input_field :unit_of_measure
+            = land.input_field :unit_of_measure, as: :select, collection: ["HA", "M2"]
           %td
             = land.input_field :tenure, as: :select, collection: [ 'propiedad', 'a modo de propiedad(tramite)', 'alquiler', 'anticrético', 'comodato', 'ocupada de hecho', 'arrimados y/o prestados']
           %td

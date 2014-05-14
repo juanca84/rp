@@ -15,6 +15,7 @@ class Partnership < ActiveRecord::Base
   belongs_to :register
   belongs_to :economic_activity_1_1, class_name: EconomicActivity
   belongs_to :economic_activity_1_2, class_name: EconomicActivity
+  belongs_to :economic_activity_1_3, class_name: EconomicActivity
   belongs_to :economic_activity_2_1, class_name: EconomicActivity
-  belongs_to :economic_activity_2_2, class_name: EconomicActivity
+  belongs_to :economic_activity_2_3, class_name: EconomicActivity
 end

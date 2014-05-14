@@ -20,13 +20,14 @@
         %select.select.optional.form-control{ id: "community_lands_#{ @id }", name: "register[lands_attributes][#{ @id }][community_id]", class: 'community_lands' }
           %option{value: ""}
 %td
-  %input.string.optional.form-control{ id: "register_lands_attributes_#{ @id }_ine_code", maxlength: "255", name: "register[lands_attributes][#{ @id }][ine_code]", size: "50", type: "text"}
-%td
   %input.string.optional.form-control{ id: "register_lands_attributes_#{ @id }_another_community", maxlength: "255", name: "register[lands_attributes][#{ @id }][another_community]", size: "50", type: "text"}
 %td
-  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @id }_surface",name: "register[lands_attributes][#{ @id }][surface]", type: "text" }
+  %input.numeric.float.optional.form-control{ id: "register_lands_attributes_#{ @id }_surface", name: "register[lands_attributes][#{ @id }][surface]", type: "text" }
 %td
-  %input.string.optional.form-control{id: "register_lands_attributes_#{ @id }_unit_of_measure", maxlength: "255", name: "register[lands_attributes][#{ @id }][unit_of_measure]", size: "50", type: "text" }
+  %select.select.required.form-control{ id: "register_lands_attributes_#{ @id }_unit_of_measure", name: "register[lands_attributes][#{ @id }][unit_of_measure]" }
+    %option{value: ""}
+    %option{value: "HA"} HA
+    %option{value: "M2"} M2
 %td
   %select.select.optional.form-control{ id: "register_lands_attributes_#{ @id }_tenure", name: "register[lands_attributes][#{ @id }][tenure]"}
     %option{value: ""}
