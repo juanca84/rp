@@ -58,12 +58,11 @@
 
         - if index == 1
           .form-group
-            = f.label :type_residence, class: "col-sm-2"
+            = f.label :residence, class: "col-sm-2"
             .col-sm-3
               = f.input_field :type_residence, value: f.object.try(:type_residence).try(:name)
-            = f.label :residence, class: "col-sm-2"
             .col-sm-5
-              = f.input_field :residence
+              = f.input_field :residence, placeholder: "NOMBRE DEL LUGAR DE RESIDENCIA"
 
           .form-group
             = f.label :address, class: "col-sm-2"

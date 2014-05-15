@@ -52,7 +52,10 @@ class Runpa.Views.Registers.NewHolder extends Backbone.View
       e.preventDefault()
       @saveUp()
       return
-  
+
+    "focus .numeric": (e, t) -> 
+      console.log @, this
+
   # Use stickit to perform binding between
   # the model and the view
   # See: https://github.com/NYTimes/backbone.stickit
@@ -81,24 +84,19 @@ class Runpa.Views.Registers.NewHolder extends Backbone.View
       observe: "holder_2_time_land"
       setOptions:
         validate: true
-
+        
   initialize: ->
     
     # This hooks up the validation
     # See: http://thedersen.com/projects/backbone-validation/#using-form-model-validation/validation-binding
-
+    
     Backbone.Validation.bind this
+    #@remove_zeros()
     return
 
   render: ->
-    #window.onload = @fix_values
     @stickit()
     this
-
-  fix_values: ->
-    $("[field]").each (id, f) ->
-      $(f).val $(f).attr("value")
-      return
 
   saveUp: ->
     
@@ -107,10 +105,9 @@ class Runpa.Views.Registers.NewHolder extends Backbone.View
     
     # this.model.save();
     if @model.isValid(true)
-      alert "Great Success!"
       $('form').submit()
     else
-      alert "Se encontraron algunos errores, revise el formulario."
+      alert "Se encontraron algunos errores, por favor revise el formulario."
       false
 
   remove: ->
@@ -119,3 +116,12 @@ class Runpa.Views.Registers.NewHolder extends Backbone.View
     # See: http://thedersen.com/projects/backbone-validation/#using-form-model-validation/unbinding
     Backbone.Validation.unbind this
     Backbone.View::remove.apply this, arguments_
+
+  remove_zeros: -> 
+    console.log "onfocus"
+    $(document).on "focus", ".numeric", (e) ->
+      console.log @
+      if Number($(@).val()) == 0 
+        $(@).val("")
+
+  #console.log "onfocus", $(@).val()

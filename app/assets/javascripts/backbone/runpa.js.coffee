@@ -22,6 +22,3 @@ $(document).on "keyup keypress", "form.form-register input", (e) ->
   if code is 13
     e.preventDefault()
     false
-
-$(document).on "focus", ".numeric", (e) -> 
-  console.log "onfocus", $(@).()
