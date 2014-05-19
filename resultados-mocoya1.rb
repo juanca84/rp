@@ -14,18 +14,19 @@ puts "hombres: #{ h }"
 #oecom oecas
 oeca = []
 oecom = []
-p1 = []
-p2 = []
+
 Register.valid.each do |r|
-  oecom << r.try(:partnership).try(:name)
-  oeca << r.try(:partnership).try(:community_name) 
-  p1 << [r.id, r.try(:partnership).try(:productive_name_1)]
-  p2 << [r.id, r.try(:partnership).try(:productive_name_2)]
+  if r.try(:partnership).try(:productive_name_1).present? || r.try(:partnership).try(:productive_name_2).present?
+    oeca << r.try(:partnership).try(:name)
+  end
+
+  if r.try(:partnership).try(:name).prensent? 
+    oeca << r.try(:partnership).try(:name) 
+  end
 end
-#oeca
-#oecom
-p1
-p2
+
+puts "oecom: #{ oecom.size }"
+puts "oeca: #{ oeca.size }"
 
 #promedio tierra
 total_sup = []
@@ -33,17 +34,21 @@ has = 0
 m2 = 0
 Register.valid.each do |r|
   r.lands.each do |l|
-    has += l.surface if l.unit_of_measure.include?("ha") 
-    m2 += l.surface if l.unit_of_measure.include?("m") 
+    has += l.surface if l.unit_of_measure.include?("HA") 
+    m2 += l.surface if l.unit_of_measure.include?("M2") 
   end
 end
+
 has
 m2
 total = has*10000 + m2
+puts "Total de superficie: #{ total } m2"
+puts "Total de superficie: #{ total/10000.0} Has"
 
-total_personas = total/Register.all.size 
+puts " total_superficie/total_productores: #{ total/Register.valid.size }"  
 
-#promedio tierra
+
+#Sumatoria del trabajo promedio tierra
 work = []
 work_sum = 0
 Register.valid.each do |r|
@@ -53,9 +58,8 @@ end
 work
 work_sum
 
-1p = 0
-2p = 0
-3p = 0
+puts "Sumatoria del trabajo"
+
 
 papa = 0
 oca = 0
@@ -84,7 +88,7 @@ haba = []
 
   haba_has = 0 
   haba_m2 = 0
-  
+
 Production.all.each do |p|
   #has_papa += p.production_quantity if p.entry.include?("pap")
   #papa << p.entry if p.entry.include?("pap") && p.production_unit.include?("QQ")
