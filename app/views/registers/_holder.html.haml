@@ -1,99 +1,99 @@
 - index = 1
 = f.simple_fields_for :holders do |holder|
-  .well.form-actions
-    = field_set_tag "Titular #{ index == 1 ? "Principal" : "Alterno" }" do
-      = holder.hidden_field :type_person
-      = holder.simple_fields_for :person do |person|
-        .form-group.control-group
-          .field
-            = person.label :name, class: "col-sm-2"
-            .col-sm-10.control
-              = person.input_field :name, class: 'form-control', field: index == 1 ? "holder_name" : ""
-              %span.help-block.hidden
+  .well
+    %legend Titular #{ index == 1 ? "Principal" : "Alterno" }
+    = holder.hidden_field :type_person
+    = holder.simple_fields_for :person do |person|
+      .form-group.control-group
+        .field
+          = person.label :name, class: "col-sm-2"
+          .col-sm-10.control
+            = person.input_field :name, class: 'form-control', field: index == 1 ? "holder_name" : ""
+            %span.help-block.hidden
 
-        .form-group
-          .field
-            = person.label :first_lastname, class: "col-sm-2"
-            .col-sm-4.control
-              = person.input_field :first_lastname, class: 'form-control', field: index == 1 ? "holder_lastname" : ""
-              %span.help-block.hidden
-          .field
-            = person.label :second_lastname, class: "col-sm-2"
-            .col-sm-4.control
-              = person.input_field :second_lastname, class: 'form-control'
+      .form-group
+        .field
+          = person.label :first_lastname, class: "col-sm-2"
+          .col-sm-4.control
+            = person.input_field :first_lastname, class: 'form-control', field: index == 1 ? "holder_lastname" : ""
+            %span.help-block.hidden
+        .field
+          = person.label :second_lastname, class: "col-sm-2"
+          .col-sm-4.control
+            = person.input_field :second_lastname, class: 'form-control'
 
-        .form-group
-          = person.label :department_of_birth, class: "col-sm-3"
-          .col-sm-3
-            = person.input_field :department_of_birth_id, as: :select, collection: Department.all, class: 'select optional form-control department_lands', id: "department_lands_#{ index }"
+      .form-group
+        = person.label :department_of_birth, class: "col-sm-3"
+        .col-sm-3
+          = person.input_field :department_of_birth_id, as: :select, collection: Department.all, class: 'select optional form-control department_lands', id: "department_lands_#{ index }"
 
-          = person.label :province_of_birth, class: "col-sm-3"
-          .col-sm-3
-            = person.input_field :province_of_birth_id, as: :select, collection: Province.all, class: 'select optional form-control province_lands', id: "province_lands_#{ index }"
+        = person.label :province_of_birth, class: "col-sm-3"
+        .col-sm-3
+          = person.input_field :province_of_birth_id, as: :select, collection: Province.all, class: 'select optional form-control province_lands', id: "province_lands_#{ index }"
 
-        .form-group
-          = person.label :community_of_birth, class: "col-sm-3"
-          .col-sm-3
-            = person.input_field :community_of_birth_id, as: :select, collection: Community.all, class: 'select optional form-control community_lands', id: "community_lands_#{ index }"
+      .form-group
+        = person.label :community_of_birth, class: "col-sm-3"
+        .col-sm-3
+          = person.input_field :community_of_birth_id, as: :select, collection: Community.all, class: 'select optional form-control community_lands', id: "community_lands_#{ index }"
 
-          = person.label :birthdate, class: "col-sm-3"
-          .col-sm-3
-            = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate)
+        = person.label :birthdate, class: "col-sm-3"
+        .col-sm-3
+          = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate)
 
-        .form-group
-          = person.label :type_of_identification, class: "col-sm-2"
-          .col-sm-3
-            = person.input_field :type_of_identification_id, as: :select, collection: TypeOfIdentification.all, include_blank: false
-          = person.label :identification, class: "col-sm-3"
-          .col-sm-2
-            = person.input_field :identification
-          .col-sm-2
-            = person.input_field :issued_id, as: :select, collection: Department.all, first: :id, last: :abbrevation, prompt: "expedido en", blank: true
+      .form-group
+        = person.label :type_of_identification, class: "col-sm-2"
+        .col-sm-3
+          = person.input_field :type_of_identification_id, as: :select, collection: TypeOfIdentification.all, include_blank: false
+        = person.label :identification, class: "col-sm-3"
+        .col-sm-2
+          = person.input_field :identification
+        .col-sm-2
+          = person.input_field :issued_id, as: :select, collection: Department.all, first: :id, last: :abbrevation, prompt: "expedido en", blank: true
 
-        .form-group
-          = person.label :education, class: "col-sm-2"
-          .col-sm-3
-            = person.input_field :education_id, as: :select, collection: Education.all
-          = person.label :sex, class: "col-sm-2"
-          .col-sm-1
-            = person.input_field :sex, as: :select, collection: Person::SEX
-
-          - if index == 1
-            = person.label :civil_status, class: "col-sm-2"
-            .col-sm-2
-              = person.input_field :civil_status_id, as: :select, collection: CivilStatus.all
+      .form-group
+        = person.label :education, class: "col-sm-2"
+        .col-sm-3
+          = person.input_field :education_id, as: :select, collection: Education.all
+        = person.label :sex, class: "col-sm-2"
+        .col-sm-1
+          = person.input_field :sex, as: :select, collection: Person::SEX
 
         - if index == 1
-          .form-group
-            = f.label :residence, class: "col-sm-2"
-            .col-sm-4
-              = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
-            .col-sm-4
-              = f.input_field :residence, placeholder: "NOMBRE DEL LUGAR DE RESIDENCIA"
+          = person.label :civil_status, class: "col-sm-2"
+          .col-sm-2
+            = person.input_field :civil_status_id, as: :select, collection: CivilStatus.all
 
-          .form-group
-            = f.label :address, class: "col-sm-2"
-            .col-sm-6
-              = f.input_field :address
-
-            = person.label :phone, class: 'col-sm-2'
-            .col-sm-2
-              = person.input_field :phone
-
-          .form-group
-            = f.label :department, class: "col-sm-3"
-            .col-sm-3
-              = f.input_field :department_id, as: :select, collection: Department.all, id: 'department_holder'
-
-            = f.label :community, class: "col-sm-3"
-            .col-sm-3
-              = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
+      - if index == 1
+        .form-group
+          = f.label :residence, class: "col-sm-2"
+          .col-sm-4
+            = f.input_field :type_residence_id, as: :select, item_wrapper_class: 'radio-inline', collection: TypeResidence.all
+          .col-sm-4
+            = f.input_field :residence, placeholder: "NOMBRE DEL LUGAR DE RESIDENCIA"
 
         .form-group
-          .field
-            = holder.label :time_to_land, class: "col-sm-7"
-            .col-sm-5
-              = holder.input_field :time_to_land, as: :integer, field: "holder_#{ index }_time_land"
-              %span.help-block.hidden
+          = f.label :address, class: "col-sm-2"
+          .col-sm-6
+            = f.input_field :address
+
+          = person.label :phone, class: 'col-sm-2'
+          .col-sm-2
+            = person.input_field :phone
+
+        .form-group
+          = f.label :department, class: "col-sm-3"
+          .col-sm-3
+            = f.input_field :department_id, as: :select, collection: Department.all, id: 'department_holder'
+
+          = f.label :community, class: "col-sm-3"
+          .col-sm-3
+            = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
+
+      .form-group
+        .field
+          = holder.label :time_to_land, class: "col-sm-7"
+          .col-sm-5
+            = holder.input_field :time_to_land, as: :integer, field: "holder_#{ index }_time_land"
+            %span.help-block.hidden
 
   - index +=1
