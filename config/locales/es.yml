@@ -242,8 +242,8 @@ es:
         resource_type: Tipo de Recurso
       template:
         active: Activo
-        community: Comunidad de residencia
-        community_of_birth: Comunidad de nacimiento
+        community: Municipio de residencia
+        community_of_birth: Municipio de nacimiento
         department: Departamento de residencia
         department_of_birth: Departamento de nacimiento
         description: Descripción

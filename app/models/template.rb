@@ -15,5 +15,6 @@ class Template < ActiveRecord::Base
   belongs_to :community
   belongs_to :department
   belongs_to :user
-
+  
+  validates :description, presence: true
 end
