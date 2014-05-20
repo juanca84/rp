@@ -95,6 +95,9 @@ es:
       province:
         one: Provincia
         other: Provincias
+      template :
+        one : Plantilla de registro
+        other : Plantillas de registro
       type_of_identification:
         one: Tipo de Identificación
         other: Tipos de Identificaciones
@@ -237,6 +240,20 @@ es:
       role:
         name: nombre
         resource_type: Tipo de Recurso
+      template:
+        active: Activo
+        community: Comunidad de residencia
+        community_of_birth: Comunidad de nacimiento
+        department: Departamento de residencia
+        department_of_birth: Departamento de nacimiento
+        description: Descripción
+        emission_community: Municipio de nacimiento
+        emission_department: Departamento de nacimiento
+        issued: Expedido en(Identificación) 
+        province_of_birth: Provincia de nacimiento 
+        residence: Nombre del lugar de residencia
+        type_residence: Lugar de residencia
+        user: Usuario 
 
       user:
         active: Activo

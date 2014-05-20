@@ -11,9 +11,28 @@ $(document).on "click", "#register_is_owner_true", ->
 jQuery ($) ->
 	if $('#register_is_owner_false').is(':checked')
     $("#owner").removeClass("hide")
-
+  
   $('#register_partnership_attributes_name').focus()
   $('#register_partnership_attributes_name').select()
+
+  field = $('.department_lands').first()
+  field.focus()
+  field.select()
+
+  if($('.first_field_son').size() > 0)
+
+    field = $('.first_field_son').first()
+    field.focus()
+    field.select()
+  else
+    field = $('.first_field_aggregate').first()
+    field.focus()
+    field.select()
+
+  field = $('.department_productions').first()
+  field.focus()
+  field.select()
+
 
 #por default toma el primer campo para llenar
 $(document).ready ->

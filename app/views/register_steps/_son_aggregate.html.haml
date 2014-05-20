@@ -17,7 +17,7 @@
         = resource.simple_fields_for :person do |person|
           %tr
             %td.col-sm-2
-              = person.input_field :name
+              = person.input_field :name, class: "string optional form-control first_field_#{ resources.to_s == 'sons' ? 'son' : 'aggregate' }"
               = resource.hidden_field :type_person
             %td.col-sm-2
               = person.input_field :first_lastname

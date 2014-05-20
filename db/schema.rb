@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140514140849) do
+ActiveRecord::Schema.define(:version => 20140520154531) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -27,25 +27,6 @@ ActiveRecord::Schema.define(:version => 20140514140849) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
-
-  create_table "agricultural_productions", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "community_id"
-    t.integer  "register_id"
-    t.string   "entry"
-    t.integer  "physical_coverage_amount"
-    t.string   "physical_coverage_unit"
-    t.integer  "production_quantity"
-    t.string   "production_unit"
-    t.string   "production_system"
-    t.string   "production_destination"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-  end
-
-  add_index "agricultural_productions", ["community_id"], :name => "index_agricultural_productions_on_community_id"
-  add_index "agricultural_productions", ["department_id"], :name => "index_agricultural_productions_on_department_id"
-  add_index "agricultural_productions", ["register_id"], :name => "index_agricultural_productions_on_register_id"
 
   create_table "capitals", :force => true do |t|
     t.string   "capital_item"
@@ -69,13 +50,6 @@ ActiveRecord::Schema.define(:version => 20140514140849) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "civil_unions", :force => true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "communities", :force => true do |t|
     t.string   "code"
     t.string   "name"
@@ -93,6 +67,16 @@ ActiveRecord::Schema.define(:version => 20140514140849) do
     t.datetime "updated_at",   :null => false
     t.string   "abbreviation"
   end
+
+  create_table "departments_users", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "departments_users", ["department_id"], :name => "index_departments_users_on_department_id"
+  add_index "departments_users", ["user_id"], :name => "index_departments_users_on_user_id"
 
   create_table "economic_activities", :force => true do |t|
     t.string   "code"
@@ -232,10 +216,9 @@ ActiveRecord::Schema.define(:version => 20140514140849) do
     t.integer  "person_id"
     t.integer  "register_id"
     t.string   "type_person"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.string   "town_of_birth"
-    t.integer  "time_to_land",  :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "time_to_land", :default => 0
   end
 
   add_index "people_registers", ["person_id"], :name => "index_people_registers_on_person_id"
@@ -361,6 +344,35 @@ ActiveRecord::Schema.define(:version => 20140514140849) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "templates", :force => true do |t|
+    t.boolean  "active",                 :default => true
+    t.string   "description"
+    t.integer  "user_id"
+    t.integer  "department_of_birth_id"
+    t.integer  "province_of_birth_id"
+    t.integer  "community_of_birth_id"
+    t.integer  "issued_id"
+    t.integer  "type_residence_id"
+    t.string   "residence"
+    t.integer  "department_id"
+    t.integer  "community_id"
+    t.integer  "emission_department_id"
+    t.integer  "emission_community_id"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  add_index "templates", ["community_id"], :name => "index_templates_on_community_id"
+  add_index "templates", ["community_of_birth_id"], :name => "index_templates_on_community_of_birth_id"
+  add_index "templates", ["department_id"], :name => "index_templates_on_department_id"
+  add_index "templates", ["department_of_birth_id"], :name => "index_templates_on_department_of_birth_id"
+  add_index "templates", ["emission_community_id"], :name => "index_templates_on_emission_community_id"
+  add_index "templates", ["emission_department_id"], :name => "index_templates_on_emission_department_id"
+  add_index "templates", ["issued_id"], :name => "index_templates_on_issued_id"
+  add_index "templates", ["province_of_birth_id"], :name => "index_templates_on_province_of_birth_id"
+  add_index "templates", ["type_residence_id"], :name => "index_templates_on_type_residence_id"
+  add_index "templates", ["user_id"], :name => "index_templates_on_user_id"
 
   create_table "type_of_identifications", :force => true do |t|
     t.string   "code"
