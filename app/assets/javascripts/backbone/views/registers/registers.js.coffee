@@ -29,6 +29,13 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     tr_id = @generate_id()
     view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
     @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
+    $('.first_field_' + type).last().focus()
+    $('.first_field_' + type).last().select()
+    
+    $('.department_lands').last().focus()
+    $('.department_lands').last().select()
+
+
 
     # if type is 'land'
     #   #columna para trabajo

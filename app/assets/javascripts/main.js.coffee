@@ -12,6 +12,9 @@ jQuery ($) ->
 	if $('#register_is_owner_false').is(':checked')
     $("#owner").removeClass("hide")
 
+  $('#register_partnership_attributes_name').focus()
+  $('#register_partnership_attributes_name').select()
+
 #por default toma el primer campo para llenar
 $(document).ready ->
   $("#register_is_owner_true").click()

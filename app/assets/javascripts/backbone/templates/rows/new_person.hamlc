@@ -1,5 +1,5 @@
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_name", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][name]", size: "50", type: "text"}
+  %input.string.optional.form-control{ class: "first_field_#{ @type }",id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_name", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][name]", size: "50", type: "text"}
 %td
   %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_first_lastname", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][first_lastname]", size: "50", type: "text"}
 %td
