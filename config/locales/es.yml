@@ -240,20 +240,19 @@ es:
       role:
         name: nombre
         resource_type: Tipo de Recurso
+      
       template:
         active: Activo
-        community: Municipio de residencia
-        community_of_birth: Municipio de nacimiento
-        department: Departamento de residencia
-        department_of_birth: Departamento de nacimiento
+        community: Municipio
+        department: Departamento
         description: Descripción
-        emission_community: Municipio de nacimiento
-        emission_department: Departamento de nacimiento
-        issued: Expedido en(Identificación) 
-        province_of_birth: Provincia de nacimiento 
+        greater_oecom_name: ¿A qué organización matriz superior comunitaria pertenece?
+        legal_status_oecom: Personería jurídica la organización comunitaria
+        oecom_name: ¿A qué organización comunitaria pertenece? (comunidad/capitania/colonia/otros)
+        province: Provincia 
         residence: Nombre del lugar de residencia
         type_residence: Lugar de residencia
-        user: Usuario 
+        user: Usuario
 
       user:
         active: Activo

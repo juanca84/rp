@@ -346,31 +346,23 @@ ActiveRecord::Schema.define(:version => 20140520154531) do
   end
 
   create_table "templates", :force => true do |t|
-    t.boolean  "active",                 :default => true
     t.string   "description"
     t.integer  "user_id"
-    t.integer  "department_of_birth_id"
-    t.integer  "province_of_birth_id"
-    t.integer  "community_of_birth_id"
-    t.integer  "issued_id"
+    t.integer  "department_id"
+    t.integer  "province_id"
+    t.integer  "community_id"
     t.integer  "type_residence_id"
     t.string   "residence"
-    t.integer  "department_id"
-    t.integer  "community_id"
-    t.integer  "emission_department_id"
-    t.integer  "emission_community_id"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.string   "oecom_name"
+    t.boolean  "legal_status_oecom", :default => false
+    t.string   "greater_oecom_name"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   add_index "templates", ["community_id"], :name => "index_templates_on_community_id"
-  add_index "templates", ["community_of_birth_id"], :name => "index_templates_on_community_of_birth_id"
   add_index "templates", ["department_id"], :name => "index_templates_on_department_id"
-  add_index "templates", ["department_of_birth_id"], :name => "index_templates_on_department_of_birth_id"
-  add_index "templates", ["emission_community_id"], :name => "index_templates_on_emission_community_id"
-  add_index "templates", ["emission_department_id"], :name => "index_templates_on_emission_department_id"
-  add_index "templates", ["issued_id"], :name => "index_templates_on_issued_id"
-  add_index "templates", ["province_of_birth_id"], :name => "index_templates_on_province_of_birth_id"
+  add_index "templates", ["province_id"], :name => "index_templates_on_province_id"
   add_index "templates", ["type_residence_id"], :name => "index_templates_on_type_residence_id"
   add_index "templates", ["user_id"], :name => "index_templates_on_user_id"
 

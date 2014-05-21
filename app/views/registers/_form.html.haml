@@ -34,8 +34,8 @@
       .glyphicon.glyphicon-chevron-right
 
 :javascript
-  var register = new Runpa.Views.Registers.NewView()
-  var view = new Runpa.Views.Registers.NewHolder({
+  var register = new Runpa.Views.Registers.NewView();
+  var holder = new Runpa.Views.Registers.NewHolder({
       el: 'form',
       model: new Runpa.Models.Holder({ 
         manager_type: "#{ @register.try(:manager_type_id) }", 
@@ -45,4 +45,16 @@
         holder_2_time_land: "#{ @register.try(:holders).try(:last).try(:time_to_land) }"
       })
   });
-  view.render();
+  holder.render(); 
+  
+  var template = new Runpa.Views.Templates.NewView({
+      model: new Runpa.Models.Template({
+        description: "#{@template.try(:description)}",
+        department: "#{@template.try(:department).try(:id)}",
+        province: "#{@template.try(:province).try(:id)}",
+        community: "#{@template.try(:community).try(:id)}",
+        type_residence: "#{@template.try(:type_residence).try(:id)}",
+        residence: "#{@template.try(:residence)}"
+      })
+  });
+  template.render();

@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :provinces,   through: :regions_users, :source => :regionable, :source_type => "Province"
   has_many :communities, through: :regions_users, :source => :regionable, :source_type => "Community"
   has_many :versions, class_name: 'PaperTrail::Version', foreign_key: :whodunnit
+  has_many :templates
 
   accepts_nested_attributes_for :profile
 
@@ -125,4 +126,5 @@ class User < ActiveRecord::Base
     end
   end
 
+  #método para obtener la plantilla de este usuario
 end

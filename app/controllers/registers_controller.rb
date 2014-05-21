@@ -17,6 +17,9 @@ class RegistersController < RunpaController
   def new
     @register = Register.new(user_id: current_user.id)
     
+    #selección de la plantilla es
+    @template = Template.last
+
     @register.build_owner(type_person: 'owner').build_person
     2.times{ @register.holders.build(type_person: 'holder').build_person }
 

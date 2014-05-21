@@ -25,11 +25,11 @@
       .form-group
         = person.label :department_of_birth, class: "col-sm-3"
         .col-sm-3
-          = person.input_field :department_of_birth_id, as: :select, collection: Department.all, class: 'select optional form-control department_lands', id: "department_lands_#{ index }"
+          = person.input_field :department_of_birth_id, as: :select, collection: Department.all, class: 'select optional form-control department_lands department', id: "department_lands_#{ index }"
 
         = person.label :province_of_birth, class: "col-sm-3"
         .col-sm-3
-          = person.input_field :province_of_birth_id, as: :select, collection: Province.all, class: 'select optional form-control province_lands', id: "province_lands_#{ index }"
+          = person.input_field :province_of_birth_id, as: :select, collection: Province.all, class: 'select optional form-control province_lands province', id: "province_lands_#{ index }"
 
       .form-group
         = person.label :community_of_birth, class: "col-sm-3"
@@ -83,11 +83,11 @@
         .form-group
           = f.label :department, class: "col-sm-3"
           .col-sm-3
-            = f.input_field :department_id, as: :select, collection: Department.all, id: 'department_holder'
+            = f.input_field :department_id, as: :select, collection: Department.all, id: 'department_holder', class: 'select optional form-control department_lands department'
 
           = f.label :community, class: "col-sm-3"
           .col-sm-3
-            = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder'
+            = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder', class: 'community'
 
       .form-group
         .field
