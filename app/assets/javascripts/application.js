@@ -15,8 +15,7 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require backbone
-//= require backbone/runpa
-//= require main
 //= require backbone-validation
 //= require backbone.stickit
-//= require validation_holder
+//= require backbone/runpa
+//= require main

@@ -35,7 +35,7 @@
 
 :javascript
   var register = new Runpa.Views.Registers.NewView();
-  var holder = new Runpa.Views.Registers.NewHolder({
+  var holder = new Runpa.Views.Holders.NewHolder({
       el: 'form',
       model: new Runpa.Models.Holder({ 
         manager_type: "#{ @register.try(:manager_type_id) }",
