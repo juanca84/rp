@@ -54,3 +54,8 @@ $(document).on "keypress", "input, select", (e) ->
       $(inputs[idx + 1]).focus() #  handles submit buttons
       $(inputs[idx + 1]).select()
     false
+
+#metodo para formatear fechas en javascript
+foobar: (date) ->
+  alert foo.array
+  return

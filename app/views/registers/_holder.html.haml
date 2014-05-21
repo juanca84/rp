@@ -8,19 +8,20 @@
         .field
           = person.label :name, class: "col-sm-2"
           .col-sm-10.control
-            = person.input_field :name, class: 'form-control', field: index == 1 ? "holder_name" : ""
+            = person.input_field :name, class: 'form-control', field: "holder_#{ index }_name"
             %span.help-block.hidden
 
       .form-group
         .field
           = person.label :first_lastname, class: "col-sm-2"
           .col-sm-4.control
-            = person.input_field :first_lastname, class: 'form-control', field: index == 1 ? "holder_lastname" : ""
+            = person.input_field :first_lastname, class: 'form-control', field: "holder_#{ index }_lastname"
             %span.help-block.hidden
         .field
           = person.label :second_lastname, class: "col-sm-2"
           .col-sm-4.control
-            = person.input_field :second_lastname, class: 'form-control'
+            = person.input_field :second_lastname, class: "form-control", field: "holder_#{ index }_second_lastname"
+            %span.help-block.hidden
 
       .form-group
         = person.label :department_of_birth, class: "col-sm-3"
@@ -35,10 +36,11 @@
         = person.label :community_of_birth, class: "col-sm-3"
         .col-sm-3
           = person.input_field :community_of_birth_id, as: :select, collection: Community.all, class: 'select optional form-control community_lands', id: "community_lands_#{ index }"
-
-        = person.label :birthdate, class: "col-sm-3"
-        .col-sm-3
-          = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate)
+        .field
+          = person.label :birthdate, class: "col-sm-3"
+          .col-sm-3
+            = person.input_field :birthdate, placeholder: 'DD/MM/AAAA', as: :string, value: (l person.object.birthdate if person.object.birthdate), field: "holder_#{ index }_birthdate"
+            %span.help-block.hidden
 
       .form-group
         = person.label :type_of_identification, class: "col-sm-2"
@@ -75,10 +77,12 @@
           = f.label :address, class: "col-sm-2"
           .col-sm-6
             = f.input_field :address
-
-          = person.label :phone, class: 'col-sm-2'
-          .col-sm-2
-            = person.input_field :phone
+          
+          .field 
+            = person.label :phone, class: 'col-sm-2'
+            .col-sm-2
+              = person.input_field :phone, class: "numeric integer optional form-control holder_cellphone", field: 'holder_cellphone'
+              %span.help-block.hidden
 
         .form-group
           = f.label :department, class: "col-sm-3"
@@ -87,7 +91,7 @@
 
           = f.label :community, class: "col-sm-3"
           .col-sm-3
-            = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder', class: 'community'
+            = f.input_field :community_id, as: :select, collection: Community.all, id: 'community_holder', class: 'select optional form-control community'
 
       .form-group
         .field
