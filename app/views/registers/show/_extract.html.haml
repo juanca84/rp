@@ -54,7 +54,7 @@
 .well.form-actions
   %legend Titular 02
   .form-group.control-group
-    - holder_1 =  f.object.holder_two
+    - holder_1 =  f.object.alternate
     %label.string.optional.control-label.col-sm-2 Tipo de Identificación 
     .col-sm-3
       %input#register_residence.string.optional.form-control{ maxlength: "255", size: "50", type: "text", readonly: true, value: holder_1.try(:type_of_identification).try(:name) } 

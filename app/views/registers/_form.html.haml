@@ -38,13 +38,19 @@
   var holder = new Runpa.Views.Registers.NewHolder({
       el: 'form',
       model: new Runpa.Models.Holder({ 
-        manager_type: "#{ @register.try(:manager_type_id) }", 
+        manager_type: "#{ @register.try(:manager_type_id) }",
+
         holder_1_name: "#{ @register.try(:holder_main).try(:name) }",
         holder_1_lastname: "#{ @register.try(:holder_main).try(:first_lastname) }",
         holder_1_second_lastname: "#{ @register.try(:holder_main).try(:second_lastname) }",
         holder_cellphone: "#{ @register.try(:holder_main).try(:phone) }",
-        holder_1_birthdate: "#{ @register.try(:holder_main).try(:birthdate) }",
+        holder_1_birthdate: "#{ l @register.try(:holder_main).try(:birthdate) if @register.try(:holder_main).try(:birthdate)}",
         holder_1_time_land: "#{ @register.try(:holders).try(:first).try(:time_to_land) }",
+
+        holder_2_name: "#{ @register.try(:holder_alternate).try(:name) }",
+        holder_2_lastname: "#{ @register.try(:holder_alternate).try(:first_lastname) }",
+        holder_2_second_lastname: "#{ @register.try(:holder_alternate).try(:second_lastname) }",
+        holder_2_birthdate: "#{ l @register.try(:holder_alternate).try(:birthdate) if @register.try(:holder_alternate).try(:birthdate)}",
         holder_2_time_land: "#{ @register.try(:holders).try(:last).try(:time_to_land) }"
       })
   });

@@ -143,7 +143,7 @@ class Register < ActiveRecord::Base
     holders.includes(:person).first.try(:person)
   end
   
-  def holder_two
+  def holder_alternate
     holders.includes(:person).last.try(:person)
   end
 

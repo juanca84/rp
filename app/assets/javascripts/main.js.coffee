@@ -1,3 +1,22 @@
+#desabilitar la tecla delete para ir atras
+$(document).unbind("keydown").bind "keydown", (event) ->
+  doPrevent = false
+  if event.keyCode is 8
+    d = event.srcElement or event.target
+    if (d.tagName.toUpperCase() is "INPUT" and (d.type.toUpperCase() is "TEXT" or d.type.toUpperCase() is "PASSWORD" or d.type.toUpperCase() is "FILE" or d.type.toUpperCase() is "EMAIL")) or d.tagName.toUpperCase() is "TEXTAREA"
+      doPrevent = d.readOnly or d.disabled
+    else
+      doPrevent = true
+  event.preventDefault()  if doPrevent
+  return
+
+#desabilitar el enter para salvar sin terminar
+$(document).on "keypress", "form", (e) ->
+  code = e.keyCode or e.which
+  if code is 13
+    e.preventDefault()
+    false
+
 $(document).on "click", "#register_is_owner_false", ->
   $("#owner").removeClass("hide")
   $("#register_owner_attributes_person_attributes_name").focus()
@@ -39,14 +58,14 @@ $(document).ready ->
   $("#register_is_owner_true").click()
 
 #script que reemplaza la tecla enter por tab(para dezplazarse al siguiente campo)
-$(document).on "keypress", "input, select", (e) ->
+$(document).on "keyup", "input, select", (e) ->
   
   # ENTER PRESSED
-  if e.keyCode is 13
+  if e.which is 13
     # FOCUS ELEMENT 
+    
     inputs = $(this).parents("form").eq(0).find("input:visible, select")
-
-    console.log inputs
+    #console.log inputs
     idx = inputs.index(this)
     if idx is inputs.length - 1
       $(inputs[0]).select()

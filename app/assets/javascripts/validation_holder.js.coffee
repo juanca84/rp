@@ -8,7 +8,6 @@ Backbone.Validation.configure forceUpdate: true
 # See: http://thedersen.com/projects/backbone-validation/#configuration/callbacks
 _.extend Backbone.Validation.callbacks,
   valid: (view, attr, selector) ->
-    console.log "verificando"
     $el = view.$("[field=" + attr + "]")
     $group = $el.closest(".field")
     $group.removeClass "has-error"
