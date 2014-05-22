@@ -31,10 +31,10 @@ class Runpa.Models.Holder extends Backbone.Model
 
     holder_1_time_land:
       required: true
-      msg: "Introdusca un número entre 0 y 365."
+      msg: "Introdusca un número dias entre 0 y 365."
       range: [0, 365]
 
-    holder_2_name:
+    holder_2_name:  
       required: false
       pattern: /^[A-ZñÑa-z áéíóúÁÉÍÓÚüÜ]*$/
       msg: "Escriba un nombre (solo letras)."
@@ -56,5 +56,5 @@ class Runpa.Models.Holder extends Backbone.Model
 
     holder_2_time_land:
       required: true
-      msg: "Introdusca un número entre 0 y 365."
+      msg: "Introdusca un número dias entre 0 y 365."
       range: [0, 365]

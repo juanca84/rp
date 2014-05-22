@@ -21,13 +21,20 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     "click .remove-static-field" : "remove_static_field"
 
   initialize: ->
+
     _.bindAll this, "render", "add_row"
     @render()
 
   add_row: (e)->
     type = $(e.currentTarget).attr('data-type')
     tr_id = @generate_id()
-    view = new Runpa.Views.Rows.NewView({ id: type + "-" + tr_id, tr_id: tr_id, type: type })
+    model = new Backbone.Model
+    if type == 'son'
+      model = new Runpa.Models.Person({ time_land: 0 })
+    else if type == 'aggregate'
+      model = new Runpa.Models.Person({ time_land: 0 })
+      
+    view = new Runpa.Views.Rows.NewView({ model: model, id: type + "-" + tr_id, tr_id: tr_id, type: type })
     @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
     $('.first_field_' + type).last().focus()
     $('.first_field_' + type).last().select()

@@ -1,20 +1,34 @@
 %td
-  %input.string.optional.form-control{ class: "first_field_#{ @type }",id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_name", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][name]", size: "50", type: "text"}
+  .field
+    %input.string.optional.form-control.name{ class: "first_field_#{ @type }",id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_name", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][name]", size: "50", type: "text"}
+    %span.help-block
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_first_lastname", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][first_lastname]", size: "50", type: "text"}
+  .field
+    %input.string.optional.form-control.lastname{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_first_lastname", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][first_lastname]", size: "50", type: "text"}
+    %span.help-block
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_second_lastname", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][second_lastname]", size: "50", type: "text"}
+  .field
+    %input.string.optional.form-control.second_lastname{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_second_lastname", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][second_lastname]", size: "50", type: "text"}
+    %span.help-block
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_age", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][age]", size: "50", type: "text"}
+  .field
+    %input.string.optional.form-control.age{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_age", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][age]", size: "50", type: "text"}
+    %span.help-block
 %td
-  %select.select.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_sex", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][sex]"}
-    %option{value: ""}
-    %option{value: "M"} M
-    %option{value: "F"} F
+  .field
+    %select.select.optional.form-control.sex{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_sex", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][sex]"}
+      %option{value: ""}
+      %option{value: "M"} M
+      %option{value: "F"} F
+    %span.help-block
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_time_to_land", name: "register[#{ @type }s_attributes][#{ @id }][time_to_land]", size: "50", type: "text", value: 0}
+  .field
+    %input.string.optional.form-control.time_land{id: "register_#{ @type }s_attributes_#{ @id }_time_to_land", name: "register[#{ @type }s_attributes][#{ @id }][time_to_land]", size: "50", type: "text"}
+    %span.help-block
 %td
-  %input.string.optional.form-control{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_identification", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][identification]", size: "50", type: "text"}
+  .field 
+    %input.string.optional.form-control.identification{id: "register_#{ @type }s_attributes_#{ @id }_person_attributes_identification", maxlength: "255", name: "register[#{ @type }s_attributes][#{ @id }][person_attributes][identification]", size: "50", type: "text"}
+  %span.help-block
 %td
   %a.btn.btn-danger.btn-xs.remove 
     .glyphicon.glyphicon-remove
