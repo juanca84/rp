@@ -27,4 +27,13 @@ class Runpa.Models.Person extends Backbone.Model
     
 class Runpa.Collections.PeopleCollection extends Backbone.Collection
   model: Runpa.Models.Person
-  #url: '/registers' 
+  name: 'People'
+
+  #metodo para validar 
+  isValid: ->
+    response = true
+    @select (person) ->
+      if !person.isValid(true)
+        response = false
+        return  
+    return response

@@ -104,12 +104,9 @@ class Runpa.Views.Holders.NewHolder extends Backbone.View
     @stickit()
     this
 
-  saveUp: ->
-    
+  saveUp: ->   
     # Check if the model is valid before saving
     # See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
-    
-    # this.model.save();
     if @model.isValid(true)
       $('form').submit()
     else

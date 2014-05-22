@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140520154531) do
+ActiveRecord::Schema.define(:version => 20140522145752) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(:version => 20140520154531) do
     t.integer  "type_residence_id"
     t.boolean  "is_owner",               :default => true
     t.integer  "manager_type_id"
+    t.boolean  "individual_producer",    :default => true
   end
 
   add_index "registers", ["community_id"], :name => "index_registers_on_community_id"

@@ -1,6 +1,9 @@
 = render 'registers/message_no_valids', register_no_valids: @register_no_valids 
 
 = simple_form_for @register, url: wizard_path, method: :put, html: { class: 'form-horizontal form-register', role: 'form' }, defaults: { input_html: { class: 'form-control' } }  do |f|
+  
+
+
   .form-group
     .col-sm-9
     = f.label :code, class: "col-sm-1"
@@ -13,7 +16,13 @@
 
   %legend ORGANIZACIÓN PRODUCTIVA
   
-  #partnerships
+  .well.form-actions
+    .form-group.control-group
+      = f.label :individual_producer, class: "col-sm-6"
+      .col-sm-6.control
+        = f.input_field :individual_producer, class: 'form-control', as: :radio_buttons, item_wrapper_class: 'radio-inline' 
+
+  #partnerships.hide
     = render 'partnership', f: f
 
   / .well.form-actions

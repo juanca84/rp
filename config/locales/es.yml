@@ -233,9 +233,11 @@ es:
         emission_community: Municipio de emisión
         emission_department: Departamento de emisión
         is_owner: ¿Es usted el propietario del establecimiento productivo?
+        individual_producer: "¿Es usted un productor individual?"
         manager_type: ¿Quién trabaja y/o maneja y/o administra el establecimiento productivo?
         residence: Lugar de Residencia
         status: Estado
+
 
       role:
         name: nombre

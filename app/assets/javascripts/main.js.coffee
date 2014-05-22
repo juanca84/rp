@@ -27,9 +27,24 @@ $(document).on "click", "#register_is_owner_true", ->
   $("#register_manager_type_id").focus()
   $("#register_manager_type_id").select()
 
+#metodo para preguntar si un productor es individual
+$(document).on "click", "#register_individual_producer_true", ->
+  $("#partnerships").addClass("hide")
+  $("#register_owner_attributes_person_attributes_name").focus()
+  $("#register_owner_attributes_person_attributes_name").select()
+
+$(document).on "click", "#register_individual_producer_false", ->
+  $("#partnerships").removeClass("hide")
+  $("#register_manager_type_id").focus()
+  $("#register_manager_type_id").select()
+
+
 jQuery ($) ->
 	if $('#register_is_owner_false').is(':checked')
     $("#owner").removeClass("hide")
+
+  if $('#register_individual_producer_false').is(':checked')
+    $("#partnerships").removeClass("hide")
   
   $('#register_partnership_attributes_name').focus()
   $('#register_partnership_attributes_name').select()

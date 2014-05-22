@@ -20,8 +20,14 @@ class Runpa.Views.Registers.NewView extends Backbone.View
   
     "click .remove-static-field" : "remove_static_field"
 
-  initialize: ->
+    #metodo para salvar
+    "click #saveButton": (e) ->
+      e.preventDefault()
+      @saveUp()
+      return
 
+  initialize: ->
+    @people = new Runpa.Collections.PeopleCollection()
     _.bindAll this, "render", "add_row"
     @render()
 
@@ -31,18 +37,19 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     model = new Backbone.Model
     if type == 'son'
       model = new Runpa.Models.Person({ time_land: 0 })
+      @people.add([ model ])
     else if type == 'aggregate'
       model = new Runpa.Models.Person({ time_land: 0 })
-      
+      @people.add([ model ])
+
     view = new Runpa.Views.Rows.NewView({ model: model, id: type + "-" + tr_id, tr_id: tr_id, type: type })
+
     @$('table.table_' + type + 's tbody tr:last').after(view.render().el)
     $('.first_field_' + type).last().focus()
     $('.first_field_' + type).last().select()
     
     $('.department_lands').last().focus()
     $('.department_lands').last().select()
-
-
 
     # if type is 'land'
     #   #columna para trabajo
@@ -110,6 +117,16 @@ class Runpa.Views.Registers.NewView extends Backbone.View
     $('#' + select_id.replace('community_lands_', 'work-') + ' .community').val($('#' + select_id + ' option:selected').text())
     $('#' + select_id.replace('community_lands_', 'capital-') + ' .community').val($('#' + select_id + ' option:selected').text())
     false
+
+  #metodo para salvar el fomulario
+  saveUp: ->
+    # Check if the model is valid before saving
+    # See: http://thedersen.com/projects/backbone-validation/#methods/isvalid
+    if @people.isValid()
+      $('form').submit()
+    else
+      alert "Se encontraron algunos errores, por favor revise el formulario."
+      false
 
   render: ->
     return this
